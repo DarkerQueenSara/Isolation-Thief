@@ -71,10 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 
-#este temp que está a lixar
-Temp/UnityLockFile
-
-
 # Windows thumbnail cache files
 Thumbs.db
 Thumbs.db:encryptable
