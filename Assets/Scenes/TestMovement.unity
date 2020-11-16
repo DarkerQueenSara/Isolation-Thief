@@ -1956,6 +1956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 942627055}
   speed: 4
+  sprintSpeed: 6.5
   gravity: -19.62
   jumpHeight: 1.5
   groundCheck: {fileID: 1318268693}
