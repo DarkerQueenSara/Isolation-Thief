@@ -1638,7 +1638,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-63596
+  m_Name: pb_Mesh14190
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1955,9 +1955,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 942627055}
-  speed: 12
-  gravity: -9.81
-  jumpHeight: 2
+  speed: 4
+  gravity: -19.62
+  jumpHeight: 1.5
   groundCheck: {fileID: 1318268693}
   groundMask:
     serializedVersion: 2
@@ -2124,7 +2124,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9010
+  m_Name: pb_Mesh14140
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2287,7 +2287,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-59390
+  m_Name: pb_Mesh14202
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
