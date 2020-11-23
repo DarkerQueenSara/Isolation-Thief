@@ -6,13 +6,17 @@ namespace Assets
     public class SmoothCrouching
     {
 
-        public float crouchedHeightFactor = 0.65f;
+        public float crouchedHeightFactor = 0.75f;
+        public float interpolationTime = 0.75f;
 
         private CharacterController playerController;
         private Collider playerCollider;
         private float initialHeight;
         private float crouchedHeight;
         private bool isCrouching;
+
+        private int interpolationFrames;
+        private int currentCountDown;
 
         public SmoothCrouching(CharacterController playerController, Collider playerCollider)
         {
@@ -21,37 +25,55 @@ namespace Assets
             isCrouching = false;
             initialHeight = playerCollider.transform.localScale.y;
             crouchedHeight = initialHeight * crouchedHeightFactor;
+
+            interpolationFrames = (int) (1 / Time.deltaTime * interpolationTime);
+            currentCountDown = interpolationFrames;
         }
 
         public void setCrouching(bool isCrouching)
         {
+            if(currentCountDown <= interpolationFrames)
+            {
+                currentCountDown = interpolationFrames - currentCountDown;
+            }
+            else
+            {
+                currentCountDown = 0;
+            }
             this.isCrouching = isCrouching;
+        }
+
+        public bool isPlayerCrouching()
+        {
+            return isCrouching;
         }
 
         private bool equalFloats(float a, float b)
         {
-            return Mathf.Abs(a - b) < 0.0005;
+            return Mathf.Abs(a - b) < 0.005;
         }
 
         //precisa de ser chamado a cada frame
         public void Update()
         {
-            Vector3 playerScale = playerCollider.transform.localScale;
-            Vector3 playerPos = playerCollider.transform.localPosition;
-            float oldHeight = playerScale.y;
-            if (isCrouching && !equalFloats(playerScale.y, crouchedHeight))
+            if(currentCountDown <= interpolationFrames)
             {
+                Vector3 playerScale = playerCollider.transform.localScale;
                 Vector3 crouchedScale = new Vector3(playerScale.x, crouchedHeight, playerScale.z);
-                playerCollider.transform.localScale = Vector3.Lerp(playerScale, crouchedScale, Time.deltaTime * 5f);
-                float deltaHeight = oldHeight - playerCollider.transform.localScale.y;
-                playerController.Move(new Vector3(0, -deltaHeight, 0));
-            }
-            else if (!isCrouching && !equalFloats(playerScale.y, initialHeight))
-            {
                 Vector3 initialScale = new Vector3(playerScale.x, initialHeight, playerScale.z);
-                playerCollider.transform.localScale = Vector3.Lerp(playerScale, initialScale, Time.deltaTime * 5f);
+                float oldHeight = playerScale.y;
+                float interpolationRatio = (float)currentCountDown / interpolationFrames;
+                if (isCrouching)
+                {
+                    playerCollider.transform.localScale = Vector3.Lerp(initialScale, crouchedScale, interpolationRatio);
+                }
+                else
+                {
+                    playerCollider.transform.localScale = Vector3.Lerp(crouchedScale, initialScale, interpolationRatio);
+                }
                 float deltaHeight = oldHeight - playerCollider.transform.localScale.y;
                 playerController.Move(new Vector3(0, -deltaHeight, 0));
+                currentCountDown++;
             }
         }
     }

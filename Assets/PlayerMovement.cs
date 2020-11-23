@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 4f;
     public float sprintSpeed = 6.5f;
     public float crouchSpeed = 2.5f;
+    public float proneSpeed = 1.5f;
     public float gravity = -9.81f * 2;
     public float jumpHeight = 1.5f;
 
@@ -56,6 +57,10 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetButton("Crouch"))
         {
             controller.Move(move * crouchSpeed * Time.deltaTime);
+        }
+        else if (Input.GetButton("Prone"))
+        {
+            controller.Move(move * proneSpeed * Time.deltaTime);
         }
         else 
         {
