@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets;
 
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public Collider playerCollider;
 
     public float speed = 4f;
     public float sprintSpeed = 6.5f;
+    public float crouchSpeed = 2.5f;
     public float gravity = -9.81f * 2;
     public float jumpHeight = 1.5f;
 
@@ -17,12 +20,12 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
-
+    SmoothCrouching smoothCrouching;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        smoothCrouching = new SmoothCrouching(controller, playerCollider);
     }
 
     // Update is called once per frame
@@ -45,12 +48,17 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
 
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        
+        if (Input.GetButton("Sprint"))
         {
             controller.Move(move * sprintSpeed * Time.deltaTime);
         }
-        else {
+        else if (Input.GetButton("Crouch"))
+        {
+            controller.Move(move * crouchSpeed * Time.deltaTime);
+        }
+        else 
+        {
             controller.Move(move * speed * Time.deltaTime);
         }
 
@@ -70,5 +78,15 @@ public class PlayerMovement : MonoBehaviour
         //fall velocity = g * t^2
         controller.Move(velocity * Time.deltaTime);
         //--------------------
+
+        //crouch mechanics
+        if (Input.GetButtonDown("Crouch"))
+        {
+            smoothCrouching.setCrouching(true);
+        }else if(Input.GetButtonUp("Crouch"))
+        {
+            smoothCrouching.setCrouching(false);
+        }
+        smoothCrouching.Update();
     }
 }
