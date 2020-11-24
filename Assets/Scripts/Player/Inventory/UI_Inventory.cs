@@ -12,6 +12,8 @@ public class UI_Inventory : MonoBehaviour
 
     public Texture crosshairTexture;
 
+    public Text totalValueText;
+    public float totalValue;
     bool showInventory = false;
 
 
@@ -20,6 +22,8 @@ public class UI_Inventory : MonoBehaviour
     {
         itemSlotContainer = transform.Find("itemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
+        totalValueText = transform.Find("infoText").Find("totalStolen").GetComponent<Text>();
+        totalValue = 0;
         gameObject.SetActive(false);
         //Debug.Log("itemSlotContainer is null? " + itemSlotContainer == null);
         //Debug.Log("itemSlotTemplate is null? " + itemSlotTemplate == null);
@@ -34,7 +38,7 @@ public class UI_Inventory : MonoBehaviour
 
     public void RefreshInventoryItems()
     {
-
+        totalValue = 0;
         foreach (Transform child in itemSlotContainer)
         {
             if (child == itemSlotTemplate) continue;
@@ -46,10 +50,11 @@ public class UI_Inventory : MonoBehaviour
         float itemSlotCellSize = 30.0f;
         foreach (Item item in inventory.GetItemList())
         {
+            totalValue += item.value;
             Transform temp = Instantiate(itemSlotTemplate, itemSlotContainer);
             RectTransform itemSlotRectTransform = temp.GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize + 15, y * itemSlotCellSize -15);
+            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize + 16, y * itemSlotCellSize -17);
             Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
             image.sprite = item.GetSprite();
             x++;
@@ -59,6 +64,8 @@ public class UI_Inventory : MonoBehaviour
                 y--;
             }
         }
+
+        totalValueText.text = "Total Value Stolen: " + totalValue;
     }
 
     public void visible()
