@@ -19,20 +19,33 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
     public float groundDistance = 0.4f;
+    public Texture crosshairTexture;
 
     Vector3 velocity;
     bool isGrounded;
     SmoothCrouching smoothCrouching;
 
+    public bool canMove;
+
     // Start is called before the first frame update
     void Start()
     {
         smoothCrouching = new SmoothCrouching(controller, playerCollider);
+        canMove = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Player.Instance.changeInventoryVisible();
+            if (canMove) canMove = false;
+            else canMove = true;
+        }
+
+        if (!canMove) return;
+
         //verify if is on ground------
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -95,17 +108,25 @@ public class PlayerMovement : MonoBehaviour
         }
         smoothCrouching.Update();
 
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
+            if (interactable != null && interactable.canInteract(hit.distance))
+            {
+                interactable.look();
+            }
+        }
+
         if (Input.GetButtonDown("Interact"))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-
                 Debug.Log("I'm looking at " + hit.transform.name);
-                //Debug.Log("Distance : " + hit.distance);
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
-                //Stealable interactable = hit.collider.GetComponent<Stealable>();
                 if (interactable != null && interactable.canInteract(hit.distance))
                 {
                     interactable.interact();

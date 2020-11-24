@@ -23,6 +23,11 @@ public class Player : MonoBehaviour
         ui_Inventory.RefreshInventoryItems();
     }
 
+    public void changeInventoryVisible()
+    {
+        this.ui_Inventory.visible();
+    }
+
     void Start()
     {
         

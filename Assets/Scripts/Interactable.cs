@@ -18,6 +18,11 @@ public class Interactable : MonoBehaviour
         Debug.Log("Interacting with " + transform.name);
     }
 
+    public virtual void look()
+    {
+        //Show a label with text if we can interact
+    }
+
     public bool canInteract(float dist)
     {
         return dist < radius;

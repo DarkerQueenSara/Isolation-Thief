@@ -19,4 +19,7 @@ public abstract class Inventory
     {
         return this.Items;
     }
+
+    // Update is called once per frame
+    
 }
