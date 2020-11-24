@@ -101,8 +101,11 @@ public class PlayerMovement : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
+
                 Debug.Log("I'm looking at " + hit.transform.name);
+                //Debug.Log("Distance : " + hit.distance);
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
+                //Stealable interactable = hit.collider.GetComponent<Stealable>();
                 if (interactable != null && interactable.canInteract(hit.distance))
                 {
                     interactable.interact();

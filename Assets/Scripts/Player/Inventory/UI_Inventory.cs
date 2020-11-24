@@ -25,7 +25,7 @@ public class UI_Inventory : MonoBehaviour
     }
 
 
-    private void RefreshInventoryItems()
+    public void RefreshInventoryItems()
     {
         int x = -1;
         int y = 1;
