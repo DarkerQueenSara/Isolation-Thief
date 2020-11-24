@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private UI_Inventory ui_Inventory;
+
     private Inventory inventory;
 
     private void Awake()
     {
         inventory = new SimpleBag();
+        ui_Inventory.SetInventory(inventory);
     }
 
     void Start()

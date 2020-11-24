@@ -15,4 +15,8 @@ public abstract class Inventory
 
     public abstract void AddItem(Item item);
 
+    public virtual List<Item> GetItemList()
+    {
+        return this.Items;
+    }
 }
