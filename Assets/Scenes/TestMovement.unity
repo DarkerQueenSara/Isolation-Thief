@@ -1900,6 +1900,7 @@ GameObject:
   - component: {fileID: 942627056}
   - component: {fileID: 942627055}
   - component: {fileID: 942627057}
+  - component: {fileID: 942627058}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Untagged
@@ -1959,6 +1960,7 @@ MonoBehaviour:
   speed: 4
   sprintSpeed: 6.5
   crouchSpeed: 2.5
+  proneSpeed: 1.5
   gravity: -19.62
   jumpHeight: 1.5
   groundCheck: {fileID: 1318268693}
@@ -1966,6 +1968,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   groundDistance: 0.4
+--- !u!114 &942627058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942627054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94c8d40ca36be14c8318ae05d13164d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1242809823
 GameObject:
   m_ObjectHideFlags: 0
