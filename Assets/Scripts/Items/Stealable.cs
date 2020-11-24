@@ -9,4 +9,9 @@ public class Stealable : Interactable
         Player.Instance.addToInventory(this.GetComponent<Item>());
         Destroy(gameObject);
     }
+
+    public override string getInteractingText()
+    {
+        return "Steal " + transform.name;
+    }
 }

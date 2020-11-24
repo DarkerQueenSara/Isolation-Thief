@@ -18,18 +18,16 @@ public class Interactable : MonoBehaviour
         Debug.Log("Interacting with " + transform.name);
     }
 
-    public virtual void look()
+    public virtual string getInteractingText()
     {
         //Show a label with text if we can interact
+        return "Press 'E' to interact with " + transform.name;
     }
 
     public bool canInteract(float dist)
     {
         return dist < radius;
     }
-
-
-
 
 
     // Start is called before the first frame update

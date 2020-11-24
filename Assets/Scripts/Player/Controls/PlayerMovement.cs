@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     SmoothCrouching smoothCrouching;
+    private InteractionTextManager interactionTextManager;
 
     public bool canMove;
 
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     {
         smoothCrouching = new SmoothCrouching(controller, playerCollider);
         canMove = true;
+        interactionTextManager = InteractionTextManager.instance;
     }
 
     // Update is called once per frame
@@ -108,29 +110,40 @@ public class PlayerMovement : MonoBehaviour
         }
         smoothCrouching.Update();
 
+
+        interact();
+    }
+
+    private Interactable lastInteractable;
+    private void interact()
+    {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
         if (Physics.Raycast(ray, out hit))
         {
+            //ONLY FOR DEBUG PURPOSES
+            if (Input.GetButtonDown("Interact"))
+            {
+                Debug.Log("I'm looking at " + hit.transform.name);
+            }
+            //----------------------------------------------------
             Interactable interactable = hit.collider.GetComponent<Interactable>();
             if (interactable != null && interactable.canInteract(hit.distance))
             {
-                interactable.look();
-            }
-        }
-
-        if (Input.GetButtonDown("Interact"))
-        {
-            ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                Debug.Log("I'm looking at " + hit.transform.name);
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if (interactable != null && interactable.canInteract(hit.distance))
+                if (lastInteractable != interactable)
+                {
+                    interactionTextManager.setInteractingText(interactable.getInteractingText());
+                }
+                if (Input.GetButtonDown("Interact"))
                 {
                     interactable.interact();
                 }
+                lastInteractable = interactable;
+            }
+            else if(lastInteractable != null)
+            {
+                interactionTextManager.setInteractingText("");
+                lastInteractable = null;
             }
         }
     }
