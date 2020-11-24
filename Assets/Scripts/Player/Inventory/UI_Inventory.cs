@@ -27,6 +27,13 @@ public class UI_Inventory : MonoBehaviour
 
     public void RefreshInventoryItems()
     {
+
+        foreach(Transform child in itemSlotContainer)
+        {
+            if (child == itemSlotTemplate) continue;
+            Destroy(child.gameObject);
+        }
+
         int x = -1;
         int y = 1;
         float itemSlotCellSize = 30.0f;
