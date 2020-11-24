@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
+    public GameObject crosshair;
     private Inventory inventory;
 
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
-
-    public Texture crosshairTexture;
 
     public Text totalValueText;
     public float totalValue;
@@ -86,11 +85,12 @@ public class UI_Inventory : MonoBehaviour
         if (showInventory)
         {
             gameObject.SetActive(true);
-
+            crosshair.SetActive(false);
         }
         else
         {
             gameObject.SetActive(false);
+            crosshair.SetActive(true);
         }
     }
 
