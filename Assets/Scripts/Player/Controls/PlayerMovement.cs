@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetButtonDown("Inventory"))
         {
             Player.Instance.changeInventoryVisible();
             if (canMove) canMove = false;
@@ -64,17 +64,17 @@ public class PlayerMovement : MonoBehaviour
 
 
         
-        if (Input.GetButton("Sprint"))
+        if (Input.GetButton("Prone"))
         {
-            controller.Move(move * sprintSpeed * Time.deltaTime);
+            controller.Move(move * proneSpeed * Time.deltaTime);
         }
         else if (Input.GetButton("Crouch"))
         {
             controller.Move(move * crouchSpeed * Time.deltaTime);
         }
-        else if (Input.GetButton("Prone"))
+        else if (Input.GetButton("Sprint"))
         {
-            controller.Move(move * proneSpeed * Time.deltaTime);
+            controller.Move(move * sprintSpeed * Time.deltaTime);
         }
         else 
         {
