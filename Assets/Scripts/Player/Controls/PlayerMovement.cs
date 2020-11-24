@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Collider playerCollider;
+    public Camera cam;
 
     public float speed = 4f;
     public float sprintSpeed = 6.5f;
@@ -93,5 +94,20 @@ public class PlayerMovement : MonoBehaviour
             smoothCrouching.setCrouching(false);
         }
         smoothCrouching.Update();
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log("I'm looking at " + hit.transform.name);
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if (interactable != null && interactable.canInteract(hit.distance))
+                {
+                    interactable.interact();
+                }
+            }
+        }
     }
 }
