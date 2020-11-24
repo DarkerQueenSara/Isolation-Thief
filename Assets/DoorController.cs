@@ -25,6 +25,10 @@ public class DoorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+		{
+            animator.SetTrigger("OpenClose");
+            Debug.Log("E pressed");
+		}
     }
 }
