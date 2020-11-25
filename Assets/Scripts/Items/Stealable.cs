@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Stealable : Interactable
 {
+    public Item item;
     public override void interact()
     {
-        Player.Instance.addToInventory(this.GetComponent<Item>());
+        Player.Instance.addToInventory(item);
         Destroy(gameObject);
     }
 
     public override string getInteractingText()
     {
-        return "Steal " + transform.name;
+        return "Steal " + item.name;
     }
 }

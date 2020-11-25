@@ -12,7 +12,6 @@ public class UI_Inventory : MonoBehaviour
     private Transform itemSlotTemplate;
 
     public Text totalValueText;
-    public float totalValue;
     bool showInventory = false;
 
 
@@ -22,7 +21,6 @@ public class UI_Inventory : MonoBehaviour
         itemSlotContainer = transform.Find("itemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
         totalValueText = transform.Find("infoText").Find("totalStolen").GetComponent<Text>();
-        totalValue = 0;
         gameObject.SetActive(false);
         //Debug.Log("itemSlotContainer is null? " + itemSlotContainer == null);
         //Debug.Log("itemSlotTemplate is null? " + itemSlotTemplate == null);
@@ -37,7 +35,6 @@ public class UI_Inventory : MonoBehaviour
 
     public void RefreshInventoryItems()
     {
-        totalValue = 0;
         foreach (Transform child in itemSlotContainer)
         {
             if (child == itemSlotTemplate) continue;
@@ -49,7 +46,6 @@ public class UI_Inventory : MonoBehaviour
         float itemSlotCellSize = 30.0f;
         foreach (Item item in inventory.GetItemList())
         {
-            totalValue += item.value;
             Transform temp = Instantiate(itemSlotTemplate, itemSlotContainer);
             RectTransform itemSlotRectTransform = temp.GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
@@ -64,7 +60,7 @@ public class UI_Inventory : MonoBehaviour
             }
         }
 
-        totalValueText.text = "Total Value Stolen: " + totalValue;
+        totalValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
     }
 
     public void visible()

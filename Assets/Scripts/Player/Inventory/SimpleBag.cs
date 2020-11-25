@@ -18,6 +18,7 @@ public class SimpleBag : Inventory
 
     public override void AddItem(Item item)
     {
+        this.TotalValue += item.value;
         this.Items.Add(item);
     }
 }
