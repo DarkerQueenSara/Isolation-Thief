@@ -70,16 +70,13 @@ public class UI_Inventory : MonoBehaviour
 
     public void visible()
     {
-        //Player.Instance.stopMovement();
         if (showInventory)
         {
-            Debug.Log("showInv = true");
             showInventory = false;
 
         }
         else
         {
-            Debug.Log("showInv = true");
             showInventory = true;
         }
 
@@ -94,35 +91,4 @@ public class UI_Inventory : MonoBehaviour
             crosshair.SetActive(true);
         }
     }
-
-    /*void Update()
-    {
-        //Show/Hide inventory
-            Debug.Log("tab");
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            //Player.Instance.stopMovement();
-            if (showInventory)
-            {
-                showInventory = false;
-
-            } else
-            {
-                Debug.Log("showInv = true");
-                showInventory = true;
-            }
-
-        }
-
-        if (showInventory)
-        {
-            gameObject.SetActive(true);
-
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-
-    }*/
 }
