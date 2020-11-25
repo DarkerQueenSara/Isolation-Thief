@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class UI_Inventory : MonoBehaviour
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
 
-    public Text totalValueText;
+    public TextMeshProUGUI totalValueText;
     public float totalValue;
     bool showInventory = false;
 
@@ -21,7 +22,7 @@ public class UI_Inventory : MonoBehaviour
     {
         itemSlotContainer = transform.Find("itemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
-        totalValueText = transform.Find("infoText").Find("totalStolen").GetComponent<Text>();
+        totalValueText = transform.Find("infoText").Find("totalStolen").GetComponent<TextMeshProUGUI>();
         totalValue = 0;
         gameObject.SetActive(false);
         //Debug.Log("itemSlotContainer is null? " + itemSlotContainer == null);
