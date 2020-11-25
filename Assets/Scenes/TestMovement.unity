@@ -2114,6 +2114,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: test-house
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b3b740f28001bb4597be1716543805a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2647898422681595148, guid: 2b3b740f28001bb4597be1716543805a,
         type: 3}
       propertyPath: m_LocalRotation.x
