@@ -26,13 +26,10 @@ public class PlayerMovement : MonoBehaviour
     SmoothCrouching smoothCrouching;
     private InteractionTextManager interactionTextManager;
 
-    public bool canMove;
-
     // Start is called before the first frame update
     void Start()
     {
         smoothCrouching = new SmoothCrouching(controller, playerCollider);
-        canMove = true;
         interactionTextManager = InteractionTextManager.instance;
     }
 

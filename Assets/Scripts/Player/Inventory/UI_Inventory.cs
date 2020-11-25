@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class UI_Inventory : MonoBehaviour
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
 
-    public Text totalValueText;
+    public TextMeshProUGUI totalValueText;
     bool showInventory = false;
 
 
@@ -20,7 +21,7 @@ public class UI_Inventory : MonoBehaviour
     {
         itemSlotContainer = transform.Find("itemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
-        totalValueText = transform.Find("infoText").Find("totalStolen").GetComponent<Text>();
+        totalValueText = transform.Find("infoText").Find("totalStolen").GetComponent<TextMeshProUGUI>();
         gameObject.SetActive(false);
         //Debug.Log("itemSlotContainer is null? " + itemSlotContainer == null);
         //Debug.Log("itemSlotTemplate is null? " + itemSlotTemplate == null);
@@ -65,16 +66,13 @@ public class UI_Inventory : MonoBehaviour
 
     public void visible()
     {
-        //Player.Instance.stopMovement();
         if (showInventory)
         {
-            Debug.Log("showInv = true");
             showInventory = false;
 
         }
         else
         {
-            Debug.Log("showInv = true");
             showInventory = true;
         }
 
@@ -89,35 +87,4 @@ public class UI_Inventory : MonoBehaviour
             crosshair.SetActive(true);
         }
     }
-
-    /*void Update()
-    {
-        //Show/Hide inventory
-            Debug.Log("tab");
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            //Player.Instance.stopMovement();
-            if (showInventory)
-            {
-                showInventory = false;
-
-            } else
-            {
-                Debug.Log("showInv = true");
-                showInventory = true;
-            }
-
-        }
-
-        if (showInventory)
-        {
-            gameObject.SetActive(true);
-
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-
-    }*/
 }
