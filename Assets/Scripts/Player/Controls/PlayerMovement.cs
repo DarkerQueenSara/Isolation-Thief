@@ -140,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 lastInteractable = interactable;
             }
-            else if(lastInteractable != null)
+            else if(interactionTextManager.HasText())
             {
                 interactionTextManager.setInteractingText("");
                 lastInteractable = null;

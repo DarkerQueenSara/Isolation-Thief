@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InteractionTextManager : MonoBehaviour
 {
     Text textUI;
+    bool hasText;
 
 
     #region SINGLETON
@@ -24,6 +25,13 @@ public class InteractionTextManager : MonoBehaviour
 
     public void setInteractingText(string text)
     {
+        hasText = !"".Equals(text);
         this.textUI.text = text;
+
+    }
+
+    public bool HasText()
+    {
+        return hasText;
     }
 }
