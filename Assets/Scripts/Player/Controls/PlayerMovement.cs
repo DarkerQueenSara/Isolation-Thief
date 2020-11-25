@@ -42,11 +42,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Inventory"))
         {
             Player.Instance.changeInventoryVisible();
-            if (canMove) canMove = false;
-            else canMove = true;
         }
 
-        if (!canMove) return;
 
         //verify if is on ground------
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -134,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     interactionTextManager.setInteractingText(interactable.getInteractingText());
                 }
+
                 if (Input.GetButtonDown("Interact"))
                 {
                     interactable.interact();
