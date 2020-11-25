@@ -20,6 +20,11 @@ public abstract class Inventory
         return this.Items;
     }
 
+    public float getTotalValue()
+    {
+        return TotalValue;
+    }
+
     // Update is called once per frame
     
 }
