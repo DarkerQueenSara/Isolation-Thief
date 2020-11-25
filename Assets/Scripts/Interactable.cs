@@ -14,8 +14,20 @@ public class Interactable : MonoBehaviour
 
     public virtual void interact()
     {
-        //this method is ment to be overwritten
+        //this method is meant to be overwritten
         Debug.Log("Interacting with " + transform.name);
+        if(gameObject.GetComponent<Renderer>().material.color == Color.red)
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.blue;
+        }
+        else if (gameObject.GetComponent<Renderer>().material.color == Color.blue)
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.green;
+        } else
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
+
     }
 
     public virtual string getInteractingText()
