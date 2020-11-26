@@ -17,7 +17,7 @@ public class DoorController : MonoBehaviour
         Debug.Log("Door on trigger enter");
         if (Input.GetKeyDown(KeyCode.E))
 		{
-            animator.SetTrigger("OpenClose");
+            animator.SetTrigger("OpenCloseDoor");
             Debug.Log("E pressed");
 		}
 	}
@@ -27,7 +27,7 @@ public class DoorController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
 		{
-            animator.SetTrigger("OpenClose");
+            animator.SetTrigger("OpenCloseDoor");
             Debug.Log("E pressed");
 		}
     }
