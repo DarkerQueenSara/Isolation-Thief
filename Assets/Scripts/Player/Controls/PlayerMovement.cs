@@ -24,12 +24,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     SmoothCrouching smoothCrouching;
+    SmoothProning smoothProning;
     private InteractionTextManager interactionTextManager;
 
     // Start is called before the first frame update
     void Start()
     {
         smoothCrouching = new SmoothCrouching(controller, playerCollider);
+        smoothProning = new SmoothProning(controller, playerCollider);
         interactionTextManager = InteractionTextManager.instance;
     }
 
@@ -103,6 +105,16 @@ public class PlayerMovement : MonoBehaviour
             smoothCrouching.setCrouching(false);
         }
         smoothCrouching.Update();
+
+        if (Input.GetButtonDown("Prone"))
+        {
+            smoothProning.setProning(true);
+        }
+        else if (Input.GetButtonUp("Prone"))
+        {
+            smoothProning.setProning(false);
+        }
+        smoothProning.Update();
 
 
         interact();
