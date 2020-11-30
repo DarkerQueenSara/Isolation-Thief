@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         {
             controller.Move(move * proneSpeed * Time.deltaTime);
         }
-        else if (Input.GetButton("Crouch"))
+        else if (Input.GetButton("Crouch") || Input.GetButton("Sneak"))
         {
             controller.Move(move * crouchSpeed * Time.deltaTime);
         }
