@@ -7,14 +7,16 @@ namespace Assets.Scripts.Player.Controls
     {
         public Animator animator;
 
+        private bool isOpen = false;
         public override void interact()
         {
             animator.SetTrigger("OpenCloseDoor");
+            isOpen = !isOpen;
         }
 
         public override string getInteractingText()
         {
-            return "Open door";
+            return isOpen? "Close door" : "Open door";
         }
     }
 }
