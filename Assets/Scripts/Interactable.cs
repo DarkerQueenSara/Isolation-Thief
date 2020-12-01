@@ -41,11 +41,15 @@ public class Interactable : MonoBehaviour
         return dist < radius;
     }
 
+    public virtual void initialize()
+    {
+        //function to be overriten if you want to initialize stuff
+    }
 
     // Start is called before the first frame update
-    public virtual void Start()
+    void Start()
     {
-        
+        initialize();    
     }
 
     // Update is called once per frame
