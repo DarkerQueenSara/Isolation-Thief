@@ -25,14 +25,14 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     SmoothCrouching smoothCrouching;
     SmoothProning smoothProning;
-    private InteractionTextManager interactionTextManager;
+    //private InteractionTextManager interactionTextManager;
 
     // Start is called before the first frame update
     void Start()
     {
         smoothCrouching = new SmoothCrouching(controller, playerCollider);
         smoothProning = new SmoothProning(controller, playerCollider);
-        interactionTextManager = InteractionTextManager.instance;
+        //interactionTextManager = InteractionTextManager.instance;
     }
 
     // Update is called once per frame
@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (lastInteractable != interactable)
                 {
-                    interactionTextManager.setInteractingText(interactable.getInteractingText());
+                    //interactionTextManager.setInteractingText(interactable.getInteractingText());
                 }
 
                 if (Input.GetButtonDown("Interact"))
@@ -147,11 +147,11 @@ public class PlayerMovement : MonoBehaviour
                 }
                 lastInteractable = interactable;
             }
-            else if(interactionTextManager.HasText())
+            /*else if(interactionTextManager.HasText())
             {
                 interactionTextManager.setInteractingText("");
                 lastInteractable = null;
-            }
+            }*/
         }
     }
 }
