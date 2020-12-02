@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     SmoothProning smoothProning;
     private InteractionTextManager interactionTextManager;
 
+    public bool disabled = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (disabled) return;
+
+
         if (Input.GetButtonDown("Inventory"))
         {
             Player.Instance.changeInventoryVisible();
