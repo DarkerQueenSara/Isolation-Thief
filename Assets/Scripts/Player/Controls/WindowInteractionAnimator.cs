@@ -3,23 +3,20 @@ using System.Collections;
 
 namespace Assets.Scripts.Player.Controls
 {
-    public class WindowInteractionAnimator : Interactable
-    {
-        public Animator animatorLeft;
-        public Animator animatorRight;
+	public class WindowInteractionAnimator : Interactable
+	{
+		public Animator animator;
 
-        private bool isOpen = false;
-        public override void interact()
-        {
-            animatorLeft.SetTrigger("OpenCloseWindowL");
-            animatorRight.SetTrigger("OpenCloseWindowR");
-            
-            isOpen = !isOpen;
-        }
+		public override void interact()
+		{
+			bool isOpen = animator.GetBool("isOpenWindow");
+			animator.SetBool("isOpenWindow", !isOpen);
+		}
 
-        public override string getInteractingText()
-        {
-            return isOpen? "Close window" : "Open window";
-        }
-    }
+		public override string getInteractingText()
+		{
+			bool isOpen = animator.GetBool("isOpenWindow");
+			return isOpen ? "Close window" : "Open window";
+		}
+	}
 }

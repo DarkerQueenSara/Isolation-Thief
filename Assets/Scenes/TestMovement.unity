@@ -2316,7 +2316,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14256
+  m_Name: pb_Mesh20734
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2553,25 +2553,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1394274290}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &850972060
-Animator:
-  serializedVersion: 3
+--- !u!114 &850972059
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850972058}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 10b35eb6d4ed9b84cadeab1e8f635351, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51085cdd526e0a44b3eaf66ed085dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  animator: {fileID: 1272114856}
 --- !u!64 &850972063
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2586,21 +2581,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 143529882421023216, guid: 2b3b740f28001bb4597be1716543805a, type: 3}
---- !u!114 &850972064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850972058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c51085cdd526e0a44b3eaf66ed085dbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  animatorLeft: {fileID: 850972060}
-  animatorRight: {fileID: 2130304149}
 --- !u!1 &852796943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,7 +2970,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14192
+  m_Name: pb_Mesh20560
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3186,6 +3166,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1394274290}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1272114856
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272114855}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fcd3f9345d7fb0348b12f9cf74abe8d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!64 &1272114859
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3783,7 +3782,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14268
+  m_Name: pb_Mesh20746
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6429,25 +6428,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1394274290}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &2130304149
-Animator:
-  serializedVersion: 3
+--- !u!114 &2130304148
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130304147}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dd6b6b68a6474624aac422182cfd32c1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51085cdd526e0a44b3eaf66ed085dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  animator: {fileID: 1272114856}
 --- !u!64 &2130304151
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6462,21 +6456,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5303061478764586610, guid: 2b3b740f28001bb4597be1716543805a, type: 3}
---- !u!114 &2130304152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130304147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c51085cdd526e0a44b3eaf66ed085dbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  animatorLeft: {fileID: 850972060}
-  animatorRight: {fileID: 2130304149}
 --- !u!1 &2132788826
 GameObject:
   m_ObjectHideFlags: 0
