@@ -50,7 +50,7 @@ public class LevelEndText : MonoBehaviour
         Value.text = value;
         Result.text = result;
 
-        if (win) Result.color = Color.green;
+        if (win) Result.color = new Color(0.006808461f ,0.4811321f, 0.07456895f, 1.0f);
         else Result.color = Color.red;
 
         Data.gameObject.SetActive(true);
