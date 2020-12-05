@@ -54,30 +54,26 @@ public class NPCMovement : MonoBehaviour
             patrolTimeLeft -= Time.deltaTime;
 
         }
-        /*else
-        {
-            patrolTimeLeft = patrolTime;
-        }*/
 
         if (wanderer.isActiveAndEnabled)
         {
             wanderTimeLeft -= Time.deltaTime;
         }
-        /*else
-        {
-            wanderTimeLeft = wanderTime;
-        }*/
 
         //Ele sabe onde está o player
         if (lastKnownPlayerPosition != null)
         {
             //Ele nao persegue o player tenho de trocar isto para ir ao telefone
             GoTo(lastKnownPlayerPosition);
+            patrolTimeLeft = patrolTime;
+            wanderTimeLeft = wanderTime;
         }
         //Ele não sabe onde está o player, mas sabe do último barulho
         else if (lastKnownDistractionPosition != null)
         {
             GoTo(lastKnownDistractionPosition);
+            patrolTimeLeft = patrolTime;
+            wanderTimeLeft = wanderTime;
         }
         //Ele não sabe onde está o player, já chegou ao barulho vai patrulhar a área
         else if (patrolTimeLeft > 0)
@@ -103,8 +99,6 @@ public class NPCMovement : MonoBehaviour
         wanderer.enabled = false;
         setter.enabled = true;
         setter.target = target;
-        //patrolTimeLeft = patrolTime;
-        //wanderTimeLeft = wanderTime;
     }
 
     void Patrol()
