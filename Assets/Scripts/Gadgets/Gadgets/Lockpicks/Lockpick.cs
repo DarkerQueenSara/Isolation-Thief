@@ -19,4 +19,9 @@ public class Lockpick : Gadget
     {
         
     }
+
+    public virtual float GetLockPickingTime()
+    {
+        return float.MaxValue;
+    }
 }

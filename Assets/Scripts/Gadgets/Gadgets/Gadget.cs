@@ -9,7 +9,7 @@ public abstract class Gadget
     public List<Gadget> gadgetDependencies;
     public int minLevel;
 
-    private Player player;
+    protected Player player;
 
     public Gadget()
     {

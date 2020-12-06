@@ -9,10 +9,16 @@ public class Interactable : MonoBehaviour
     public bool lockpickable;
 
     protected Player player;
+    public LoadingBar loadingBar;
+
+    protected bool actionKeyPressed;
 
     public void Start()
     {
         player = Player.Instance;
+        actionKeyPressed = false;
+        this.loadingBar = LoadingBar.instance;
+
     }
     private void OnDrawGizmosSelected()
     {
@@ -52,5 +58,10 @@ public class Interactable : MonoBehaviour
     public virtual void initialize()
     {
         //function to be overriten if you want to initialize stuff
+    }
+
+    public virtual void ActionKeyChange()
+    {
+        this.actionKeyPressed = this.actionKeyPressed ? false : true;
     }
 }

@@ -12,6 +12,12 @@ public class SimpleLockpick : Lockpick
         minLevel = 1;
     }
 
+    public override float GetLockPickingTime()
+    {
+        float timeReduction = this.player.level > 3 ? 3 : this.player.level;
+        return 4 - timeReduction; //3 to 1 
+    }
+
     public override bool CanUse()
     {
         return base.CanUse();
