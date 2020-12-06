@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     private Inventory inventory;
 
+    public bool isLit = false;
+
     private void Awake()
     {
         Instance = this;
