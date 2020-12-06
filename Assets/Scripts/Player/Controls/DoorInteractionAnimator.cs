@@ -76,7 +76,8 @@ namespace Assets.Scripts.Player.Controls
                 this.isLocked = false;
                 this.loadingBar.SetDisabled();
                 st.Stop();
-                UnityEngine.Debug.Log(string.Format("MyMethod took {0} ms to complete", st.ElapsedMilliseconds));
+                st.Reset();
+                Debug.Log(string.Format("MyMethod took {0} ms to complete", st.ElapsedMilliseconds));
             }
 
             if (Input.GetButtonUp("Interact") && loadBar)
@@ -85,6 +86,7 @@ namespace Assets.Scripts.Player.Controls
                 progress = 0;
                 this.loadingBar.SetDisabled();
                 st.Stop();
+                st.Reset();
                 Debug.Log(string.Format("MyMethod took {0} ms to complete", st.ElapsedMilliseconds));
             }
         }
