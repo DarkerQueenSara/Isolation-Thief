@@ -7,7 +7,7 @@ public class Stealable : Interactable
     public Item item;
     public override void interact()
     {
-        Player.Instance.addToInventory(item);
+        Player.Instance.AddToInventory(item);
         Destroy(gameObject);
     }
 

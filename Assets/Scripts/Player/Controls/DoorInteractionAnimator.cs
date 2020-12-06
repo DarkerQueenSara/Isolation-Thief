@@ -7,8 +7,43 @@ namespace Assets.Scripts.Player.Controls
     {
         public Animator animator;
 
-        private bool isOpen = false;
+        //Public 
+        public bool isLocked;
+
+        //Private
+        private bool isOpen;
+
+        private void Awake()
+        {
+            isOpen = false;
+        }
+
         public override void interact()
+        {
+            if (isLocked)
+            {
+                if (lockpickable)
+                {
+                    if (player.CanLockpick())
+                    {
+                        this.Lockpick();
+                    }
+                }
+
+
+            } else
+            {
+                this.OpenOrClose();
+            }
+        }
+
+        private void Lockpick()
+        {
+            this.isLocked = false;
+            this.OpenOrClose();
+        }
+
+        private void OpenOrClose()
         {
             animator.SetTrigger("OpenCloseDoor");
             isOpen = !isOpen;
@@ -16,7 +51,29 @@ namespace Assets.Scripts.Player.Controls
 
         public override string getInteractingText()
         {
-            return isOpen? "Close door" : "Open door";
+            if(isLocked && isOpen)
+            {
+                Debug.LogError("Door is Locked and Open!");
+                return "Close door";
+            }
+
+            if (isLocked && !isOpen)
+            {
+                if (lockpickable)
+                {
+                    if (player.CanLockpick())
+                    {
+                        return "Lockpick";
+                    }
+                }
+
+                return "Locked";
+
+            } else
+            {
+
+                return isOpen? "Close door" : "Open door";
+            }
         }
     }
 }

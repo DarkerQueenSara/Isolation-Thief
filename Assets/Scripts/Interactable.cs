@@ -6,6 +6,14 @@ public class Interactable : MonoBehaviour
 {
     public float radius = 3f;
 
+    public bool lockpickable;
+
+    protected Player player;
+
+    public void Start()
+    {
+        player = Player.Instance;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
@@ -44,17 +52,5 @@ public class Interactable : MonoBehaviour
     public virtual void initialize()
     {
         //function to be overriten if you want to initialize stuff
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        initialize();    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

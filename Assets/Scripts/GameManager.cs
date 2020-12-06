@@ -21,19 +21,19 @@ public class GameManager : MonoBehaviour
     public void endGame()
     {
 
-        if(player.getTotalStolen() < moneyGoal) //Lose
+        if(player.GetTotalStolen() < moneyGoal) //Lose
         {
             LevelEndText.instance.setText(
                 "You escaped!",
                 "Goal : " + moneyGoal + " $",
-                "Value : " + +player.getTotalStolen() + " $",
+                "Value : " + +player.GetTotalStolen() + " $",
                 "You LOST!", false);
         } else //win
         {
             LevelEndText.instance.setText(
                 "You escaped!",
                 "Goal : " + moneyGoal + " $",
-                "Value : " + +player.getTotalStolen() + " $",
+                "Value : " + +player.GetTotalStolen() + " $",
                 "You WON!", true);
         }
 

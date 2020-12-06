@@ -2629,6 +2629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
+  lockpickable: 0
   item: {fileID: 11400000, guid: 40c6c85c99a214f4da97120c4ba938d1, type: 2}
 --- !u!65 &544812621
 BoxCollider:
@@ -2719,6 +2720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
+  lockpickable: 0
   item: {fileID: 11400000, guid: 5b7767cf81cf59242a383831b9bfa704, type: 2}
 --- !u!65 &569192530
 BoxCollider:
@@ -2801,6 +2803,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: b70eb1cf1be37564f8063fba2095584b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: b70eb1cf1be37564f8063fba2095584b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: b70eb1cf1be37564f8063fba2095584b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b70eb1cf1be37564f8063fba2095584b, type: 3}
 --- !u!1 &662880100 stripped
@@ -2871,7 +2885,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14256
+  m_Name: pb_Mesh16806
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3154,6 +3168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  lockpickable: 0
   animatorLeft: {fileID: 850972060}
   animatorRight: {fileID: 2130304149}
 --- !u!1 &852796943
@@ -3542,6 +3557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
+  lockpickable: 0
   item: {fileID: 11400000, guid: 0d46dc55e0f6af94288ffe62a157ba1e, type: 2}
 --- !u!54 &1086626938
 Rigidbody:
@@ -3565,7 +3581,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14192
+  m_Name: pb_Mesh16568
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4823,7 +4839,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14268
+  m_Name: pb_Mesh16818
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7252,6 +7268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
+  lockpickable: 0
   item: {fileID: 11400000, guid: 5b7767cf81cf59242a383831b9bfa704, type: 2}
 --- !u!65 &2006884869
 BoxCollider:
@@ -7664,7 +7681,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  lockpickable: 1
   animator: {fileID: 2121323637}
+  isLocked: 1
 --- !u!64 &2121323639
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7731,6 +7750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  lockpickable: 0
   animatorLeft: {fileID: 850972060}
   animatorRight: {fileID: 2130304149}
 --- !u!1 &2132788826

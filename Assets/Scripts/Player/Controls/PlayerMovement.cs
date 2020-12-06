@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Inventory"))
         {
-            Player.Instance.changeInventoryVisible();
+            Player.Instance.ChangeInventoryVisible();
         }
 
 
