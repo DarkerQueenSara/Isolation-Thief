@@ -10,11 +10,14 @@ public class Player : MonoBehaviour
 
     private Inventory inventory;
 
+    private PlayerMovement playerMovement;
+
     private void Awake()
     {
         Instance = this;
         inventory = new SimpleBag();
         ui_Inventory.SetInventory(inventory);
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
 
     public void addToInventory(Item item)
@@ -23,9 +26,19 @@ public class Player : MonoBehaviour
         ui_Inventory.RefreshInventoryItems();
     }
 
+    public void DisableMovement()
+    {
+        playerMovement.disabled = true;
+    }
+
     public void changeInventoryVisible()
     {
         this.ui_Inventory.visible();
+    }
+
+    public float getTotalStolen()
+    {
+        return this.inventory.TotalValue;
     }
 
     void Start()
