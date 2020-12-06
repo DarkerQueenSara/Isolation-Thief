@@ -24,7 +24,7 @@ public class NPCDetection : MonoBehaviour
             if ((!player.isLit && Physics.Raycast(this.transform.position, Vector3.Lerp(this.transform.position, other.transform.position, 1.0f), darkDistance)) ||
                 (player.isLit && Physics.Raycast(this.transform.position, Vector3.Lerp(this.transform.position, other.transform.position, 1.0f), lightDistance)))
             {
-                NPC.lastKnownPlayerPosition = other.gameObject.transform;
+                NPC.callingCops = true;
             }
         }
     }

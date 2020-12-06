@@ -18,8 +18,9 @@ public class NPCMovement : MonoBehaviour
 
     //O y ser 1000 vai ser impossivel, como não há nulls este é o workaround 
     public Transform spawnPoint;
-    public Transform lastKnownPlayerPosition = null;
     public Transform lastKnownDistractionPosition = null;
+
+    public bool callingCops = false;
 
     //Ir direto a uma direçao
     private AIPath pathfinder;
@@ -34,6 +35,7 @@ public class NPCMovement : MonoBehaviour
 
     [SerializeField]
     public List<PatrolTargets> roomsToPatrol;
+    public List<Transform> telephones;
 
     // Start is called before the first frame update
     void Start()
@@ -49,22 +51,33 @@ public class NPCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Se chegou ao barulho tenho de voltar a por null
+        if (lastKnownDistractionPosition != null && Vector3.Distance(this.transform.position, lastKnownDistractionPosition.position) < 1)
+        {
+            lastKnownDistractionPosition = null;
+        }
+
+        //Se for preciso tenho de tirar o tempo dos timers
         if (patroler.isActiveAndEnabled)
         {
             patrolTimeLeft -= Time.deltaTime;
-
         }
-
         if (wanderer.isActiveAndEnabled)
         {
             wanderTimeLeft -= Time.deltaTime;
         }
 
-        //Ele sabe onde está o player
-        if (lastKnownPlayerPosition != null)
+        //Chamou os policias vai barricar-se no quarto
+        if (GameManager.Instance.copsCalled)
         {
-            //Ele nao persegue o player tenho de trocar isto para ir ao telefone
-            GoTo(lastKnownPlayerPosition);
+            GoTo(spawnPoint);
+            patrolTimeLeft = patrolTime;
+            wanderTimeLeft = wanderTime;
+        }
+        //Ele sabe onde está o player e vai chamar a policia
+        else if (callingCops)
+        {
+            GoTo(GetClosestPhone());
             patrolTimeLeft = patrolTime;
             wanderTimeLeft = wanderTime;
         }
@@ -81,16 +94,17 @@ public class NPCMovement : MonoBehaviour
             Patrol();
         }
         //Desistiu vai andar pela casa um bocado
-        else if (wanderTimeLeft > 0)
+        else //if (wanderTimeLeft > 0)
         {
             Wander();
         }
         //OK, de volta para a cama
+        /*
         else
         {
             GoTo(spawnPoint);
         }
-
+        */
     }
 
     void GoTo(Transform target)
@@ -126,6 +140,25 @@ public class NPCMovement : MonoBehaviour
             }
         }
 
+        return aux;
+    }
+
+    Transform GetClosestPhone()
+    {
+        Vector3 NPC = this.gameObject.transform.position;
+        Transform aux = null;
+
+        foreach (Transform item in telephones)
+        {
+            if (aux == null)
+            {
+                aux = item;
+            }
+            else if (Vector3.Distance(NPC, item.position) < Vector3.Distance(NPC, aux.position))
+            {
+                aux = item;
+            }
+        }
         return aux;
     }
 
