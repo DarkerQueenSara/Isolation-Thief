@@ -18,6 +18,8 @@ public abstract class Gadget
 
     }
 
+
+
     public virtual bool CanUse()
     {
         return this.player.level >= this.minLevel;

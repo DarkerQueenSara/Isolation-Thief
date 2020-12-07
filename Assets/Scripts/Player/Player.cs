@@ -61,15 +61,16 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    public float LockpickingTime()
+    public bool Lockpick()
     {
-        Lockpick lockpick = gadgetTree.gadgets.ContainsKey("lockpick") ? (Lockpick)gadgetTree.gadgets["lockpick"] : null;
+        Lockpick lockpick = (Lockpick)gadgetTree.GetGadget("lockpick");
 
-        if (lockpick != null)
+        if(lockpick != null)
         {
-            return lockpick.GetLockPickingTime();
+            return lockpick.LockpickObject();
         }
-        return float.MaxValue;
+
+        return false;
     }
 
     public void unlockGadget(string gadgetName)

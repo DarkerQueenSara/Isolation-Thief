@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Lockpick : Gadget
 {
+    public LoadingBar loadingBar;
+
     public Lockpick() : base()
     {
-        
+        this.loadingBar = LoadingBar.instance;
     }
 
     public override bool CanUse()
@@ -18,6 +20,11 @@ public class Lockpick : Gadget
     public override void Use()
     {
         
+    }
+
+    public virtual bool LockpickObject()
+    {
+        return false;
     }
 
     public virtual float GetLockPickingTime()

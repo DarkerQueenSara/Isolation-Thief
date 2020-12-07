@@ -14,16 +14,14 @@ namespace Assets.Scripts.Player.Controls
 
         //Private
         private bool isOpen;
-        private float progress;
-        private bool loadBar;
-        private float timeToLockpick;
-        Stopwatch st = new Stopwatch();
+
+
+        private bool lockpicking;
 
         private void Awake()
         {
             isOpen = false;
-            progress = .0f;
-            loadBar = false;
+            lockpicking = false;
         }
 
 
@@ -46,60 +44,10 @@ namespace Assets.Scripts.Player.Controls
             }
         }
 
-        private void StartLockpick()
-        {
-            timeToLockpick = player.LockpickingTime();
-            loadingBar.SetActive();
-            loadBar = true;
-            st.Start();
-        }
-
-        private void Update()
-        {
-            Lockpick();
-        }
-
-        private void Lockpick()
-        {
-            float timeIncrement = 0.004f / timeToLockpick; //around 3 seconds for a lvl 1 lockpick
-
-            if (loadBar && !Input.GetButtonUp("Interact") && progress < 1f)
-            {
-                progress += timeIncrement;
-                loadingBar.SetLoadingBarStatus(Mathf.Clamp01(progress), "Lockpicking: " + progress * 100f + "%");
-            }
-            if (progress >= 1f && loadBar)
-            {
-                loadBar = false;
-                this.OpenOrClose();
-                progress = 0;
-                this.isLocked = false;
-                this.loadingBar.SetDisabled();
-                st.Stop();
-                st.Reset();
-                Debug.Log(string.Format("MyMethod took {0} ms to complete", st.ElapsedMilliseconds));
-            }
-
-            if (Input.GetButtonUp("Interact") && loadBar)
-            {
-                loadBar = false;
-                progress = 0;
-                this.loadingBar.SetDisabled();
-                st.Stop();
-                st.Reset();
-                Debug.Log(string.Format("MyMethod took {0} ms to complete", st.ElapsedMilliseconds));
-            }
-        }
-
-        private void OpenOrClose()
-        {
-            animator.SetTrigger("OpenCloseDoor");
-            isOpen = !isOpen;
-        }
-
+        //Look
         public override string getInteractingText()
         {
-            if(isLocked && isOpen)
+            if (isLocked && isOpen)
             {
                 Debug.LogError("Door is Locked and Open!");
                 return "Close door";
@@ -117,11 +65,46 @@ namespace Assets.Scripts.Player.Controls
 
                 return "Locked";
 
-            } else
+            }
+            else
             {
 
-                return isOpen? "Close door" : "Open door";
+                return isOpen ? "Close door" : "Open door";
             }
         }
+
+        private void StartLockpick()
+        {
+            lockpicking = true;
+        }
+
+        private void Update()
+        {
+            if (lockpicking)
+            {
+                if (Input.GetButtonUp("Interact"))
+                {
+                    this.lockpicking = false;
+                }
+
+                bool lockpicked = player.Lockpick();
+                if (lockpicked)
+                {
+                    this.OpenOrClose();
+                    this.isLocked = false;
+                    this.lockpicking = false;
+                }
+            }
+        }
+
+
+
+        private void OpenOrClose()
+        {
+            animator.SetTrigger("OpenCloseDoor");
+            isOpen = !isOpen;
+        }
+
+
     }
 }

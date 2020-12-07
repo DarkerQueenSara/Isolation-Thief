@@ -12,4 +12,17 @@ public class GadgetTree
         this.gadgets = new Dictionary<string, Gadget>();
         this.gadgets.Add("lockpick", new SimpleLockpick());
     }
+
+    public Gadget GetGadget(string gadgetName)
+    {
+        Gadget gadget = gadgets.ContainsKey(gadgetName) ? gadgets[gadgetName] : null;
+
+        if (gadget != null)
+        {
+            return gadget;
+        }
+
+        else return null;
+
+    }
 }

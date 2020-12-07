@@ -148,12 +148,12 @@ public class PlayerMovement : MonoBehaviour
 
                 if (Input.GetButtonDown("Interact"))
                 {
-                    interactable.ActionKeyChange();
                     interactable.interact();
-                    interactionTextManager.setInteractingText(interactable.getInteractingText());
-                } else if (!Input.GetButtonUp("Interact"))
+                    interactionTextManager.setInteractingText("");
+                } else if(Input.GetButtonUp("Interact"))
                 {
-                    interactable.ActionKeyChange();
+
+                    interactionTextManager.setInteractingText(interactable.getInteractingText());
                 }
 
                 lastInteractable = interactable;
