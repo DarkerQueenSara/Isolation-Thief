@@ -71,6 +71,8 @@ public class SimpleLockpick : Lockpick
             st.Stop();
             Debug.Log(string.Format("Lockpicking took {0} ms to complete", st.ElapsedMilliseconds));
             st.Reset();
+
+            this.Use();
             return true;
         }
 
