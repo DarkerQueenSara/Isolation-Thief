@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    public bool isLit;
 
     public int level { get; private set; }
 
