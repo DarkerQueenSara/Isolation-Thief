@@ -68,7 +68,6 @@ public class UI_Inventory : MonoBehaviour
             temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = item.GetSprite();
         }
 
-
         stolenValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
         this.goalValueText.text = "Goal : 1000$";
         this.stolenValueText.text = "Stolen :" + inventory.getTotalValue() + "$";
