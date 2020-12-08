@@ -87,9 +87,9 @@ namespace Assets.Scripts.Player.Controls
                 bool lockpicked = player.Lockpick();
                 if (lockpicked)
                 {
-                    this.OpenOrClose();
                     this.isLocked = false;
                     this.lockpicking = false;
+                    this.OpenOrClose();
                 }
             }
         }

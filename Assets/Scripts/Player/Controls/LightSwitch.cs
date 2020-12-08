@@ -8,7 +8,7 @@ namespace Assets.Scripts.Player.Controls
     {
         //public Animator animator;
         public List<Light> roomLights;
-
+        public float defaultIntensity = 1.0f;
         private List<float> lightIntensities;
 
 
@@ -31,7 +31,7 @@ namespace Assets.Scripts.Player.Controls
                 else
                 {
                     //Default value de lightIntensity vai ser 1;
-                    lightIntensities.Add(1.0f);
+                    lightIntensities.Add(defaultIntensity);
                 }
             }
         }
