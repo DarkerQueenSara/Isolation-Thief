@@ -1,32 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Player.Controls
 {
     public class LightSwitch : Interactable
     {
         //public Animator animator;
-        public Light roomlight;
+        public List<Light> roomLights;
 
-        private float lightIntensity;
+        private List<float> lightIntensities;
 
 
         //Public 
-        private bool isOn()
+        private bool isOn(Light roomLight)
         {
-            return roomlight.intensity > 0.001;
+            return roomLight.intensity > 0.001;
         }
 
         private void Awake()
         {
-            if (isOn())
+            lightIntensities = new List<float>(roomLights.Count);
+            for (int i = 0; i < roomLights.Count; i++)
             {
-                lightIntensity = roomlight.intensity;
-            }
-            else
-            {
-                //Default value de lightIntensity vai ser 1;
-                lightIntensity = 1;
+                Light roomLight = roomLights[i];
+                if (isOn(roomLight))
+                {
+                    lightIntensities.Add(roomLight.intensity);
+                }
+                else
+                {
+                    //Default value de lightIntensity vai ser 1;
+                    lightIntensities.Add(1.0f);
+                }
             }
         }
 
@@ -34,20 +40,27 @@ namespace Assets.Scripts.Player.Controls
         public override void interact()
         {
             gameObject.transform.Rotate(.0f, .0f, 180.0f, Space.Self);
-            if(isOn())
+            //imaginando todas as luzes ligadas ou desligadas
+            if(isOn(roomLights[0]))
             {
-                roomlight.intensity = 0.0f;
+                for (int i = 0; i < roomLights.Count; i++)
+                {
+                    roomLights[i].intensity = 0.0f;
+                }
             }
             else
             {
-                roomlight.intensity = lightIntensity;
+                for (int i = 0; i < roomLights.Count; i++)
+                {
+                    roomLights[i].intensity = lightIntensities[i];
+                }
             }
         }
 
         //Look
         public override string getInteractingText()
         {
-            return "Click E to turn " + (isOn() ? "off" : "on") + " light";
+            return "Click E to turn " + (isOn(roomLights[0]) ? "off" : "on") + " light";
         }
 
 
