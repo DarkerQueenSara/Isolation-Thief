@@ -150,7 +150,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     interactable.interact();
                     interactionTextManager.setInteractingText("");
-                } else if(Input.GetButtonUp("Interact"))
+                } 
+                if(Input.GetButtonUp("Interact"))
                 {
 
                     interactionTextManager.setInteractingText(interactable.getInteractingText());
@@ -158,9 +159,11 @@ public class PlayerMovement : MonoBehaviour
 
                 lastInteractable = interactable;
             }
-            else if(interactionTextManager.HasText())
+            else
             {
-                interactionTextManager.setInteractingText("");
+                if (interactionTextManager.HasText()){
+                    interactionTextManager.setInteractingText("");
+                }
                 lastInteractable = null;
             }
         }
