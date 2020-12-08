@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private Player player;
 
     public bool copsCalled;
+    public bool copsArrived;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +23,23 @@ public class GameManager : MonoBehaviour
     public void endGame()
     {
 
-        if(player.GetTotalStolen() < moneyGoal) //Lose
+        if (copsArrived) //Lose
+        {
+            LevelEndText.instance.setText(
+                "You were caught by the cops!",
+                "Goal : " + moneyGoal + " $",
+                "Value : " + +player.GetTotalStolen() + " $",
+                "You LOST!", false);
+        }
+        else if (player.GetTotalStolen() < moneyGoal) //Lose
         {
             LevelEndText.instance.setText(
                 "You escaped!",
                 "Goal : " + moneyGoal + " $",
                 "Value : " + +player.GetTotalStolen() + " $",
                 "You LOST!", false);
-        } else //win
+        }
+        else //win
         {
             LevelEndText.instance.setText(
                 "You escaped!",

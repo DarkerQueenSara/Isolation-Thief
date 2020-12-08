@@ -70,7 +70,7 @@ public class NPCMovement : MonoBehaviour
         //Chamou os policias vai barricar-se no quarto
         if (GameManager.Instance.copsCalled)
         {
-            Debug.Log("Policias chamados");
+            //Debug.Log("Policias chamados");
             GoTo(spawnPoint);
             patrolTimeLeft = patrolTime;
             wanderTimeLeft = wanderTime;
@@ -78,7 +78,7 @@ public class NPCMovement : MonoBehaviour
         //Ele sabe onde está o player e vai chamar a policia
         else if (callingCops)
         {
-            Debug.Log("Vai chamar policias");
+            //Debug.Log("Vai chamar policias");
             GoTo(GetClosestPhone());
             patrolTimeLeft = patrolTime;
             wanderTimeLeft = wanderTime;
