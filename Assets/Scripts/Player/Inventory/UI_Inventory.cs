@@ -9,22 +9,36 @@ public class UI_Inventory : MonoBehaviour
     public GameObject crosshair;
     private Inventory inventory;
 
+    private Transform uiInventory;
+
+    private Transform stolenItems;
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
 
-    public TextMeshProUGUI totalValueText;
+    private Transform info;
+
+    public TextMeshProUGUI stolenValueText; // "Stolen : " + stolenValue
+    private TextMeshProUGUI missingValueText; // missingValue
+    private TextMeshProUGUI goalValueText; // "Goal : " + goalValue
     bool showInventory = false;
 
 
 
     private void Awake()
     {
-        itemSlotContainer = transform.Find("itemSlotContainer");
+        uiInventory = transform.Find("Inventory");
+
+        stolenItems = uiInventory.Find("StolenItems");
+        itemSlotContainer = stolenItems.Find("itemSlotContainer");
+
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
-        totalValueText = transform.Find("infoText").Find("totalStolen").GetComponent<TextMeshProUGUI>();
+
+        info = uiInventory.Find("Info");
+        stolenValueText = info.Find("Stolen").Find("stolenText").GetComponent<TextMeshProUGUI>();
+        missingValueText = info.Find("MissingValue").Find("missingValueText").GetComponent<TextMeshProUGUI>();
+        goalValueText = info.Find("Goal").Find("goalText").GetComponent<TextMeshProUGUI>();
+
         gameObject.SetActive(false);
-        //Debug.Log("itemSlotContainer is null? " + itemSlotContainer == null);
-        //Debug.Log("itemSlotTemplate is null? " + itemSlotTemplate == null);
     }
 
     public void SetInventory(Inventory inventory)
@@ -61,7 +75,7 @@ public class UI_Inventory : MonoBehaviour
             }
         }
 
-        totalValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
+        stolenValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
     }
 
     public void visible()
