@@ -44,7 +44,6 @@ public class UI_Inventory : MonoBehaviour
     private void Start()
     {
         this.goalValueText.text = "Goal : 1000$";
-        this.stolenValueText.text = "Stolen : 0$";
         this.missingValueText.text = "1000$";
     }
 
