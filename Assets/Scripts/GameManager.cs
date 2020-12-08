@@ -8,21 +8,26 @@ public class GameManager : MonoBehaviour
     private float moneyGoal = 1000.0f;
 
     public static GameManager Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private Player player;
 
     public bool copsCalled;
     public bool copsArrived;
+    public bool hasEnded;
     // Start is called before the first frame update
     void Start()
     {
-        Instance = this;
+        hasEnded = false;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     public void endGame()
     {
-
+        hasEnded = true;
         if (copsArrived) //Lose
         {
             LevelEndText.instance.setText(

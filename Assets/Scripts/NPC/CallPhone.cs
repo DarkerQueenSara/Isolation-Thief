@@ -11,12 +11,14 @@ public class CallPhone : MonoBehaviour
     private float currentTime;
     private float finalTime;
     private bool countdouwnStarted;
+    private GameManager manager;
 
     [SerializeField] Text countdownText;
     // Start is called before the first frame update
     void Start()
     {
         countdouwnStarted = false;
+        manager = GameManager.Instance;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,7 +44,7 @@ public class CallPhone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countdouwnStarted)
+        if (countdouwnStarted && !manager.hasEnded)
         {
             float timeLeft = finalTime - Time.time;
             countdownText.text = timeLeft.ToString("0");
@@ -51,10 +53,13 @@ public class CallPhone : MonoBehaviour
                 countdouwnStarted = false;
                 countdownText.text = "";
                 //acabar jogo
-                GameManager manager = GameManager.Instance;
                 manager.copsArrived = true;
                 manager.endGame();
             }
+        }
+        if(countdouwnStarted && manager.hasEnded)
+        {
+            countdownText.text = "";
         }
     }
 }
