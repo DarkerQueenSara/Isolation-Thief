@@ -24,7 +24,7 @@ Animator:
   m_GameObject: {fileID: 4795441900474607327}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f0ed82947b10404cbdcd206bad5013a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 176e989051840bb4a94bbccaa009c6be, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -60,7 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  lockpickable: 0
   animator: {fileID: 7780905646226518183}
+  isLocked: 0
 --- !u!64 &6102400655683094806
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88,7 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  lockpickable: 0
   animator: {fileID: 7780905646226518183}
+  isLocked: 0
 --- !u!1001 &5642373516933012366
 PrefabInstance:
   m_ObjectHideFlags: 0
