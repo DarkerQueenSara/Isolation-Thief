@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class UI_Inventory : MonoBehaviour
 {
     public GameObject crosshair;
+    public GameObject itemSlotPrefab;
     private Inventory inventory;
 
     private Transform uiInventory;
 
     private Transform stolenItems;
-    private Transform itemSlotContainer;
-    private Transform itemSlotTemplate;
+    private Transform itemSlot;
 
     private Transform info;
 
@@ -28,10 +28,10 @@ public class UI_Inventory : MonoBehaviour
     {
         uiInventory = transform.Find("Inventory");
 
-        stolenItems = uiInventory.Find("StolenItems");
-        itemSlotContainer = stolenItems.Find("itemSlotContainer");
+        stolenItems = uiInventory.Find("Scroll View").Find("Viewport").Find("StolenItems");
 
-        itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
+        //TODO
+        itemSlot = stolenItems.Find("itemSlot");
 
         info = uiInventory.Find("Info");
         stolenValueText = info.Find("Stolen").Find("stolenText").GetComponent<TextMeshProUGUI>();
@@ -39,6 +39,13 @@ public class UI_Inventory : MonoBehaviour
         goalValueText = info.Find("Goal").Find("goalText").GetComponent<TextMeshProUGUI>();
 
         gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        this.goalValueText.text = "Goal : 1000$";
+        this.stolenValueText.text = "Stolen : 0$";
+        this.missingValueText.text = "1000$";
     }
 
     public void SetInventory(Inventory inventory)
@@ -50,32 +57,26 @@ public class UI_Inventory : MonoBehaviour
 
     public void RefreshInventoryItems()
     {
-        foreach (Transform child in itemSlotContainer)
+
+        foreach (Transform child in stolenItems)
         {
-            if (child == itemSlotTemplate) continue;
-            Destroy(child.gameObject);
+           Destroy(child.gameObject);
         }
 
-        int x = -5;
-        int y = 5;
-        float itemSlotCellSize = 30.0f;
         foreach (Item item in inventory.GetItemList())
         {
-            Transform temp = Instantiate(itemSlotTemplate, itemSlotContainer);
-            RectTransform itemSlotRectTransform = temp.GetComponent<RectTransform>();
-            itemSlotRectTransform.gameObject.SetActive(true);
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize + 17, y * itemSlotCellSize -17);
-            Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
-            image.sprite = item.GetSprite();
-            x++;
-            if (x > 5)
-            {
-                x = -5;
-                y--;
-            }
+            GameObject temp = Instantiate(itemSlotPrefab, stolenItems);
+            temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = item.GetSprite();
         }
 
+
         stolenValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
+        this.goalValueText.text = "Goal : 1000$";
+        this.stolenValueText.text = "Stolen :" + inventory.getTotalValue() + "$";
+
+        float missingValue = 1000 - inventory.getTotalValue();
+        missingValue = missingValue < 0 ? 0 : missingValue;
+        this.missingValueText.text = missingValue + "$";
     }
 
     public void visible()
@@ -93,11 +94,13 @@ public class UI_Inventory : MonoBehaviour
         if (showInventory)
         {
             gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
             crosshair.SetActive(false);
         }
         else
         {
             gameObject.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
             crosshair.SetActive(true);
         }
     }
