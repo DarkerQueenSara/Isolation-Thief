@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  lockpickable: 0
   animator: {fileID: 5531165063414155427}
 --- !u!64 &9106620673547778221
 MeshCollider:
@@ -88,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  lockpickable: 0
   animator: {fileID: 5531165063414155427}
 --- !u!1001 &6033263668092437193
 PrefabInstance:
@@ -151,11 +153,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: be37c454bbb664c4dbebdffa035c6d11,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0019bec7a9bbc4409ceb95ad5a777a9, type: 2}
+    - target: {fileID: -3911695417498638927, guid: be37c454bbb664c4dbebdffa035c6d11,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0019bec7a9bbc4409ceb95ad5a777a9, type: 2}
     - target: {fileID: 919132149155446097, guid: be37c454bbb664c4dbebdffa035c6d11,
         type: 3}
       propertyPath: m_Name
       value: window Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7544691401723750851, guid: be37c454bbb664c4dbebdffa035c6d11,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0019bec7a9bbc4409ceb95ad5a777a9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be37c454bbb664c4dbebdffa035c6d11, type: 3}
 --- !u!1 &6880124220960325528 stripped

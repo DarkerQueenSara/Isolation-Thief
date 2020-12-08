@@ -2669,7 +2669,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh100828
+  m_Name: pb_Mesh141030
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4543,6 +4543,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 55.18
       objectReference: {fileID: 0}
+    - target: {fileID: 733314747405367462, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84e6dcefeb9720b4096f44c6c732d871, type: 2}
+    - target: {fileID: 733314747405367462, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84e6dcefeb9720b4096f44c6c732d871, type: 2}
+    - target: {fileID: 733314747405367462, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7dc01e68e8c2b14cb8ce6c0cb584cde, type: 2}
+    - target: {fileID: 733314747405367462, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecb24190025bfd84eaa6af979b144e92, type: 2}
     - target: {fileID: 788943778735797956, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
         type: 3}
       propertyPath: defaultIntensity
@@ -4723,6 +4743,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6414873194964069464, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
+        type: 3}
+      propertyPath: m_CookingOptions
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6804640743203058344, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
         type: 3}
       propertyPath: m_Intensity
@@ -4768,6 +4793,16 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8124622885827062036, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecb24190025bfd84eaa6af979b144e92, type: 2}
+    - target: {fileID: 8124622885827062036, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[10]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7dc01e68e8c2b14cb8ce6c0cb584cde, type: 2}
     - target: {fileID: 8429581781816023623, guid: 835e8d7be5f39634e8ec820ad3ea57dc,
         type: 3}
       propertyPath: m_Name
