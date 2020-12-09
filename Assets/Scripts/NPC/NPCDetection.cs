@@ -21,10 +21,17 @@ public class NPCDetection : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if ((!player.isLit && Physics.Raycast(this.transform.position, Vector3.Lerp(this.transform.position, other.transform.position, 1.0f), darkDistance)) ||
-                (player.isLit && Physics.Raycast(this.transform.position, Vector3.Lerp(this.transform.position, other.transform.position, 1.0f), lightDistance)))
+            //forward nao vai dar para o detetar no chao mas já revemos isto
+            if (Physics.Raycast(this.transform.position, Vector3.forward, out RaycastHit hit))
             {
-                NPC.callingCops = true;
+                Debug.DrawRay(transform.position, Vector3.forward * hit.distance, Color.yellow);
+                if (hit.collider.gameObject.CompareTag("Player"))
+                {
+                    if ((!player.isLit && hit.distance <= darkDistance) || (player.isLit && hit.distance <= lightDistance))
+                    {
+                        NPC.callingCops = true;
+                    }
+                }
             }
         }
     }
