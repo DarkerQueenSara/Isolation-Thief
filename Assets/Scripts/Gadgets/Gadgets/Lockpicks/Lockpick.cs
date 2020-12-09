@@ -9,6 +9,7 @@ public class Lockpick : Gadget
     public Lockpick() : base()
     {
         this.loadingBar = LoadingBar.instance;
+        Debug.Log(loadingBar);
     }
 
     public override bool CanUse()
