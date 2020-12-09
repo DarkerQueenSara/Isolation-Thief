@@ -4,6 +4,7 @@ using Pathfinding;
 
 public class WanderingDestinationSetter : MonoBehaviour
 {
+    /*
     public float radius = 20;
 
     IAstarAI ai;
@@ -33,4 +34,44 @@ public class WanderingDestinationSetter : MonoBehaviour
             ai.SearchPath();
         }
     }
+    */
+
+    IAstarAI ai;
+
+    void Start()
+    {
+        ai = GetComponent<IAstarAI>();
+    }
+
+    Vector3 PickRandomPoint()
+    {
+        GraphNode randomNode;
+
+        GridGraph grid = AstarPath.active.data.gridGraph;
+
+        while (true)
+        {
+            randomNode = grid.nodes[Random.Range(0, grid.nodes.Length)];
+            GraphNode node = AstarPath.active.GetNearest(transform.position).node;
+
+            if (randomNode.Walkable && PathUtilities.IsPathPossible(node, randomNode)){
+                return (Vector3)randomNode.position;
+            }
+        }
+        return Vector3.zero;
+
+    }
+
+    void Update()
+    {
+
+        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+        {
+            ai.destination = PickRandomPoint();
+            ai.SearchPath();
+        }
+    }
+
+
+
 }

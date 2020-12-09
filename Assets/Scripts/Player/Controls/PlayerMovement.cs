@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
             //ONLY FOR DEBUG PURPOSES
             if (Input.GetButtonDown("Interact"))
             {
-                Debug.Log("I'm looking at " + hit.transform.name);
+                //Debug.Log("I'm looking at " + hit.transform.name);
             }
             //----------------------------------------------------
             Interactable interactable = hit.collider.GetComponent<Interactable>();
