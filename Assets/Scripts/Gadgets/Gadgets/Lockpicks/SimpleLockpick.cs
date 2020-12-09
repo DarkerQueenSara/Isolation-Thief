@@ -70,7 +70,6 @@ public class SimpleLockpick : Lockpick
         //Lockpick
         //float timeIncrement = 0.004f / GetLockPickingTime(); //around 3 seconds for a lvl 1 lockpick
         float progress = Mathf.Clamp01((GetLockPickingTime() - (finalTime - Time.time)) / GetLockPickingTime());
-        Debug.Log(progress);
         if (progress < 1f) //if not done, continue lockpicking
         {
             loadingBar.SetLoadingBarStatus(progress, "Lockpicking: " + Mathf.Floor(progress * 100f) + "%");
