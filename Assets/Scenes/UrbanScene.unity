@@ -2372,6 +2372,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 877621478}
     m_Modifications:
+    - target: {fileID: 3201246807028240476, guid: d94b80232108acc459b98fcba239bd49,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.15686275
+      objectReference: {fileID: 0}
     - target: {fileID: 3201246807356880385, guid: d94b80232108acc459b98fcba239bd49,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4549,7 +4554,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh221002
+  m_Name: pb_Mesh312690
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
