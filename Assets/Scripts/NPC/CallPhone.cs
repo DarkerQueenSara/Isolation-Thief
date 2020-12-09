@@ -8,7 +8,6 @@ public class CallPhone : MonoBehaviour
     public float timeTillCops = 30.0f;
     public NPCMovement NPC;
     
-    private float currentTime;
     private float finalTime;
     private bool countdouwnStarted;
     private GameManager manager;
@@ -34,8 +33,7 @@ public class CallPhone : MonoBehaviour
     }
     public void CallPolice()
     {
-        currentTime = Time.time;
-        finalTime = currentTime + timeTillCops;
+        finalTime = Time.time + timeTillCops;
         countdouwnStarted = true;
         countdownText.text = timeTillCops.ToString("0");
         countdownText.enabled = true;

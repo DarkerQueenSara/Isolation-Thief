@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  lockpickable: 0
+  lockpickable: 1
   animator: {fileID: 7780905646226518183}
-  isLocked: 0
+  isLocked: 1
 --- !u!64 &6102400655683094806
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  lockpickable: 0
+  lockpickable: 1
   animator: {fileID: 7780905646226518183}
-  isLocked: 0
+  isLocked: 1
 --- !u!1001 &5642373516933012366
 PrefabInstance:
   m_ObjectHideFlags: 0
