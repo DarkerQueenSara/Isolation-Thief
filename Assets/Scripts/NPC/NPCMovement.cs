@@ -68,13 +68,15 @@ public class NPCMovement : MonoBehaviour
         }
 
         //Chamou os policias vai barricar-se no quarto
-        /*if (GameManager.Instance.copsCalled)
+        if (GameManager.Instance.copsCalled)
         {
             //Debug.Log("Policias chamados");
             GoTo(spawnPoint);
             patrolTimeLeft = patrolTime;
             wanderTimeLeft = wanderTime;
-        }*/
+            pathfinder.maxSpeed = 5.0f;
+
+        }
         //Ele sabe onde está o player e vai chamar a policia
         else if (callingCops)
         {
@@ -82,19 +84,21 @@ public class NPCMovement : MonoBehaviour
             GoTo(GetClosestPhone());
             patrolTimeLeft = patrolTime;
             wanderTimeLeft = wanderTime;
+            pathfinder.maxSpeed = 5.0f;
         }
         //Ele não sabe onde está o player, mas sabe do último barulho
         else if (lastKnownDistractionPosition != null)
         {
-            Debug.Log("Sabe de um som (de alguma forma)");
+            //Debug.Log("Sabe de um som (de alguma forma)");
             GoTo(lastKnownDistractionPosition);
             patrolTimeLeft = patrolTime;
             wanderTimeLeft = wanderTime;
+            pathfinder.maxSpeed = 2.0f;
         }
         //Ele não sabe onde está o player, já chegou ao barulho vai patrulhar a área
         else if (patrolTimeLeft > 0)
         {
-            Debug.Log("Vai patrulhar (de alguma forma)");
+            //Debug.Log("Vai patrulhar (de alguma forma)");
             Patrol();
         }
         //Desistiu vai andar pela casa um bocado
@@ -125,6 +129,7 @@ public class NPCMovement : MonoBehaviour
         setter.enabled = false;
         patroler.enabled = true;
         patroler.targets = GetClosestRoom().targets;
+        pathfinder.maxSpeed = 2.0f;
     }
 
     PatrolTargets GetClosestRoom()
@@ -149,6 +154,7 @@ public class NPCMovement : MonoBehaviour
 
     Transform GetClosestPhone()
     {
+        //Debug.Log("Entrou no GetClosestPhone()");
         Vector3 NPC = this.gameObject.transform.position;
         Transform aux = null;
 
@@ -163,6 +169,7 @@ public class NPCMovement : MonoBehaviour
                 aux = item;
             }
         }
+        //Debug.Log("Vai retornar " + aux.position);
         return aux;
     }
 
@@ -171,5 +178,6 @@ public class NPCMovement : MonoBehaviour
         patroler.enabled = false;
         setter.enabled = false;
         wanderer.enabled = true;
+        pathfinder.maxSpeed = 2.0f;
     }
 }
