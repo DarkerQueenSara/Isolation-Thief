@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CallPhone : MonoBehaviour
 {
-    public float timeTillCops = 30.0f;
     public NPCMovement NPC;
     
     private float finalTime;
@@ -33,9 +32,9 @@ public class CallPhone : MonoBehaviour
     }
     public void CallPolice()
     {
-        finalTime = Time.time + timeTillCops;
+        finalTime = Time.time + manager.timeTillCops;
         countdouwnStarted = true;
-        countdownText.text = timeTillCops.ToString("0");
+        countdownText.text = manager.timeTillCops.ToString("0");
         countdownText.enabled = true;
     }
 

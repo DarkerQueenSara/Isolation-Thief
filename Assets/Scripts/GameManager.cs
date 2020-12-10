@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private float moneyGoal = 1000.0f;
+    public float timeTillCops = 30.0f;
 
     public static GameManager Instance;
     private void Awake()
