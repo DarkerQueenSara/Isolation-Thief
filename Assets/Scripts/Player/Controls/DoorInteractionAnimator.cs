@@ -95,8 +95,7 @@ namespace Assets.Scripts.Player.Controls
         }
 
 
-
-        private void OpenOrClose()
+        public void OpenOrClose()
         {
             bool isOpen = animator.GetBool("isOpenDoor");
             animator.SetBool("isOpenDoor", !isOpen);

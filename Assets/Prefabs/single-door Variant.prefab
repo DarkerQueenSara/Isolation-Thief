@@ -60,7 +60,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  lockpickable: 0
   animator: {fileID: 6158530389025563534}
+  isLocked: 0
+--- !u!65 &6387275958502578788
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017839121875255101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 6, z: 3.7450008}
+  m_Center: {x: 0.69108737, y: 0.000000007450581, z: 0.16666709}
 --- !u!1001 &470945208554714459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71,17 +86,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ac535b6a65d1e3e4c943a317368f1bc4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.073517
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac535b6a65d1e3e4c943a317368f1bc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8199987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac535b6a65d1e3e4c943a317368f1bc4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -38.276363
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac535b6a65d1e3e4c943a317368f1bc4,
         type: 3}
@@ -96,12 +111,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ac535b6a65d1e3e4c943a317368f1bc4,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac535b6a65d1e3e4c943a317368f1bc4,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac535b6a65d1e3e4c943a317368f1bc4,
         type: 3}
@@ -111,7 +126,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ac535b6a65d1e3e4c943a317368f1bc4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac535b6a65d1e3e4c943a317368f1bc4,
         type: 3}

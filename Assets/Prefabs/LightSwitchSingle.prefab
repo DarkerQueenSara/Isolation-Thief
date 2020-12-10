@@ -185,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5276624498607604561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.58, y: 2.685, z: -20.421}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8898014522058019575}
@@ -247,6 +247,7 @@ MonoBehaviour:
   roomLights:
   - {fileID: 0}
   - {fileID: 0}
+  defaultIntensity: 1
 --- !u!1 &5413737036139205725
 GameObject:
   m_ObjectHideFlags: 0
