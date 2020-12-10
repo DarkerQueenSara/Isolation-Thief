@@ -38,9 +38,27 @@ public class WanderingDestinationSetter : MonoBehaviour
 
     IAstarAI ai;
 
+    public bool stoppedMoving;
+    private Vector3 lastPosition;
+
     void Start()
     {
         ai = GetComponent<IAstarAI>();
+        stoppedMoving = false;
+        lastPosition = this.gameObject.transform.position;
+        InvokeRepeating("CheckStoppedMoving", 0, 1.0f);
+
+    }
+
+    void CheckStoppedMoving()
+    {
+        if ((this.gameObject.transform.position - lastPosition).magnitude < 1f)
+        {
+            Debug.Log("PAROU DE MOVER");
+            stoppedMoving = true;
+        }        
+        lastPosition = this.gameObject.transform.position;
+
     }
 
     Vector3 PickRandomPoint()
@@ -64,11 +82,19 @@ public class WanderingDestinationSetter : MonoBehaviour
 
     void Update()
     {
+        /*
+        if (this.gameObject.transform == lastPosition)
+        {
+            Debug.Log("PAROU DE MOVER");
+            stoppedMoving = true;
+        }
+        */
 
-        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+        if ((!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) || (stoppedMoving))
         {
             ai.destination = PickRandomPoint();
             ai.SearchPath();
+            stoppedMoving = false;
         }
     }
 
