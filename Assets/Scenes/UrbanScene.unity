@@ -2166,6 +2166,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8728524103249077542, guid: d6de798e9099a9548a1d471028501475,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728524103846777687, guid: d6de798e9099a9548a1d471028501475,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8728524104582074144, guid: d6de798e9099a9548a1d471028501475,
         type: 3}
       propertyPath: m_Name
@@ -2180,6 +2190,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728524104582074149, guid: d6de798e9099a9548a1d471028501475,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8728524104582074150, guid: d6de798e9099a9548a1d471028501475,
         type: 3}
@@ -2206,6 +2221,11 @@ PrefabInstance:
       propertyPath: constrainInsideGraph
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8728524104582074151, guid: d6de798e9099a9548a1d471028501475,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8728524104582074200, guid: d6de798e9099a9548a1d471028501475,
         type: 3}
       propertyPath: m_Enabled
@@ -2219,7 +2239,7 @@ PrefabInstance:
     - target: {fileID: 8728524104582074201, guid: d6de798e9099a9548a1d471028501475,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8728524104582074201, guid: d6de798e9099a9548a1d471028501475,
         type: 3}
@@ -3245,7 +3265,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh65186
+  m_Name: pb_Mesh15016
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

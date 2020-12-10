@@ -74,6 +74,8 @@ public class NPCMovement : MonoBehaviour
             GoTo(spawnPoint);
             patrolTimeLeft = patrolTime;
             wanderTimeLeft = wanderTime;
+            pathfinder.maxSpeed = 5.0f;
+
         }*/
         //Ele sabe onde está o player e vai chamar a policia
         else if (callingCops)
@@ -82,6 +84,7 @@ public class NPCMovement : MonoBehaviour
             GoTo(GetClosestPhone());
             patrolTimeLeft = patrolTime;
             wanderTimeLeft = wanderTime;
+            pathfinder.maxSpeed = 5.0f;
         }
         //Ele não sabe onde está o player, mas sabe do último barulho
         else if (lastKnownDistractionPosition != null)
@@ -90,6 +93,7 @@ public class NPCMovement : MonoBehaviour
             GoTo(lastKnownDistractionPosition);
             patrolTimeLeft = patrolTime;
             wanderTimeLeft = wanderTime;
+            pathfinder.maxSpeed = 2.0f;
         }
         //Ele não sabe onde está o player, já chegou ao barulho vai patrulhar a área
         else if (patrolTimeLeft > 0)
@@ -125,6 +129,7 @@ public class NPCMovement : MonoBehaviour
         setter.enabled = false;
         patroler.enabled = true;
         patroler.targets = GetClosestRoom().targets;
+        pathfinder.maxSpeed = 2.0f;
     }
 
     PatrolTargets GetClosestRoom()
@@ -171,5 +176,6 @@ public class NPCMovement : MonoBehaviour
         patroler.enabled = false;
         setter.enabled = false;
         wanderer.enabled = true;
+        pathfinder.maxSpeed = 2.0f;
     }
 }
