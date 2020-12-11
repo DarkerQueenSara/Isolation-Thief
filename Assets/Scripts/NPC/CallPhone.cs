@@ -24,7 +24,7 @@ public class CallPhone : MonoBehaviour
         if (other.CompareTag("NPC") && NPC.callingCops && !countdouwnStarted)
         {
             Debug.Log("Chamou policia!");
-            GameManager.Instance.copsCalled = true;
+            GameManager.Instance.callCops();
             NPC.callingCops = false;
             //chamou policia
             this.CallPolice();

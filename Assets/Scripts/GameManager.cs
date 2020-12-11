@@ -26,9 +26,16 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
+    public void callCops()
+    {
+        this.copsCalled = true;
+        SoundManagerScript.instance.PlaySoundGradually(SoundManagerScript.POLICE_SIRENS, timeTillCops);
+    }
+
     public void endGame()
     {
         hasEnded = true;
+        SoundManagerScript.instance.stopSound();
         if (copsArrived) //Lose
         {
             LevelEndText.instance.setText(
