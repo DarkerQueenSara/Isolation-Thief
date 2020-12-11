@@ -5769,6 +5769,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!108 &882983753 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 6238235028210570483, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068684464479039474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &908717462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5776960626074153354, guid: e685962f058485547ac790593713d8b1,
@@ -8093,12 +8099,12 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -13456,6 +13462,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3538248544981168119, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: roomLights.Array.data[0]
+      value: 
+      objectReference: {fileID: 882983753}
     - target: {fileID: 3554411386728186302, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_Layer
