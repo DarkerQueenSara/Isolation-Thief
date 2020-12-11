@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Smartphone
   icon: {fileID: 21300000, guid: 1ebe4ba56ab44164796b8fdc639d76db, type: 3}
-  value: 199.99
+  value: 350
