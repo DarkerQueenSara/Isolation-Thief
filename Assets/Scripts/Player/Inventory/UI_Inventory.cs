@@ -43,7 +43,7 @@ public class UI_Inventory : MonoBehaviour
 
     private void Start()
     {
-        this.goalValueText.text = "Goal : 1000$";
+        this.goalValueText.text = "Goal : 2500$";
     }
 
     public void SetInventory(Inventory inventory)
@@ -68,10 +68,10 @@ public class UI_Inventory : MonoBehaviour
         }
 
         stolenValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
-        this.goalValueText.text = "Goal : 1000$";
+        this.goalValueText.text = "Goal : 2500$";
         this.stolenValueText.text = "Stolen :" + inventory.getTotalValue() + "$";
 
-        float missingValue = 1000 - inventory.getTotalValue();
+        float missingValue = 2500 - inventory.getTotalValue();
         missingValue = missingValue < 0 ? 0 : missingValue;
         this.missingValueText.text = missingValue + "$";
     }
@@ -92,12 +92,14 @@ public class UI_Inventory : MonoBehaviour
         {
             gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             crosshair.SetActive(false);
         }
         else
         {
             gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             crosshair.SetActive(true);
         }
     }

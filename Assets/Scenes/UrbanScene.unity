@@ -6424,7 +6424,12 @@ PrefabInstance:
     - target: {fileID: 7435135280091889456, guid: 3dc8c9011e7555246a0061e35c56c212,
         type: 3}
       propertyPath: moneyGoal
-      value: 2000
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7435135280091889456, guid: 3dc8c9011e7555246a0061e35c56c212,
+        type: 3}
+      propertyPath: timeTillCops
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7435135280091889457, guid: 3dc8c9011e7555246a0061e35c56c212,
         type: 3}

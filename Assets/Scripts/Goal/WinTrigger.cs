@@ -8,8 +8,7 @@ public class WinTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("I hit the trigger");
-            Cursor.lockState = CursorLockMode.None;
+           
             GameManager.Instance.endGame();
         }
     }

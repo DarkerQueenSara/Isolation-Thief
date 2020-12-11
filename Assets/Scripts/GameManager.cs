@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public float moneyGoal = 2000.0f;
-    public float timeTillCops = 30.0f;
+    public float moneyGoal = 2500.0f;
+    public float timeTillCops = 15.0f;
 
     public static GameManager Instance;
     private void Awake()
@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     public void endGame()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         hasEnded = true;
         SoundManagerScript.instance.stopSound();
         if (copsArrived) //Lose
