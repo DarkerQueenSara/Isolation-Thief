@@ -10091,7 +10091,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh98520
+  m_Name: pb_Mesh16720
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12791,12 +12791,12 @@ PrefabInstance:
     - target: {fileID: 472701089341324074, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: lockpickable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 472701089341324074, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: isLocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 473079730023851109, guid: e685962f058485547ac790593713d8b1,
         type: 3}
@@ -12878,6 +12878,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 931595301294271758, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0019bec7a9bbc4409ceb95ad5a777a9, type: 2}
     - target: {fileID: 977368082538924517, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_Layer
@@ -12908,6 +12913,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1103937648621185851, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0019bec7a9bbc4409ceb95ad5a777a9, type: 2}
     - target: {fileID: 1144153153110006766, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_Layer
@@ -13088,6 +13098,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2174649720507126066, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0019bec7a9bbc4409ceb95ad5a777a9, type: 2}
     - target: {fileID: 2253516225895080380, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_Layer
@@ -13158,6 +13173,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2575394730840059736, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0019bec7a9bbc4409ceb95ad5a777a9, type: 2}
     - target: {fileID: 2583293053810968455, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_Layer
@@ -13403,6 +13423,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3741013846939686260, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc1ec9a7d900b54096131bfafa85939, type: 2}
     - target: {fileID: 3770982659989560289, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_Layer
@@ -14316,12 +14341,12 @@ PrefabInstance:
     - target: {fileID: 7262860542510870679, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: lockpickable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7262860542510870679, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: isLocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7269081595326249360, guid: e685962f058485547ac790593713d8b1,
         type: 3}
@@ -14488,6 +14513,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8837374580595008517, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0019bec7a9bbc4409ceb95ad5a777a9, type: 2}
     - target: {fileID: 8853093028378055188, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: roomLights.Array.data[0]
