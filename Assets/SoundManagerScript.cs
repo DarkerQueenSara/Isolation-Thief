@@ -35,7 +35,7 @@ public class SoundManagerScript : MonoBehaviour
         if (increasingVolume)
         {
             float progress = Mathf.Clamp01((timeToIncrease - (finalTime - Time.time)) / timeToIncrease);
-            audioSrc.volume = (progress * progress * progress) / 2;
+            audioSrc.volume = (progress * progress * progress) / 2 + 0.01f;
             if(progress > 0.99999)
             {
                 increasingVolume = false;
