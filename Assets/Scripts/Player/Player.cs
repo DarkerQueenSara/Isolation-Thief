@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public int level { get; private set; }
 
     private GadgetTree gadgetTree;
+    private List<Gadget> onHand;
 
     private void Awake()
     {
@@ -29,6 +30,9 @@ public class Player : MonoBehaviour
         playerControls = gameObject.GetComponent<Controls>();
         level = 1;
         gadgetTree = new GadgetTree();
+        //asumir que so vai para a mao o que pode ser usado
+        onHand = new List<Gadget>();
+        onHand.Add((Lockpick)gadgetTree.gadgets["lockpick"]);
     }
 
     public void AddToInventory(Item item)
@@ -53,29 +57,6 @@ public class Player : MonoBehaviour
         return this.inventory.TotalValue;
     }
 
-    public bool CanLockpick()
-    {
-        Lockpick lockpick = gadgetTree.gadgets.ContainsKey("lockpick") ? (Lockpick)gadgetTree.gadgets["lockpick"] : null;
-
-        if(lockpick != null)
-        {
-            return lockpick.CanUse();
-        }
-
-        return false;
-    }
-
-    public bool Lockpick()
-    {
-        Lockpick lockpick = (Lockpick)gadgetTree.GetGadget("lockpick");
-
-        if(lockpick != null)
-        {
-            return lockpick.LockpickObject();
-        }
-
-        return false;
-    }
 
     public void unlockGadget(string gadgetName)
     {
@@ -85,6 +66,30 @@ public class Player : MonoBehaviour
         {
             gadget.unlocked = true;
         }
+    }
+
+    public bool hasGadgetOnHand(GadgetType type)
+    {
+        foreach(Gadget gadget in this.onHand)
+        {
+            if(gadget.getGadgetType() == type)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Gadget getGadgetOnHand(GadgetType type)
+    {
+        foreach (Gadget gadget in this.onHand)
+        {
+            if (gadget.getGadgetType() == type)
+            {
+                return gadget;
+            }
+        }
+        return null;
     }
 
     void Start()

@@ -38,16 +38,6 @@ public class SimpleLockpick : Lockpick
     public override bool LockpickObject()
     {
         //Exit immedialy if you stop holding the interact button
-        if (Input.GetButtonUp("Interact"))
-        {
-            //loadBar = false;
-            this.loadingBar.SetDisabled();
-            st.Stop();
-            Debug.Log(string.Format("Lockpicked for {0} ms and stopped", st.ElapsedMilliseconds));
-            st.Reset();
-            isPicking = false;
-            return false;
-        }
         if (!isPicking)
         {
             isPicking = true;
@@ -88,5 +78,14 @@ public class SimpleLockpick : Lockpick
 
 
         return false;
+    }
+
+    public override void stopPicking()
+    {
+        this.loadingBar.SetDisabled();
+        st.Stop();
+        Debug.Log(string.Format("Lockpicked for {0} ms and stopped", st.ElapsedMilliseconds));
+        st.Reset();
+        isPicking = false;
     }
 }

@@ -6,8 +6,6 @@ public class Interactable : MonoBehaviour
 {
     public float radius = 3f;
 
-    public bool lockpickable;
-
     protected Player player;
 
     public void Start()
