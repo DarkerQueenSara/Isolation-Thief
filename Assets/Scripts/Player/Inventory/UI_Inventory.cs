@@ -76,6 +76,10 @@ public class UI_Inventory : MonoBehaviour
         this.missingValueText.text = missingValue + "$";
     }
 
+    public bool isVisible()
+    {
+        return showInventory;
+    }
     public void visible()
     {
         if (showInventory)

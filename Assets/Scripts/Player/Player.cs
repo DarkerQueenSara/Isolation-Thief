@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private Inventory inventory;
 
     private PlayerMovement playerMovement;
+    private Controls playerControls;
 
     public bool isLit;
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         inventory = new SimpleBag();
         ui_Inventory.SetInventory(inventory);
         playerMovement = gameObject.GetComponent<PlayerMovement>();
+        playerControls = gameObject.GetComponent<Controls>();
         level = 1;
         gadgetTree = new GadgetTree();
     }
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
     public void ChangeInventoryVisible()
     {
         this.ui_Inventory.visible();
+        this.playerControls.setDisabled(this.ui_Inventory.isVisible());
     }
 
     public float GetTotalStolen()

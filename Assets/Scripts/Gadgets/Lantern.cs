@@ -15,7 +15,7 @@ public class Lantern : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Lantern"))
+        if (Input.GetButtonDown("Gadget2"))
         {
             lantern.enabled = !lantern.enabled;
         }

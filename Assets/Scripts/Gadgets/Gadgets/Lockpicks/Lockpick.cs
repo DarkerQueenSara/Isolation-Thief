@@ -32,4 +32,9 @@ public class Lockpick : Gadget
     {
         return float.MaxValue;
     }
+
+    public override GadgetType getGadgetType()
+    {
+        return GadgetType.LOCKPICK;
+    }
 }

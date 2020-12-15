@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GadgetType
+{
+    LOCKPICK,
+    LANTERN
+}
+
 public abstract class Gadget
 {
+    
     public int usability;
     public bool unlocked;
     public List<Gadget> gadgetDependencies;
@@ -18,7 +25,7 @@ public abstract class Gadget
 
     }
 
-
+    public abstract GadgetType getGadgetType();
 
     public virtual bool CanUse()
     {

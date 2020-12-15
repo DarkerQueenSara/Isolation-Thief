@@ -19,13 +19,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
     public float groundDistance = 0.4f;
-    public Texture crosshairTexture;
 
     Vector3 velocity;
     bool isGrounded;
     SmoothCrouching smoothCrouching;
     SmoothProning smoothProning;
-    private InteractionTextManager interactionTextManager;
 
     public bool disabled = false;
 
@@ -34,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     {
         smoothCrouching = new SmoothCrouching(controller, playerCollider);
         smoothProning = new SmoothProning(controller, playerCollider);
-        interactionTextManager = InteractionTextManager.instance;
     }
 
     // Update is called once per frame
@@ -43,10 +40,7 @@ public class PlayerMovement : MonoBehaviour
         if (disabled) return;
 
 
-        if (Input.GetButtonDown("Inventory"))
-        {
-            Player.Instance.ChangeInventoryVisible();
-        }
+        
 
 
         //verify if is on ground------
@@ -122,50 +116,8 @@ public class PlayerMovement : MonoBehaviour
         smoothProning.Update();
 
 
-        interact();
+        
     }
 
-    private Interactable lastInteractable;
-    private void interact()
-    {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            //ONLY FOR DEBUG PURPOSES
-            if (Input.GetButtonDown("Interact"))
-            {
-                //Debug.Log("I'm looking at " + hit.transform.name);
-            }
-            //----------------------------------------------------
-            Interactable interactable = hit.collider.GetComponent<Interactable>();
-            if (interactable != null && interactable.canInteract(hit.distance))
-            {
-                if (lastInteractable != interactable)
-                {
-                    interactionTextManager.setInteractingText(interactable.getInteractingText());
-                }
-
-                if (Input.GetButtonDown("Interact"))
-                {
-                    interactable.interact();
-                    interactionTextManager.setInteractingText("");
-                } 
-                if(Input.GetButtonUp("Interact"))
-                {
-
-                    interactionTextManager.setInteractingText(interactable.getInteractingText());
-                }
-
-                lastInteractable = interactable;
-            }
-            else
-            {
-                if (interactionTextManager.HasText()){
-                    interactionTextManager.setInteractingText("");
-                }
-                lastInteractable = null;
-            }
-        }
-    }
+    
 }
