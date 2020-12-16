@@ -8417,10 +8417,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1374021537}
   - component: {fileID: 1374021539}
-  - component: {fileID: 1374021538}
   m_Layer: 0
-  m_Name: Lantern
-  m_TagString: Untagged
+  m_Name: PlayerLantern
+  m_TagString: PlayerLantern
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8439,19 +8438,6 @@ Transform:
   m_Father: {fileID: 427463513}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1374021538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374021536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35e2371aab76d04fac47023c36709eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lantern: {fileID: 1374021539}
 --- !u!108 &1374021539
 Light:
   m_ObjectHideFlags: 0
@@ -10698,7 +10684,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh56716
+  m_Name: pb_Mesh305902
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -32,6 +32,9 @@ public class Controls : MonoBehaviour
         if (Input.GetButtonDown("Gadget2"))
         {
             //TODO gadgets que nao precisam de interactables
+            Gadget onHand = Player.Instance.getGadgetTypeFOnHand();
+            if(onHand.CanUse())
+                onHand.Use();
         }
 
 

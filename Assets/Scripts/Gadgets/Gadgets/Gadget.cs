@@ -15,11 +15,13 @@ public abstract class Gadget
     public bool unlocked;
     public List<Gadget> gadgetDependencies;
     public int minLevel;
+    protected bool isTypeF;
 
     protected Player player;
 
     public Gadget()
     {
+        isTypeF = false;
         this.unlocked = false;
         this.player = Player.Instance;
 
@@ -33,4 +35,9 @@ public abstract class Gadget
     }
 
     public abstract void Use();
+
+    public bool getIsTypeF()
+    {
+        return isTypeF;
+    }
 }

@@ -32,7 +32,8 @@ public class Player : MonoBehaviour
         gadgetTree = new GadgetTree();
         //asumir que so vai para a mao o que pode ser usado
         onHand = new List<Gadget>();
-        onHand.Add((Lockpick)gadgetTree.gadgets["lockpick"]);
+        onHand.Add(gadgetTree.gadgets["lockpick"]);
+        onHand.Add(gadgetTree.gadgets["lantern"]);
     }
 
     public void AddToInventory(Item item)
@@ -85,6 +86,18 @@ public class Player : MonoBehaviour
         foreach (Gadget gadget in this.onHand)
         {
             if (gadget.getGadgetType() == type)
+            {
+                return gadget;
+            }
+        }
+        return null;
+    }
+
+    public Gadget getGadgetTypeFOnHand()
+    {
+        foreach (Gadget gadget in this.onHand)
+        {
+            if (gadget.getIsTypeF())
             {
                 return gadget;
             }

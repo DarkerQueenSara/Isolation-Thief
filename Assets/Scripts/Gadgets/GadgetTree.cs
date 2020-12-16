@@ -11,6 +11,7 @@ public class GadgetTree
     {
         this.gadgets = new Dictionary<string, Gadget>();
         this.gadgets.Add("lockpick", new SimpleLockpick());
+        this.gadgets.Add("lantern", new Lantern());
     }
 
     public Gadget GetGadget(string gadgetName)

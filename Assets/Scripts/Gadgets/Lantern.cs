@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lantern : MonoBehaviour
+public class Lantern : Gadget
 {
     public Light lantern;
 
-    // Start is called before the first frame update
-    void Start()
+    public Lantern()
     {
-        
+        lantern = GameObject.FindGameObjectWithTag("PlayerLantern").GetComponent<Light>();
+        this.isTypeF = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Use()
     {
-        if (Input.GetButtonDown("Gadget2"))
-        {
-            lantern.enabled = !lantern.enabled;
-        }
+        
+        lantern.enabled = !lantern.enabled;
     }
+
+    public override GadgetType getGadgetType()
+    {
+        return GadgetType.LANTERN;
+    }
+
 }
