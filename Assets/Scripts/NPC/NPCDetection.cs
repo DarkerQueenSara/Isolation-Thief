@@ -12,12 +12,12 @@ public class NPCDetection : MonoBehaviour
     //Se calhar temos que ter diferentes para portas diferentes, e por Tags diferentes para cada tipo de porta
     //Mas pronto isto é só para portas pequenas nao abriem prematuramente, não é o fim do mundo
     public float doorRadius = 6f;
-    private NPCMovement NPC;
+    private NPCMovementOld NPC;
     private Player player;
 
     void Awake()
     {
-        NPC = this.GetComponentInParent<NPCMovement>();
+        NPC = this.GetComponentInParent<NPCMovementOld>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 

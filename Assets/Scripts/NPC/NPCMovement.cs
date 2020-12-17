@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCMovement : MonoBehaviour
+public class NPCMovementOld : MonoBehaviour
 {
 
     public int patrolTime;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CallPhone : MonoBehaviour
 {
-    public NPCMovement NPC;
+    public NPCMovementOld NPC;
     
     private float finalTime;
     private bool countdouwnStarted;
