@@ -13,6 +13,7 @@ public class ManagedNPC : MonoBehaviour
     public MovementType movementType;
 
     private NPCMovement myMovement;
+    private float doorCloseDelay = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +42,21 @@ public class ManagedNPC : MonoBehaviour
             myMovement.Move();
         } else
         {
-             myMovement.checkForDoor();
+            Animator doorAnim = myMovement.checkForDoor();
+            if(doorAnim != null)
+            {
+                StartCoroutine(CloseDoor(doorAnim, doorCloseDelay));
+            }
+        }
+    }
+    private IEnumerator CloseDoor(Animator doorAnim, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        bool isOpen = doorAnim.GetBool("isOpenDoor");
+        if (isOpen)
+        {
+            doorAnim.SetBool("isOpenDoor", false);
+
         }
     }
 

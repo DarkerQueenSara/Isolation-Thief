@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class NPCMovement : MonoBehaviour
+public abstract class NPCMovement
 {
     protected static Dictionary<string, Vector3> destinations;
     protected Vector3 currentDestination;
@@ -11,7 +11,6 @@ public abstract class NPCMovement : MonoBehaviour
     protected NavMeshAgent npc_m_Agent;
 
     private float openDoorDist = 3f;
-    private float doorCloseDelay = 2f;
 
     public virtual void Initialize(GameObject npc)
     {
@@ -33,7 +32,7 @@ public abstract class NPCMovement : MonoBehaviour
     public abstract void Move();
 
     //return Animator of door if found a door in path close to it and opened it
-    public virtual void checkForDoor()
+    public virtual Animator checkForDoor()
     {
 
         if (Physics.Linecast(NPC.transform.position, npc_m_Agent.steeringTarget, out RaycastHit hit, 1 << 11))
@@ -43,19 +42,11 @@ public abstract class NPCMovement : MonoBehaviour
             {
                 Animator doorAnim = hit.collider.gameObject.GetComponent<Animator>();
                 doorAnim.SetBool("isOpenDoor", true);
-                StartCoroutine(CloseDoor(doorAnim, doorCloseDelay));
+                
             }
         }
-    }
-    private IEnumerator CloseDoor(Animator doorAnim, float delayTime)
-    {
-        yield return new WaitForSeconds(delayTime);
-        bool isOpen = doorAnim.GetBool("isOpenDoor");
-        if (isOpen)
-        {
-            doorAnim.SetBool("isOpenDoor", false);
 
-        }
+        return null;
     }
 
 }
