@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class NPCMovement
+public abstract class NPCMovement : MonoBehaviour
 {
-    protected Dictionary<string, Vector3> destinations;
+    protected static Dictionary<string, Vector3> destinations;
     protected Vector3 currentDestination;
     protected GameObject NPC;
     protected NavMeshAgent npc_m_Agent;
 
+    private float openDoorDist = 3f;
+    private float doorCloseDelay = 2f;
+
     public virtual void Initialize(GameObject npc)
     {
         destinations = new Dictionary<string, Vector3>();
-        foreach (Transform destination in GameObject.Find("Destinations").transform.GetComponentsInChildren<Transform>())
+        foreach (GameObject destination in GameObject.FindGameObjectsWithTag("NPCDestination"))
         {
-            destinations.Add(destination.name, destination.position);
+            destinations.Add(destination.name, destination.transform.position);
         }
 
         this.NPC = npc;
@@ -28,4 +31,31 @@ public abstract class NPCMovement
     }
 
     public abstract void Move();
+
+    //return Animator of door if found a door in path close to it and opened it
+    public virtual void checkForDoor()
+    {
+
+        if (Physics.Linecast(NPC.transform.position, npc_m_Agent.steeringTarget, out RaycastHit hit, 1 << 11))
+        {
+            //There is a CLOSED door on the path
+            if(hit.distance < openDoorDist)
+            {
+                Animator doorAnim = hit.collider.gameObject.GetComponent<Animator>();
+                doorAnim.SetBool("isOpenDoor", true);
+                StartCoroutine(CloseDoor(doorAnim, doorCloseDelay));
+            }
+        }
+    }
+    private IEnumerator CloseDoor(Animator doorAnim, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        bool isOpen = doorAnim.GetBool("isOpenDoor");
+        if (isOpen)
+        {
+            doorAnim.SetBool("isOpenDoor", false);
+
+        }
+    }
+
 }

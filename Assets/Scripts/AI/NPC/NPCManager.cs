@@ -4,39 +4,38 @@ using UnityEngine;
 
 public class NPCManager : MonoBehaviour
 {
-    public enum MovementType
+
+    public NPCManager Instance;
+
+    public List<ManagedNPC> managedNPCS;
+
+    private void Awake()
     {
-        RandomPatrol,
+        if(Instance == null)
+        {
+            this.Instance = this;
+        }
 
+        this.managedNPCS = new List<ManagedNPC>();
     }
-
-    //Set from outside
-    public MovementType movementType;
-
-    private NPCMovement myMovement;
 
     void Start()
     {
-        myMovement = getMovement();
-        myMovement.Initialize(gameObject);
-    }
+        var npcs = transform.Find("NPCS");
 
-    private NPCMovement getMovement()
-    {
-        switch (movementType)
+        foreach(ManagedNPC managedNPC in npcs.GetComponentsInChildren<ManagedNPC>())
         {
-            case MovementType.RandomPatrol:
-                return new RandomPatrol();
-            default:
-                return new RandomPatrol();
+            managedNPCS.Add(managedNPC);
         }
     }
 
+
+
     void Update()
     {
-        if (!myMovement.IsMoving())
+        foreach(ManagedNPC managedNPC in managedNPCS)
         {
-            myMovement.Move();
+            managedNPC.UpdateMovement();
         }
     }
 }

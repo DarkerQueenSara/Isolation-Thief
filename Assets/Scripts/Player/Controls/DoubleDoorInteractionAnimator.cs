@@ -102,6 +102,13 @@ namespace Assets.Scripts.Player.Controls
         {
             bool isOpen = animator.GetBool("isOpenDoor");
             animator.SetBool("isOpenDoor", !isOpen);
+            if (animator.GetBool("isOpenDoor"))
+            {
+                gameObject.layer = LayerMask.NameToLayer("OpenDoor");
+            } else
+            {
+                gameObject.layer = LayerMask.NameToLayer("ClosedDoor");
+            }
         }
 
 
