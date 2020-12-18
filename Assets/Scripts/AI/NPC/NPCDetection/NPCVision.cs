@@ -6,6 +6,7 @@ public class NPCVision : MonoBehaviour
 {
     Transform npc_transform;
     Transform npcHead_transform;
+    ManagedNPC NPC;
     private int obstacleLayerMask = 1 << 9 | 1 << 11; // 9 because obstacle layer is number 9 on inspector
 
 
@@ -13,6 +14,7 @@ public class NPCVision : MonoBehaviour
     {
         this.npc_transform = npc_transform;
         this.npcHead_transform = npc_head;
+        this.NPC = npc_transform.GetComponent<ManagedNPC>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -29,6 +31,7 @@ public class NPCVision : MonoBehaviour
             {
                 Debug.Log("I found the player");
                 //TODO: Stop moving for 0.5 seconds, look at player, and run to call    cops
+                NPCManager.Instance.CallCops();
                 //npcHead_transform.LookAt(other.transform);
             }
         }

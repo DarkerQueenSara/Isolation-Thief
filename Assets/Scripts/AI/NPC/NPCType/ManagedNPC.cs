@@ -13,11 +13,17 @@ public class ManagedNPC : MonoBehaviour
     public MovementType movementType;
 
     private NPCMovement myMovement;
-    private float doorCloseDelay = 2f;
+    private const float doorCloseDelay = 2f;
+    public bool canCallCops;
+    private NPCManager NPCManager;
+
+    private bool copsCalled;
 
     // Start is called before the first frame update
     void Start()
     {
+        this.NPCManager = NPCManager.Instance;
+        copsCalled = false;
         myMovement = getMovement();
         myMovement.Initialize(gameObject);
         var head = transform.Find("Capsule").Find("Head");
@@ -37,6 +43,7 @@ public class ManagedNPC : MonoBehaviour
     // Update is called once per frame
     public void UpdateMovement()
     {
+
         if (!myMovement.IsMoving())
         {
             myMovement.Move();
@@ -60,4 +67,32 @@ public class ManagedNPC : MonoBehaviour
         }
     }
 
+    public void CallCops(Transform closestPhoneTransform)
+    {
+        this.myMovement.GoTo(closestPhoneTransform.position);
+        StartCoroutine(DoCallCops());
+
+    }
+
+    private IEnumerator DoCallCops()
+    {
+        while (myMovement.IsMoving())
+        {
+            yield return null;
+        }
+
+        CallPhone.Instance.CallPolice();
+
+        while (!GameManager.Instance.copsCalled)
+        {
+            yield return null;
+        }
+
+        this.myMovement.HideOnBedRoom();
+    }
+
+    public void HideOnBedRoom()
+    {
+        this.myMovement.HideOnBedRoom();
+    }
 }

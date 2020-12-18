@@ -42,11 +42,21 @@ public abstract class NPCMovement
             {
                 Animator doorAnim = hit.collider.gameObject.GetComponent<Animator>();
                 doorAnim.SetBool("isOpenDoor", true);
-                
+                return doorAnim;
             }
         }
 
         return null;
+    }
+
+    public void GoTo(Vector3 position) {
+
+        this.npc_m_Agent.destination = position;
+    }
+
+    public void HideOnBedRoom()
+    {
+        this.npc_m_Agent.destination = destinations["BedDestination"];
     }
 
 }

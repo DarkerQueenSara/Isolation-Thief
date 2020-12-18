@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public class CallPhone : MonoBehaviour
 {
-    public NPCMovementOld NPC;
-    
+
+    public static CallPhone Instance { get; private set; }
+
     private float finalTime;
     private bool countdouwnStarted;
     private GameManager manager;
 
     [SerializeField] Text countdownText;
+
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,23 +27,21 @@ public class CallPhone : MonoBehaviour
         manager = GameManager.Instance;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("NPC") && NPC.callingCops && !countdouwnStarted)
-        {
-            Debug.Log("Chamou policia!");
-            GameManager.Instance.callCops();
-            NPC.callingCops = false;
-            //chamou policia
-            this.CallPolice();
-        }
-    }
     public void CallPolice()
     {
-        finalTime = Time.time + manager.timeTillCops;
-        countdouwnStarted = true;
-        countdownText.text = manager.timeTillCops.ToString("0");
-        countdownText.enabled = true;
+        if (NPCManager.Instance.copsCalled && !countdouwnStarted)
+        {
+            Debug.Log("Chamou policia!");
+            //These call cops are different from the NPC ones. The NPC ones select an NPC and move it to the phone or bedroom
+            //This is to say: The cops responsiblility is now handed to the GameManager. The NPCManager has done everything
+            GameManager.Instance.callCops();
+            finalTime = Time.time + manager.timeTillCops;
+            countdouwnStarted = true;
+            countdownText.text = manager.timeTillCops.ToString("0");
+            countdownText.enabled = true;
+        }
+
+        
     }
 
     // Update is called once per frame

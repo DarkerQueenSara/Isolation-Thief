@@ -711,6 +711,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3892469651134686861, guid: 488882521e1a9d442944da0226dc0049, type: 3}
+--- !u!4 &96162874 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4525739473093972046, guid: e58caf0e2cc922d48bda959c8da3e806,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614135497}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &97521455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6674,6 +6680,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!4 &1029794629 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4525739473093972046, guid: e58caf0e2cc922d48bda959c8da3e806,
+    type: 3}
+  m_PrefabInstance: {fileID: 549961915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1033539219 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1445116497007264406, guid: e685962f058485547ac790593713d8b1,
@@ -7367,6 +7379,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!4 &1196215055 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4525739473093972046, guid: e58caf0e2cc922d48bda959c8da3e806,
+    type: 3}
+  m_PrefabInstance: {fileID: 988957423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1198157884 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 439151397237664413, guid: e685962f058485547ac790593713d8b1,
@@ -9595,8 +9613,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376efa4000cae4f4094f765409adfd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Instance: {fileID: 0}
   managedNPCS: []
+  telephones:
+  - {fileID: 1724872171}
+  - {fileID: 1196215055}
+  - {fileID: 1029794629}
+  - {fileID: 96162874}
 --- !u!4 &1695646836
 Transform:
   m_ObjectHideFlags: 0
@@ -9653,6 +9675,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4111032784520247101, guid: 8c5fc732c1c78c04db7c809178b4e061, type: 3}
+--- !u!4 &1724872171 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5776960626074153354, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068684464479039474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1727314791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6765232461017181654, guid: e685962f058485547ac790593713d8b1,
@@ -9741,6 +9769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 0
+  canCallCops: 1
 --- !u!1 &1748649431
 GameObject:
   m_ObjectHideFlags: 0
