@@ -11,7 +11,7 @@ public class NPCManager : MonoBehaviour
 
     public List<Transform> telephones;
 
-    public bool copsCalled { get; private set; }
+    public bool CopsCalled { get; private set; }
 
     private void Awake()
     {
@@ -37,7 +37,7 @@ public class NPCManager : MonoBehaviour
 
     void Update()
     {
-        if (copsCalled) return;
+        if (CopsCalled) return;
 
         foreach(ManagedNPC managedNPC in managedNPCS)
         {
@@ -47,7 +47,7 @@ public class NPCManager : MonoBehaviour
 
     public void CallCops()
     {
-        this.copsCalled = true;
+        this.CopsCalled = true;
 
 
         foreach (ManagedNPC managedNPC in this.managedNPCS)
@@ -65,7 +65,6 @@ public class NPCManager : MonoBehaviour
 
     Transform GetClosestPhone(ManagedNPC managedNPC)
     {
-        //Debug.Log("Entrou no GetClosestPhone()");
         Vector3 managedNPCPosition = managedNPC.transform.position;
         Transform aux = null;
 
@@ -80,7 +79,7 @@ public class NPCManager : MonoBehaviour
                 aux = item;
             }
         }
-        //Debug.Log("Vai retornar " + aux.position);
+
         return aux;
     }
 }

@@ -4344,6 +4344,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Telephone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4525739473093972019, guid: e58caf0e2cc922d48bda959c8da3e806,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4525739473093972046, guid: e58caf0e2cc922d48bda959c8da3e806,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6382,6 +6387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Telephone (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525739473093972019, guid: e58caf0e2cc922d48bda959c8da3e806,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4525739473093972046, guid: e58caf0e2cc922d48bda959c8da3e806,
         type: 3}
@@ -9277,6 +9287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Telephone (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4525739473093972019, guid: e58caf0e2cc922d48bda959c8da3e806,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4525739473093972046, guid: e58caf0e2cc922d48bda959c8da3e806,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9613,7 +9628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376efa4000cae4f4094f765409adfd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managedNPCS: []
   telephones:
   - {fileID: 1724872171}
   - {fileID: 1196215055}
@@ -10489,7 +10503,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15906
+  m_Name: pb_Mesh15956
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14557,6 +14571,11 @@ PrefabInstance:
       propertyPath: countdownText
       value: 
       objectReference: {fileID: 790144686}
+    - target: {fileID: 5776960626074153463, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5835542468608938176, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_Layer
@@ -14926,6 +14945,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484448144401953406, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539213391286317279, guid: e685962f058485547ac790593713d8b1,
         type: 3}

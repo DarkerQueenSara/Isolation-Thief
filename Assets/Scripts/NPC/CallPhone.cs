@@ -29,7 +29,7 @@ public class CallPhone : MonoBehaviour
 
     public void CallPolice()
     {
-        if (NPCManager.Instance.copsCalled && !countdouwnStarted)
+        if (NPCManager.Instance.CopsCalled && !countdouwnStarted)
         {
             Debug.Log("Chamou policia!");
             //These call cops are different from the NPC ones. The NPC ones select an NPC and move it to the phone or bedroom
