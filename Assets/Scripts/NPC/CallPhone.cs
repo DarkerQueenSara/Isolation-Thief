@@ -6,17 +6,17 @@ using UnityEngine.UI;
 public class CallPhone : MonoBehaviour
 {
     public NPCMovement NPC;
-    
+
     private float finalTime;
     private bool countdouwnStarted;
-    private GameManager manager;
+    private LevelManager manager;
 
     [SerializeField] Text countdownText;
     // Start is called before the first frame update
     void Start()
     {
         countdouwnStarted = false;
-        manager = GameManager.Instance;
+        manager = LevelManager.Instance;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +24,7 @@ public class CallPhone : MonoBehaviour
         if (other.CompareTag("NPC") && NPC.callingCops && !countdouwnStarted)
         {
             Debug.Log("Chamou policia!");
-            GameManager.Instance.callCops();
+            LevelManager.Instance.callCops();
             NPC.callingCops = false;
             //chamou policia
             this.CallPolice();
@@ -41,22 +41,26 @@ public class CallPhone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countdouwnStarted && !manager.hasEnded)
+        if (countdouwnStarted)
         {
             float timeLeft = finalTime - Time.time;
-            countdownText.text = timeLeft.ToString("0");
-            if(timeLeft < 0.1f)
+            if (!manager.hasEnded)
             {
-                countdouwnStarted = false;
-                countdownText.text = "";
-                //acabar jogo
-                manager.copsArrived = true;
-                manager.endGame();
+                countdownText.text = timeLeft.ToString("0");
+                if (timeLeft < 0.1f)
+                {
+                    countdouwnStarted = false;
+                    countdownText.text = "";
+                    //acabar jogo
+                    manager.copsArrived = true;
+                    manager.endGame();
+                }
             }
-        }
-        if(countdouwnStarted && manager.hasEnded)
-        {
-            countdownText.text = "";
+            else
+            {
+                countdownText.text = "";
+                LevelManager.Instance.copsTimeLeft = timeLeft;
+            }
         }
     }
 }

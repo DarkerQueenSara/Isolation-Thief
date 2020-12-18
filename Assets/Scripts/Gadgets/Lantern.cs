@@ -16,6 +16,7 @@ public class Lantern : Gadget
     {
         
         lantern.enabled = !lantern.enabled;
+        LevelManager.Instance.usedFlashlight = true;
     }
 
     public override GadgetType getGadgetType()

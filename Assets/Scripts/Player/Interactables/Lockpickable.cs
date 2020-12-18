@@ -24,6 +24,13 @@ public class Lockpickable : Interactable
                     isLocked = false;
                     //TODO maybe remove
                     this.interact();
+                    if (this.gameObject.CompareTag("Door"))
+                    {
+                        LevelManager.Instance.doorsLockpicked++;
+                    } else
+                    {
+                        LevelManager.Instance.windowsLockpicked++;
+                    }
                 }
             }
         }
