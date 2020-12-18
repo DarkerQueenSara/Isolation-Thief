@@ -26,7 +26,7 @@ public class ManagedNPC : MonoBehaviour
         copsCalled = false;
         myMovement = getMovement();
         myMovement.Initialize(gameObject);
-        var head = transform.Find("Capsule").Find("Head");
+        var head = transform.Find("Model/Head");
         head.GetComponent<NPCVision>().Initialize(transform, head);
     }
     private NPCMovement getMovement()

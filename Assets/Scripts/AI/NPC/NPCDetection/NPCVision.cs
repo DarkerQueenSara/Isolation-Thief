@@ -45,11 +45,18 @@ public class NPCVision : MonoBehaviour
         NavMeshAgent agent = npc_transform.GetComponent<NavMeshAgent>();
         agent.isStopped = true;
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         agent.isStopped = false;
         //Look at player, and scared animation
         npcHead_transform.LookAt(toLookAt);
-        NPCManager.Instance.CallCops();
+
+        if (NPC.canCallCops)
+        {
+            NPCManager.Instance.CallCops();
+        } else
+        {
+            NPC.HideOnBedRoom();
+        }
     }
 
 }
