@@ -11,12 +11,14 @@ public class Player : MonoBehaviour
     private Inventory inventory;
 
     private PlayerMovement playerMovement;
+    private Controls playerControls;
 
     public bool isLit;
 
     public int level { get; private set; }
 
     private GadgetTree gadgetTree;
+    private List<Gadget> onHand;
 
     private void Awake()
     {
@@ -25,8 +27,13 @@ public class Player : MonoBehaviour
         inventory = new SimpleBag();
         ui_Inventory.SetInventory(inventory);
         playerMovement = gameObject.GetComponent<PlayerMovement>();
+        playerControls = gameObject.GetComponent<Controls>();
         level = 1;
         gadgetTree = new GadgetTree();
+        //asumir que so vai para a mao o que pode ser usado
+        onHand = new List<Gadget>();
+        onHand.Add(gadgetTree.gadgets["lockpick"]);
+        onHand.Add(gadgetTree.gadgets["lantern"]);
     }
 
     public void AddToInventory(Item item)
@@ -43,6 +50,7 @@ public class Player : MonoBehaviour
     public void ChangeInventoryVisible()
     {
         this.ui_Inventory.visible();
+        this.playerControls.setDisabled(this.ui_Inventory.isVisible());
     }
 
     public float GetTotalStolen()
@@ -50,29 +58,6 @@ public class Player : MonoBehaviour
         return this.inventory.TotalValue;
     }
 
-    public bool CanLockpick()
-    {
-        Lockpick lockpick = gadgetTree.gadgets.ContainsKey("lockpick") ? (Lockpick)gadgetTree.gadgets["lockpick"] : null;
-
-        if(lockpick != null)
-        {
-            return lockpick.CanUse();
-        }
-
-        return false;
-    }
-
-    public bool Lockpick()
-    {
-        Lockpick lockpick = (Lockpick)gadgetTree.GetGadget("lockpick");
-
-        if(lockpick != null)
-        {
-            return lockpick.LockpickObject();
-        }
-
-        return false;
-    }
 
     public void unlockGadget(string gadgetName)
     {
@@ -82,6 +67,42 @@ public class Player : MonoBehaviour
         {
             gadget.unlocked = true;
         }
+    }
+
+    public bool hasGadgetOnHand(GadgetType type)
+    {
+        foreach(Gadget gadget in this.onHand)
+        {
+            if(gadget.getGadgetType() == type)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Gadget getGadgetOnHand(GadgetType type)
+    {
+        foreach (Gadget gadget in this.onHand)
+        {
+            if (gadget.getGadgetType() == type)
+            {
+                return gadget;
+            }
+        }
+        return null;
+    }
+
+    public Gadget getGadgetTypeFOnHand()
+    {
+        foreach (Gadget gadget in this.onHand)
+        {
+            if (gadget.getIsTypeF())
+            {
+                return gadget;
+            }
+        }
+        return null;
     }
 
     void Start()
