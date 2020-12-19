@@ -9,10 +9,14 @@ public abstract class NPCMovement
     protected Vector3 currentDestination;
     protected GameObject NPC;
     protected NavMeshAgent npc_m_Agent;
+    protected Animator managedNPC_animator;
 
-    private float openDoorDist = 3f;
+    protected float openDoorDist = 3f;
 
-    public virtual void Initialize(GameObject npc)
+    public float walkSpeed = 3.5f;
+    public float runSpeed = 5f;
+
+    public virtual void Initialize(GameObject npc, Animator managedNPC_animator)
     {
         destinations = new Dictionary<string, Vector3>();
         foreach (GameObject destination in GameObject.FindGameObjectsWithTag("NPCDestination"))
@@ -22,6 +26,7 @@ public abstract class NPCMovement
 
         this.NPC = npc;
         npc_m_Agent = this.NPC.GetComponent<NavMeshAgent>();
+        this.managedNPC_animator = managedNPC_animator;
     }
 
     public bool IsMoving()
@@ -51,12 +56,26 @@ public abstract class NPCMovement
 
     public void GoTo(Vector3 position) {
 
+        this.npc_m_Agent.speed = walkSpeed;
+        this.managedNPC_animator.SetFloat("Speed", walkSpeed);
         this.npc_m_Agent.destination = position;
+    }
+
+    public void Idle()
+    {
+        this.npc_m_Agent.speed = 0;
+        this.managedNPC_animator.SetFloat("Speed", 0);
     }
 
     public void HideOnBedRoom()
     {
+        this.npc_m_Agent.speed = runSpeed;
+        this.managedNPC_animator.SetFloat("Speed",runSpeed);
         this.npc_m_Agent.destination = destinations["BedDestination"];
     }
 
+    public void ReactScared()
+    {
+        this.managedNPC_animator.SetBool("React", true);
+    }
 }

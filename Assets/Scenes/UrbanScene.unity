@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.043137256, g: 0.043137256, b: 0.043137256, a: 1}
+  m_AmbientSkyColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -2088,7 +2088,7 @@ GameObject:
   - component: {fileID: 254604407}
   - component: {fileID: 254604410}
   - component: {fileID: 254604409}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2200,7 +2200,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 9728
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -3756,7 +3756,7 @@ GameObject:
   - component: {fileID: 427463510}
   - component: {fileID: 427463512}
   - component: {fileID: 427463511}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6470,7 +6470,8 @@ GameObject:
   - component: {fileID: 951981088}
   - component: {fileID: 951981087}
   - component: {fileID: 951981091}
-  m_Layer: 0
+  - component: {fileID: 951981092}
+  m_Layer: 13
   m_Name: First Person Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6563,6 +6564,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disabled: 0
+--- !u!208 &951981092
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951981086}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &965316685 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 592411835078883186, guid: e685962f058485547ac790593713d8b1,
@@ -8679,7 +8696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373930363}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8710,7 +8727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1374021537}
   - component: {fileID: 1374021539}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Lantern
   m_TagString: PlayerLantern
   m_Icon: {fileID: 0}
@@ -11115,7 +11132,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15956
+  m_Name: pb_Mesh16096
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14188,7 +14205,7 @@ PrefabInstance:
     - target: {fileID: 2276491030500329708, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2282735490892259287, guid: e685962f058485547ac790593713d8b1,
         type: 3}
@@ -14905,6 +14922,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4807877069479322687, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4885125349380654410, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_Layer
@@ -15614,6 +15636,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939805043823739297, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8121589077816032665, guid: e685962f058485547ac790593713d8b1,
         type: 3}
