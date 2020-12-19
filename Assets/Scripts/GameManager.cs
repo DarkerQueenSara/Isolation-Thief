@@ -45,34 +45,41 @@ public class GameManager : MonoBehaviour
 
 	public void endGame()
 	{
+		Debug.Log("End Game");
+
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		hasEnded = true;
 		SoundManagerScript.instance.stopSound();
+
 		if (copsArrived) //Lose
 		{
-			LevelEndText.instance.setText(
+			LevelEndMenu.Instance.setText(
+				"You LOST!",
 				"You were caught by the cops!",
-				"Goal : " + moneyGoal + " $",
-				"Value : " + +player.GetTotalStolen() + " $",
-				"You LOST!", false);
+				moneyGoal + " $",
+				+player.GetTotalStolen() + " $",
+				false);
 		}
 		else if (player.GetTotalStolen() < moneyGoal) //Lose
 		{
-			LevelEndText.instance.setText(
-				"You escaped!",
-				"Goal : " + moneyGoal + " $",
-				"Value : " + +player.GetTotalStolen() + " $",
-				"You LOST!", false);
+			LevelEndMenu.Instance.setText(
+				"You LOST!",
+				"You escaped, but you didn't steal enough...",
+				moneyGoal + " $",
+				+player.GetTotalStolen() + " $",
+				false);
 		}
 		else //win
 		{
-			LevelEndText.instance.setText(
+			LevelEndMenu.Instance.setText(
+				"You WON!",
 				"You escaped!",
-				"Goal : " + moneyGoal + " $",
-				"Value : " + +player.GetTotalStolen() + " $",
-				"You WON!", true);
+				moneyGoal + " $",
+				+player.GetTotalStolen() + " $",
+				true);
 		}
+		LevelEndMenu.Instance.visible();
 
 		player.DisableMovement();
 	}

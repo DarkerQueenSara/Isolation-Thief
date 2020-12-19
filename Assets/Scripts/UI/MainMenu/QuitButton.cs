@@ -10,6 +10,7 @@ public class QuitButton : MainMenuButton
 	public override void Action()
 	{
 		Debug.Log("Quit clicked");
+		//Application.LoadLevel(Application.loadedLevel);
 		Application.Quit();
 	}
 }
