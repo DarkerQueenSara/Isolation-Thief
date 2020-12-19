@@ -5,71 +5,82 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public float moneyGoal = 2500.0f;
-    public float timeTillCops = 15.0f;
+	public float moneyGoal = 2500.0f;
+	public float timeTillCops = 15.0f;
 
-    public static GameManager Instance;
-    private void Awake()
-    {
-        Instance = this;
-    }
+	public static GameManager Instance;
+	private void Awake()
+	{
+		Instance = this;
+	}
 
-    private Player player;
+	private Player player;
 
-    public bool copsCalled;
-    public bool copsArrived;
-    public bool hasEnded;
-    // Start is called before the first frame update
-    void Start()
-    {
-        hasEnded = false;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
+	public bool copsCalled;
+	public bool copsArrived;
+	public bool hasEnded;
 
-    public void callCops()
-    {
-        this.copsCalled = true;
-        SoundManagerScript.instance.PlaySoundGradually(SoundManagerScript.POLICE_SIRENS, timeTillCops);
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+		hasEnded = false;
+		MainMenu.instance.visible();
+	}
 
-    public void endGame()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        hasEnded = true;
-        SoundManagerScript.instance.stopSound();
-        if (copsArrived) //Lose
-        {
-            LevelEndText.instance.setText(
-                "You were caught by the cops!",
-                "Goal : " + moneyGoal + " $",
-                "Value : " + +player.GetTotalStolen() + " $",
-                "You LOST!", false);
-        }
-        else if (player.GetTotalStolen() < moneyGoal) //Lose
-        {
-            LevelEndText.instance.setText(
-                "You escaped!",
-                "Goal : " + moneyGoal + " $",
-                "Value : " + +player.GetTotalStolen() + " $",
-                "You LOST!", false);
-        }
-        else //win
-        {
-            LevelEndText.instance.setText(
-                "You escaped!",
-                "Goal : " + moneyGoal + " $",
-                "Value : " + +player.GetTotalStolen() + " $",
-                "You WON!", true);
-        }
+	public void StartGame()
+	{
+		MainMenu.instance.visible();
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+	}
 
-        player.DisableMovement();
-    }
+	public void callCops()
+	{
+		this.copsCalled = true;
+		SoundManagerScript.instance.PlaySoundGradually(SoundManagerScript.POLICE_SIRENS, timeTillCops);
+	}
+
+	public void endGame()
+	{
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+		hasEnded = true;
+		SoundManagerScript.instance.stopSound();
+		if (copsArrived) //Lose
+		{
+			LevelEndText.instance.setText(
+				"You were caught by the cops!",
+				"Goal : " + moneyGoal + " $",
+				"Value : " + +player.GetTotalStolen() + " $",
+				"You LOST!", false);
+		}
+		else if (player.GetTotalStolen() < moneyGoal) //Lose
+		{
+			LevelEndText.instance.setText(
+				"You escaped!",
+				"Goal : " + moneyGoal + " $",
+				"Value : " + +player.GetTotalStolen() + " $",
+				"You LOST!", false);
+		}
+		else //win
+		{
+			LevelEndText.instance.setText(
+				"You escaped!",
+				"Goal : " + moneyGoal + " $",
+				"Value : " + +player.GetTotalStolen() + " $",
+				"You WON!", true);
+		}
+
+		player.DisableMovement();
+	}
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
 }
