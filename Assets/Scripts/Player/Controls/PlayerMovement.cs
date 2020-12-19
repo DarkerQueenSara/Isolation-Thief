@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 1.5f;
 
     public Transform groundCheck;
-    public LayerMask groundMask;
+    private LayerMask groundMask;
     public float groundDistance = 0.4f;
 
     Vector3 velocity;
@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        groundMask = LayerMask.GetMask("Ground", "HouseGround");
         smoothCrouching = new SmoothCrouching(controller, playerCollider);
         smoothProning = new SmoothProning(controller, playerCollider);
     }

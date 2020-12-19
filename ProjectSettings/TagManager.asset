@@ -8,6 +8,7 @@ TagManager:
   - NPC
   - Door
   - NPCDestination
+  - PlayerLantern
   layers:
   - Default
   - TransparentFX

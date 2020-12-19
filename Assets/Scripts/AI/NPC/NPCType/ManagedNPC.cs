@@ -43,6 +43,7 @@ public class ManagedNPC : MonoBehaviour
     // Update is called once per frame
     public void UpdateMovement()
     {
+        if (copsCalled) return;
 
         if (!myMovement.IsMoving())
         {
@@ -69,6 +70,7 @@ public class ManagedNPC : MonoBehaviour
 
     public void CallCops(Transform closestPhoneTransform)
     {
+        this.copsCalled = true;
         this.myMovement.GoTo(closestPhoneTransform.position);
         StartCoroutine(DoCallCops());
 
@@ -93,6 +95,7 @@ public class ManagedNPC : MonoBehaviour
 
     public void HideOnBedRoom()
     {
+        this.copsCalled = true;
         this.myMovement.HideOnBedRoom();
     }
 }
