@@ -22,7 +22,7 @@ public class Controls : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetButtonDown("Pause") && GameManager.Instance.CanPause())
+		if (Input.GetButtonDown("Pause") && LevelManager.Instance.CanPause())
 		{
 			PausedMenu.Instance.visible();
 		}

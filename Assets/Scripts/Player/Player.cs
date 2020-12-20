@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         this.playerControls.setDisabled(this.ui_Inventory.isVisible());
     }
 
-    public float GetTotalStolen()
+    public int GetTotalStolen()
     {
         return this.inventory.TotalValue;
     }

@@ -9,7 +9,7 @@ public class StartButton : MenuButton
 {
 	public override void ClickAction()
 	{
-		GameManager.Instance.StartGame();
+		LevelManager.Instance.StartGame();
 		Debug.Log("Start clicked");
 	}
 }

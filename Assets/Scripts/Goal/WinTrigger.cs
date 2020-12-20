@@ -9,7 +9,7 @@ public class WinTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
            
-            GameManager.Instance.endGame();
+            LevelManager.Instance.endGame();
         }
     }
 }
