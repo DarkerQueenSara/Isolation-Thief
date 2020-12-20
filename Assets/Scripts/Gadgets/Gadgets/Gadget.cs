@@ -10,11 +10,11 @@ public enum GadgetType
 
 public abstract class Gadget
 {
-    
     public int usability;
     public bool unlocked;
     public List<Gadget> gadgetDependencies;
     public int minLevel;
+    public int cost;
     protected bool isTypeF;
 
     protected Player player;

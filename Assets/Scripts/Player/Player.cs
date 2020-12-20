@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public int level { get; private set; }
 
     private GadgetTree gadgetTree;
+    private List<Gadget> inInventory;
     private List<Gadget> onHand;
 
     private void Awake()
@@ -30,10 +31,13 @@ public class Player : MonoBehaviour
         playerControls = gameObject.GetComponent<Controls>();
         level = 1;
         gadgetTree = new GadgetTree();
+        inInventory = new List<Gadget>();
+        inInventory.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);
+        inInventory.Add(gadgetTree.gadgets[Lantern.gadgetID]);
         //asumir que so vai para a mao o que pode ser usado
         onHand = new List<Gadget>();
-        onHand.Add(gadgetTree.gadgets["lockpick"]);
-        onHand.Add(gadgetTree.gadgets["lantern"]);
+        onHand.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);
+        onHand.Add(gadgetTree.gadgets[Lantern.gadgetID]);
     }
 
     public void AddToInventory(Item item)
@@ -58,6 +62,11 @@ public class Player : MonoBehaviour
         return this.inventory.TotalValue;
     }
 
+
+    public GadgetTree GetGadgetTree()
+    {
+        return this.gadgetTree;
+    }
 
     public void unlockGadget(string gadgetName)
     {
@@ -108,7 +117,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         //TODO remove this (or not!)
-        this.unlockGadget("lockpick");
+        this.unlockGadget(SimpleLockpick.gadgetID);
     }
 
     // Update is called once per frame

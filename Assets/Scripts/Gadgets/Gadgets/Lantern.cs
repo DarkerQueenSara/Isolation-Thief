@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Lantern : Gadget
 {
+    public const string gadgetID = "Lantern";
     public Light lantern;
 
     public Lantern()
     {
         lantern = GameObject.FindGameObjectWithTag("PlayerLantern").GetComponent<Light>();
         this.isTypeF = true;
+        this.cost = 0;
     }
 
     public override void Use()

@@ -10,8 +10,9 @@ public class GadgetTree
     public GadgetTree()
     {
         this.gadgets = new Dictionary<string, Gadget>();
-        this.gadgets.Add("lockpick", new SimpleLockpick());
-        this.gadgets.Add("lantern", new Lantern());
+        this.gadgets.Add(SimpleLockpick.gadgetID, new SimpleLockpick());
+        this.gadgets.Add(Lantern.gadgetID, new Lantern());
+        this.gadgets.Add(FastLockpick.gadgetID, new FastLockpick());
     }
 
     public Gadget GetGadget(string gadgetName)
