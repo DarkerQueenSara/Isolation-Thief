@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
 	{
 		if (instance != null)
 		{
-			Debug.LogWarning("More than one instance of StartMenu found!");
+			Debug.LogWarning("More than one instance of MainMenu found!");
 		}
 
 		instance = this;

@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
 		Cursor.visible = false;
 	}
 
+	public bool CanPause()
+	{
+		return !MainMenu.instance.isVisible() && !LevelEndMenu.Instance.isVisible();
+	}
+
 	public void callCops()
 	{
 		this.copsCalled = true;

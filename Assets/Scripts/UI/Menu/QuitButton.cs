@@ -5,12 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class QuitButton : MainMenuButton
+public class QuitButton : MenuButton
 {
-	public override void Action()
+	public override void ClickAction()
 	{
 		Debug.Log("Quit clicked");
-		//Application.LoadLevel(Application.loadedLevel);
 		Application.Quit();
 	}
 }

@@ -36,12 +36,6 @@ public class LevelEndMenu : MonoBehaviour
 	}
 	#endregion
 
-	public void Quit()
-	{
-		Debug.Log("Clicked quit");
-		Application.Quit();
-	}
-
 	public void setText(string result, string description, string goal, string stolen, bool win)
 	{
 		Result.text = result;
