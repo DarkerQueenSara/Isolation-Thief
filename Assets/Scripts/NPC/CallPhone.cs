@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public class CallPhone : MonoBehaviour
 {
-    public NPCMovement NPC;
+
+    public static CallPhone Instance { get; private set; }
 
     private float finalTime;
     private bool countdouwnStarted;
     private LevelManager manager;
 
     [SerializeField] Text countdownText;
+
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,23 +27,19 @@ public class CallPhone : MonoBehaviour
         manager = LevelManager.Instance;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void CallPolice()
     {
-        if (other.CompareTag("NPC") && NPC.callingCops && !countdouwnStarted)
+        if (NPCManager.Instance.CopsCalled && !countdouwnStarted)
         {
             Debug.Log("Chamou policia!");
             LevelManager.Instance.callCops();
-            NPC.callingCops = false;
-            //chamou policia
-            this.CallPolice();
+            finalTime = Time.time + manager.timeTillCops;
+            countdouwnStarted = true;
+            countdownText.text = manager.timeTillCops.ToString("0");
+            countdownText.enabled = true;
         }
-    }
-    public void CallPolice()
-    {
-        finalTime = Time.time + manager.timeTillCops;
-        countdouwnStarted = true;
-        countdownText.text = manager.timeTillCops.ToString("0");
-        countdownText.enabled = true;
+
+        
     }
 
     // Update is called once per frame
