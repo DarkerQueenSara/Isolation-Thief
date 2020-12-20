@@ -28,27 +28,49 @@ public class LevelManager : MonoBehaviour
     public bool copsArrived;
     public bool hasEnded;
 
+    [HideInInspector]
     public float timeElapsed;
+    [HideInInspector]
     public int cashInInventory;
+    [HideInInspector]
     public bool usedFlashlight;
+    [HideInInspector]
     public int timesDetected;
+    [HideInInspector]
     public int timesWokeUp;
+    [HideInInspector]
     public bool enteredEmptyBedroom;
+    [HideInInspector]
     public bool enteredBalconyDoor;
+    [HideInInspector]
     public bool enteredFirstWindow;
+    [HideInInspector]
     public bool enteredSecondWindow;
+    [HideInInspector]
     public bool enteredBackDoor;
+    [HideInInspector]
     public bool enteredBasementWindow;
+    [HideInInspector]
     public bool enteredFrontDoor;
-    public bool jumpedFence;    
+    [HideInInspector]
+    public bool jumpedFence;
+    [HideInInspector]
     public bool enteredGate;
+    [HideInInspector]
     public int successfullHacks;
+    [HideInInspector]
     public bool hackedSafe;
+    [HideInInspector]
     public float copsTimeLeft;
+    [HideInInspector]
     public int doorsLockpicked;
+    [HideInInspector]
     public int windowsLockpicked;
+    [HideInInspector]
     public int noiseBombDistractions;
+    [HideInInspector]
     public int lighterDistractions;
+    [HideInInspector]
     public int objectsBurned;
 
     private void Awake()
@@ -61,7 +83,6 @@ public class LevelManager : MonoBehaviour
     {
         hasEnded = false;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
 
         timeElapsed = 0f;
         cashInInventory = 0;
