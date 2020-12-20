@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private Player player;
 
-    public bool copsCalled;
+    public bool copsCalled { get; private set; }
     public bool copsArrived;
     public bool hasEnded;
     // Start is called before the first frame update
