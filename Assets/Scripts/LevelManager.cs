@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
 
     public float moneyGoal = 2500.0f;
     public float timeTillCops = 15.0f;
-    public bool copsCalled;
+    public bool copsCalled { get; private set; }
     public bool copsArrived;
     public bool hasEnded;
 
@@ -50,7 +50,6 @@ public class LevelManager : MonoBehaviour
     public int noiseBombDistractions;
     public int lighterDistractions;
     public int objectsBurned;
-
 
     private void Awake()
     {

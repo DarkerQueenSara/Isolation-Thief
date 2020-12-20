@@ -94,7 +94,7 @@ public class ManagedNPC : MonoBehaviour
 
         CallPhone.Instance.CallPolice();
 
-        while (!GameManager.Instance.copsCalled)
+        while (!LevelManager.Instance.copsCalled)
         {
             yield return null;
         }
