@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RandomPatrol : NPCMovement
 {
-    System.Random random;
+    static System.Random random;
 
     public override void Initialize(GameObject npc, Animator managedNPC_animator)
     {
