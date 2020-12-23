@@ -5,6 +5,12 @@ using UnityEngine;
 public class Lantern : Gadget
 {
     public Light lantern;
+    private ObjectAudioManager audioManager;
+
+    public void Start()
+    {
+        
+    }
 
     public Lantern()
     {

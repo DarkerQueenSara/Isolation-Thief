@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = new GameObject("GameManager").AddComponent<GameManager>();
+                //instance = new GameObject("GameManager").AddComponent<GameManager>();
+                instance = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
                 DontDestroyOnLoad(instance);
             }
             return instance;
@@ -64,14 +65,14 @@ public class GameManager : MonoBehaviour
         challenges.Add(new Challenge(12, "Challenge 12", "Beat the level with at least 9000$", () => cl.cashInInventory >= 9000, 350));
         challenges.Add(new Challenge(13, "Challenge 13", "Beat the level with at least 10000$", () => cl.cashInInventory >= 10000, 400));
         challenges.Add(new Challenge(14, "Challenge 14", "Beat the level without turning on the flashlight", () => !cl.usedFlashlight, 200));
-        /**/challenges.Add(new Challenge(15, "Challenge 15", "Clear the level undetected", () => cl.timesDetected < 1, 400));
+        challenges.Add(new Challenge(15, "Challenge 15", "Clear the level undetected", () => cl.timesDetected < 1, 400));
         /**/challenges.Add(new Challenge(16, "Challenge 16", "Clear the level without waking anyone up", () => cl.timesWokeUp < 1, 400));
         /**/challenges.Add(new Challenge(17, "Challenge 17", "Enter a bedroom while it's empty", () => cl.enteredEmptyBedroom, 400));
 
         //TODO ver se estas dao bem 
-        challenges.Add(new Challenge(18, "Challenge 18", "Evade the cops with 10 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft < 10, 200));
-        challenges.Add(new Challenge(19, "Challenge 19", "Evade the cops with 20 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft < 20, 300));
-        challenges.Add(new Challenge(20, "Challenge 20", "Evade the cops with 30 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft < 30, 400));
+        challenges.Add(new Challenge(18, "Challenge 18", "Evade the cops with 10 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 10, 200));
+        challenges.Add(new Challenge(19, "Challenge 19", "Evade the cops with 20 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 20, 300));
+        challenges.Add(new Challenge(20, "Challenge 20", "Evade the cops with 30 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 30, 400));
 
         /**/challenges.Add(new Challenge(21, "Challenge 21", "Get inside the house through a balcony door", () => cl.enteredBalconyDoor, 400));
         /**/challenges.Add(new Challenge(22, "Challenge 22", "Get inside the house through a first floor window", () => cl.enteredFirstWindow, 400));

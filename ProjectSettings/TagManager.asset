@@ -10,6 +10,7 @@ TagManager:
   - NPCDestination
   - PlayerLantern
   - LevelManager
+  - GameManager
   layers:
   - Default
   - TransparentFX
