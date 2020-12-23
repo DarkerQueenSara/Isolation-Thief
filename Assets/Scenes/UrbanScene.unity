@@ -10911,6 +10911,7 @@ GameObject:
   - component: {fileID: 1734365753}
   - component: {fileID: 1734365752}
   - component: {fileID: 1734365754}
+  - component: {fileID: 1734365755}
   m_Layer: 0
   m_Name: FatherNPC
   m_TagString: NPC
@@ -10969,6 +10970,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementType: 0
   canCallCops: 1
+--- !u!114 &1734365755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734365751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Walk
+    clip: {fileID: 8300000, guid: 69c1fcd170b3ba54faba2ab98bdaffd6, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Sprint
+    clip: {fileID: 8300000, guid: d3a3e0a744126cd4385a632186e2e042, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1748649431
 GameObject:
   m_ObjectHideFlags: 0
@@ -11314,6 +11342,7 @@ GameObject:
   - component: {fileID: 1811651358}
   - component: {fileID: 1811651360}
   - component: {fileID: 1811651359}
+  - component: {fileID: 1811651361}
   m_Layer: 0
   m_Name: MotherNPC
   m_TagString: NPC
@@ -11372,6 +11401,33 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1811651361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811651357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Walk
+    clip: {fileID: 8300000, guid: 69c1fcd170b3ba54faba2ab98bdaffd6, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Sprint
+    clip: {fileID: 8300000, guid: d3a3e0a744126cd4385a632186e2e042, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1813172222
 GameObject:
   m_ObjectHideFlags: 0
