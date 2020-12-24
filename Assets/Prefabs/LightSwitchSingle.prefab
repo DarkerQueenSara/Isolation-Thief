@@ -239,14 +239,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5276624498607604561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8e384976cbd02049a7035bc894f91c5, type: 3}
+  m_Script: {fileID: 11500000, guid: af563bd9dc8054d49b86dec8d3ca4050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
-  lockpickable: 0
-  roomLights:
-  - {fileID: 0}
-  - {fileID: 0}
+  radius: 3
+  roomLights: []
   defaultIntensity: 1
 --- !u!1 &5413737036139205725
 GameObject:

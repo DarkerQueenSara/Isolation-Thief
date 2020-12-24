@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ContinueButton : MenuButton
+public class QuitButton : MenuButton
 {
-	public override void ClickAction()
-	{
-		Debug.Log("Continue clicked");
-		PausedMenu.Instance.visible();
-	}
+	//public override void ClickAction()
+	//{
+	//	Debug.Log("Quit clicked");
+	//	Application.Quit();
+	//}
 }

@@ -4,11 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 	public Animator animator;
-	bool isPressing = false;
+	public UnityEvent clickAction;
 
 	public void Start()
 	{
@@ -37,7 +38,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 		//Debug.Log("Started Coroutine at timestamp : " + Time.time);
 		yield return WaitForRealSeconds(0.7f);
 		//Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-		ClickAction();
+		clickAction.Invoke();
 	}
 
 	IEnumerator WaitForRealSeconds(float time)
@@ -49,7 +50,44 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 		}
 	}
 
-	public virtual void ClickAction()
+	public void TestAction()
+	{
+		Debug.Log("Menu button clicked");
+	}
+
+	public void NewGameAction()
+	{
+		Debug.Log("New game clicked");
+		GameManager.Instance.NewGame();
+	}
+
+	public void LoadGameAction()
+	{
+		Debug.Log("Load game clicked");
+	}
+
+	public void QuitGameAction()
+	{
+		Debug.Log("Quit clicked");
+		Application.Quit();
+	}
+
+	public void StartLevelAction()
+	{
+		GameManager.Instance.StartLevel();
+	}
+
+	public void ContinueLevelAction()
+	{
+
+	}
+
+	public void RestartLevelAction()
+	{
+
+	}
+
+	public void ReturnToMainMenuAction()
 	{
 
 	}
