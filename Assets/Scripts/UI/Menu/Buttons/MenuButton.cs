@@ -74,21 +74,39 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 	public void StartLevelAction()
 	{
+		Debug.Log("Start Level clicked");
 		GameManager.Instance.StartLevel();
 	}
 
 	public void ContinueLevelAction()
 	{
-
+		Debug.Log("Continue clicked");
+		PausedMenu.Instance.visible();
 	}
 
 	public void RestartLevelAction()
 	{
+		Debug.Log("Restart clicked");
+		PausedMenu.Instance.visible();
+		Application.LoadLevel(Application.loadedLevel);
+	}
 
+	public void QuitLevelAction()
+	{
+		Debug.Log("Quit level clicked");
+		if (PausedMenu.Instance.isVisible())
+		{
+			ConfirmationDialog.Instance.visible();
+		}
+	}
+
+	public void ReturnToLevelMenuAction()
+	{
+		GameManager.Instance.ShowLevelMenu();
 	}
 
 	public void ReturnToMainMenuAction()
 	{
-
+		GameManager.Instance.ShowMainMenu();
 	}
 }

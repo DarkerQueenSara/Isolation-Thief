@@ -559,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4179435359120081098}
-  - component: {fileID: 4179435359120081101}
+  - component: {fileID: 3080342839779052505}
   m_Layer: 0
   m_Name: LevelEndMenu
   m_TagString: Untagged
@@ -595,7 +595,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4179435359120081101
+--- !u!114 &3080342839779052505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

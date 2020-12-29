@@ -4,18 +4,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PausedMenu : MonoBehaviour
+public class ConfirmationDialog : MonoBehaviour
 {
-	bool showPausedMenu = false;
+	bool showConfirmationDialog = false;
 
 	#region SINGLETON
-	public static PausedMenu Instance;
+	public static ConfirmationDialog Instance;
 
 	private void Awake()
 	{
 		if (Instance != null)
 		{
-			Debug.LogWarning("More than one instance of PausedMenu found!");
+			Debug.LogWarning("More than one instance of ConfirmationDialog found!");
 		}
 
 		Instance = this;
@@ -26,22 +26,22 @@ public class PausedMenu : MonoBehaviour
 
 	public bool isVisible()
 	{
-		return showPausedMenu;
+		return showConfirmationDialog;
 	}
 
 	public void visible()
 	{
-		if (showPausedMenu)
+		if (showConfirmationDialog)
 		{
-			showPausedMenu = false;
+			showConfirmationDialog = false;
 
 		}
 		else
 		{
-			showPausedMenu = true;
+			showConfirmationDialog = true;
 		}
 
-		if (showPausedMenu)
+		if (showConfirmationDialog)
 		{
 			Time.timeScale = 0;
 			gameObject.SetActive(true);

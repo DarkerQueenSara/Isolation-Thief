@@ -154,4 +154,13 @@ public class GameManager : MonoBehaviour
 		//cl.StartGame();
 	}
 
+	public void ShowMainMenu()
+	{
+		SceneManager.LoadScene(0);
+	}
+
+	public void ShowLevelMenu()
+	{
+		SceneManager.LoadScene(1);
+	}
 }
