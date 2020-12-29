@@ -7,6 +7,8 @@ public class Controls : MonoBehaviour
 {
     private Camera cam;
     private InteractionTextManager interactionTextManager;
+    private GadgetTreeUI gadgetTreeUI;
+    private ChooseGadgetUI chooseGadgetUI;
 
 
     public bool disabled = false;
@@ -16,6 +18,8 @@ public class Controls : MonoBehaviour
     }
     void Start()
     {
+        gadgetTreeUI = GadgetTreeUI.Instance;
+        chooseGadgetUI = ChooseGadgetUI.Instance;
         interactionTextManager = InteractionTextManager.instance;
     }
 
@@ -25,6 +29,16 @@ public class Controls : MonoBehaviour
         if (Input.GetButtonDown("Inventory"))
         {
             Player.Instance.ChangeInventoryVisible();
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            gadgetTreeUI.changeVisibility();
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            chooseGadgetUI.changeVisibility();
         }
 
         if (disabled) return;

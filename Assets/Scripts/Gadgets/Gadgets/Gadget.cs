@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public abstract class Gadget
     public bool unlocked;
     public List<Gadget> gadgetDependencies;
     public int minLevel;
-    public int cost;
+    public float cost;
     protected bool isTypeF;
 
     protected Player player;
@@ -27,7 +28,21 @@ public abstract class Gadget
 
     }
 
+    public bool canUnlock()
+    {
+        return this.player.getMoney() >= this.cost;
+    }
+
     public abstract GadgetType getGadgetType();
+
+    public void unlock()
+    {
+        if (!this.unlocked && this.canUnlock())
+        {
+            player.changeMoney(-this.cost);
+            this.unlocked = true;
+        }
+    }
 
     public virtual bool CanUse()
     {
@@ -40,4 +55,6 @@ public abstract class Gadget
     {
         return isTypeF;
     }
+
+    public abstract string getID();
 }

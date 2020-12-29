@@ -9,6 +9,7 @@ TagManager:
   - Door
   - NPCDestination
   - PlayerLantern
+  - UIGadgetTree
   layers:
   - Default
   - TransparentFX

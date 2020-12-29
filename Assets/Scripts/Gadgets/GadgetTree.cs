@@ -27,4 +27,24 @@ public class GadgetTree
         else return null;
 
     }
+
+    public List<Gadget> getUnlockedGadgets()
+    {
+        List<Gadget> unlockedGadgets = new List<Gadget>();
+        foreach(Gadget gadget in this.gadgets.Values)
+        {
+            if (gadget.unlocked)
+            {
+                unlockedGadgets.Add(gadget);
+            }
+        }
+        return unlockedGadgets;
+    }
+
+    public List<Gadget> getAllGadgets()
+    {
+        return new List<Gadget>(this.gadgets.Values);
+    }
+
+
 }
