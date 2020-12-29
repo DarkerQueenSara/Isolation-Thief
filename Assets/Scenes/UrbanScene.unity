@@ -9242,7 +9242,7 @@ PrefabInstance:
     - target: {fileID: 6787841976571431471, guid: 56c949a93f1d95c4d9a5f47dde0a0999,
         type: 3}
       propertyPath: clickAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReturnToLevelMenuAction
+      value: QuitLevelAction
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c949a93f1d95c4d9a5f47dde0a0999, type: 3}
@@ -13217,10 +13217,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5376577888430719697, guid: 22ac4a918b7d12448bf898098a9bf1dc,
+        type: 3}
+      propertyPath: clickAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ConfirmDialogNoAction
+      objectReference: {fileID: 0}
     - target: {fileID: 6285851067673916758, guid: 22ac4a918b7d12448bf898098a9bf1dc,
         type: 3}
       propertyPath: m_Name
       value: ConfirmationDialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413686550760331064, guid: 22ac4a918b7d12448bf898098a9bf1dc,
+        type: 3}
+      propertyPath: clickAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ConfirmDialogYesAction
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22ac4a918b7d12448bf898098a9bf1dc, type: 3}

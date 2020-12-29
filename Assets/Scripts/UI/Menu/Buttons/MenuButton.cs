@@ -100,6 +100,16 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 		}
 	}
 
+	public void ConfirmDialogYesAction()
+	{
+		GameManager.Instance.ShowLevelMenu();
+	}
+
+	public void ConfirmDialogNoAction()
+	{
+		ConfirmationDialog.Instance.visible();
+	}
+
 	public void ReturnToLevelMenuAction()
 	{
 		GameManager.Instance.ShowLevelMenu();

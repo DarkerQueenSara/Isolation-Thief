@@ -43,17 +43,11 @@ public class ConfirmationDialog : MonoBehaviour
 
 		if (showConfirmationDialog)
 		{
-			Time.timeScale = 0;
 			gameObject.SetActive(true);
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
 		}
 		else
 		{
-			Time.timeScale = 1;
 			gameObject.SetActive(false);
-			Cursor.lockState = CursorLockMode.Locked;
-			Cursor.visible = false;
 		}
 	}
 

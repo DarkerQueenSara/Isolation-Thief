@@ -83,7 +83,6 @@ public class LevelManager : MonoBehaviour
 	{
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
-		//MainMenu.instance.visible();
 		StartGame();
 	}
 
@@ -92,7 +91,7 @@ public class LevelManager : MonoBehaviour
 		Debug.Log("Level manager start game");
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-		//MainMenu.instance.visible();
+		Time.timeScale = 1;
 
 		hasEnded = false;
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
