@@ -9,6 +9,7 @@ TagManager:
   - Door
   - NPCDestination
   - PlayerLantern
+  - LevelManager
   - UIGadgetTree
   layers:
   - Default

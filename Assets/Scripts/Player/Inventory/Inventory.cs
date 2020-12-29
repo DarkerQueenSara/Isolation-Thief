@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Inventory
 {
-    public float TotalValue;
+    public int TotalValue;
     protected List<Item> Items;
 
     public Inventory()
