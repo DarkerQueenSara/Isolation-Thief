@@ -19,18 +19,16 @@ public abstract class Gadget
     public int minLevel;
     protected bool useAnywhere;
 
-    protected Player player;
 
     public Gadget()
     {
         useAnywhere = false;
         this.unlocked = false;
-        this.player = Player.Instance;
     }
 
     public bool canUnlock()
     {
-        return this.player.getMoney() >= this.getCost();
+        return GameManager.Instance.money >= this.getCost();
     }
 
     public abstract GadgetType getGadgetType();
@@ -39,14 +37,14 @@ public abstract class Gadget
     {
         if (!this.unlocked && this.canUnlock())
         {
-            player.changeMoney(-this.getCost());
+            GameManager.Instance.money -= this.getCost();
             this.unlocked = true;
         }
     }
 
     public virtual bool CanUse()
     {
-        return this.player.level >= this.minLevel;
+        return GameManager.Instance.level >= this.minLevel;
     }
 
     public abstract void Use();

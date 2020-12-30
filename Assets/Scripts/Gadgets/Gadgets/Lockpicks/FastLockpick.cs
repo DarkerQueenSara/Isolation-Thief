@@ -20,7 +20,7 @@ public class FastLockpick : Lockpick
 
     public override float GetLockPickingTime()
     {
-        float timeReduction = this.player.level > 3 ? 3 : this.player.level;
+        float timeReduction = GameManager.Instance.level > 3 ? 3 : GameManager.Instance.level;
         return 4 - timeReduction - extraTimeReduction; //3 to 1 
     }
 

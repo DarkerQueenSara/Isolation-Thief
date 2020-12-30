@@ -7,22 +7,30 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
 
+    //Game
+    GameManager gameManager;
+    private GadgetTree gadgetTree;
+    public int level
+    {
+        get { return gameManager.level; }
+        set { gameManager.level = value; }
+    }
+
+    //Level
     [SerializeField] private UI_Inventory ui_Inventory;
-
     private Inventory inventory;
-
     private PlayerMovement playerMovement;
     private Controls playerControls;
-
-    public float money = 60.0f;
-
     public bool isLit;
-
-    public int level { get; private set; }
-
-    private GadgetTree gadgetTree;
     public List<Gadget> inInventory { get; private set;}
     public Gadget rightHand { get; set; }
+
+    //----
+
+
+
+
+
     //private List<Gadget> onHand;
 
     private void Awake()
@@ -33,28 +41,28 @@ public class Player : MonoBehaviour
         ui_Inventory.SetInventory(inventory);
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerControls = gameObject.GetComponent<Controls>();
-        level = 1;
-        gadgetTree = new GadgetTree();
+    }
+
+    void Start()
+    {
+        gameManager = GameManager.Instance;
+        gadgetTree = gameManager.gadgetTree;
+
         inInventory = new List<Gadget>();
-        inInventory.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);
-        //inInventory.Add(gadgetTree.gadgets[Lantern.gadgetID]);
-        inInventory.Add(gadgetTree.gadgets[FastLockpick.gadgetID]);
-        //asumir que so vai para a mao o que pode ser usado
-        //onHand = new List<Gadget>();
-        //onHand.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);
-        //onHand.Add(gadgetTree.gadgets[Lantern.gadgetID]);
-        rightHand = gadgetTree.gadgets[SimpleLockpick.gadgetID];
-        //leftHand = gadgetTree.gadgets[Lantern.gadgetID];
+        //inInventory.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);
+        //inInventory.Add(gadgetTree.gadgets[FastLockpick.gadgetID]);
+
+        //rightHand = gadgetTree.gadgets[SimpleLockpick.gadgetID];
     }
 
     public void changeMoney(float value)
     {
-        this.money += value;
+        gameManager.money += value;
     }
 
     public float getMoney()
     {
-        return this.money;
+        return gameManager.money;
     }
 
     public void AddToInventory(Item item)
@@ -129,11 +137,7 @@ public class Player : MonoBehaviour
         return null;
     }
 
-    void Start()
-    {
-        //TODO remove this (or not!)
-        this.unlockGadget(SimpleLockpick.gadgetID);
-    }
+
 
     // Update is called once per frame
     void Update()

@@ -29,7 +29,22 @@ public class GameManager : MonoBehaviour
 	private void Awake()
 	{
 		CreateAllChallenges();
+		InitializePlayerInfo();
 	}
+
+	//Player information
+	public float money;
+	public int level { get; set; }
+	public GadgetTree gadgetTree { get; private set; }
+
+
+	void InitializePlayerInfo()
+    {
+		level = 1;
+		gadgetTree = new GadgetTree();
+	}
+	//------------------
+
 
 	//cl = currentLevel
 	public LevelManager cl;
