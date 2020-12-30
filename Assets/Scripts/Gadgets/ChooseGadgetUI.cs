@@ -50,6 +50,7 @@ public class ChooseGadgetUI : MonoBehaviour
             GameObject temp = Instantiate(gadgetSlotPrefab, gadgetsToChoose);
             Button button = temp.transform.Find("GadgetButton").GetComponent<Button>();
             temp.transform.Find("GadgetButton").Find("name").GetComponent<TextMeshProUGUI>().text = gadget.getID();
+            temp.transform.Find("GadgetButton").Find("icon").GetComponent<Image>().sprite = gadget.getSprite();
             button.onClick.AddListener(delegate {
                 //gadget.unlocked = !gadget.unlocked;
                 if (this.chosenGadgets.Contains(gadget))

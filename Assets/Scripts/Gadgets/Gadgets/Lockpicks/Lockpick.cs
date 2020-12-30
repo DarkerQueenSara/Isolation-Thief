@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Lockpick : Gadget
 {
-    public const string gadgetID = "Lockpick";
     public LoadingBar loadingBar;
 
     public Lockpick() : base()
@@ -43,10 +42,5 @@ public class Lockpick : Gadget
     public override GadgetType getGadgetType()
     {
         return GadgetType.LOCKPICK;
-    }
-
-    public override string getID()
-    {
-        return gadgetID;
     }
 }

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SimpleLockpick : Lockpick
 {
-
-    new public const string gadgetID = "Simple Lockpick";
+    public const string gadgetID = "Simple Lockpick";
     public System.Diagnostics.Stopwatch st = new System.Diagnostics.Stopwatch();
 
     public SimpleLockpick() : base()
@@ -14,8 +13,9 @@ public class SimpleLockpick : Lockpick
         gadgetDependencies = new List<Gadget>();
         minLevel = 1;
         isPicking = false;
-        this.cost = 0;
         this.unlocked = true;
+        this.gadgetInfo = Resources.Load<GadgetInfo>(Gadget.GADGET_INFO_DIR + "SimpleLockpick");
+
     }
 
     public override float GetLockPickingTime()
@@ -89,10 +89,5 @@ public class SimpleLockpick : Lockpick
         Debug.Log(string.Format("Lockpicked for {0} ms and stopped", st.ElapsedMilliseconds));
         st.Reset();
         isPicking = false;
-    }
-
-    public override string getID()
-    {
-        return gadgetID;
     }
 }

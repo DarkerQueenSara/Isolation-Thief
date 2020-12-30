@@ -72,6 +72,10 @@ public class UI_Inventory : MonoBehaviour
 
     public void Refresh()
     {
+        if (player == null)
+        {
+            player = Player.Instance;
+        }
         RefreshInventoryItems();
         RefreshInventoryGadgets();
     }
@@ -120,7 +124,6 @@ public class UI_Inventory : MonoBehaviour
             Destroy(child.gameObject);
         }
         #endregion
-
         if (player.leftHand != null)
         {
             leftHand = createGadgetSlot(leftHandPrefab, gadgetsStuff, player.leftHand).transform;
@@ -146,6 +149,7 @@ public class UI_Inventory : MonoBehaviour
             }
             Button button = temp.transform.Find("GadgetButton").GetComponent<Button>();
             temp.transform.Find("GadgetButton").Find("name").GetComponent<TextMeshProUGUI>().text = gadget.getID();
+            temp.transform.Find("GadgetButton").Find("icon").GetComponent<Image>().sprite = gadget.getSprite();
             button.onClick.AddListener(delegate {
                 if (gadget.getIsTypeF())
                 {
@@ -165,6 +169,7 @@ public class UI_Inventory : MonoBehaviour
     {
         GameObject temp = Instantiate(prefab, place);
         temp.transform.Find("GadgetSlot").Find("GadgetButton").Find("name").GetComponent<TextMeshProUGUI>().text = gadget.getID();
+        temp.transform.Find("GadgetSlot").Find("GadgetButton").Find("icon").GetComponent<Image>().sprite = gadget.getSprite();
         return temp;
     }
 
@@ -174,15 +179,7 @@ public class UI_Inventory : MonoBehaviour
     }
     public void visible()
     {
-        if (showInventory)
-        {
-            showInventory = false;
-
-        }
-        else
-        {
-            showInventory = true;
-        }
+        showInventory = !showInventory;
 
         if (showInventory)
         {

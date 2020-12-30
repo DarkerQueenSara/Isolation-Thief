@@ -11,8 +11,8 @@ public class Lantern : Gadget
     {
         lantern = GameObject.FindGameObjectWithTag("PlayerLantern").GetComponent<Light>();
         this.isTypeF = true;
-        this.cost = 0;
         this.unlocked = true;
+        this.gadgetInfo = Resources.Load<GadgetInfo>(Gadget.GADGET_INFO_DIR + "Lantern");
     }
 
     public override void Use()
@@ -27,8 +27,4 @@ public class Lantern : Gadget
         return GadgetType.LANTERN;
     }
 
-    public override string getID()
-    {
-        return gadgetID;
-    }
 }

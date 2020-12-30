@@ -42,7 +42,7 @@ public class GadgetTreeUI : MonoBehaviour
 
         Button FastLockPickBtn = transform.Find("FastLockPick").Find("Button").GetComponent<Button>();
         TextMeshProUGUI FastLockPickPrice = transform.Find("FastLockPick").Find("Price").GetComponent<TextMeshProUGUI>();
-        FastLockPickPrice.text = gadgetTree.GetGadget(FastLockpick.gadgetID).cost.ToString();
+        FastLockPickPrice.text = gadgetTree.GetGadget(FastLockpick.gadgetID).getCost().ToString();
         FastLockPickBtn.onClick.AddListener(delegate {
             //Debug.Log("Clicked FastLockPick!");
             Gadget gadget = gadgetTree.GetGadget(FastLockpick.gadgetID);
