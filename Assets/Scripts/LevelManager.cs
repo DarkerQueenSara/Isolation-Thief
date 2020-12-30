@@ -138,7 +138,6 @@ public class LevelManager : MonoBehaviour
 	public void callCops()
 	{
 		this.copsCalled = true;
-		//SoundManagerScript.instance.PlaySoundGradually(SoundManagerScript.POLICE_SIRENS, timeTillCops);
 		audioManager.Play("PoliceSirens");
 	}
 
@@ -148,7 +147,6 @@ public class LevelManager : MonoBehaviour
 		Cursor.visible = true;
 		hasEnded = true;
 		cashInInventory = player.GetTotalStolen();
-		//SoundManagerScript.instance.stopSound();
 		audioManager.Stop("PoliceSirens");
 
 		if (copsArrived) //Lose
