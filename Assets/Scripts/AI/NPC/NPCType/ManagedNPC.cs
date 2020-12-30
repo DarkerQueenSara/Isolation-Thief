@@ -18,7 +18,7 @@ public class ManagedNPC : MonoBehaviour
 
     private bool copsCalled;
 
-    private ObjectAudioManager audioManager;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class ManagedNPC : MonoBehaviour
         myMovement.Initialize(gameObject, managedNPC_animator);
         
         head.GetComponent<NPCVision>().Initialize(transform, head);
-        audioManager = this.gameObject.GetComponent<ObjectAudioManager>();
+        audioManager = this.gameObject.GetComponent<AudioManager>();
     }
     private NPCMovement getMovement()
     {

@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     SmoothProning smoothProning;
 
     public bool disabled = false;
-    private ObjectAudioManager audioManager;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         groundMask = LayerMask.GetMask("Ground", "HouseGround");
         smoothCrouching = new SmoothCrouching(controller, playerCollider);
         smoothProning = new SmoothProning(controller, playerCollider);
-        audioManager = this.gameObject.GetComponent<ObjectAudioManager>();
+        audioManager = this.gameObject.GetComponent<AudioManager>();
     }
 
     // Update is called once per frame

@@ -17,10 +17,9 @@ public class Sound
     [Range(.1f, 3f)]
     public float pitch;
 
-    /*public int minDistance = 1;
-    public int maxDistance = 500;*/
-
     public bool loop;
+
+    public bool fadeIn;
 
     [HideInInspector]
     public AudioSource source;

@@ -1,31 +1,10 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
-    private static AudioManager instance;
-
-    public static AudioManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                //instance = new GameObject("GameManager").AddComponent<GameManager>();
-                instance = GameObject.FindGameObjectWithTag("GameManager").GetComponent<AudioManager>();
-                DontDestroyOnLoad(instance);
-            }
-            return instance;
-        }
-    }
-
-    public void OnApplicationQuit()
-    {
-        instance = null;
-    }
-
-
     public Sound[] sounds;
     
     void Awake()
@@ -42,15 +21,31 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        //Play("StageMusic");
-    }
-
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
+        if (!s.source.isPlaying)
+        {
+            if (s.fadeIn)
+            {
+                StartCoroutine(StartFade(s.source, 5f, 1));
+            }
+            s.source.Play();
+        }
+    }
+
+    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
     }
 
     public void Stop(string name)

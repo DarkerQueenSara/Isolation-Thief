@@ -6,15 +6,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-
+    public static AudioManager audioManager;
     public static GameManager Instance
     {
         get
         {
             if (instance == null)
             {
-                //instance = new GameObject("GameManager").AddComponent<GameManager>();
                 instance = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+                audioManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<AudioManager>();
                 DontDestroyOnLoad(instance);
             }
             return instance;
@@ -66,29 +66,42 @@ public class GameManager : MonoBehaviour
         challenges.Add(new Challenge(13, "Challenge 13", "Beat the level with at least 10000$", () => cl.cashInInventory >= 10000, 400));
         challenges.Add(new Challenge(14, "Challenge 14", "Beat the level without turning on the flashlight", () => !cl.usedFlashlight, 200));
         challenges.Add(new Challenge(15, "Challenge 15", "Clear the level undetected", () => cl.timesDetected < 1, 400));
-        /**/challenges.Add(new Challenge(16, "Challenge 16", "Clear the level without waking anyone up", () => cl.timesWokeUp < 1, 400));
-        /**/challenges.Add(new Challenge(17, "Challenge 17", "Enter a bedroom while it's empty", () => cl.enteredEmptyBedroom, 400));
+        /**/
+        challenges.Add(new Challenge(16, "Challenge 16", "Clear the level without waking anyone up", () => cl.timesWokeUp < 1, 400));
+        /**/
+        challenges.Add(new Challenge(17, "Challenge 17", "Enter a bedroom while it's empty", () => cl.enteredEmptyBedroom, 400));
 
         //TODO ver se estas dao bem 
         challenges.Add(new Challenge(18, "Challenge 18", "Evade the cops with 10 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 10, 200));
         challenges.Add(new Challenge(19, "Challenge 19", "Evade the cops with 20 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 20, 300));
         challenges.Add(new Challenge(20, "Challenge 20", "Evade the cops with 30 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 30, 400));
 
-        /**/challenges.Add(new Challenge(21, "Challenge 21", "Get inside the house through a balcony door", () => cl.enteredBalconyDoor, 400));
-        /**/challenges.Add(new Challenge(22, "Challenge 22", "Get inside the house through a first floor window", () => cl.enteredFirstWindow, 400));
-        /**/challenges.Add(new Challenge(23, "Challenge 23", "Get inside the house through a second floor window", () => cl.enteredSecondWindow, 400));
-        /**/challenges.Add(new Challenge(24, "Challenge 24", "Get inside the house through the back door", () => cl.enteredBackDoor, 400));
-        /**/challenges.Add(new Challenge(25, "Challenge 25", "Get inside the house through the basement window", () => cl.enteredBasementWindow, 400));
-        /**/challenges.Add(new Challenge(26, "Challenge 26", "Get inside the house through the front door", () => cl.enteredFrontDoor, 400));
-        /**/challenges.Add(new Challenge(27, "Challenge 27", "Get to the yard by jumping the fence", () => cl.jumpedFence, 400));
-        /**/challenges.Add(new Challenge(28, "Challenge 28", "Get to the yard through the front gate", () => cl.jumpedFence, 400));
+        /**/
+        challenges.Add(new Challenge(21, "Challenge 21", "Get inside the house through a balcony door", () => cl.enteredBalconyDoor, 400));
+        /**/
+        challenges.Add(new Challenge(22, "Challenge 22", "Get inside the house through a first floor window", () => cl.enteredFirstWindow, 400));
+        /**/
+        challenges.Add(new Challenge(23, "Challenge 23", "Get inside the house through a second floor window", () => cl.enteredSecondWindow, 400));
+        /**/
+        challenges.Add(new Challenge(24, "Challenge 24", "Get inside the house through the back door", () => cl.enteredBackDoor, 400));
+        /**/
+        challenges.Add(new Challenge(25, "Challenge 25", "Get inside the house through the basement window", () => cl.enteredBasementWindow, 400));
+        /**/
+        challenges.Add(new Challenge(26, "Challenge 26", "Get inside the house through the front door", () => cl.enteredFrontDoor, 400));
+        /**/
+        challenges.Add(new Challenge(27, "Challenge 27", "Get to the yard by jumping the fence", () => cl.jumpedFence, 400));
+        /**/
+        challenges.Add(new Challenge(28, "Challenge 28", "Get to the yard through the front gate", () => cl.jumpedFence, 400));
         //TODO meter o numero correcto de hacks possiveis
-        /**/challenges.Add(new Challenge(29, "Challenge 29", "Hack sucessfully all hackable devices", () => cl.successfullHacks == 5, 400));
-        /**/challenges.Add(new Challenge(30, "Challenge 30", "Hack sucessfully once", () => cl.successfullHacks >= 1, 400));
-        /**/challenges.Add(new Challenge(31, "Challenge 31", "Hack the safe", () => cl.hackedSafe, 400));
+        /**/
+        challenges.Add(new Challenge(29, "Challenge 29", "Hack sucessfully all hackable devices", () => cl.successfullHacks == 5, 400));
+        /**/
+        challenges.Add(new Challenge(30, "Challenge 30", "Hack sucessfully once", () => cl.successfullHacks >= 1, 400));
+        /**/
+        challenges.Add(new Challenge(31, "Challenge 31", "Hack the safe", () => cl.hackedSafe, 400));
         challenges.Add(new Challenge(32, "Challenge 32", "Lockpick a door", () => cl.doorsLockpicked >= 1, 50));
         challenges.Add(new Challenge(33, "Challenge 33", "Lockpick a window", () => cl.windowsLockpicked >= 1, 50));
-        
+
         //TODO regressar a estas quando implementares drop do inventario
         /*
         challenges.Add(new Challenge(34, "Challenge 34", "Steal only from the basement", () => cl.timesWokenUp < 1, 400));
@@ -102,23 +115,30 @@ public class GameManager : MonoBehaviour
         challenges.Add(new Challenge(42, "Challenge 42", "Steal only from the second floor", () => cl.timesWokenUp < 1, 400));
         */
 
-        /**/challenges.Add(new Challenge(43, "Challenge 43", "Use a Noise Bomb to distract the home owner", () => cl.noiseBombDistractions >= 1, 400)); 
+        /**/
+        challenges.Add(new Challenge(43, "Challenge 43", "Use a Noise Bomb to distract the home owner", () => cl.noiseBombDistractions >= 1, 400));
         //TODO nestas duas preencher o numero certo de maxNoiseBombs e de objetos flamaveis
-        /**/challenges.Add(new Challenge(44, "Challenge 44", "Use all Noise Bombs to distract the home owner", () => cl.noiseBombDistractions == 5, 400));
-        /**/challenges.Add(new Challenge(45, "Challenge 45", "Use the Lighter to burn all flamable objects", () => cl.objectsBurned == 5, 400));
-        /**/challenges.Add(new Challenge(46, "Challenge 46", "Use the Lighter to distract the home owner", () => cl.lighterDistractions >= 1, 400));
+        /**/
+        challenges.Add(new Challenge(44, "Challenge 44", "Use all Noise Bombs to distract the home owner", () => cl.noiseBombDistractions == 5, 400));
+        /**/
+        challenges.Add(new Challenge(45, "Challenge 45", "Use the Lighter to burn all flamable objects", () => cl.objectsBurned == 5, 400));
+        /**/
+        challenges.Add(new Challenge(46, "Challenge 46", "Use the Lighter to distract the home owner", () => cl.lighterDistractions >= 1, 400));
 
         challenges = challenges.OrderBy(c => c.number).ToList();
     }
 
     public void CheckAllChallenges()
     {
-        foreach (Challenge c in challenges)
+        if (cl.hasEndedSuccessfully)
         {
-            c.checkFullfiled();
-            if (c.fullfilled)
+            foreach (Challenge c in challenges)
             {
-                Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
+                c.checkFullfiled();
+                if (c.fullfilled)
+                {
+                    Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
+                }
             }
         }
     }
