@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,41 +7,69 @@ public class Player : MonoBehaviour
 {
 	public static Player Instance { get; private set; }
 
-	[SerializeField] private UI_Inventory ui_Inventory;
+    //Game
+    GameManager gameManager;
+    private GadgetTree gadgetTree;
+    public int level
+    {
+        get { return gameManager.level; }
+        set { gameManager.level = value; }
+    }
 
-	private Inventory inventory;
+    //Level
+    [SerializeField] private UI_Inventory ui_Inventory;
+    private Inventory inventory;
+    private PlayerMovement playerMovement;
+    private Controls playerControls;
+    public bool isLit;
+    public List<Gadget> inInventory { get; private set;}
+    public Gadget rightHand { get; set; }
 
-	private PlayerMovement playerMovement;
-	private Controls playerControls;
+    //----
 
-	public bool isLit;
 
-	public int level { get; private set; }
 
-	private GadgetTree gadgetTree;
-	private List<Gadget> onHand;
 
-	private void Awake()
-	{
 
-		Instance = this;
-		inventory = new SimpleBag();
-		ui_Inventory.SetInventory(inventory);
-		playerMovement = gameObject.GetComponent<PlayerMovement>();
-		playerControls = gameObject.GetComponent<Controls>();
-		level = 1;
-		gadgetTree = new GadgetTree();
-		//asumir que so vai para a mao o que pode ser usado
-		onHand = new List<Gadget>();
-		onHand.Add(gadgetTree.gadgets["lockpick"]);
-		onHand.Add(gadgetTree.gadgets["lantern"]);
-	}
+    //private List<Gadget> onHand;
 
-	public void AddToInventory(Item item)
-	{
-		this.inventory.AddItem(item);
-		ui_Inventory.RefreshInventoryItems();
-	}
+    private void Awake()
+    {
+
+        Instance = this;
+        inventory = new SimpleBag();
+        ui_Inventory.SetInventory(inventory);
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+        playerControls = gameObject.GetComponent<Controls>();
+    }
+
+    void Start()
+    {
+        gameManager = GameManager.Instance;
+        gadgetTree = gameManager.gadgetTree;
+
+        inInventory = new List<Gadget>();
+        //inInventory.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);
+        //inInventory.Add(gadgetTree.gadgets[FastLockpick.gadgetID]);
+
+        //rightHand = gadgetTree.gadgets[SimpleLockpick.gadgetID];
+    }
+
+    public void changeMoney(float value)
+    {
+        gameManager.money += value;
+    }
+
+    public float getMoney()
+    {
+        return gameManager.money;
+    }
+
+    public void AddToInventory(Item item)
+    {
+        this.inventory.AddItem(item);
+        ui_Inventory.Refresh();
+    }
 
 	public void DisableMovement()
 	{
@@ -59,6 +88,11 @@ public class Player : MonoBehaviour
 	}
 
 
+    public GadgetTree GetGadgetTree()
+    {
+        return this.gadgetTree;
+    }
+
 	public void unlockGadget(string gadgetName)
 	{
 		Gadget gadget = this.gadgetTree.gadgets[gadgetName];
@@ -69,48 +103,41 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	public bool hasGadgetOnHand(GadgetType type)
-	{
-		foreach (Gadget gadget in this.onHand)
-		{
-			if (gadget.getGadgetType() == type)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+    public void setInventoryGadgets(List<Gadget> chosenGadgets)
+    {
+        this.inInventory = chosenGadgets;
+        this.rightHand = null;
+        this.ui_Inventory.Refresh();
+    }
+    public bool hasGadgetOnHand(String name)
+    {
+        return rightHand != null && rightHand.getID() == name;
+    }
 
-	public Gadget getGadgetOnHand(GadgetType type)
-	{
-		foreach (Gadget gadget in this.onHand)
-		{
-			if (gadget.getGadgetType() == type)
-			{
-				return gadget;
-			}
-		}
-		return null;
-	}
+    public bool hasGadgetOnHand(GadgetType type)
+    {
+        return rightHand != null && rightHand.getGadgetType() == type;
+    }
 
-	public Gadget getGadgetTypeFOnHand()
-	{
-		foreach (Gadget gadget in this.onHand)
-		{
-			if (gadget.getIsTypeF())
-			{
-				return gadget;
-			}
-		}
-		return null;
-	}
+    public Gadget getGadgetOnHand(GadgetType type)
+    {
+        if(rightHand != null && rightHand.getGadgetType() == type)
+        {
+            return rightHand;
+        }
+        return null;
+    }
 
-	void Start()
-	{
-		GameManager gameManager = GameManager.Instance;
-		//TODO remove this (or not!)
-		this.unlockGadget("lockpick");
-	}
+    public Gadget getGadgetUseAnywhereOnHand()
+    {
+        if (rightHand != null && rightHand.CanUseAnywhere())
+        {
+            return rightHand;
+        }
+        return null;
+    }
+
+
 
 	// Update is called once per frame
 	void Update()
