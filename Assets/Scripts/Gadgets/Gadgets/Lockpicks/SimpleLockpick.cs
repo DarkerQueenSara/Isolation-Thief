@@ -45,7 +45,7 @@ public class SimpleLockpick : Lockpick
             isPicking = true;
             finalTime = Time.time + GetLockPickingTime();
             loadingBar.SetActive();
-
+            //Debug.Log("Starting pick!");
             st.Start();
         }
 

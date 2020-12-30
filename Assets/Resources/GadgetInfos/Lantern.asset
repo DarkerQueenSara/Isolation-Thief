@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5570fec211708c64583da284a26c7d10, type: 3}
-  m_Name: New Gadget
+  m_Name: Lantern
   m_EditorClassIdentifier: 
-  name: New Gadget
-  icon: {fileID: 0}
+  name: Lantern
+  icon: {fileID: 21300000, guid: 5d5670e6b29169b4ba21fd5d4fa7bad9, type: 3}
   cost: 0

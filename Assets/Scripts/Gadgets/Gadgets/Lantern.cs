@@ -10,16 +10,16 @@ public class Lantern : Gadget
     public Lantern()
     {
         lantern = GameObject.FindGameObjectWithTag("PlayerLantern").GetComponent<Light>();
-        this.isTypeF = true;
+        this.useAnywhere = true;
         this.unlocked = true;
         this.gadgetInfo = Resources.Load<GadgetInfo>(Gadget.GADGET_INFO_DIR + "Lantern");
     }
 
     public override void Use()
     {
-        
-        lantern.enabled = !lantern.enabled;
-        LevelManager.Instance.usedFlashlight = true;
+
+        //lantern.enabled = !lantern.enabled;
+        //LevelManager.Instance.usedFlashlight = true;
     }
 
     public override GadgetType getGadgetType()

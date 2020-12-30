@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
 
     private GadgetTree gadgetTree;
     public List<Gadget> inInventory { get; private set;}
-    public Gadget leftHand { get; set; }
     public Gadget rightHand { get; set; }
     //private List<Gadget> onHand;
 
@@ -38,14 +37,14 @@ public class Player : MonoBehaviour
         gadgetTree = new GadgetTree();
         inInventory = new List<Gadget>();
         inInventory.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);
-        inInventory.Add(gadgetTree.gadgets[Lantern.gadgetID]);
+        //inInventory.Add(gadgetTree.gadgets[Lantern.gadgetID]);
         inInventory.Add(gadgetTree.gadgets[FastLockpick.gadgetID]);
         //asumir que so vai para a mao o que pode ser usado
         //onHand = new List<Gadget>();
         //onHand.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);
         //onHand.Add(gadgetTree.gadgets[Lantern.gadgetID]);
         rightHand = gadgetTree.gadgets[SimpleLockpick.gadgetID];
-        leftHand = gadgetTree.gadgets[Lantern.gadgetID];
+        //leftHand = gadgetTree.gadgets[Lantern.gadgetID];
     }
 
     public void changeMoney(float value)
@@ -99,84 +98,33 @@ public class Player : MonoBehaviour
     public void setInventoryGadgets(List<Gadget> chosenGadgets)
     {
         this.inInventory = chosenGadgets;
-        this.leftHand = null;
         this.rightHand = null;
-        foreach(Gadget gadget in chosenGadgets)
-        {
-            if (leftHand == null && gadget.getIsTypeF())
-            {
-                leftHand = gadget;
-            }else if(rightHand == null && !gadget.getIsTypeF())
-            {
-                rightHand = gadget;
-            }
-        }
         this.ui_Inventory.Refresh();
     }
     public bool hasGadgetOnHand(String name)
     {
-        /*foreach(Gadget gadget in this.onHand)
-        {
-            if(gadget.getGadgetType() == type)
-            {
-                return true;
-            }
-        }*/
-
-        //se o name estiver em alguma das duas maos retornamos true
-        return (rightHand != null && rightHand.getID() == name) || (leftHand != null && leftHand.getID() == name);
+        return rightHand != null && rightHand.getID() == name;
     }
 
     public bool hasGadgetOnHand(GadgetType type)
     {
-        /*foreach(Gadget gadget in this.onHand)
-        {
-            if(gadget.getGadgetType() == type)
-            {
-                return true;
-            }
-        }*/
-
-        //se o tipo estiver em alguma das duas maos retornamos true
-        return (rightHand != null && rightHand.getGadgetType() == type) || (leftHand != null && leftHand.getGadgetType() == type);
+        return rightHand != null && rightHand.getGadgetType() == type;
     }
 
     public Gadget getGadgetOnHand(GadgetType type)
     {
-        /*foreach (Gadget gadget in this.onHand)
-        {
-            if (gadget.getGadgetType() == type)
-            {
-                return gadget;
-            }
-        }*/
         if(rightHand != null && rightHand.getGadgetType() == type)
         {
             return rightHand;
         }
-        if(leftHand != null && leftHand.getGadgetType() == type)
-        {
-            return leftHand;
-        }
         return null;
     }
 
-    public Gadget getGadgetTypeFOnHand()
+    public Gadget getGadgetUseAnywhereOnHand()
     {
-        /*foreach (Gadget gadget in this.onHand)
-        {
-            if (gadget.getIsTypeF())
-            {
-                return gadget;
-            }
-        }*/
-        if (rightHand != null && rightHand.getIsTypeF())
+        if (rightHand != null && rightHand.CanUseAnywhere())
         {
             return rightHand;
-        }
-        if (leftHand != null && leftHand.getIsTypeF())
-        {
-            return leftHand;
         }
         return null;
     }

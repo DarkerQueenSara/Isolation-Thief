@@ -9,7 +9,6 @@ public class UI_Inventory : MonoBehaviour
     public GameObject crosshair;
     public GameObject itemSlotPrefab;
     public GameObject gadgetSlotPrefab;
-    public GameObject leftHandPrefab;
     public GameObject rightHandPrefab;
     private Inventory inventory;
 
@@ -26,10 +25,8 @@ public class UI_Inventory : MonoBehaviour
     bool showInventory = false;
 
     private Transform gadgetsStuff;
-    private Transform leftHand;
     private Transform rightHand;
-    private Transform leftContainer;
-    private Transform rightContainer;
+    private Transform container;
 
     private Player player;
 
@@ -49,10 +46,8 @@ public class UI_Inventory : MonoBehaviour
         goalValueText = info.Find("Goal").Find("goalText").GetComponent<TextMeshProUGUI>();
 
         gadgetsStuff = uiInventory.Find("gadgets");
-        leftHand = gadgetsStuff.Find("left_hand");
         rightHand = gadgetsStuff.Find("right_hand");
-        leftContainer = gadgetsStuff.Find("container").Find("left");
-        rightContainer = gadgetsStuff.Find("container").Find("right");
+        container = gadgetsStuff.Find("container");
 
         gameObject.SetActive(false);
     }
@@ -107,58 +102,37 @@ public class UI_Inventory : MonoBehaviour
     public void RefreshInventoryGadgets()
     {
         #region destruction
-        if(leftHand != null)
-        {
-            Destroy(leftHand.gameObject);
-        }
         if(rightHand != null)
         {
             Destroy(rightHand.gameObject);
         }
-        foreach (Transform child in leftContainer)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in rightContainer)
+        foreach (Transform child in container)
         {
             Destroy(child.gameObject);
         }
         #endregion
-        if (player.leftHand != null)
-        {
-            leftHand = createGadgetSlot(leftHandPrefab, gadgetsStuff, player.leftHand).transform;
-        }
 
         if(player.rightHand != null)
         {
-            rightHand = createGadgetSlot(rightHandPrefab, gadgetsStuff, player.rightHand).transform;
+            GameObject temp = createGadgetSlot(rightHandPrefab, gadgetsStuff, player.rightHand);
+            rightHand = temp.transform;
+            Button button = temp.transform.Find("GadgetSlot").Find("GadgetButton").GetComponent<Button>();
+            button.onClick.AddListener(delegate {
+                player.rightHand = null;
+                this.Refresh();
+            });
         }
 
 
         foreach (Gadget gadget in player.inInventory)
         {
             if (player.hasGadgetOnHand(gadget.getID())) continue;
-            GameObject temp;
-            if (gadget.getIsTypeF())
-            {
-                temp = Instantiate(gadgetSlotPrefab, leftContainer);
-            }
-            else
-            {
-                temp = Instantiate(gadgetSlotPrefab, rightContainer);
-            }
+            GameObject temp = Instantiate(gadgetSlotPrefab, container);
             Button button = temp.transform.Find("GadgetButton").GetComponent<Button>();
             temp.transform.Find("GadgetButton").Find("name").GetComponent<TextMeshProUGUI>().text = gadget.getID();
             temp.transform.Find("GadgetButton").Find("icon").GetComponent<Image>().sprite = gadget.getSprite();
             button.onClick.AddListener(delegate {
-                if (gadget.getIsTypeF())
-                {
-                    player.leftHand = gadget;
-                }
-                else
-                {
-                    player.rightHand = gadget;
-                }
+                player.rightHand = gadget;
                 this.Refresh();
             });
             //temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = item.GetSprite();

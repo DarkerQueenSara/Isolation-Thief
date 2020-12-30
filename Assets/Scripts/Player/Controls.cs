@@ -51,7 +51,7 @@ public class Controls : MonoBehaviour
 		if (Input.GetButtonDown("Gadget2"))
 		{
 			//TODO gadgets que nao precisam de interactables
-			Gadget onHand = Player.Instance.getGadgetTypeFOnHand();
+			Gadget onHand = Player.Instance.getGadgetUseAnywhereOnHand();
 			if (onHand.CanUse())
 				onHand.Use();
 		}
@@ -61,6 +61,7 @@ public class Controls : MonoBehaviour
 	}
 
 	private Interactable lastInteractable;
+	private float time;
 	private void interact()
 	{
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -79,7 +80,10 @@ public class Controls : MonoBehaviour
 				if (lastInteractable != interactable)
 				{
 					if (lastInteractable != null)
+					{
+						//Debug.Log("Interacting with something else!");
 						lastInteractable.stopInteracting();
+					}
 					interactionTextManager.setInteractingText(interactable.getInteractingText());
 				}
 
@@ -91,16 +95,21 @@ public class Controls : MonoBehaviour
 				}
 				if (Input.GetButtonUp("Interact"))
 				{
+					//Debug.Log("Interact button went up!");
 					interactable.stopInteracting();
 					interactionTextManager.setInteractingText(interactable.getInteractingText());
 				}
 
 				lastInteractable = interactable;
+				time = Time.deltaTime;
 			}
 			else
 			{
 				if (lastInteractable != null)
 				{
+					//Debug.Log("Looked away!");
+					//Debug.Log(hit.distance);
+					//Debug.Log(hit.collider);
 					lastInteractable.stopInteracting();
 				}
 

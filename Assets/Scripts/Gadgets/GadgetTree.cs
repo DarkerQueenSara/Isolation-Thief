@@ -11,7 +11,7 @@ public class GadgetTree
     {
         this.gadgets = new Dictionary<string, Gadget>();
         this.gadgets.Add(SimpleLockpick.gadgetID, new SimpleLockpick());
-        this.gadgets.Add(Lantern.gadgetID, new Lantern());
+        //this.gadgets.Add(Lantern.gadgetID, new Lantern());
         this.gadgets.Add(FastLockpick.gadgetID, new FastLockpick());
     }
 
