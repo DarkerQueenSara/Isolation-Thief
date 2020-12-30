@@ -141,6 +141,11 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public List<Challenge> GetChallenges()
+	{
+		return challenges;
+	}
+
 	public void NewGame()
 	{
 		// Index defined in project build settings
