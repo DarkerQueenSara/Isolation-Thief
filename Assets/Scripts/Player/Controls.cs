@@ -26,8 +26,9 @@ public class Controls : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetButtonDown("Pause") && LevelManager.Instance.CanPause())
+		if (Input.GetButtonDown("Pause"))
 		{
+			Debug.Log("show paused menu");
 			PausedMenu.Instance.visible();
 		}
 
@@ -61,7 +62,6 @@ public class Controls : MonoBehaviour
 	}
 
 	private Interactable lastInteractable;
-	private float time;
 	private void interact()
 	{
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -101,7 +101,6 @@ public class Controls : MonoBehaviour
 				}
 
 				lastInteractable = interactable;
-				time = Time.deltaTime;
 			}
 			else
 			{

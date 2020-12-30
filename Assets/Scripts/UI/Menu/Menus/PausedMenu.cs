@@ -56,4 +56,5 @@ public class PausedMenu : MonoBehaviour
 			Cursor.visible = false;
 		}
 	}
+
 }
