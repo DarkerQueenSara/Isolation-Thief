@@ -11,6 +11,7 @@ TagManager:
   - PlayerLantern
   - LevelManager
   - GameManager
+  - UIGadgetTree
   layers:
   - Default
   - TransparentFX

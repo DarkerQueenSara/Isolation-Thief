@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,34 +22,49 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnApplicationQuit()
+	public void OnApplicationQuit()
+	{
+		instance = null;
+	}
+
+	private void Awake()
+	{
+		CreateAllChallenges();
+		InitializePlayerInfo();
+	}
+
+	//Player information
+	public float money;
+	public int level { get; set; }
+	public GadgetTree gadgetTree { get; private set; }
+
+
+	void InitializePlayerInfo()
     {
-        instance = null;
-    }
+		level = 1;
+		gadgetTree = new GadgetTree();
+	}
+	//------------------
 
-    private void Awake()
-    {
-        CreateAllChallenges();
-    }
 
-    //cl = currentLevel
-    public LevelManager cl;
+	//cl = currentLevel
+	public LevelManager cl;
 
-    //TODO meter aqui as três árvores
-    List<Challenge> goodDeeds = new List<Challenge>();
-    List<Challenge> challenges = new List<Challenge>();
-    //Cash to buy gadgets/ammo for gadgets with
-    public int availableCash;
-    //Points to buy skills with
-    public int availableXp;
-    public int availableKp;
-    //Total points (to show mastery of the level)
-    public int totalXp;
-    public int totalKp;
+	//TODO meter aqui as três árvores
+	List<Challenge> goodDeeds = new List<Challenge>();
+	List<Challenge> challenges = new List<Challenge>();
+	//Cash to buy gadgets/ammo for gadgets with
+	public int availableCash;
+	//Points to buy skills with
+	public int availableXp;
+	public int availableKp;
+	//Total points (to show mastery of the level)
+	public int totalXp;
+	public int totalKp;
 
-    void CreateAllChallenges()
-    {
-        //TODO ajustar nomes, numero e experiencia de todas estas challenges
+	void CreateAllChallenges()
+	{
+		//TODO ajustar nomes, numero e experiencia de todas estas challenges
 
         //Numero na lista porque vou dar sort, nome, descrição, check, exp
         challenges.Add(new Challenge(1, "Challenge 1", "Beat the level in under 3 minutes", () => cl.timeElapsed < 3 * 60, 400));
@@ -138,4 +154,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void NewGame()
+    {
+        // Index defined in project build settings
+        SceneManager.LoadScene(1);
+        //cl = LevelManager.Instance;
+    }
+
+    public void StartLevel()
+    {
+        SceneManager.LoadScene(2);
+        //cl.StartGame();
+    }
+
+    public void ShowMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void ShowLevelMenu()
+	{
+		SceneManager.LoadScene(1);
+	}
 }
