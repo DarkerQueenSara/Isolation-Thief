@@ -104,6 +104,14 @@ public class GameManager : MonoBehaviour
         /**/challenges.Add(new Challenge(46, "Challenge 46", "Use the Lighter to distract the home owner", () => cl.lighterDistractions >= 1, 400));
 
         challenges = challenges.OrderBy(c => c.number).ToList();
+
+
+        /**/goodDeeds.Add(new Challenge(1, "Don't Sleep With Them. They're Hungry", "Feed the fishes", () => cl.fedFishes, 400)); 
+        /**/goodDeeds.Add(new Challenge(2, "Get That Garbage Outta Here!", "Put the trash in the garbage can", () => cl.trashInCan, 400));
+        /**/goodDeeds.Add(new Challenge(3, "And The Award Goes Too...", "Put the oscar back up", () => cl.oscarFlipped, 400));
+
+        goodDeeds = goodDeeds.OrderBy(c => c.number).ToList();
+
     }
 
     public void CheckAllChallenges()
@@ -111,6 +119,15 @@ public class GameManager : MonoBehaviour
         if (cl.hasEndedSuccessfully)
         {
             foreach (Challenge c in challenges)
+            {
+                c.checkFullfiled();
+                if (c.fullfilled)
+                {
+                    Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
+                }
+            }
+
+            foreach (Challenge c in goodDeeds)
             {
                 c.checkFullfiled();
                 if (c.fullfilled)
