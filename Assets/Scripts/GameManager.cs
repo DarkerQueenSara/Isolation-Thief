@@ -14,8 +14,7 @@ public class GameManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-                audioManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<AudioManager>();
+                instance = new GameObject("GameManager").AddComponent<GameManager>();
                 DontDestroyOnLoad(instance);
             }
             return instance;
