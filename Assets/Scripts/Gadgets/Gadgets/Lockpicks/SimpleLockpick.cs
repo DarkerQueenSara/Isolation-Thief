@@ -39,6 +39,10 @@ public class SimpleLockpick : Lockpick
     private float finalTime;
     public override bool LockpickObject()
     {
+        if(loadingBar == null)
+        {
+            loadingBar = LoadingBar.instance;
+        }
         //Exit immedialy if you stop holding the interact button
         if (!isPicking)
         {
