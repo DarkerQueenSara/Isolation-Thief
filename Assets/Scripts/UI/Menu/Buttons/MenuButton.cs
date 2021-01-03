@@ -55,6 +55,8 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 		Debug.Log("Menu button clicked");
 	}
 
+	// Main Menu
+
 	public void NewGameAction()
 	{
 		Debug.Log("New game clicked");
@@ -72,11 +74,21 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 		Application.Quit();
 	}
 
+	// Level Menu
+
 	public void StartLevelAction()
 	{
 		Debug.Log("Start Level clicked");
 		GameManager.Instance.StartLevel();
 	}
+
+	public void OpenGadgetsMenu()
+	{
+		Debug.Log("Gadgets clicked");
+		GameManager.Instance.ShowGadgetsMenu();
+	}
+
+	// Paused Menu
 
 	public void ContinueLevelAction()
 	{
@@ -110,12 +122,12 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 		ConfirmationDialog.Instance.visible();
 	}
 
-	public void ReturnToLevelMenuAction()
+	public void ShowLevelMenuAction()
 	{
 		GameManager.Instance.ShowLevelMenu();
 	}
 
-	public void ReturnToMainMenuAction()
+	public void ShowMainMenuAction()
 	{
 		GameManager.Instance.ShowMainMenu();
 	}

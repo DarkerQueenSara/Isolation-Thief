@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	// Scenes indexes
+	const int MAIN_MENU = 0;
+	const int LEVEL_MENU = 1;
+	const int GADGETS_MENU = 2;
+	const int LEVEL_SCENE = 3;
+
 	private static GameManager instance;
 
 	public static GameManager Instance
@@ -39,7 +45,7 @@ public class GameManager : MonoBehaviour
 
 
 	void InitializePlayerInfo()
-    {
+	{
 		level = 1;
 		gadgetTree = new GadgetTree();
 	}
@@ -164,23 +170,28 @@ public class GameManager : MonoBehaviour
 	public void NewGame()
 	{
 		// Index defined in project build settings
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(LEVEL_MENU);
 		//cl = LevelManager.Instance;
 	}
 
 	public void StartLevel()
 	{
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene(LEVEL_SCENE);
 		//cl.StartGame();
 	}
 
 	public void ShowMainMenu()
 	{
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(MAIN_MENU);
 	}
 
 	public void ShowLevelMenu()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(LEVEL_MENU);
+	}
+
+	public void ShowGadgetsMenu()
+	{
+		SceneManager.LoadScene(GADGETS_MENU);
 	}
 }

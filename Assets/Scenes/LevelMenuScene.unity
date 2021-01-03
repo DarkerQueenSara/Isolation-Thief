@@ -966,7 +966,7 @@ PrefabInstance:
     - target: {fileID: 2679032062613433420, guid: c6eaff63948d6f740a170f19446342e0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -74
+      value: -76
       objectReference: {fileID: 0}
     - target: {fileID: 2679032062613433420, guid: c6eaff63948d6f740a170f19446342e0,
         type: 3}
@@ -1037,6 +1037,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 244.33252
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760222627671897698, guid: c6eaff63948d6f740a170f19446342e0,
+        type: 3}
+      propertyPath: clickAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenGadgetsMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7210220237429234153, guid: c6eaff63948d6f740a170f19446342e0,
         type: 3}

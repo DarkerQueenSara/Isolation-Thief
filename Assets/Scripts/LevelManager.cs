@@ -83,12 +83,14 @@ public class LevelManager : MonoBehaviour
 	{
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
-		StartGame();
+		ChooseGadgetUI.Instance.changeVisibility();
+		//StartGame();
 	}
 
 	public void StartGame()
 	{
 		Debug.Log("Level manager start game");
+
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		Time.timeScale = 1;
