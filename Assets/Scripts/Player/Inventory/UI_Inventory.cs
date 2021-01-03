@@ -8,6 +8,8 @@ public class UI_Inventory : MonoBehaviour
 {
     public GameObject crosshair;
     public GameObject itemSlotPrefab;
+    public GameObject gadgetSlotPrefab;
+    public GameObject rightHandPrefab;
     private Inventory inventory;
 
     private Transform uiInventory;
@@ -22,6 +24,11 @@ public class UI_Inventory : MonoBehaviour
     private TextMeshProUGUI goalValueText; // "Goal : " + goalValue
     bool showInventory = false;
 
+    private Transform gadgetsStuff;
+    private Transform rightHand;
+    private Transform container;
+
+    private Player player;
 
 
     private void Awake()
@@ -38,18 +45,34 @@ public class UI_Inventory : MonoBehaviour
         missingValueText = info.Find("MissingValue").Find("missingValueText").GetComponent<TextMeshProUGUI>();
         goalValueText = info.Find("Goal").Find("goalText").GetComponent<TextMeshProUGUI>();
 
+        gadgetsStuff = uiInventory.Find("gadgets");
+        rightHand = gadgetsStuff.Find("right_hand");
+        container = gadgetsStuff.Find("container");
+
         gameObject.SetActive(false);
     }
 
     private void Start()
     {
         this.goalValueText.text = "Goal : 2500$";
+        this.player = Player.Instance;
+        RefreshInventoryGadgets();
     }
 
     public void SetInventory(Inventory inventory)
     {
         this.inventory = inventory;
         RefreshInventoryItems();
+    }
+
+    public void Refresh()
+    {
+        if (player == null)
+        {
+            player = Player.Instance;
+        }
+        RefreshInventoryItems();
+        RefreshInventoryGadgets();
     }
 
 
@@ -76,21 +99,61 @@ public class UI_Inventory : MonoBehaviour
         this.missingValueText.text = missingValue + "$";
     }
 
+    public void RefreshInventoryGadgets()
+    {
+        #region destruction
+        if(rightHand != null)
+        {
+            Destroy(rightHand.gameObject);
+        }
+        foreach (Transform child in container)
+        {
+            Destroy(child.gameObject);
+        }
+        #endregion
+
+        if(player.rightHand != null)
+        {
+            GameObject temp = createGadgetSlot(rightHandPrefab, gadgetsStuff, player.rightHand);
+            rightHand = temp.transform;
+            Button button = temp.transform.Find("GadgetSlot").Find("GadgetButton").GetComponent<Button>();
+            button.onClick.AddListener(delegate {
+                player.rightHand = null;
+                this.Refresh();
+            });
+        }
+
+
+        foreach (Gadget gadget in player.inInventory)
+        {
+            if (player.hasGadgetOnHand(gadget.getID())) continue;
+            GameObject temp = Instantiate(gadgetSlotPrefab, container);
+            Button button = temp.transform.Find("GadgetButton").GetComponent<Button>();
+            temp.transform.Find("GadgetButton").Find("name").GetComponent<TextMeshProUGUI>().text = gadget.getID();
+            temp.transform.Find("GadgetButton").Find("icon").GetComponent<Image>().sprite = gadget.getSprite();
+            button.onClick.AddListener(delegate {
+                player.rightHand = gadget;
+                this.Refresh();
+            });
+            //temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = item.GetSprite();
+        }
+    }
+
+    private GameObject createGadgetSlot(GameObject prefab, Transform place, Gadget gadget)
+    {
+        GameObject temp = Instantiate(prefab, place);
+        temp.transform.Find("GadgetSlot").Find("GadgetButton").Find("name").GetComponent<TextMeshProUGUI>().text = gadget.getID();
+        temp.transform.Find("GadgetSlot").Find("GadgetButton").Find("icon").GetComponent<Image>().sprite = gadget.getSprite();
+        return temp;
+    }
+
     public bool isVisible()
     {
         return showInventory;
     }
     public void visible()
     {
-        if (showInventory)
-        {
-            showInventory = false;
-
-        }
-        else
-        {
-            showInventory = true;
-        }
+        showInventory = !showInventory;
 
         if (showInventory)
         {

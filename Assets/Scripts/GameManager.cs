@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-
+    public static AudioManager audioManager;
     public static GameManager Instance
     {
         get
@@ -20,34 +21,49 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnApplicationQuit()
+	public void OnApplicationQuit()
+	{
+		instance = null;
+	}
+
+	private void Awake()
+	{
+		CreateAllChallenges();
+		InitializePlayerInfo();
+	}
+
+	//Player information
+	public float money;
+	public int level { get; set; }
+	public GadgetTree gadgetTree { get; private set; }
+
+
+	void InitializePlayerInfo()
     {
-        instance = null;
-    }
+		level = 1;
+		gadgetTree = new GadgetTree();
+	}
+	//------------------
 
-    private void Awake()
-    {
-        CreateAllChallenges();
-    }
 
-    //cl = currentLevel
-    public LevelManager cl;
+	//cl = currentLevel
+	public LevelManager cl;
 
-    //TODO meter aqui as três árvores
-    List<Challenge> goodDeeds = new List<Challenge>();
-    List<Challenge> challenges = new List<Challenge>();
-    //Cash to buy gadgets/ammo for gadgets with
-    public int availableCash;
-    //Points to buy skills with
-    public int availableXp;
-    public int availableKp;
-    //Total points (to show mastery of the level)
-    public int totalXp;
-    public int totalKp;
+	//TODO meter aqui as três árvores
+	List<Challenge> goodDeeds = new List<Challenge>();
+	List<Challenge> challenges = new List<Challenge>();
+	//Cash to buy gadgets/ammo for gadgets with
+	public int availableCash;
+	//Points to buy skills with
+	public int availableXp;
+	public int availableKp;
+	//Total points (to show mastery of the level)
+	public int totalXp;
+	public int totalKp;
 
-    void CreateAllChallenges()
-    {
-        //TODO ajustar nomes, numero e experiencia de todas estas challenges
+	void CreateAllChallenges()
+	{
+		//TODO ajustar nomes, numero e experiencia de todas estas challenges
 
         //Numero na lista porque vou dar sort, nome, descrição, check, exp
         challenges.Add(new Challenge(1, "Challenge 1", "Beat the level in under 3 minutes", () => cl.timeElapsed < 3 * 60, 400));
@@ -64,20 +80,15 @@ public class GameManager : MonoBehaviour
         challenges.Add(new Challenge(12, "Challenge 12", "Beat the level with at least 9000$", () => cl.cashInInventory >= 9000, 350));
         challenges.Add(new Challenge(13, "Challenge 13", "Beat the level with at least 10000$", () => cl.cashInInventory >= 10000, 400));
         challenges.Add(new Challenge(14, "Challenge 14", "Beat the level without turning on the flashlight", () => !cl.usedFlashlight, 200));
-        /**/challenges.Add(new Challenge(15, "Challenge 15", "Clear the level undetected", () => cl.timesDetected < 1, 400));
+        challenges.Add(new Challenge(15, "Challenge 15", "Clear the level undetected", () => cl.timesDetected < 1, 400));
         /**/challenges.Add(new Challenge(16, "Challenge 16", "Clear the level without waking anyone up", () => cl.timesWokeUp < 1, 400));
-        /**/challenges.Add(new Challenge(17, "Challenge 17", "Enter a bedroom while it's empty", () => cl.enteredEmptyBedroom, 400));
-
+        /**/challenges.Add(new Challenge(17, "Challenge 17", "Enter thr bedroom while it's empty", () => cl.enteredEmptyBedroom, 400));
         //TODO ver se estas dao bem 
-        challenges.Add(new Challenge(18, "Challenge 18", "Evade the cops with 10 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft < 10, 200));
-        challenges.Add(new Challenge(19, "Challenge 19", "Evade the cops with 20 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft < 20, 300));
-        challenges.Add(new Challenge(20, "Challenge 20", "Evade the cops with 30 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft < 30, 400));
-
-        /**/challenges.Add(new Challenge(21, "Challenge 21", "Get inside the house through a balcony door", () => cl.enteredBalconyDoor, 400));
-        /**/challenges.Add(new Challenge(22, "Challenge 22", "Get inside the house through a first floor window", () => cl.enteredFirstWindow, 400));
-        /**/challenges.Add(new Challenge(23, "Challenge 23", "Get inside the house through a second floor window", () => cl.enteredSecondWindow, 400));
+        challenges.Add(new Challenge(18, "Challenge 18", "Evade the cops with 10 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 10, 200));
+        challenges.Add(new Challenge(19, "Challenge 19", "Evade the cops with 20 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 20, 300));
+        challenges.Add(new Challenge(20, "Challenge 20", "Evade the cops with 30 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 30, 400));
+        /**/challenges.Add(new Challenge(22, "Challenge 22", "Get inside the house through a window", () => cl.enteredFirstWindow, 400));
         /**/challenges.Add(new Challenge(24, "Challenge 24", "Get inside the house through the back door", () => cl.enteredBackDoor, 400));
-        /**/challenges.Add(new Challenge(25, "Challenge 25", "Get inside the house through the basement window", () => cl.enteredBasementWindow, 400));
         /**/challenges.Add(new Challenge(26, "Challenge 26", "Get inside the house through the front door", () => cl.enteredFrontDoor, 400));
         /**/challenges.Add(new Challenge(27, "Challenge 27", "Get to the yard by jumping the fence", () => cl.jumpedFence, 400));
         /**/challenges.Add(new Challenge(28, "Challenge 28", "Get to the yard through the front gate", () => cl.jumpedFence, 400));
@@ -87,7 +98,7 @@ public class GameManager : MonoBehaviour
         /**/challenges.Add(new Challenge(31, "Challenge 31", "Hack the safe", () => cl.hackedSafe, 400));
         challenges.Add(new Challenge(32, "Challenge 32", "Lockpick a door", () => cl.doorsLockpicked >= 1, 50));
         challenges.Add(new Challenge(33, "Challenge 33", "Lockpick a window", () => cl.windowsLockpicked >= 1, 50));
-        
+
         //TODO regressar a estas quando implementares drop do inventario
         /*
         challenges.Add(new Challenge(34, "Challenge 34", "Steal only from the basement", () => cl.timesWokenUp < 1, 400));
@@ -101,25 +112,67 @@ public class GameManager : MonoBehaviour
         challenges.Add(new Challenge(42, "Challenge 42", "Steal only from the second floor", () => cl.timesWokenUp < 1, 400));
         */
 
-        /**/challenges.Add(new Challenge(43, "Challenge 43", "Use a Noise Bomb to distract the home owner", () => cl.noiseBombDistractions >= 1, 400)); 
+        /**/challenges.Add(new Challenge(43, "Challenge 43", "Use a Noise Bomb to distract the home owner", () => cl.noiseBombDistractions >= 1, 400));
         //TODO nestas duas preencher o numero certo de maxNoiseBombs e de objetos flamaveis
         /**/challenges.Add(new Challenge(44, "Challenge 44", "Use all Noise Bombs to distract the home owner", () => cl.noiseBombDistractions == 5, 400));
         /**/challenges.Add(new Challenge(45, "Challenge 45", "Use the Lighter to burn all flamable objects", () => cl.objectsBurned == 5, 400));
         /**/challenges.Add(new Challenge(46, "Challenge 46", "Use the Lighter to distract the home owner", () => cl.lighterDistractions >= 1, 400));
 
         challenges = challenges.OrderBy(c => c.number).ToList();
+
+
+        /**/goodDeeds.Add(new Challenge(1, "Don't Sleep With Them. They're Hungry", "Feed the fishes", () => cl.fedFishes, 400)); 
+        /**/goodDeeds.Add(new Challenge(2, "Get That Garbage Outta Here!", "Put the trash in the garbage can", () => cl.trashInCan, 400));
+        /**/goodDeeds.Add(new Challenge(3, "And The Award Goes Too...", "Put the oscar back up", () => cl.oscarFlipped, 400));
+
+        goodDeeds = goodDeeds.OrderBy(c => c.number).ToList();
+
     }
 
     public void CheckAllChallenges()
     {
-        foreach (Challenge c in challenges)
+        if (cl.hasEndedSuccessfully)
         {
-            c.checkFullfiled();
-            if (c.fullfilled)
+            foreach (Challenge c in challenges)
             {
-                Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
+                c.checkFullfiled();
+                if (c.fullfilled)
+                {
+                    Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
+                }
+            }
+
+            foreach (Challenge c in goodDeeds)
+            {
+                c.checkFullfiled();
+                if (c.fullfilled)
+                {
+                    Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
+                }
             }
         }
     }
 
+    public void NewGame()
+    {
+        // Index defined in project build settings
+        SceneManager.LoadScene(1);
+        //cl = LevelManager.Instance;
+    }
+
+    public void StartLevel()
+    {
+        SceneManager.LoadScene(2);
+        //cl.StartGame();
+    }
+
+    public void ShowMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void ShowLevelMenu()
+	{
+		SceneManager.LoadScene(1);
+	}
 }

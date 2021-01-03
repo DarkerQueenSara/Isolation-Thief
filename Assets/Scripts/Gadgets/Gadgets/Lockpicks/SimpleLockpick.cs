@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SimpleLockpick : Lockpick
 {
-
-    
+    public const string gadgetID = "Simple Lockpick";
     public System.Diagnostics.Stopwatch st = new System.Diagnostics.Stopwatch();
 
     public SimpleLockpick() : base()
@@ -14,11 +13,14 @@ public class SimpleLockpick : Lockpick
         gadgetDependencies = new List<Gadget>();
         minLevel = 1;
         isPicking = false;
+        this.unlocked = true;
+        this.gadgetInfo = Resources.Load<GadgetInfo>(Gadget.GADGET_INFO_DIR + "SimpleLockpick");
+
     }
 
     public override float GetLockPickingTime()
     {
-        float timeReduction = this.player.level > 3 ? 3 : this.player.level;
+        float timeReduction = GameManager.Instance.level > 3 ? 3 : GameManager.Instance.level;
         return 4 - timeReduction; //3 to 1 
     }
 
@@ -37,13 +39,17 @@ public class SimpleLockpick : Lockpick
     private float finalTime;
     public override bool LockpickObject()
     {
+        if(loadingBar == null)
+        {
+            loadingBar = LoadingBar.instance;
+        }
         //Exit immedialy if you stop holding the interact button
         if (!isPicking)
         {
             isPicking = true;
             finalTime = Time.time + GetLockPickingTime();
             loadingBar.SetActive();
-
+            //Debug.Log("Starting pick!");
             st.Start();
         }
 

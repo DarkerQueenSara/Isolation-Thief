@@ -43,5 +43,4 @@ public class Lockpick : Gadget
     {
         return GadgetType.LOCKPICK;
     }
-
 }

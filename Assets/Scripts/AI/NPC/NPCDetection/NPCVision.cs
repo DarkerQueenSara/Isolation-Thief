@@ -35,6 +35,7 @@ public class NPCVision : MonoBehaviour
             {
                 Debug.Log("I found the player");
                 detectedPlayer = true;
+                LevelManager.Instance.timesDetected++;
                 StartCoroutine(reactScared(other.transform));
             }
         }
