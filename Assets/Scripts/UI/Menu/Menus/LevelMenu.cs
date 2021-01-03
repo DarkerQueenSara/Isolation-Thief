@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class LevelMenu : MonoBehaviour
 {
-	TextMeshProUGUI ChallengesList;
+	public GameObject challengeItemPrefab;
+	private Transform ChallengesList;
 
 	#region SINGLETON
 	public static LevelMenu Instance;
@@ -23,23 +24,33 @@ public class LevelMenu : MonoBehaviour
 			.Find("Challenges")
 			.Find("Scroll View")
 			.Find("Viewport")
-			.Find("ChallengesList").GetComponent<TextMeshProUGUI>();
+			.Find("ChallengesList");
 
-		setChallengesText();
+		setChallenges();
 	}
 	#endregion
 
-	public void setChallengesText()
+	public void setChallenges()
 	{
 		List<Challenge> challenges = GameManager.Instance.GetChallenges();
-		string challengesText = "";
+		//string challengesText = "";
 
 		foreach (Challenge challenge in challenges)
 		{
-			challengesText += challenge.description + "\n";
+			GameObject temp = Instantiate(challengeItemPrefab, ChallengesList);
+			TextMeshProUGUI challengeText = temp.transform.Find("Text").GetComponent<TextMeshProUGUI>();
+			challengeText.text = challenge.description;
+			if (challenge.fullfilled)
+			{
+				challengeText.color = new Color32(255, 255, 255, 100);
+				challengeText.fontStyle = FontStyles.Strikethrough;
+			}
+
+			//challengesText += challenge.description + "\n";
+
 		}
 
-		ChallengesList.text = challengesText;
+		//ChallengesList.text = challengesText;
 	}
 
 }
