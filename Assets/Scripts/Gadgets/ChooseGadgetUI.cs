@@ -53,17 +53,20 @@ public class ChooseGadgetUI : MonoBehaviour
 			Button button = temp.transform.Find("GadgetButton").GetComponent<Button>();
 			temp.transform.Find("GadgetButton").Find("name").GetComponent<TextMeshProUGUI>().text = gadget.getID();
 			temp.transform.Find("GadgetButton").Find("icon").GetComponent<Image>().sprite = gadget.getSprite();
+			Image selected = temp.transform.Find("GadgetButton").Find("selected").GetComponent<Image>();
 			button.onClick.AddListener(delegate
 			{
 				//gadget.unlocked = !gadget.unlocked;
 				if (this.chosenGadgets.Contains(gadget))
 				{
 					Debug.Log(gadget.getID() + " was removed");
+					selected.transform.gameObject.SetActive(false);
 					this.chosenGadgets.Remove(gadget);
 				}
 				else
 				{
 					Debug.Log(gadget.getID() + " was chosen");
+					selected.transform.gameObject.SetActive(true);
 					this.chosenGadgets.Add(gadget);
 				}
 			});
