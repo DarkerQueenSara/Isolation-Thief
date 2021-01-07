@@ -6,6 +6,7 @@ using UnityEngine;
 public enum GadgetType
 {
     LOCKPICK,
+    HACKING_DEVICE,
     LANTERN
 }
 
