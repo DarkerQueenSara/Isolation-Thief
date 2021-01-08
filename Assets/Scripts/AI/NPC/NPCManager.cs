@@ -11,6 +11,8 @@ public class NPCManager : MonoBehaviour
 
     public List<Transform> telephones;
 
+    public Lockpickable bedroomDoor;
+
     public bool CopsCalled { get; private set; }
 
     private void Awake()
@@ -58,6 +60,7 @@ public class NPCManager : MonoBehaviour
                 managedNPC.HideOnBedRoom();
             }
         }
+        this.bedroomDoor.isLocked = true;
     }
 
     Transform GetClosestPhone(ManagedNPC managedNPC)

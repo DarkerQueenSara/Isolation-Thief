@@ -10286,6 +10286,7 @@ MonoBehaviour:
   - {fileID: 1196215055}
   - {fileID: 1029794629}
   - {fileID: 96162874}
+  bedroomDoor: {fileID: 564627141}
 --- !u!4 &1695646836
 Transform:
   m_ObjectHideFlags: 0
