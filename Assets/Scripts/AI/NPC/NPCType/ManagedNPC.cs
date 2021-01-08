@@ -73,7 +73,7 @@ public class ManagedNPC : MonoBehaviour
 
     public void CallCops(Transform closestPhoneTransform)
     {
-        this.myMovement.GoTo(closestPhoneTransform.position);
+        this.myMovement.RunTo(closestPhoneTransform.position);
         StartCoroutine(DoCallCops());
 
     }

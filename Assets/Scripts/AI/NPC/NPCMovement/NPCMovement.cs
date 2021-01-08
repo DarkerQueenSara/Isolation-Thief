@@ -61,6 +61,13 @@ public abstract class NPCMovement
         this.npc_m_Agent.destination = position;
     }
 
+    public void RunTo(Vector3 position)
+    {
+        this.npc_m_Agent.speed = runSpeed;
+        this.managedNPC_animator.SetFloat("Speed", runSpeed);
+        this.npc_m_Agent.destination = position;
+    }
+
     public void Idle()
     {
         this.npc_m_Agent.speed = 0;
@@ -84,7 +91,7 @@ public abstract class NPCMovement
 
     public bool FollowNPC(Transform npcTransform)
     {
-        GoTo(npcTransform.position);
+        RunTo(npcTransform.position);
         return (npc_m_Agent.remainingDistance > 1f);
     }
 
