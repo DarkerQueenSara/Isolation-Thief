@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     private Inventory inventory;
     private PlayerMovement playerMovement;
     private Controls playerControls;
-    public bool isLit;
+     public bool isLit = false;
     public List<Gadget> inInventory { get; private set;}
     public Gadget rightHand { get; set; }
 

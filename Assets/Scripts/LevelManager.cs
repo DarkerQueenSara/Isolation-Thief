@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
 	private static LevelManager instance;
-
+	public AudioManager audioManager;
 	public static LevelManager Instance
 	{
 		get
@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
 	public bool copsCalled { get; private set; }
 	public bool copsArrived;
 	public bool hasEnded;
+	public bool hasEndedSuccessfully;
 
 	[HideInInspector]
 	public float timeElapsed;
@@ -72,10 +73,17 @@ public class LevelManager : MonoBehaviour
 	public int lighterDistractions;
 	[HideInInspector]
 	public int objectsBurned;
+	[HideInInspector]
+	public bool fedFishes;
+	[HideInInspector]
+	public bool trashInCan;
+	[HideInInspector]
+	public bool oscarFlipped;
 
 	private void Awake()
 	{
 		GameManager.Instance.cl = this;
+		audioManager = this.gameObject.GetComponent<AudioManager>();
 	}
 
 	// Start is called before the first frame update
@@ -139,7 +147,7 @@ public class LevelManager : MonoBehaviour
 	public void callCops()
 	{
 		this.copsCalled = true;
-		SoundManagerScript.instance.PlaySoundGradually(SoundManagerScript.POLICE_SIRENS, timeTillCops);
+		audioManager.Play("PoliceSirens");
 	}
 
 	public void endGame()
@@ -148,7 +156,7 @@ public class LevelManager : MonoBehaviour
 		Cursor.visible = true;
 		hasEnded = true;
 		cashInInventory = player.GetTotalStolen();
-		SoundManagerScript.instance.stopSound();
+		audioManager.Stop("PoliceSirens");
 
 		if (copsArrived) //Lose
 		{
@@ -170,6 +178,7 @@ public class LevelManager : MonoBehaviour
 		}
 		else //win
 		{
+			hasEndedSuccessfully = true;
 			LevelEndMenu.Instance.setText(
 					"You WON!",
 					"You escaped!",

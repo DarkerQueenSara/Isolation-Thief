@@ -35,23 +35,23 @@ public class SimpleLockpick : Lockpick
 	}
 
 
-	private bool isPicking;
-	private float finalTime;
-	public override bool LockpickObject()
-	{
-		if (loadingBar == null)
-		{
-			loadingBar = LoadingBar.Instance;
-		}
-		//Exit immedialy if you stop holding the interact button
-		if (!isPicking)
-		{
-			isPicking = true;
-			finalTime = Time.time + GetLockPickingTime();
-			loadingBar.SetActive();
-			//Debug.Log("Starting pick!");
-			st.Start();
-		}
+    private bool isPicking;
+    private float finalTime;
+    public override bool LockpickObject()
+    {
+        if(loadingBar == null)
+        {
+            loadingBar = LoadingBar.instance;
+        }
+        //Exit immedialy if you stop holding the interact button
+        if (!isPicking)
+        {
+            isPicking = true;
+            finalTime = Time.time + GetLockPickingTime();
+            loadingBar.SetActive();
+            //Debug.Log("Starting pick!");
+            st.Start();
+        }
 
 		//Start the lockpicking process if not yet started
 		/*if(progress == .0f)
