@@ -9,7 +9,7 @@ public class Lockpick : Gadget
 
 	public Lockpick() : base()
 	{
-		this.loadingBar = LoadingBar.Instance;
+		this.loadingBar = LoadingBar.instance;
 		//Debug.Log(loadingBar);
 	}
 

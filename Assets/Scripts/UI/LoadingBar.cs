@@ -11,15 +11,15 @@ public class LoadingBar : MonoBehaviour
 	TextMeshProUGUI ActionText;
 
 	#region SINGLETON
-	public static LoadingBar Instance;
+	public static LoadingBar instance;
 
 	private void Awake()
 	{
-		if (Instance != null)
+		if (instance != null)
 		{
 			Debug.LogWarning("More than one instance of LoadingBar found!");
 		}
-		Instance = this;
+		instance = this;
 		loadingBarTransform = transform.Find("LoadingBar");
 		loadingBar = loadingBarTransform.GetComponent<Slider>();
 		ActionText = loadingBarTransform.Find("ActionText").GetComponent<TextMeshProUGUI>();
