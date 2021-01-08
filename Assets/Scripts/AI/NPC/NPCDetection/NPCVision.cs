@@ -77,7 +77,7 @@ public class NPCVision : MonoBehaviour
             NPCManager.Instance.CallCops(NPC);
         } else
         {
-            NPC.HideOnBedRoom();
+            NPCManager.Instance.WarnOtherNPC(NPC);
         }
     }
 

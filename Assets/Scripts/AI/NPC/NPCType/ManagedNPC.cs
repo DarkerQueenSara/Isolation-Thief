@@ -96,6 +96,17 @@ public class ManagedNPC : MonoBehaviour
         //this.HideOnBedRoom();
     }
 
+    public IEnumerator WarnOtherNPC(ManagedNPC npc)
+    {
+        while (myMovement.FollowNPC(npc.transform))
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
+
+        NPCManager.Instance.CallCops(npc);
+    }
+
+
     public void HideOnBedRoom()
     {
         StartCoroutine(this.myMovement.HideOnBedRoom());

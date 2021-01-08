@@ -82,6 +82,12 @@ public abstract class NPCMovement
         StopMoving();
     }
 
+    public bool FollowNPC(Transform npcTransform)
+    {
+        GoTo(npcTransform.position);
+        return (npc_m_Agent.remainingDistance > 1f);
+    }
+
     public void StopMoving()
     {
         this.npc_m_Agent.speed = 0;

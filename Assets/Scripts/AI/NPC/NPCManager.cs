@@ -63,6 +63,38 @@ public class NPCManager : MonoBehaviour
         this.bedroomDoor.isLocked = true;
     }
 
+    public void WarnOtherNPC(ManagedNPC npc)
+    {
+        ManagedNPC closestNPC = GetClosestNPCWhoCanCallCops(npc);
+        StartCoroutine(npc.WarnOtherNPC(closestNPC));
+    }
+
+    ManagedNPC GetClosestNPCWhoCanCallCops(ManagedNPC managedNPC)
+    {
+        Vector3 managedNPCPosition = managedNPC.transform.position;
+
+        ManagedNPC auxNPC = null;
+        Transform aux = null;
+
+        foreach (ManagedNPC npc in this.managedNPCS)
+        {
+            if (!npc.canCallCops) continue;
+
+            if (aux == null)
+            {
+                auxNPC = npc;
+                aux = npc.transform;
+            }
+            else if (Vector3.Distance(managedNPCPosition, npc.transform.position) < Vector3.Distance(managedNPCPosition, aux.position))
+            {
+                auxNPC = npc;
+                aux = npc.transform;
+            }
+        }
+
+        return auxNPC;
+    }
+
     Transform GetClosestPhone(ManagedNPC managedNPC)
     {
         Vector3 managedNPCPosition = managedNPC.transform.position;
