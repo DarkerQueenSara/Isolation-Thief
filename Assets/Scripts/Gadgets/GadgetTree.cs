@@ -14,6 +14,7 @@ public class GadgetTree
         //this.gadgets.Add(Lantern.gadgetID, new Lantern());
         this.gadgets.Add(FastLockpick.gadgetID, new FastLockpick());
         this.gadgets.Add(SimpleHackingDevice.gadgetID, new SimpleHackingDevice());
+        this.gadgets.Add(Lighter.gadgetID, new Lighter());
     }
 
     public Gadget GetGadget(string gadgetName)

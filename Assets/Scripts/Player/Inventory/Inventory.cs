@@ -25,6 +25,39 @@ public abstract class Inventory
         return TotalValue;
     }
 
+    public bool hasItem(string itemName)
+    {
+        foreach(Item item in Items)
+        {
+            //See if names are equal ignoring case
+            if(string.Compare(item.name, itemName, true) == 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Item popItem(string itemName)
+    {
+        Item itemToPop = null;
+        foreach (Item item in Items)
+        {
+            //See if names are equal ignoring case
+            if (string.Compare(item.name, itemName, true) == 0)
+            {
+                itemToPop = item;
+                break;
+            }
+        }
+        if(itemToPop != null)
+        {
+            Items.Remove(itemToPop);
+            Player.Instance.RefreshUIInventory();
+        }
+        return itemToPop;
+    }
+
     // Update is called once per frame
-    
+
 }

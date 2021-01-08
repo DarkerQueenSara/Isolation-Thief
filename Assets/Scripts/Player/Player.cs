@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     //Level
     [SerializeField] private UI_Inventory ui_Inventory;
-    private Inventory inventory;
+    public Inventory inventory { get; private set; }
     private PlayerMovement playerMovement;
     private Controls playerControls;
     public bool isLit;
@@ -135,6 +135,11 @@ public class Player : MonoBehaviour
             return rightHand;
         }
         return null;
+    }
+
+    public void RefreshUIInventory()
+    {
+        ui_Inventory.Refresh();
     }
 
 
