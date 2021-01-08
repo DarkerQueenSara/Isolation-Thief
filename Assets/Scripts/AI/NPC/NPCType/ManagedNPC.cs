@@ -48,15 +48,6 @@ public class ManagedNPC : MonoBehaviour
     public void UpdateMovement()
     {
 
-        if (copsCalled)
-        {
-            if (!myMovement.IsMoving())
-            {
-                myMovement.Idle();
-            }
-            return;
-        }
-
         if (!myMovement.IsMoving())
         {
             myMovement.Move();
@@ -82,7 +73,6 @@ public class ManagedNPC : MonoBehaviour
 
     public void CallCops(Transform closestPhoneTransform)
     {
-        this.copsCalled = true;
         this.myMovement.GoTo(closestPhoneTransform.position);
         StartCoroutine(DoCallCops());
 
@@ -102,13 +92,13 @@ public class ManagedNPC : MonoBehaviour
             yield return null;
         }
 
-        this.myMovement.HideOnBedRoom();
+        StartCoroutine(this.myMovement.HideOnBedRoom());
+        //this.HideOnBedRoom();
     }
 
     public void HideOnBedRoom()
     {
-        this.copsCalled = true;
-        this.myMovement.HideOnBedRoom();
+        StartCoroutine(this.myMovement.HideOnBedRoom());
     }
 
     public void ReactScared()

@@ -10440,6 +10440,7 @@ GameObject:
   - component: {fileID: 1734365752}
   - component: {fileID: 1734365754}
   - component: {fileID: 1734365755}
+  - component: {fileID: 1734365756}
   m_Layer: 0
   m_Name: FatherNPC
   m_TagString: NPC
@@ -10527,6 +10528,22 @@ MonoBehaviour:
     loop: 0
     fadeIn: 0
     source: {fileID: 0}
+--- !u!114 &1734365756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734365751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1735514130 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 802803036206314978, guid: e685962f058485547ac790593713d8b1,
@@ -10891,6 +10908,7 @@ GameObject:
   - component: {fileID: 1811651360}
   - component: {fileID: 1811651359}
   - component: {fileID: 1811651361}
+  - component: {fileID: 1811651362}
   m_Layer: 0
   m_Name: MotherNPC
   m_TagString: NPC
@@ -10978,6 +10996,22 @@ MonoBehaviour:
     loop: 0
     fadeIn: 0
     source: {fileID: 0}
+--- !u!114 &1811651362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811651357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1813172222
 GameObject:
   m_ObjectHideFlags: 0
