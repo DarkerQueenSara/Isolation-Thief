@@ -67,15 +67,29 @@ public abstract class NPCMovement
         this.managedNPC_animator.SetFloat("Speed", 0);
     }
 
-    public void HideOnBedRoom()
+    public IEnumerator HideOnBedRoom()
     {
+        
         this.npc_m_Agent.speed = runSpeed;
         this.managedNPC_animator.SetFloat("Speed",runSpeed);
+
+        
         this.npc_m_Agent.destination = destinations["BedDestination"];
+        while (this.npc_m_Agent.pathPending || npc_m_Agent.remainingDistance > 0.3f)
+        {
+            yield return null;
+        }
+        StopMoving();
+    }
+
+    public void StopMoving()
+    {
+        this.npc_m_Agent.speed = 0;
+        this.managedNPC_animator.SetFloat("Speed", 0);
     }
 
     public void ReactScared()
     {
-        this.managedNPC_animator.SetBool("React", true);
+        this.managedNPC_animator.SetTrigger("React");
     }
 }

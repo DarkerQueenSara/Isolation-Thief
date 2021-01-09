@@ -27,7 +27,8 @@ public class NPCVision : MonoBehaviour
         if (other.CompareTag("Player")) //check for player
         {
             RaycastHit hit;
-            bool gotHit = Physics.Linecast(npc_transform.position + new Vector3(0f, 1.5f, 0f),
+            bool gotHit = Physics.Linecast(
+                npc_transform.position + new Vector3(0f, 1.5f, 0f),
                 other.transform.position + new Vector3(0f, 1.5f, 0f),
                 out hit);
 
@@ -65,7 +66,6 @@ public class NPCVision : MonoBehaviour
         NavMeshAgent agent = npc_transform.GetComponent<NavMeshAgent>();
         agent.isStopped = true;
 
-        //yield return new WaitForSeconds(1.0f);
         NPC.ReactScared();
         npcHead_transform.LookAt(toLookAt);
         yield return new WaitForSeconds(3.0f);
@@ -74,7 +74,7 @@ public class NPCVision : MonoBehaviour
 
         if (NPC.canCallCops)
         {
-            NPCManager.Instance.CallCops();
+            NPCManager.Instance.CallCops(NPC);
         } else
         {
             NPC.HideOnBedRoom();

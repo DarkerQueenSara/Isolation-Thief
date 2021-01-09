@@ -45,18 +45,15 @@ public class NPCManager : MonoBehaviour
         }
     }
 
-    public void CallCops()
+    public void CallCops(ManagedNPC npc)
     {
         this.CopsCalled = true;
-
+        Transform closestPhoneTransform = GetClosestPhone(npc);
+        npc.CallCops(closestPhoneTransform);
 
         foreach (ManagedNPC managedNPC in this.managedNPCS)
         {
-            if (managedNPC.canCallCops)
-            {
-                Transform closestPhoneTransform = GetClosestPhone(managedNPC);
-                managedNPC.CallCops(closestPhoneTransform);
-            } else
+            if (managedNPC != npc)
             {
                 managedNPC.HideOnBedRoom();
             }

@@ -31,7 +31,6 @@ public class CallPhone : MonoBehaviour
     {
         if (NPCManager.Instance.CopsCalled && !countdouwnStarted)
         {
-            Debug.Log("Chamou policia!");
             LevelManager.Instance.callCops();
             finalTime = Time.time + manager.timeTillCops;
             countdouwnStarted = true;
