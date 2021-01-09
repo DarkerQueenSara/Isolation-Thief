@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
 	}
 
 	//Player information
-	public float money;
 	public int level { get; set; }
 	public GadgetTree gadgetTree { get; private set; }
 
@@ -60,7 +59,7 @@ public class GameManager : MonoBehaviour
 	List<Challenge> goodDeeds = new List<Challenge>();
 	List<Challenge> challenges = new List<Challenge>();
 	//Cash to buy gadgets/ammo for gadgets with
-	public int availableCash;
+	public int money;
 	//Points to buy skills with
 	public int availableXp;
 	public int availableKp;

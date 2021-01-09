@@ -25,14 +25,6 @@ public class Player : MonoBehaviour
     public List<Gadget> inInventory { get; private set;}
     public Gadget rightHand { get; set; }
 
-    //----
-
-
-
-
-
-    //private List<Gadget> onHand;
-
     private void Awake()
     {
 
@@ -55,7 +47,7 @@ public class Player : MonoBehaviour
         //rightHand = gadgetTree.gadgets[SimpleLockpick.gadgetID];
     }
 
-    public void changeMoney(float value)
+    public void changeMoney(int value)
     {
         gameManager.money += value;
     }

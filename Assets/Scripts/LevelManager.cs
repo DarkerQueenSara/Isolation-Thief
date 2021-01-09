@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
 
 	private Player player;
 
-	public float moneyGoal = 2500.0f;
+	public int moneyGoal = 2500;
 	public float timeTillCops = 15.0f;
 	public bool copsCalled { get; private set; }
 	public bool copsArrived;
@@ -179,6 +179,7 @@ public class LevelManager : MonoBehaviour
 		else //win
 		{
 			hasEndedSuccessfully = true;
+			GameManager.Instance.money += (player.GetTotalStolen() - moneyGoal);
 			LevelEndMenu.Instance.setText(
 					"You WON!",
 					"You escaped!",
