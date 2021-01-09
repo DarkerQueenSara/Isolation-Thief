@@ -21,6 +21,7 @@ public class TrashContainer : Interactable
             player.inventory.popItem(TRASH_ITEM_NAME);
             appearingBag.SetActive(true);
             hasPlaced = true;
+            LevelManager.Instance.trashInCan = true;
         }
     }
 

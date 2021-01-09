@@ -31,6 +31,8 @@ public class Flammable : Interactable
                 isBurning = true;
                 lighter.Use();
                 flameAnim.SetActive(true);
+                LevelManager.Instance.objectsBurned++;
+                //TODO NPC REACT TO FIRE = lighterDistractions++
             }
         }
     }

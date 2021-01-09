@@ -8,12 +8,17 @@ using TMPro;
 public class HackingMinigameController : MonoBehaviour, ILogicGate
 {
     public static HackingMinigameController Instance;
-    private Action<Boolean> gameEndCallback;
+    private Action<int> gameEndCallback;
     private bool isShown = false;
     private bool gameStarted = false;
     private bool won = false;
     private GameObject endLightOn;
     private GameObject endPopup;
+    private Button quitButton;
+
+    public const int LEFT_GAME = 0;
+    public const int WON_GAME = 1;
+    public const int LOST_GAME = 2;
     private void Awake()
     {
         #region Singleton
@@ -29,8 +34,10 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
 
         endLightOn = transform.Find("LogicGateMinigame").Find("EndLight").Find("LightOn").gameObject;
         endPopup = this.transform.Find("EndPopup").gameObject;
-        Button quitButton = endPopup.transform.Find("QuitButton").GetComponent<Button>();
-        quitButton.onClick.AddListener(Quit);
+        quitButton = transform.Find("TopLeft").Find("QuitButton").GetComponent<Button>();
+        quitButton.onClick.AddListener(QuitBeforeEnd);
+        Button quitButton2 = endPopup.transform.Find("QuitButton").GetComponent<Button>();
+        quitButton2.onClick.AddListener(Quit);
     }
     private void Start()
     {
@@ -38,7 +45,7 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
         this.gameObject.SetActive(false);
     }
 
-    public void StartMinigame(Action<Boolean> gameEndCallback)
+    public void StartMinigame(Action<int> gameEndCallback)
     {
         this.gameEndCallback = gameEndCallback;
         //this.gameObject.SetActive(true);
@@ -50,6 +57,7 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
     public void EndGame()
     {
         StartCoroutine(showEndPopup());
+        quitButton.interactable = false;
     }
 
     private IEnumerator showEndPopup()
@@ -65,10 +73,23 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
         endPopup.SetActive(true);
     }
 
+    private void QuitBeforeEnd()
+    {
+        changeVisibility();
+        gameEndCallback?.Invoke(LEFT_GAME);
+    }
+
     private void Quit()
     {
         changeVisibility();
-        gameEndCallback?.Invoke(won);
+        if (won)
+        {
+            gameEndCallback?.Invoke(WON_GAME);
+        }
+        else
+        {
+            gameEndCallback?.Invoke(LOST_GAME);
+        }
     }
 
     public void changeVisibility()

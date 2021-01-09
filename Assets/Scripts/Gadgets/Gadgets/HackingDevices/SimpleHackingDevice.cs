@@ -7,7 +7,7 @@ public class SimpleHackingDevice : HackingDevice
 {
     public const string gadgetID = "Simple Hacking Device";
     public System.Diagnostics.Stopwatch st = new System.Diagnostics.Stopwatch();
-    private Action<Boolean> gameEndCallback;
+    private Action<int> gameEndCallback;
 
     public SimpleHackingDevice() : base()
     {
@@ -89,17 +89,20 @@ public class SimpleHackingDevice : HackingDevice
     //}
 
     private int count = 0;
-    public override void HackObject(Action<Boolean> gameEndCallback)
+    public override void HackObject(Action<int> gameEndCallback)
     {
         this.gameEndCallback = gameEndCallback;
         HackingMinigameController.Instance.StartMinigame(onHackEnd);
-        count++;
 
     }
 
-    private void onHackEnd(bool win)
+    private void onHackEnd(int finalResult)
     {
-        gameEndCallback?.Invoke(win);
+        if(finalResult == HackingMinigameController.WON_GAME || finalResult == HackingMinigameController.LOST_GAME)
+        {
+            count++;
+        }
+        gameEndCallback?.Invoke(finalResult);
     }
 
     //public override void stopHacking()

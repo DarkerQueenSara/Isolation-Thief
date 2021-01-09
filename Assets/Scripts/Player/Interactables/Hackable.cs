@@ -27,26 +27,33 @@ public class Hackable : Interactable
                 //StartCoroutine(parallelHacking(hackingDevice));
                 if(numTries < MAX_HACKING_TRIES)
                 {
-                    numTries++;
                     hackingDevice.HackObject(onHackEnd);
                 }
             }
         }
     }
 
-    private void onHackEnd(bool win)
+    private void onHackEnd(int finalResult)
     {
-        if (win)
+        switch (finalResult)
         {
-            isLocked = false;
-            //TODO maybe remove
-            //this.interact();
-            InteractionTextManager.instance.setInteractingText(this.getInteractingText());
-            Debug.Log("Device hacked");
-        }
-        else
-        {
-            Debug.Log("Hack failed!");
+            case HackingMinigameController.WON_GAME:
+                numTries++;
+                isLocked = false;
+                InteractionTextManager.instance.setInteractingText(this.getInteractingText());
+                LevelManager.Instance.successfullHacks++;
+                Debug.Log("Device hacked");
+                break;
+            case HackingMinigameController.LOST_GAME:
+                numTries++;
+                InteractionTextManager.instance.setInteractingText(this.getInteractingText());
+                Debug.Log("Hack failed!");
+                break;
+            case HackingMinigameController.LEFT_GAME:
+                Debug.Log("Left Hacking menu!");
+                break;
+            default:
+                break;
         }
     }
 
