@@ -124,5 +124,9 @@ public class Controls : MonoBehaviour
 	public void setDisabled(bool disabled)
 	{
 		this.disabled = disabled;
+        if (disabled)
+        {
+			interactionTextManager.setInteractingText("");
+		}
 	}
 }

@@ -9,6 +9,7 @@ public class SpyCamController : MonoBehaviour
     public GameObject spyCamPrefab;
     private GameObject spyCamObject;
     private Camera spyCam;
+    public GameObject crosshair;
 
     private void Awake()
     {
@@ -40,12 +41,14 @@ public class SpyCamController : MonoBehaviour
     {
         spyCam.enabled = true;
         playerCam.enabled = false;
+        blockPlayerMovement();
     }
 
     public void StopShowingSpyCam()
     {
         playerCam.enabled = true;
         spyCam.enabled = false;
+        enablePlayerMovement();
     }
 
     public void RetrieveSpyCam()
@@ -53,5 +56,19 @@ public class SpyCamController : MonoBehaviour
         playerCam.enabled = true;
         spyCam.enabled = false;
         Destroy(spyCamObject);
+        enablePlayerMovement();
+    }
+
+    private void blockPlayerMovement()
+    {
+        PlayerMovement.Instance.disabled = true;
+        InteractionTextManager.instance.setInteractingText("");
+        crosshair?.SetActive(false);
+    }
+
+    private void enablePlayerMovement()
+    {
+        PlayerMovement.Instance.disabled = false;
+        crosshair?.SetActive(true);
     }
 }
