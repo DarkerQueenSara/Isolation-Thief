@@ -5,23 +5,18 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour
 {
-    private Camera cam;
-    private InteractionTextManager interactionTextManager;
-    private GadgetTreeUI gadgetTreeUI;
-    private ChooseGadgetUI chooseGadgetUI;
+	private Camera cam;
+	private InteractionTextManager interactionTextManager;
 
-
-    public bool disabled = false;
-    private void Awake()
-    {
-        cam = GetComponentInChildren<Camera>();
-    }
-    void Start()
-    {
-        gadgetTreeUI = GadgetTreeUI.Instance;
-        chooseGadgetUI = ChooseGadgetUI.Instance;
-        interactionTextManager = InteractionTextManager.instance;
-    }
+	public bool disabled = false;
+	private void Awake()
+	{
+		cam = GetComponentInChildren<Camera>();
+	}
+	void Start()
+	{
+		interactionTextManager = InteractionTextManager.instance;
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -37,17 +32,7 @@ public class Controls : MonoBehaviour
 			Player.Instance.ChangeInventoryVisible();
 		}
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            gadgetTreeUI.changeVisibility();
-        }
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            chooseGadgetUI.changeVisibility();
-        }
-
-        if (disabled) return;
+		if (disabled) return;
 
 		if (Input.GetButtonDown("Gadget2"))
 		{
