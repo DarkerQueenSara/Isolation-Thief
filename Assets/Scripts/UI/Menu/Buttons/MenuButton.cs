@@ -88,6 +88,12 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 		GameManager.Instance.ShowGadgetsMenu();
 	}
 
+	public void OpenSkillsMenu()
+	{
+		Debug.Log("Skills clicked");
+		GameManager.Instance.ShowSkillsMenu();
+	}
+
 	// Paused Menu
 
 	public void ContinueLevelAction()
@@ -131,4 +137,5 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 	{
 		GameManager.Instance.ShowMainMenu();
 	}
+
 }
