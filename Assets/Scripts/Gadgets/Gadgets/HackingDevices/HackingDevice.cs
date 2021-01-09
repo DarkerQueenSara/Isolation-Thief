@@ -24,7 +24,7 @@ public class HackingDevice : Gadget
         //empty for now
     }
 
-    public virtual void HackObject(Action<int> gameEndCallback)
+    public virtual void HackObject(Action<int> gameEndCallback, int remainingTries)
     {
         //this method is ment to be overwriten
         //return false;

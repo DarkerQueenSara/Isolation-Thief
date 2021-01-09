@@ -89,10 +89,10 @@ public class SimpleHackingDevice : HackingDevice
     //}
 
     private int count = 0;
-    public override void HackObject(Action<int> gameEndCallback)
+    public override void HackObject(Action<int> gameEndCallback, int remainingTries)
     {
         this.gameEndCallback = gameEndCallback;
-        HackingMinigameController.Instance.StartMinigame(onHackEnd);
+        HackingMinigameController.Instance.StartMinigame(onHackEnd, remainingTries);
 
     }
 

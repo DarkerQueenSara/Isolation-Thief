@@ -27,7 +27,7 @@ public class Hackable : Interactable
                 //StartCoroutine(parallelHacking(hackingDevice));
                 if(numTries < MAX_HACKING_TRIES)
                 {
-                    hackingDevice.HackObject(onHackEnd);
+                    hackingDevice.HackObject(onHackEnd, MAX_HACKING_TRIES - numTries);
                 }
             }
         }

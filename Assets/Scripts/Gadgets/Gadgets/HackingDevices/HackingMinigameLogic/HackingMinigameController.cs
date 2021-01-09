@@ -15,6 +15,7 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
     private GameObject endLightOn;
     private GameObject endPopup;
     private Button quitButton;
+    private int remainingTries;
 
     public const int LEFT_GAME = 0;
     public const int WON_GAME = 1;
@@ -45,12 +46,15 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
         this.gameObject.SetActive(false);
     }
 
-    public void StartMinigame(Action<int> gameEndCallback)
+    public void StartMinigame(Action<int> gameEndCallback, int remainingTries)
     {
         this.gameEndCallback = gameEndCallback;
         //this.gameObject.SetActive(true);
         gameStarted = true;
         won = false;
+        this.remainingTries = remainingTries;
+        TextMeshProUGUI result = transform.Find("RemainingTries").GetComponent<TextMeshProUGUI>();
+        result.text = "Remaining tries: " + remainingTries;
         changeVisibility();
     }
 
@@ -58,6 +62,8 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
     {
         StartCoroutine(showEndPopup());
         quitButton.interactable = false;
+        TextMeshProUGUI result = transform.Find("RemainingTries").GetComponent<TextMeshProUGUI>();
+        result.text = "Remaining tries: " + (this.remainingTries - 1);
     }
 
     private IEnumerator showEndPopup()
