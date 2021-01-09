@@ -53,7 +53,7 @@ public class Controls : MonoBehaviour
 		{
 			//TODO gadgets que nao precisam de interactables
 			Gadget onHand = Player.Instance.getGadgetUseAnywhereOnHand();
-			if (onHand.CanUse())
+			if (onHand != null && onHand.CanUse())
 				onHand.Use();
 		}
 

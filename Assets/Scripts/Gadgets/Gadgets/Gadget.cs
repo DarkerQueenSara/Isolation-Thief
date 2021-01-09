@@ -8,6 +8,7 @@ public enum GadgetType
     LOCKPICK,
     HACKING_DEVICE,
     LIGHTER,
+    CAMERA,
     LANTERN
 }
 
