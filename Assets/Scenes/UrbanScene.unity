@@ -4931,7 +4931,6 @@ RectTransform:
   - {fileID: 790144685}
   - {fileID: 1580030148}
   - {fileID: 2698626842934402402}
-  - {fileID: 409107789}
 
   - {fileID: 1348408690170385822}
   m_Father: {fileID: 120396882}
