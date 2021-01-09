@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         challenges.Add(new Challenge(14, "Challenge 14", "Beat the level without turning on the flashlight", () => !cl.usedFlashlight, 200));
         challenges.Add(new Challenge(15, "Challenge 15", "Clear the level undetected", () => cl.timesDetected < 1, 400));
         /**/challenges.Add(new Challenge(16, "Challenge 16", "Clear the level without waking anyone up", () => cl.timesWokeUp < 1, 400));
-        /**/challenges.Add(new Challenge(17, "Challenge 17", "Enter thr bedroom while it's empty", () => cl.enteredEmptyBedroom, 400));
+        /**/challenges.Add(new Challenge(17, "Challenge 17", "Enter the bedroom while it's empty", () => cl.enteredEmptyBedroom, 400));
         //TODO ver se estas dao bem 
         challenges.Add(new Challenge(18, "Challenge 18", "Evade the cops with 10 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 10, 200));
         challenges.Add(new Challenge(19, "Challenge 19", "Evade the cops with 20 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 20, 300));
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         /**/challenges.Add(new Challenge(22, "Challenge 22", "Get inside the house through a window", () => cl.enteredFirstWindow, 400));
         /**/challenges.Add(new Challenge(24, "Challenge 24", "Get inside the house through the back door", () => cl.enteredBackDoor, 400));
         /**/challenges.Add(new Challenge(26, "Challenge 26", "Get inside the house through the front door", () => cl.enteredFrontDoor, 400));
-        /**/challenges.Add(new Challenge(27, "Challenge 27", "Get to the yard by jumping the fence", () => cl.jumpedFence, 400));
+        /**///challenges.Add(new Challenge(27, "Challenge 27", "Get to the yard by jumping the fence", () => cl.jumpedFence, 400));
         /**/challenges.Add(new Challenge(28, "Challenge 28", "Get to the yard through the front gate", () => cl.jumpedFence, 400));
         //TODO meter o numero correcto de hacks possiveis
         /**/challenges.Add(new Challenge(29, "Challenge 29", "Hack sucessfully all hackable devices", () => cl.successfullHacks == 5, 400));
