@@ -10,9 +10,7 @@ public class GameManager : MonoBehaviour
 	const int MAIN_MENU = 0;
 	const int LEVEL_MENU = 1;
 	const int GADGETS_MENU = 2;
-	const int SKILLS_MENU = 3;
-	const int LEVEL_SCENE = 4;
-
+	const int LEVEL_SCENE = 3;
 	private static GameManager instance;
 	public static AudioManager audioManager;
 	public static GameManager Instance
@@ -208,10 +206,5 @@ public class GameManager : MonoBehaviour
 	public void ShowGadgetsMenu()
 	{
 		SceneManager.LoadScene(GADGETS_MENU);
-	}
-
-	public void ShowSkillsMenu()
-	{
-		SceneManager.LoadScene(SKILLS_MENU);
 	}
 }

@@ -1960,11 +1960,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 202.91205
       objectReference: {fileID: 0}
-    - target: {fileID: 6760222627671897698, guid: c6eaff63948d6f740a170f19446342e0,
-        type: 3}
-      propertyPath: clickAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenSkillsMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 7210220237429234153, guid: c6eaff63948d6f740a170f19446342e0,
         type: 3}
       propertyPath: m_text

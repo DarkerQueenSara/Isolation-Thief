@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/GadgetsMenu.unity
     guid: 65791256105df8d4fb1ab2e1ea445916
   - enabled: 1
-    path: Assets/Scenes/SkillsMenu.unity
-    guid: ce5de100761337a4ca35628a302222f8
-  - enabled: 1
     path: Assets/Scenes/UrbanScene.unity
     guid: d3c0817a7e130b245aeadec580c90412
   m_configObjects: {}
