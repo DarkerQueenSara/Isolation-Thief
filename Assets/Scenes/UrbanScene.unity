@@ -3928,11 +3928,11 @@ RectTransform:
   - {fileID: 1813172223}
   - {fileID: 791925470}
   - {fileID: 790144685}
-  - {fileID: 2698626842934402402}
   - {fileID: 1408206027}
   - {fileID: 1463641638}
   - {fileID: 1348408690170385822}
   - {fileID: 1580030148}
+  - {fileID: 2698626842934402402}
   m_Father: {fileID: 120396882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6643,7 +6643,7 @@ PrefabInstance:
     - target: {fileID: 7696499120002674613, guid: a45d13378ab426c4486e3cc53ff745c4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7696499120002674613, guid: a45d13378ab426c4486e3cc53ff745c4,
         type: 3}
@@ -8806,7 +8806,7 @@ PrefabInstance:
     - target: {fileID: 4179435359120081098, guid: 89093c2093a56ea4da829a2742832ba6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4179435359120081098, guid: 89093c2093a56ea4da829a2742832ba6,
         type: 3}
@@ -9191,7 +9191,7 @@ PrefabInstance:
     - target: {fileID: 279892752992389217, guid: 56c949a93f1d95c4d9a5f47dde0a0999,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 279892752992389217, guid: 56c949a93f1d95c4d9a5f47dde0a0999,
         type: 3}
@@ -13285,7 +13285,7 @@ PrefabInstance:
     - target: {fileID: 2998673785384492768, guid: 22ac4a918b7d12448bf898098a9bf1dc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2998673785384492768, guid: 22ac4a918b7d12448bf898098a9bf1dc,
         type: 3}
@@ -14037,7 +14037,7 @@ RectTransform:
   - {fileID: 1348408690159405893}
   - {fileID: 1348408690634452822}
   m_Father: {fileID: 713655377}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
