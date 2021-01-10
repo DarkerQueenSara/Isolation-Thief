@@ -39,7 +39,7 @@ public class NPCManager : MonoBehaviour
 
     void Update()
     {
-        if (CopsCalled) return;
+       // if (CopsCalled) return;
 
         foreach(ManagedNPC managedNPC in managedNPCS)
         {

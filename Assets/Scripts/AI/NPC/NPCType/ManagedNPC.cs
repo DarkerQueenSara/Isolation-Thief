@@ -49,7 +49,7 @@ public class ManagedNPC : MonoBehaviour
     public void UpdateMovement()
     {
 
-        if (!myMovement.IsMoving())
+        if (!myMovement.IsMoving() && !NPCManager.Instance.CopsCalled)
         {
             StartCoroutine(DefaultMovementWithLights());
             //myMovement.Move();
@@ -146,6 +146,7 @@ public class ManagedNPC : MonoBehaviour
 
     public void CallCops(Transform closestPhoneTransform)
     {
+        StopAllCoroutines();
         this.myMovement.RunTo(closestPhoneTransform.position);
         StartCoroutine(DoCallCops());
 
@@ -171,6 +172,7 @@ public class ManagedNPC : MonoBehaviour
 
     public IEnumerator WarnOtherNPC(ManagedNPC npc)
     {
+        StopAllCoroutines();
         while (myMovement.FollowNPC(npc.transform))
         {
             yield return new WaitForSeconds(0.25f);
@@ -182,6 +184,7 @@ public class ManagedNPC : MonoBehaviour
 
     public void HideOnBedRoom()
     {
+        StopAllCoroutines();
         StartCoroutine(this.myMovement.HideOnBedRoom());
     }
 
