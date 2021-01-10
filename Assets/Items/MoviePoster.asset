@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Movie Poster
   icon: {fileID: 21300000, guid: bdeaa5f51338f1a428f57ae1b412679d, type: 3}
-  value: 100
+  value: 25
+  weight: 0.1

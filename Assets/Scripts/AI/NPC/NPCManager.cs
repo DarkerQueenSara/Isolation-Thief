@@ -11,6 +11,8 @@ public class NPCManager : MonoBehaviour
 
     public List<Transform> telephones;
 
+    public Lockpickable bedroomDoor;
+
     public bool CopsCalled { get; private set; }
 
     private void Awake()
@@ -58,6 +60,55 @@ public class NPCManager : MonoBehaviour
                 managedNPC.HideOnBedRoom();
             }
         }
+        this.bedroomDoor.isLocked = true;
+    }
+
+    public void WarnOtherNPC(ManagedNPC npc)
+    {
+        ManagedNPC closestNPC = GetClosestNPCWhoCanCallCops(npc);
+        StartCoroutine(npc.WarnOtherNPC(closestNPC));
+    }
+
+    public bool SameDestinationInfo(DestinationInfo dInfo, ManagedNPC npc)
+    {
+        bool result = false;
+
+        foreach (ManagedNPC managedNPC in this.managedNPCS)
+        {
+            if (managedNPC == npc) continue;
+
+            if(managedNPC.myMovement.currentDestinationName != "" && managedNPC.myMovement.GetCurrentDestinationInfo() == dInfo)
+            {
+                result = true;
+            }
+        }
+        return result;
+    }
+
+    ManagedNPC GetClosestNPCWhoCanCallCops(ManagedNPC managedNPC)
+    {
+        Vector3 managedNPCPosition = managedNPC.transform.position;
+
+        ManagedNPC auxNPC = null;
+        Transform aux = null;
+
+        foreach (ManagedNPC npc in this.managedNPCS)
+        {
+            if (!npc.canCallCops) continue;
+
+            if (aux == null)
+            {
+                auxNPC = npc;
+                aux = npc.transform;
+            }
+            else if (Vector3.Distance(managedNPCPosition, npc.transform.position) < Vector3.Distance(managedNPCPosition, aux.position))
+            {
+                auxNPC = npc;
+                aux = npc.transform;
+            }
+        }
+
+        return auxNPC;
     }
 
     Transform GetClosestPhone(ManagedNPC managedNPC)

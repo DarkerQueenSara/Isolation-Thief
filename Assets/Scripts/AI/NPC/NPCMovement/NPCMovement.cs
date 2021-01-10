@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public abstract class NPCMovement
 {
     protected static Dictionary<string, Vector3> destinations;
+    protected static Dictionary<string, DestinationInfo> destinationsInfo;
+
+    public string currentDestinationName = "";
     protected Vector3 currentDestination;
     protected GameObject NPC;
     protected NavMeshAgent npc_m_Agent;
@@ -18,10 +21,16 @@ public abstract class NPCMovement
 
     public virtual void Initialize(GameObject npc, Animator managedNPC_animator)
     {
-        destinations = new Dictionary<string, Vector3>();
-        foreach (GameObject destination in GameObject.FindGameObjectsWithTag("NPCDestination"))
+        if(destinations == null && destinationsInfo == null)
         {
-            destinations.Add(destination.name, destination.transform.position);
+            destinations = new Dictionary<string, Vector3>();
+            destinationsInfo = new Dictionary<string, DestinationInfo>();
+            foreach (GameObject destination in GameObject.FindGameObjectsWithTag("NPCDestination"))
+            {
+                destinations.Add(destination.name, destination.transform.position);
+                DestinationInfo dInfo = destination.GetComponent<DestinationInfo>();
+                destinationsInfo.Add(destination.name, destination.GetComponent<DestinationInfo>());
+            }
         }
 
         this.NPC = npc;
@@ -34,7 +43,7 @@ public abstract class NPCMovement
         return npc_m_Agent.hasPath;
     }
 
-    public abstract void Move();
+    public abstract void SetNewDestination();
 
     //return Animator of door if found a door in path close to it and opened it
     public virtual Animator checkForDoor()
@@ -61,6 +70,13 @@ public abstract class NPCMovement
         this.npc_m_Agent.destination = position;
     }
 
+    public void RunTo(Vector3 position)
+    {
+        this.npc_m_Agent.speed = runSpeed;
+        this.managedNPC_animator.SetFloat("Speed", runSpeed);
+        this.npc_m_Agent.destination = position;
+    }
+
     public void Idle()
     {
         this.npc_m_Agent.speed = 0;
@@ -82,6 +98,12 @@ public abstract class NPCMovement
         StopMoving();
     }
 
+    public bool FollowNPC(Transform npcTransform)
+    {
+        RunTo(npcTransform.position);
+        return (npc_m_Agent.remainingDistance > 1f);
+    }
+
     public void StopMoving()
     {
         this.npc_m_Agent.speed = 0;
@@ -91,5 +113,25 @@ public abstract class NPCMovement
     public void ReactScared()
     {
         this.managedNPC_animator.SetTrigger("React");
+    }
+
+    public Vector3 GetCurrentDestination()
+    {
+        return this.currentDestination;
+    }
+
+    public DestinationInfo GetCurrentDestinationInfo()
+    {
+        return destinationsInfo[currentDestinationName];
+    }
+
+    public bool PathPending()
+    {
+        return this.npc_m_Agent.pathPending;
+    }
+
+    public bool ReachedCurrentDestination()
+    {
+        return npc_m_Agent.remainingDistance <= 0.3f;
     }
 }

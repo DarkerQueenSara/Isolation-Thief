@@ -50,12 +50,18 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
     {
         this.gameEndCallback = gameEndCallback;
         //this.gameObject.SetActive(true);
-        gameStarted = true;
         won = false;
         this.remainingTries = remainingTries;
         TextMeshProUGUI result = transform.Find("RemainingTries").GetComponent<TextMeshProUGUI>();
         result.text = "Remaining tries: " + remainingTries;
         changeVisibility();
+        StartCoroutine(gameStartedDelay());
+    }
+
+    private IEnumerator gameStartedDelay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        gameStarted = true;
     }
 
     public void EndGame()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Player.Controls;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class ManagedNPC : MonoBehaviour
     //Set from outside
     public MovementType movementType;
 
-    private NPCMovement myMovement;
+    [HideInInspector] public NPCMovement myMovement;
     private const float doorCloseDelay = 2f;
     public bool canCallCops;
 
@@ -50,7 +51,8 @@ public class ManagedNPC : MonoBehaviour
 
         if (!myMovement.IsMoving())
         {
-            myMovement.Move();
+            StartCoroutine(DefaultMovementWithLights());
+            //myMovement.Move();
         } else
         {
             Animator doorAnim = myMovement.checkForDoor();
@@ -60,6 +62,77 @@ public class ManagedNPC : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator DefaultMovementWithLights()
+    {
+        NPCManager npcManager = NPCManager.Instance;
+        Vector3 currentDest;
+        Vector3 newDest;
+        DestinationInfo currentdInfo = null;
+        DestinationInfo newdInfo = null;
+
+        bool sharingDestination;
+
+        if(myMovement.currentDestinationName != "")
+        {
+            currentDest = myMovement.GetCurrentDestination();
+            currentdInfo = myMovement.GetCurrentDestinationInfo();
+        }
+
+        myMovement.SetNewDestination();
+
+        newDest = myMovement.GetCurrentDestination();
+        newdInfo = myMovement.GetCurrentDestinationInfo();
+
+        if (currentdInfo != null && newdInfo.lightSwitch != currentdInfo.lightSwitch)
+        {
+            sharingDestination = npcManager.SameDestinationInfo(currentdInfo, this);
+
+            if (!sharingDestination && currentdInfo.lightSwitch.isOn())
+            {
+                myMovement.GoTo(currentdInfo.lightSwitch.transform.position);
+
+                while (myMovement.PathPending())
+                {
+                    yield return null;
+                }
+
+                // Wait until NPC reaches the light
+                while (!myMovement.ReachedCurrentDestination())
+                {
+                    yield return null;
+                }
+                currentdInfo.lightSwitch.interact();
+            }
+        }
+
+
+        //TODO: Should only think about turning light on after starting to get close, otherwise an NPC there might leave,
+        //      turning the light off, and this NPC won't turn it on, because it was on when he checked, and was far.
+
+        sharingDestination = npcManager.SameDestinationInfo(newdInfo, this);
+
+        if (!sharingDestination && !newdInfo.lightSwitch.isOn() )
+        {
+            myMovement.GoTo(newdInfo.lightSwitch.transform.position);
+
+            while (myMovement.PathPending())
+            {
+                yield return null;
+            }
+
+            //Wait until NPC reaches the light
+            while (!myMovement.ReachedCurrentDestination())
+            {
+                yield return null;
+            }
+            newdInfo.lightSwitch.interact();
+        }
+        //Resume new destination
+        myMovement.GoTo(newDest);
+    }
+
+
     private IEnumerator CloseDoor(Animator doorAnim, float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
@@ -73,7 +146,7 @@ public class ManagedNPC : MonoBehaviour
 
     public void CallCops(Transform closestPhoneTransform)
     {
-        this.myMovement.GoTo(closestPhoneTransform.position);
+        this.myMovement.RunTo(closestPhoneTransform.position);
         StartCoroutine(DoCallCops());
 
     }
@@ -95,6 +168,17 @@ public class ManagedNPC : MonoBehaviour
         StartCoroutine(this.myMovement.HideOnBedRoom());
         //this.HideOnBedRoom();
     }
+
+    public IEnumerator WarnOtherNPC(ManagedNPC npc)
+    {
+        while (myMovement.FollowNPC(npc.transform))
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
+
+        NPCManager.Instance.CallCops(npc);
+    }
+
 
     public void HideOnBedRoom()
     {
