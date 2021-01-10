@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * crouchSpeed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
-                audioManager.Play("Sneak");
+                audioManager.Play(audioManager.sounds[Random.Range(6, 9)]);
             }
         }
         else if (Input.GetButton("Sprint"))
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * sprintSpeed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
-                audioManager.Play("Sprint");
+                audioManager.Play(audioManager.sounds[Random.Range(3, 7)]);
             }
         }
         else 
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * speed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
-                audioManager.Play("Walk");
+                audioManager.Play(audioManager.sounds[Random.Range(0, 4)]);
             }
         }
 
