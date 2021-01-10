@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class Lighter : Gadget
 {
-    public const string gadgetID = "Lighter";
-    private int fuel;
+	public const string gadgetID = "Lighter";
+	private int fuel;
 
-    public Lighter() : base()
-    {
-        gadgetDependencies = new List<Gadget>();
-        unlocked = true;
-        this.useAnywhere = false;
-        this.gadgetInfo = Resources.Load<GadgetInfo>(Gadget.GADGET_INFO_DIR + "Lighter");
-        fuel = 1;
-    }
+	public Lighter() : base()
+	{
+		gadgetDependencies = new List<Gadget>();
+		unlocked = false;
+		this.useAnywhere = false;
+		this.gadgetInfo = Resources.Load<GadgetInfo>(Gadget.GADGET_INFO_DIR + "Lighter");
+		fuel = 1;
+	}
 
-    public override bool CanUse()
-    {
-        return base.CanUse() && fuel > 0;
-    }
+	public override bool CanUse()
+	{
+		return base.CanUse() && fuel > 0;
+	}
 
-    
 
-    public override GadgetType getGadgetType()
-    {
-        return GadgetType.LIGHTER;
-    }
 
-    public override void Use()
-    {
-        fuel--;
-        //Apart from decreasing fuel does nothing, class Flammable does the work
-    }
+	public override GadgetType getGadgetType()
+	{
+		return GadgetType.LIGHTER;
+	}
+
+	public override void Use()
+	{
+		fuel--;
+		//Apart from decreasing fuel does nothing, class Flammable does the work
+	}
 }

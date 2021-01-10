@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SimpleLockpick
   m_EditorClassIdentifier: 
   name: Simple Lockpick
-  icon: {fileID: 21300000, guid: cc4199ecc34f7624ca85bdf992baeab0, type: 3}
+  icon: {fileID: 21300000, guid: 29efb7717cd005247b31fd7cbfc0f021, type: 3}
   cost: 0

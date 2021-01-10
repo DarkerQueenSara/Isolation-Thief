@@ -41,23 +41,43 @@ public class GadgetElementUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 		Debug.Log("Gadget button test action");
 	}
 
-	public void AddFastLockpick()
+	void AddGadget(string gadgetID, string gadgetName)
 	{
-		Gadget gadget = gadgetTree.GetGadget(FastLockpick.gadgetID);
+		Gadget gadget = gadgetTree.GetGadget(gadgetID);
 		if (gadget.canUnlock())
 		{
 			Debug.Log("unlocking gadget!");
 			gadget.unlock();
-			Image FastLockPickBtn = transform.Find("Button").GetComponent<Image>();
-			TextMeshProUGUI FastLockPickPrice = transform.Find("Price").GetComponent<TextMeshProUGUI>();
-			GadgetTreeUI.Instance.updateVisualUnocked(FastLockPickBtn, FastLockPickPrice);
-			GadgetTreeUI.Instance.updateHelpText("Fast Lockpick unlocked");
+			Image button = transform.Find("Button").GetComponent<Image>();
+			TextMeshProUGUI price = transform.Find("Price").GetComponent<TextMeshProUGUI>();
+			GadgetTreeUI.Instance.updateVisualUnocked(button, price);
+			GadgetTreeUI.Instance.updateHelpText(gadgetName + " unlocked");
 		}
 		else
 		{
 			Debug.Log("Can't unlock gadget!");
-			GadgetTreeUI.Instance.updateHelpText("Can't unlock Fast Lockpick");
+			GadgetTreeUI.Instance.updateHelpText("Can't unlock " + gadgetName);
 		}
+	}
+
+	public void AddFastLockpick()
+	{
+		AddGadget(FastLockpick.gadgetID, "Fast Lockpick");
+	}
+
+	public void AddLighter()
+	{
+		AddGadget(Lighter.gadgetID, "Lighter");
+	}
+
+	public void AddHackingDevice()
+	{
+		AddGadget(SimpleHackingDevice.gadgetID, "Hacking Device");
+	}
+
+	public void AddSpyCamera()
+	{
+		AddGadget(SpyCam.gadgetID, "Spy Camera");
 	}
 
 }
