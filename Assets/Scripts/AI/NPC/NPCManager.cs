@@ -94,6 +94,9 @@ public class NPCManager : MonoBehaviour
     {
         this.stop = true;
 
+        NPCMovement.destinations = null;
+        NPCMovement.destinationsInfo = null;
+
         foreach(ManagedNPC managedNPC in this.managedNPCS)
         {
             managedNPC.StopAllCoroutines();

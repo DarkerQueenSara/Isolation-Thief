@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public abstract class NPCMovement
 {
-    protected static Dictionary<string, Vector3> destinations;
-    protected static Dictionary<string, DestinationInfo> destinationsInfo;
+    public static Dictionary<string, Vector3> destinations;
+    public static Dictionary<string, DestinationInfo> destinationsInfo;
 
     public string currentDestinationName = "";
     protected Vector3 currentDestination;
