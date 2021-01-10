@@ -9,6 +9,8 @@ public abstract class Skill
     public const string SKILL_INFO_DIR = "SkillInfos/";
     public SkillInfo skillInfo;
     public Skill parent;
+
+    //Dependencies are defined in the class SkillsTree
     public List<Skill> skillDependencies;
 
     public Skill()
@@ -18,6 +20,11 @@ public abstract class Skill
         parent = null;
     }
 
+    public void addDependency(Skill skill)
+    {
+        skillDependencies.Add(skill);
+    }
+
     public void setParent(Skill parent)
     {
         this.parent = parent;
@@ -25,7 +32,7 @@ public abstract class Skill
 
     public bool canUnlock()
     {
-        return GameManager.Instance.availableXp > this.getXPCost();
+        return skillDependencies.TrueForAll(skill => skill.unlocked) && GameManager.Instance.availableXp > this.getXPCost();
     }
     
     public void unlock()
