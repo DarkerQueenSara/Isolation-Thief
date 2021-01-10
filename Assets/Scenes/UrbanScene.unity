@@ -4707,6 +4707,14 @@ MonoBehaviour:
     loop: 1
     fadeIn: 1
     source: {fileID: 0}
+  - name: Ambient
+    clip: {fileID: 8300000, guid: cd3fd61115a687444b9c8af4f489926f, type: 3}
+    volume: 0.6
+    spatialBlend: 0
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    source: {fileID: 0}
 --- !u!1001 &794212805
 PrefabInstance:
   m_ObjectHideFlags: 0
