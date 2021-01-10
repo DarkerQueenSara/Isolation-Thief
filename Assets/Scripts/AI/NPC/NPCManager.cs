@@ -13,6 +13,8 @@ public class NPCManager : MonoBehaviour
 
     public Lockpickable bedroomDoor;
 
+    private bool stop = false;
+
     public bool CopsCalled { get; private set; }
 
     private void Awake()
@@ -27,6 +29,7 @@ public class NPCManager : MonoBehaviour
 
     void Start()
     {
+
         var npcs = transform.Find("NPCS");
 
         foreach(ManagedNPC managedNPC in npcs.GetComponentsInChildren<ManagedNPC>())
@@ -39,7 +42,9 @@ public class NPCManager : MonoBehaviour
 
     void Update()
     {
-        if (CopsCalled) return;
+        if (stop) return;
+
+       // if (CopsCalled) return;
 
         foreach(ManagedNPC managedNPC in managedNPCS)
         {
@@ -77,12 +82,22 @@ public class NPCManager : MonoBehaviour
         {
             if (managedNPC == npc) continue;
 
-            if(managedNPC.myMovement.currentDestinationName != "" && managedNPC.myMovement.GetCurrentDestinationInfo() == dInfo)
+            if(managedNPC.myMovement.currentDestinationName != "" && managedNPC.myMovement.GetCurrentDestinationInfo().lightSwitch == dInfo.lightSwitch)
             {
                 result = true;
             }
         }
         return result;
+    }
+
+    public void StopAllNPC()
+    {
+        this.stop = true;
+
+        foreach(ManagedNPC managedNPC in this.managedNPCS)
+        {
+            managedNPC.StopAllCoroutines();
+        }
     }
 
     ManagedNPC GetClosestNPCWhoCanCallCops(ManagedNPC managedNPC)

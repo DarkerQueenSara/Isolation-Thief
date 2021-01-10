@@ -10,7 +10,7 @@ public class DestinationInfo : MonoBehaviour
     public Vector3 destination;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         destination = gameObject.transform.position;
         lightSwitch = lightSwitchTransform.GetComponent<LightSwitch>();

@@ -18,6 +18,7 @@ public class ManagedNPC : MonoBehaviour
     public bool canCallCops;
 
     private bool copsCalled;
+    private bool busy = false;
 
     private AudioManager audioManager;
 
@@ -49,7 +50,7 @@ public class ManagedNPC : MonoBehaviour
     public void UpdateMovement()
     {
 
-        if (!myMovement.IsMoving())
+        if (!busy && !myMovement.IsMoving() && !NPCManager.Instance.CopsCalled)
         {
             StartCoroutine(DefaultMovementWithLights());
             //myMovement.Move();
@@ -65,7 +66,9 @@ public class ManagedNPC : MonoBehaviour
 
     private IEnumerator DefaultMovementWithLights()
     {
+        this.busy = true;
         NPCManager npcManager = NPCManager.Instance;
+
         Vector3 currentDest;
         Vector3 newDest;
         DestinationInfo currentdInfo = null;
@@ -87,6 +90,8 @@ public class ManagedNPC : MonoBehaviour
         if (currentdInfo != null && newdInfo.lightSwitch != currentdInfo.lightSwitch)
         {
             sharingDestination = npcManager.SameDestinationInfo(currentdInfo, this);
+
+
 
             if (!sharingDestination && currentdInfo.lightSwitch.isOn())
             {
@@ -130,6 +135,18 @@ public class ManagedNPC : MonoBehaviour
         }
         //Resume new destination
         myMovement.GoTo(newDest);
+        while (myMovement.PathPending())
+        {
+            yield return null;
+        }
+
+        //Wait until NPC reaches the light
+        while (!myMovement.ReachedCurrentDestination())
+        {
+            yield return null;
+        }
+
+        busy = false;
     }
 
 
@@ -146,6 +163,7 @@ public class ManagedNPC : MonoBehaviour
 
     public void CallCops(Transform closestPhoneTransform)
     {
+        StopAllCoroutines();
         this.myMovement.RunTo(closestPhoneTransform.position);
         StartCoroutine(DoCallCops());
 
@@ -171,6 +189,7 @@ public class ManagedNPC : MonoBehaviour
 
     public IEnumerator WarnOtherNPC(ManagedNPC npc)
     {
+        StopAllCoroutines();
         while (myMovement.FollowNPC(npc.transform))
         {
             yield return new WaitForSeconds(0.25f);
@@ -182,6 +201,7 @@ public class ManagedNPC : MonoBehaviour
 
     public void HideOnBedRoom()
     {
+        StopAllCoroutines();
         StartCoroutine(this.myMovement.HideOnBedRoom());
     }
 
