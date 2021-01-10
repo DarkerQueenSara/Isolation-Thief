@@ -7,7 +7,7 @@ public class SkillInfo : ScriptableObject
 {
     new public string name = "New Skill";
     public Sprite icon = null;
-    public int xpCost;
+    public int cost;
 
     public Sprite GetSprite()
     {

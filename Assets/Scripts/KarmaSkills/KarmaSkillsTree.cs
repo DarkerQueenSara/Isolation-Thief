@@ -8,6 +8,7 @@ public class KarmaSkillsTree
     public KarmaSkillsTree()
     {
         this.skills = new Dictionary<string, KarmaSkill>();
+        this.skills.Add(Matrix.ID, new Matrix());
     }
 
     public KarmaSkill GetSkill(string skillName)
@@ -43,7 +44,7 @@ public class KarmaSkillsTree
 
     public void activateAllSkills()
     {
-        Debug.Log("Activating skills");
+        Debug.Log("Activating Karma Skills");
         foreach(KarmaSkill skill in this.skills.Values)
         {
             skill.activate();

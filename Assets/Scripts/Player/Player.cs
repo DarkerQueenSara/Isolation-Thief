@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
         gameManager = GameManager.Instance;
         gadgetTree = gameManager.gadgetTree;
         GameManager.Instance.skillsTree.activateAllSkills();
+        GameManager.Instance.karmaSkillsTree.activateAllSkills();
 
         inInventory = new List<Gadget>();
     }

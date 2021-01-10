@@ -54,7 +54,7 @@ public abstract class Skill
 
     public int getXPCost()
     {
-        return this.skillInfo.xpCost;
+        return this.skillInfo.cost;
     }
 
     public Sprite getSprite()
