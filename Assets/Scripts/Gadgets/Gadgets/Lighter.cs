@@ -13,7 +13,7 @@ public class Lighter : Gadget
         unlocked = true;
         this.useAnywhere = false;
         this.gadgetInfo = Resources.Load<GadgetInfo>(Gadget.GADGET_INFO_DIR + "Lighter");
-        fuel = 1;
+        fuel = 100;
     }
 
     public override bool CanUse()
