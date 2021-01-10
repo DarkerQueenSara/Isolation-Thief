@@ -43,7 +43,7 @@ public abstract class NPCMovement
         return npc_m_Agent.hasPath;
     }
 
-    public abstract void Move();
+    public abstract void SetNewDestination();
 
     //return Animator of door if found a door in path close to it and opened it
     public virtual Animator checkForDoor()
@@ -117,7 +117,7 @@ public abstract class NPCMovement
 
     public Vector3 GetCurrentDestination()
     {
-        return this.npc_m_Agent.destination;
+        return this.currentDestination;
     }
 
     public DestinationInfo GetCurrentDestinationInfo()

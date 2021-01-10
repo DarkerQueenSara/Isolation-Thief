@@ -67,31 +67,42 @@ public class ManagedNPC : MonoBehaviour
     {
         NPCManager npcManager = NPCManager.Instance;
         Vector3 currentDest;
-        DestinationInfo dInfo;
+        Vector3 newDest;
+        DestinationInfo currentdInfo = null;
+        DestinationInfo newdInfo = null;
+
         bool sharingDestination;
 
-        if (myMovement.currentDestinationName != "")
+        if(myMovement.currentDestinationName != "")
         {
-            //2 Get currrent destination info
-            dInfo = myMovement.GetCurrentDestinationInfo();
-            //3 Check if another NPC has the same destination info
-            sharingDestination = npcManager.SameDestinationInfo(dInfo, this);
-            //4 If not,turn the light off, by moving to its lightSwitch and setting intensity to 0. If yes, skip 4 & 5
-            if (!sharingDestination && dInfo.lightSwitch.isOn())
+            currentDest = myMovement.GetCurrentDestination();
+            currentdInfo = myMovement.GetCurrentDestinationInfo();
+        }
+
+        myMovement.SetNewDestination();
+
+        newDest = myMovement.GetCurrentDestination();
+        newdInfo = myMovement.GetCurrentDestinationInfo();
+
+        if (currentdInfo != null && newdInfo.lightSwitch != currentdInfo.lightSwitch)
+        {
+            sharingDestination = npcManager.SameDestinationInfo(currentdInfo, this);
+
+            if (!sharingDestination && currentdInfo.lightSwitch.isOn())
             {
-                myMovement.GoTo(dInfo.lightSwitch.transform.position);
+                myMovement.GoTo(currentdInfo.lightSwitch.transform.position);
 
                 while (myMovement.PathPending())
                 {
                     yield return null;
                 }
 
-                //5 Wait until NPC reaches the light
+                // Wait until NPC reaches the light
                 while (!myMovement.ReachedCurrentDestination())
                 {
                     yield return null;
                 }
-                dInfo.lightSwitch.interact();
+                currentdInfo.lightSwitch.interact();
             }
         }
 
@@ -99,33 +110,26 @@ public class ManagedNPC : MonoBehaviour
         //TODO: Should only think about turning light on after starting to get close, otherwise an NPC there might leave,
         //      turning the light off, and this NPC won't turn it on, because it was on when he checked, and was far.
 
-        //1 Get new destination
-        myMovement.Move();
-        currentDest = myMovement.GetCurrentDestination();
-        //2 Find closest light to that destination
-        dInfo = myMovement.GetCurrentDestinationInfo();
-        //3 Check if on/off
-        bool lightOn = dInfo.lightSwitch.isOn();
-        sharingDestination = npcManager.SameDestinationInfo(dInfo, this);
-        //4 If off, turn it on, by moving to it and setting intensity to 1
-        if (!sharingDestination && !lightOn)
+        sharingDestination = npcManager.SameDestinationInfo(newdInfo, this);
+
+        if (!sharingDestination && !newdInfo.lightSwitch.isOn() )
         {
-            myMovement.GoTo(dInfo.lightSwitch.transform.position);
+            myMovement.GoTo(newdInfo.lightSwitch.transform.position);
 
             while (myMovement.PathPending())
             {
                 yield return null;
             }
 
-            //5 Wait until NPC reaches the light
+            //Wait until NPC reaches the light
             while (!myMovement.ReachedCurrentDestination())
             {
                 yield return null;
             }
-            dInfo.lightSwitch.interact();
+            newdInfo.lightSwitch.interact();
         }
-        //6 Resume new destination
-        myMovement.GoTo(currentDest);
+        //Resume new destination
+        myMovement.GoTo(newDest);
     }
 
 

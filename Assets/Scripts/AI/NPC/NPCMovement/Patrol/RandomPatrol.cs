@@ -13,15 +13,20 @@ public class RandomPatrol : NPCMovement
         random = new System.Random();
     }
 
-    public override void Move()
+    public override void SetNewDestination()
     {
-        //this assumes the NPC is a navMeshAgent
-        this.npc_m_Agent.speed = walkSpeed;
-        this.managedNPC_animator.SetFloat("Speed", walkSpeed);
-
         int randomN = random.Next(0,destinations.Count);
-        this.currentDestinationName = destinations.ElementAt(randomN).Key;
-        this.currentDestination = destinations.ElementAt(randomN).Value;
-        this.npc_m_Agent.destination = this.currentDestination;
+        string newDestName = destinations.ElementAt(randomN).Key;
+        Vector3 newDest = destinations.ElementAt(randomN).Value;
+
+        while (newDestName == this.currentDestinationName)
+        {
+            randomN = random.Next(0, destinations.Count);
+            newDestName = destinations.ElementAt(randomN).Key;
+            newDest = destinations.ElementAt(randomN).Value;
+        }
+
+        this.currentDestinationName = newDestName;
+        this.currentDestination = newDest;
     }
 }
