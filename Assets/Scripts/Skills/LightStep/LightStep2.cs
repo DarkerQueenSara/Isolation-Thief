@@ -10,7 +10,6 @@ public class LightStep2 : Skill
 
     public LightStep2()
     {
-        unlocked = true;
         this.skillInfo = Resources.Load<SkillInfo>(Skill.SKILL_INFO_DIR + "LightStep2");
     }
 

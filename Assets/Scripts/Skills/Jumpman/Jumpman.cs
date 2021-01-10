@@ -9,7 +9,6 @@ public class Jumpman : Skill
     public const float JUMP_BOOST_PERCENT = 0.2f;
     public Jumpman()
     {
-        unlocked = true;
         this.skillInfo = Resources.Load<SkillInfo>(Skill.SKILL_INFO_DIR + "Jumpman");
     }
 

@@ -17,6 +17,17 @@ public class SkillsTree
         Skill lightStep2 = new LightStep2();
         lightStep.setParent(lightStep2);
 
+        #region dependencies
+        jumpMan.addDependency(lightStep);
+
+        jumpMan2.addDependency(jumpMan);
+        jumpMan2.addDependency(lightStep);
+
+        lightStep2.addDependency(jumpMan2);
+        lightStep2.addDependency(jumpMan);
+        lightStep2.addDependency(lightStep);
+        #endregion
+
         this.skills.Add(Jumpman.ID, jumpMan);
         this.skills.Add(Jumpman2.ID, jumpMan2);
         this.skills.Add(LightStep.ID, lightStep);

@@ -10,7 +10,6 @@ public class Jumpman2 : Skill
 
     public Jumpman2()
     {
-        unlocked = true;
         this.skillInfo = Resources.Load<SkillInfo>(Skill.SKILL_INFO_DIR + "Jumpman2");
     }
 
