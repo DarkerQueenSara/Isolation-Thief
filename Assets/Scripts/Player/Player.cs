@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public static Player Instance { get; private set; }
+	public static Player Instance { get; private set; }
 
     //Game
     GameManager gameManager;
@@ -18,20 +18,12 @@ public class Player : MonoBehaviour
 
     //Level
     [SerializeField] private UI_Inventory ui_Inventory;
-    private Inventory inventory;
+    public Inventory inventory { get; private set; }
     private PlayerMovement playerMovement;
     private Controls playerControls;
      public bool isLit = false;
     public List<Gadget> inInventory { get; private set;}
     public Gadget rightHand { get; set; }
-
-    //----
-
-
-
-
-
-    //private List<Gadget> onHand;
 
     private void Awake()
     {
@@ -55,7 +47,7 @@ public class Player : MonoBehaviour
         //rightHand = gadgetTree.gadgets[SimpleLockpick.gadgetID];
     }
 
-    public void changeMoney(float value)
+    public void changeMoney(int value)
     {
         gameManager.money += value;
     }
@@ -71,21 +63,21 @@ public class Player : MonoBehaviour
         ui_Inventory.Refresh();
     }
 
-    public void DisableMovement()
-    {
-        playerMovement.disabled = true;
-    }
+	public void DisableMovement()
+	{
+		playerMovement.disabled = true;
+	}
 
-    public void ChangeInventoryVisible()
-    {
-        this.ui_Inventory.visible();
-        this.playerControls.setDisabled(this.ui_Inventory.isVisible());
-    }
+	public void ChangeInventoryVisible()
+	{
+		this.ui_Inventory.visible();
+		this.playerControls.setDisabled(this.ui_Inventory.isVisible());
+	}
 
-    public int GetTotalStolen()
-    {
-        return this.inventory.TotalValue;
-    }
+	public int GetTotalStolen()
+	{
+		return this.inventory.TotalValue;
+	}
 
 
     public GadgetTree GetGadgetTree()
@@ -93,15 +85,15 @@ public class Player : MonoBehaviour
         return this.gadgetTree;
     }
 
-    public void unlockGadget(string gadgetName)
-    {
-        Gadget gadget = this.gadgetTree.gadgets[gadgetName];
+	public void unlockGadget(string gadgetName)
+	{
+		Gadget gadget = this.gadgetTree.gadgets[gadgetName];
 
-        if(gadget != null)
-        {
-            gadget.unlocked = true;
-        }
-    }
+		if (gadget != null)
+		{
+			gadget.unlocked = true;
+		}
+	}
 
     public void setInventoryGadgets(List<Gadget> chosenGadgets)
     {
@@ -137,11 +129,16 @@ public class Player : MonoBehaviour
         return null;
     }
 
-
-
-    // Update is called once per frame
-    void Update()
+    public void RefreshUIInventory()
     {
-        
+        ui_Inventory.Refresh();
     }
+
+
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
 }

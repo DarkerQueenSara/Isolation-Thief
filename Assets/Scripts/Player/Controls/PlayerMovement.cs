@@ -5,6 +5,8 @@ using Assets;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
+
     public CharacterController controller;
     public Collider playerCollider;
     public Camera cam;
@@ -27,6 +29,15 @@ public class PlayerMovement : MonoBehaviour
 
     public bool disabled = false;
     private AudioManager audioManager;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("More than one instances of PlayerMovement found!");
+        }
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

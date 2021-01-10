@@ -6,6 +6,9 @@ using UnityEngine;
 public enum GadgetType
 {
     LOCKPICK,
+    HACKING_DEVICE,
+    LIGHTER,
+    CAMERA,
     LANTERN
 }
 
@@ -59,7 +62,7 @@ public abstract class Gadget
         return this.gadgetInfo.name;
     }
 
-    public float getCost()
+    public int getCost()
     {
         return this.gadgetInfo.cost;
     }

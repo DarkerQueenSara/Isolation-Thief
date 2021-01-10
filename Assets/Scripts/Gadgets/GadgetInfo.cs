@@ -7,7 +7,7 @@ public class GadgetInfo : ScriptableObject
 {
     new public string name = "New Gadget";
     public Sprite icon = null;
-    public float cost;
+    public int cost;
 
     public Sprite GetSprite()
     {

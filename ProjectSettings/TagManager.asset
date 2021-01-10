@@ -12,6 +12,7 @@ TagManager:
   - LevelManager
   - GameManager
   - UIGadgetTree
+  - PlayerCam
   layers:
   - Default
   - TransparentFX
