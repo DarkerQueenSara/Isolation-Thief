@@ -6,18 +6,19 @@ public class Jumpman2 : Skill
 {
 
     public const string ID = "Jumpman2";
+    public const float JUMP_BOOST_PERCENT = 0.35f;
 
     public Jumpman2()
     {
-        unlocked = false;
+        unlocked = true;
         this.skillInfo = Resources.Load<SkillInfo>(Skill.SKILL_INFO_DIR + "Jumpman2");
-        GameManager.Instance.skillsTree.GetSkill(Jumpman.ID).setParent(this);
     }
 
     public override void activate()
     {
-        if(parent == null || !parent.unlocked)
+        if (unlocked && (parent == null || !parent.unlocked))
         {
+            PlayerMovement.Instance.jumpHeight *= 1 + JUMP_BOOST_PERCENT;
             Debug.Log("Activating skill " + getID());
         }
     }

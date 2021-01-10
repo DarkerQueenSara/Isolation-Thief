@@ -42,10 +42,6 @@ public class Player : MonoBehaviour
         GameManager.Instance.skillsTree.activateAllSkills();
 
         inInventory = new List<Gadget>();
-        //inInventory.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);
-        //inInventory.Add(gadgetTree.gadgets[FastLockpick.gadgetID]);
-
-        //rightHand = gadgetTree.gadgets[SimpleLockpick.gadgetID];
     }
 
     public void changeMoney(int value)
@@ -135,11 +131,8 @@ public class Player : MonoBehaviour
         ui_Inventory.Refresh();
     }
 
-
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
+    public AudioManager GetAudioManager()
+    {
+        return gameObject.GetComponent<AudioManager>();
+    }
 }

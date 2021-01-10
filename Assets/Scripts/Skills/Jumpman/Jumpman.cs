@@ -6,7 +6,7 @@ public class Jumpman : Skill
 {
 
     public const string ID = "Jumpman";
-
+    public const float JUMP_BOOST_PERCENT = 0.2f;
     public Jumpman()
     {
         unlocked = true;
@@ -15,8 +15,9 @@ public class Jumpman : Skill
 
     public override void activate()
     {
-        if (parent == null || !parent.unlocked)
+        if (unlocked && (parent == null || !parent.unlocked))
         {
+            PlayerMovement.Instance.jumpHeight *= 1 + JUMP_BOOST_PERCENT; 
             Debug.Log("Activating skill " + getID());
         }
     }

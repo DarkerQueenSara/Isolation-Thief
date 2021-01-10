@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float crouchSpeed = 2.5f;
     public float proneSpeed = 1.5f;
     public float gravity = -9.81f * 2;
-    public float jumpHeight = 1.5f;
+    public float jumpHeight = 1.2f;
 
     public Transform groundCheck;
     private LayerMask groundMask;

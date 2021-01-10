@@ -34,6 +34,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void ChangeVolume(string name, float newVolume)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.volume = newVolume;
+    }
+
     public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
     {
         float currentTime = 0;

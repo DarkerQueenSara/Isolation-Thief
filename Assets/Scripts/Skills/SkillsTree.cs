@@ -9,7 +9,18 @@ public class SkillsTree
     {
         this.skills = new Dictionary<string, Skill>();
         //this.gadgets.Add(Lantern.gadgetID, new Lantern());
-        this.skills.Add(Jumpman.ID, new Jumpman());
+        Skill jumpMan = new Jumpman();
+        Skill jumpMan2 = new Jumpman2();
+        jumpMan.setParent(jumpMan2);
+
+        Skill lightStep = new LightStep();
+        Skill lightStep2 = new LightStep2();
+        lightStep.setParent(lightStep2);
+
+        this.skills.Add(Jumpman.ID, jumpMan);
+        this.skills.Add(Jumpman2.ID, jumpMan2);
+        this.skills.Add(LightStep.ID, lightStep);
+        this.skills.Add(LightStep2.ID, lightStep2);
     }
 
     public Skill GetSkill(string skillName)
