@@ -12,7 +12,13 @@ TagManager:
   - LevelManager
   - GameManager
   - UIGadgetTree
-  - PlayerCam
+  - LivingRoom
+  - Bedroom
+  - DiningRoom
+  - Kitchen
+  - Office
+  - Gym
+  - Garage
   layers:
   - Default
   - TransparentFX
