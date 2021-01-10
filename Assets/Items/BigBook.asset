@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81d264c0b8b28464b9b3ffd9b86f230f, type: 3}
-  m_Name: Painting
+  m_Name: BigBook
   m_EditorClassIdentifier: 
-  name: Painting
-  icon: {fileID: 21300000, guid: 917bec6f0afba3c4289536ed7526de13, type: 3}
-  value: 300
-  weight: 5
+  name: Big Book
+  icon: {fileID: 21300000, guid: 8c5868d237ecf904d9836e1f8a97094e, type: 3}
+  value: 150
+  weight: 6
