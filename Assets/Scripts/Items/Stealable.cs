@@ -14,6 +14,6 @@ public class Stealable : Interactable
 
     public override string getInteractingText()
     {
-        return "Steal " + item.name;
+        return "Steal " + item.name + " (" + item.value + "$, " + item.weight + " kg)";
     }
 }
