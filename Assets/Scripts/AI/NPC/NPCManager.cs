@@ -77,7 +77,7 @@ public class NPCManager : MonoBehaviour
         {
             if (managedNPC == npc) continue;
 
-            if(managedNPC.myMovement.GetCurrentDestinationInfo() == dInfo)
+            if(managedNPC.myMovement.currentDestinationName != "" && managedNPC.myMovement.GetCurrentDestinationInfo() == dInfo)
             {
                 result = true;
             }

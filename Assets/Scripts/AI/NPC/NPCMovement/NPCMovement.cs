@@ -21,13 +21,16 @@ public abstract class NPCMovement
 
     public virtual void Initialize(GameObject npc, Animator managedNPC_animator)
     {
-        destinations = new Dictionary<string, Vector3>();
-        destinationsInfo = new Dictionary<string, DestinationInfo>();
-        foreach (GameObject destination in GameObject.FindGameObjectsWithTag("NPCDestination"))
+        if(destinations == null && destinationsInfo == null)
         {
-            destinations.Add(destination.name, destination.transform.position);
-            DestinationInfo dInfo = destination.GetComponent<DestinationInfo>();
-            destinationsInfo.Add(destination.name, destination.GetComponent<DestinationInfo>());
+            destinations = new Dictionary<string, Vector3>();
+            destinationsInfo = new Dictionary<string, DestinationInfo>();
+            foreach (GameObject destination in GameObject.FindGameObjectsWithTag("NPCDestination"))
+            {
+                destinations.Add(destination.name, destination.transform.position);
+                DestinationInfo dInfo = destination.GetComponent<DestinationInfo>();
+                destinationsInfo.Add(destination.name, destination.GetComponent<DestinationInfo>());
+            }
         }
 
         this.NPC = npc;
