@@ -381,10 +381,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 33762857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31b38bf3cdbdc864781454dd3b472004, type: 3}
+  m_Script: {fileID: 11500000, guid: e4037ee7ff79a60418e5e71489cd7aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights: []
+  lightsDetection: []
 --- !u!1 &34011432
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 46576121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &50539957 stripped
@@ -1325,6 +1325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 192598462}
+  - component: {fileID: 192598463}
   m_Layer: 0
   m_Name: BedDestination
   m_TagString: NPCDestination
@@ -1346,6 +1347,23 @@ Transform:
   m_Father: {fileID: 740212935}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &192598463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192598461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 202587961}
+  lightSwitch: {fileID: 0}
+  lights:
+  - {fileID: 1401683117}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1 &198755632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3680369946909853433, guid: e685962f058485547ac790593713d8b1,
@@ -1369,6 +1387,12 @@ MeshCollider:
 --- !u!1 &202587960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8409335255811119741, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068684464479039474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &202587961 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3708514510427748830, guid: e685962f058485547ac790593713d8b1,
     type: 3}
   m_PrefabInstance: {fileID: 3068684464479039474}
   m_PrefabAsset: {fileID: 0}
@@ -1532,6 +1556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 230027815}
+  - component: {fileID: 230027816}
   m_Layer: 0
   m_Name: OfficePCDestination
   m_TagString: NPCDestination
@@ -1553,6 +1578,23 @@ Transform:
   m_Father: {fileID: 740212935}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230027816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230027814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 1205437718}
+  lightSwitch: {fileID: 0}
+  lights:
+  - {fileID: 751111544}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1 &233078678 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 59298099143872566, guid: e685962f058485547ac790593713d8b1,
@@ -2953,8 +2995,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 407671822}
+  - component: {fileID: 407671823}
   m_Layer: 0
-  m_Name: LivingroomDestinaton
+  m_Name: DiningroomDestinaton
   m_TagString: NPCDestination
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2974,6 +3017,23 @@ Transform:
   m_Father: {fileID: 740212935}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &407671823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407671821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 806952798}
+  lightSwitch: {fileID: 0}
+  lights:
+  - {fileID: 1313015124}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1 &408212091 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 507216084115098072, guid: e685962f058485547ac790593713d8b1,
@@ -3634,7 +3694,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 484230014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &489462748 stripped
@@ -3890,7 +3950,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 526133324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &529056081 stripped
@@ -4180,6 +4240,12 @@ MeshCollider:
 --- !u!1 &558577720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3276116258251152891, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068684464479039474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &558577721 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7688671444134674008, guid: e685962f058485547ac790593713d8b1,
     type: 3}
   m_PrefabInstance: {fileID: 3068684464479039474}
   m_PrefabAsset: {fileID: 0}
@@ -4735,6 +4801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 665115022}
+  - component: {fileID: 665115023}
   m_Layer: 0
   m_Name: KitchenMicrowaveDestination
   m_TagString: NPCDestination
@@ -4756,6 +4823,23 @@ Transform:
   m_Father: {fileID: 740212935}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &665115023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665115021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 835322668}
+  lightSwitch: {fileID: 0}
+  lights:
+  - {fileID: 882983753}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1 &671119348 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4435250921174959443, guid: e685962f058485547ac790593713d8b1,
@@ -4797,7 +4881,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 679244290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &683138199 stripped
@@ -4857,7 +4941,7 @@ RectTransform:
   - {fileID: 790144685}
   - {fileID: 1580030148}
   - {fileID: 2698626842934402402}
-  - {fileID: 1463641638}
+  - {fileID: 1229555337}
   - {fileID: 3583359767785948014}
   - {fileID: 1348408690170385822}
   m_Father: {fileID: 120396882}
@@ -5228,7 +5312,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 780168185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &786225348
@@ -5575,6 +5659,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3068684464479039474}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &806952798 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 842504724883750076, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068684464479039474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &806952799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5751,6 +5841,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3068684464479039474}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &835322668 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3090515755767734729, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068684464479039474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &835322669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5802,7 +5898,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 837287641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &839995990 stripped
@@ -5846,7 +5942,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 847341120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &854336540
@@ -5858,6 +5954,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854336541}
+  - component: {fileID: 854336542}
   m_Layer: 0
   m_Name: KitchenFridgeDestination
   m_TagString: NPCDestination
@@ -5879,6 +5976,23 @@ Transform:
   m_Father: {fileID: 740212935}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854336542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854336540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 835322668}
+  lightSwitch: {fileID: 0}
+  lights:
+  - {fileID: 882983753}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1 &855910300
 GameObject:
   m_ObjectHideFlags: 0
@@ -5888,6 +6002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 855910301}
+  - component: {fileID: 855910302}
   m_Layer: 0
   m_Name: BathroomToiletDestination
   m_TagString: NPCDestination
@@ -5909,6 +6024,23 @@ Transform:
   m_Father: {fileID: 740212935}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &855910302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855910300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 558577721}
+  lightSwitch: {fileID: 0}
+  lights:
+  - {fileID: 1703496221}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!43 &857038105
 Mesh:
   m_ObjectHideFlags: 0
@@ -6169,7 +6301,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 874470659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &875083424 stripped
@@ -6571,6 +6703,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 986962547}
+  - component: {fileID: 986962548}
   m_Layer: 0
   m_Name: BathroomShowerDestination
   m_TagString: NPCDestination
@@ -6592,6 +6725,23 @@ Transform:
   m_Father: {fileID: 740212935}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &986962548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986962546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 558577721}
+  lightSwitch: {fileID: 0}
+  lights:
+  - {fileID: 1703496221}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1001 &988957423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7146,7 +7296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1087403155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1119576045 stripped
@@ -7645,6 +7795,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3068684464479039474}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1205437718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2686895844247627054, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068684464479039474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1205437719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7775,6 +7931,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7229514415624507359, guid: ba7cd7461d87825419c4e7a121682dff, type: 3}
+--- !u!224 &1229555337 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4179435359120081098, guid: 89093c2093a56ea4da829a2742832ba6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1463641637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1242077492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6788498127670846809, guid: e685962f058485547ac790593713d8b1,
@@ -8247,7 +8409,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1296940480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1308838379 stripped
@@ -8285,6 +8447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1315978841}
+  - component: {fileID: 1315978842}
   m_Layer: 0
   m_Name: SofaTVDestination
   m_TagString: NPCDestination
@@ -8306,6 +8469,24 @@ Transform:
   m_Father: {fileID: 740212935}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315978842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315978840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 1470060388}
+  lightSwitch: {fileID: 0}
+  lights:
+  - {fileID: 551412235}
+  - {fileID: 1839538662}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1 &1319348642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3286824925991344991, guid: e685962f058485547ac790593713d8b1,
@@ -8828,7 +9009,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43920
+  m_Name: pb_Mesh68600
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9174,11 +9355,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89093c2093a56ea4da829a2742832ba6, type: 3}
---- !u!4 &1463641638 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 1463641637}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1468474182
 GameObject:
   m_ObjectHideFlags: 0
@@ -9213,6 +9389,12 @@ Transform:
 --- !u!1 &1470060387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2513362384467244522, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068684464479039474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1470060388 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7288511215349306953, guid: e685962f058485547ac790593713d8b1,
     type: 3}
   m_PrefabInstance: {fileID: 3068684464479039474}
   m_PrefabAsset: {fileID: 0}
@@ -10432,7 +10614,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1702099286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!108 &1703496221 stripped
@@ -10456,7 +10638,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1706310945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1709911091 stripped
@@ -10540,7 +10722,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1728421466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1734365751
@@ -10674,7 +10856,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1735514130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1748649431
@@ -11030,7 +11212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1811651358
 Transform:
   m_ObjectHideFlags: 0
@@ -11376,7 +11558,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1863305963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e06a5bbdcb23eb4aab8bb6768fb2ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d102c332340db37418186dfefdae960a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1879804799 stripped
@@ -11468,6 +11650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914015467}
+  - component: {fileID: 1914015468}
   m_Layer: 0
   m_Name: KitchenOvenDestination
   m_TagString: NPCDestination
@@ -11489,6 +11672,23 @@ Transform:
   m_Father: {fileID: 740212935}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1914015468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914015466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 835322668}
+  lightSwitch: {fileID: 0}
+  lights:
+  - {fileID: 882983753}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1 &1920945746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7254700162575033108, guid: e685962f058485547ac790593713d8b1,

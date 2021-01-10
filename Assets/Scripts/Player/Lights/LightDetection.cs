@@ -12,7 +12,7 @@ public class LightDetection : MonoBehaviour
     {
         this.thisLight = gameObject.GetComponent<Light>();
         mask = LayerMask.GetMask("Lights");
-        AILightManager.Instance.lights.Add(this);
+        AILightManager.Instance.lightsDetection.Add(this);
     }
 
     public bool LitsPlayer(Player player)

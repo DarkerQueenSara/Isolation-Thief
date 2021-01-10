@@ -7,7 +7,7 @@ public class AILightManager : MonoBehaviour
 
     public static AILightManager Instance { get; private set;}
 
-    public List<LightDetection> lights;
+    public List<LightDetection> lightsDetection;
 
     private AILightManager(){}
 
@@ -20,7 +20,7 @@ public class AILightManager : MonoBehaviour
         {
             Debug.LogError("More than 1 instance of AILightManager!");
         }
-        lights = new List<LightDetection>();
+        lightsDetection = new List<LightDetection>();
     }
 
 
@@ -38,7 +38,7 @@ public class AILightManager : MonoBehaviour
     {
         bool lit = false;
 
-        foreach(LightDetection lightD in lights)
+        foreach(LightDetection lightD in lightsDetection)
         {
             if (lightD.status)
             {

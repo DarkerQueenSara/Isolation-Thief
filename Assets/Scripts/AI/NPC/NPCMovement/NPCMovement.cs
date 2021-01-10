@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public abstract class NPCMovement
 {
     protected static Dictionary<string, Vector3> destinations;
+    protected static Dictionary<string, DestinationInfo> destinationsInfo;
+
+    public string currentDestinationName = "";
     protected Vector3 currentDestination;
     protected GameObject NPC;
     protected NavMeshAgent npc_m_Agent;
@@ -19,9 +22,12 @@ public abstract class NPCMovement
     public virtual void Initialize(GameObject npc, Animator managedNPC_animator)
     {
         destinations = new Dictionary<string, Vector3>();
+        destinationsInfo = new Dictionary<string, DestinationInfo>();
         foreach (GameObject destination in GameObject.FindGameObjectsWithTag("NPCDestination"))
         {
             destinations.Add(destination.name, destination.transform.position);
+            DestinationInfo dInfo = destination.GetComponent<DestinationInfo>();
+            destinationsInfo.Add(destination.name, destination.GetComponent<DestinationInfo>());
         }
 
         this.NPC = npc;
@@ -104,5 +110,25 @@ public abstract class NPCMovement
     public void ReactScared()
     {
         this.managedNPC_animator.SetTrigger("React");
+    }
+
+    public Vector3 GetCurrentDestination()
+    {
+        return this.npc_m_Agent.destination;
+    }
+
+    public DestinationInfo GetCurrentDestinationInfo()
+    {
+        return destinationsInfo[currentDestinationName];
+    }
+
+    public bool PathPending()
+    {
+        return this.npc_m_Agent.pathPending;
+    }
+
+    public bool ReachedCurrentDestination()
+    {
+        return npc_m_Agent.remainingDistance <= 0.3f;
     }
 }

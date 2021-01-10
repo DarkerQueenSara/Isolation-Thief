@@ -69,6 +69,22 @@ public class NPCManager : MonoBehaviour
         StartCoroutine(npc.WarnOtherNPC(closestNPC));
     }
 
+    public bool SameDestinationInfo(DestinationInfo dInfo, ManagedNPC npc)
+    {
+        bool result = false;
+
+        foreach (ManagedNPC managedNPC in this.managedNPCS)
+        {
+            if (managedNPC == npc) continue;
+
+            if(managedNPC.myMovement.GetCurrentDestinationInfo() == dInfo)
+            {
+                result = true;
+            }
+        }
+        return result;
+    }
+
     ManagedNPC GetClosestNPCWhoCanCallCops(ManagedNPC managedNPC)
     {
         Vector3 managedNPCPosition = managedNPC.transform.position;

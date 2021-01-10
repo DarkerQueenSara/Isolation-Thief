@@ -20,6 +20,7 @@ public class RandomPatrol : NPCMovement
         this.managedNPC_animator.SetFloat("Speed", walkSpeed);
 
         int randomN = random.Next(0,destinations.Count);
+        this.currentDestinationName = destinations.ElementAt(randomN).Key;
         this.currentDestination = destinations.ElementAt(randomN).Value;
         this.npc_m_Agent.destination = this.currentDestination;
     }
