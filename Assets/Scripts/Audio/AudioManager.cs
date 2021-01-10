@@ -34,6 +34,19 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void Play(Sound s)
+    {
+        //Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (!s.source.isPlaying)
+        {
+            if (s.fadeIn)
+            {
+                StartCoroutine(StartFade(s.source, 5f, 1));
+            }
+            s.source.Play();
+        }
+    }
+
     public void ChangeVolume(string name, float newVolume)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
