@@ -10,7 +10,7 @@ public class LightStep2 : Skill
 
     public LightStep2()
     {
-        unlocked = false;
+        unlocked = true;
         this.skillInfo = Resources.Load<SkillInfo>(Skill.SKILL_INFO_DIR + "LightStep2");
     }
 
@@ -19,6 +19,8 @@ public class LightStep2 : Skill
         if (unlocked && (parent == null || !parent.unlocked))
         {
             Player.Instance.GetAudioManager().ChangeVolume("Sprint", (1 - NOISE_REDUCTION_PERCENT));
+            Player.Instance.GetAudioManager().ChangeVolume("Walk", (1 - NOISE_REDUCTION_PERCENT));
+            Player.Instance.GetAudioManager().ChangeVolume("Sneak", (1 - NOISE_REDUCTION_PERCENT));
             Debug.Log("Activating skill " + getID());
         }
     }

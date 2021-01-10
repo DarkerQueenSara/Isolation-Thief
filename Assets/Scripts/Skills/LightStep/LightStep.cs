@@ -19,6 +19,8 @@ public class LightStep : Skill
         if (unlocked && (parent == null || !parent.unlocked))
         {
             Player.Instance.GetAudioManager().ChangeVolume("Sprint", (1 - NOISE_REDUCTION_PERCENT));
+            Player.Instance.GetAudioManager().ChangeVolume("Walk", (1 - NOISE_REDUCTION_PERCENT));
+            Player.Instance.GetAudioManager().ChangeVolume("Sneak", (1 - NOISE_REDUCTION_PERCENT));
             Debug.Log("Activating skill " + getID());
         }
     }
