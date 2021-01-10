@@ -105,8 +105,9 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 	public void RestartLevelAction()
 	{
 		Debug.Log("Restart clicked");
+		NPCManager.Instance.StopAllNPC();
 		PausedMenu.Instance.visible();
-		Application.LoadLevel(Application.loadedLevel);
+		GameManager.Instance.StartLevel();
 	}
 
 	public void QuitLevelAction()
