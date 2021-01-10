@@ -7100,6 +7100,140 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1223328534}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1238758562
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8358444953822498935, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lightSwitchTransform
+      value: 
+      objectReference: {fileID: 1408688648}
+    - target: {fileID: 8358444953867662304, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lightSwitchTransform
+      value: 
+      objectReference: {fileID: 1408688645}
+    - target: {fileID: 8358444954037081543, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lightSwitchTransform
+      value: 
+      objectReference: {fileID: 1408688650}
+    - target: {fileID: 8358444954302879815, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lightSwitchTransform
+      value: 
+      objectReference: {fileID: 1408688647}
+    - target: {fileID: 8358444954302879815, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lights.Array.data[0]
+      value: 
+      objectReference: {fileID: 1408688646}
+    - target: {fileID: 8358444954483811798, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lightSwitchTransform
+      value: 
+      objectReference: {fileID: 1408688647}
+    - target: {fileID: 8358444954483811798, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lights.Array.data[0]
+      value: 
+      objectReference: {fileID: 1408688646}
+    - target: {fileID: 8358444954493773398, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lightSwitchTransform
+      value: 
+      objectReference: {fileID: 1408688644}
+    - target: {fileID: 8358444954616732604, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lightSwitchTransform
+      value: 
+      objectReference: {fileID: 1408688644}
+    - target: {fileID: 8358444954945978258, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lightSwitchTransform
+      value: 
+      objectReference: {fileID: 1408688649}
+    - target: {fileID: 8358444955333838266, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_Name
+      value: AI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.722528
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.8951025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.926022
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955333838268, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955441453781, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358444955551682340, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lightSwitchTransform
+      value: 
+      objectReference: {fileID: 1408688647}
+    - target: {fileID: 8358444955551682340, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: lights.Array.data[0]
+      value: 
+      objectReference: {fileID: 1408688646}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a2d30e25355d194dbef39d9e140b45c, type: 3}
 --- !u!1 &1255241432
 GameObject:
   m_ObjectHideFlags: 0
@@ -8317,6 +8451,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 268533602, guid: e685962f058485547ac790593713d8b1, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 8182d05d01560e644ba0ef25a312f1c6,
+        type: 2}
+    - target: {fileID: 1003379089, guid: e685962f058485547ac790593713d8b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2276491030500329708, guid: e685962f058485547ac790593713d8b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5031598772672593157, guid: e685962f058485547ac790593713d8b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8384,6 +8532,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e685962f058485547ac790593713d8b1, type: 3}
+--- !u!4 &1408688644 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7688671444134674008, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408688643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1408688645 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2686895844247627054, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408688643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1408688646 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 6238235028210570483, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408688643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1408688647 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3090515755767734729, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408688643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1408688648 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3708514510427748830, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408688643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1408688649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7288511215349306953, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408688643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1408688650 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 842504724883750076, guid: e685962f058485547ac790593713d8b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408688643}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1415694761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9596,12 +9786,12 @@ GameObject:
   - component: {fileID: 1695646836}
   - component: {fileID: 1695646835}
   m_Layer: 0
-  m_Name: AI
+  m_Name: OldAI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1695646835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9619,6 +9809,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  bedroomDoor: {fileID: 0}
 --- !u!4 &1695646836
 Transform:
   m_ObjectHideFlags: 0
@@ -13738,7 +13929,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1348408691269072174}
   m_HandleRect: {fileID: 1348408691269072169}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

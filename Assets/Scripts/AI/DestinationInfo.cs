@@ -7,7 +7,6 @@ public class DestinationInfo : MonoBehaviour
 {
     public Transform lightSwitchTransform;
     [HideInInspector]public LightSwitch lightSwitch;
-    public List<Light> lights;
     public Vector3 destination;
 
     // Start is called before the first frame update
