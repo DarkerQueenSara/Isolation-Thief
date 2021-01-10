@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         gadgetTree = gameManager.gadgetTree;
+        GameManager.Instance.skillsTree.activateAllSkills();
 
         inInventory = new List<Gadget>();
         //inInventory.Add(gadgetTree.gadgets[SimpleLockpick.gadgetID]);

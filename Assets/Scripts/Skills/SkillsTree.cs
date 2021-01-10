@@ -9,6 +9,7 @@ public class SkillsTree
     {
         this.skills = new Dictionary<string, Skill>();
         //this.gadgets.Add(Lantern.gadgetID, new Lantern());
+        this.skills.Add(Jumpman.ID, new Jumpman());
     }
 
     public Skill GetSkill(string skillName)
@@ -40,6 +41,15 @@ public class SkillsTree
     public List<Skill> getAllSkills()
     {
         return new List<Skill>(this.skills.Values);
+    }
+
+    public void activateAllSkills()
+    {
+        Debug.Log("Activating skills");
+        foreach(Skill skill in this.skills.Values)
+        {
+            skill.activate();
+        }
     }
 
 }

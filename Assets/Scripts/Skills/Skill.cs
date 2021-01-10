@@ -18,7 +18,7 @@ public abstract class Skill
         parent = null;
     }
 
-    protected void setParent(Skill parent)
+    public void setParent(Skill parent)
     {
         this.parent = parent;
     }
@@ -38,8 +38,9 @@ public abstract class Skill
     }
 
     public abstract void activate();
+    public abstract string getID();
 
-    public string getID()
+    public string getName()
     {
         return this.skillInfo.name;
     }
