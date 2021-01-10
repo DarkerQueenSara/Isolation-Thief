@@ -9,7 +9,7 @@ public class GadgetTreeUI : MonoBehaviour
 	public static GadgetTreeUI Instance { get; private set; }
 	//public GameObject crosshair;
 
-	private GadgetTree gadgetTree;
+	public GadgetTree gadgetTree;
 
 	private void Awake()
 	{
@@ -38,6 +38,12 @@ public class GadgetTreeUI : MonoBehaviour
 		HelpText.transform.gameObject.SetActive(true);
 	}
 
+	void updateGadgetPriceText(string gadgetUILabel, string gadgetID)
+	{
+		TextMeshProUGUI gadgetPrice = transform.Find("Tree").Find(gadgetUILabel).Find("Price").GetComponent<TextMeshProUGUI>();
+		gadgetPrice.text = gadgetTree.GetGadget(gadgetID).getCost().ToString() + " $";
+	}
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -46,8 +52,11 @@ public class GadgetTreeUI : MonoBehaviour
 		updateMoneyText();
 
 		// Update gadget price text
-		TextMeshProUGUI FastLockPickPrice = transform.Find("Tree").Find("FastLockPick").Find("Price").GetComponent<TextMeshProUGUI>();
-		FastLockPickPrice.text = gadgetTree.GetGadget(FastLockpick.gadgetID).getCost().ToString() + " $";
+		updateGadgetPriceText("FastLockPick", FastLockpick.gadgetID);
+		updateGadgetPriceText("Lighter", Lighter.gadgetID);
+		updateGadgetPriceText("HackingDevice", SimpleHackingDevice.gadgetID);
+		updateGadgetPriceText("SpyCamera", SpyCam.gadgetID);
+
 	}
 
 	private void updateMoneyText()

@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Painting
   icon: {fileID: 21300000, guid: 917bec6f0afba3c4289536ed7526de13, type: 3}
   value: 300
+  weight: 5

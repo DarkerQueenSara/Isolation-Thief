@@ -13,9 +13,9 @@ namespace Assets.Scripts.Player.Controls
 
 
         //Public 
-        private bool isOn(Light roomLight)
+        public bool isOn()
         {
-            return roomLight.intensity > 0.001;
+            return roomLights[0].intensity > 0.001;
         }
 
         private void Awake()
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Player.Controls
             for (int i = 0; i < roomLights.Count; i++)
             {
                 Light roomLight = roomLights[i];
-                if (isOn(roomLight))
+                if (isOn())
                 {
                     lightIntensities.Add(roomLight.intensity);
                 }
@@ -41,7 +41,7 @@ namespace Assets.Scripts.Player.Controls
         {
             gameObject.transform.Rotate(.0f, .0f, 180.0f, Space.Self);
             //imaginando todas as luzes ligadas ou desligadas
-            if(isOn(roomLights[0]))
+            if(isOn())
             {
                 for (int i = 0; i < roomLights.Count; i++)
                 {
@@ -60,7 +60,7 @@ namespace Assets.Scripts.Player.Controls
         //Look
         public override string getInteractingText()
         {
-            return "Click E to turn " + (isOn(roomLights[0]) ? "off" : "on") + " light";
+            return "Click E to turn " + (isOn() ? "off" : "on") + " light";
         }
 
 
