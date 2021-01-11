@@ -33,8 +33,16 @@ public class Flammable : Interactable
                 flameAnim.SetActive(true);
                 LevelManager.Instance.objectsBurned++;
                 //TODO NPC REACT TO FIRE = lighterDistractions++
+                Invoke("StopBurning", 15);
             }
         }
+    }
+
+    public void StopBurning()
+    {
+        isBurning = false;
+        flameAnim.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     public override string getInteractingText()
