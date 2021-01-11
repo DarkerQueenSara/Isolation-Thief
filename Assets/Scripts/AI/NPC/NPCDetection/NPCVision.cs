@@ -27,16 +27,17 @@ public class NPCVision : MonoBehaviour
         if (other.CompareTag("Player")) //check for player
         {
             RaycastHit hit;
+            float height = Player.Instance.transform.localScale.y;
             bool gotHit = Physics.Linecast(
                 npc_transform.position + new Vector3(0f, 1.5f, 0f),
-                other.transform.position + new Vector3(0f, 1.5f, 0f),
+                other.transform.position + new Vector3(0f, height, 0f),
                 out hit);
 
             if (gotHit && !hit.transform.CompareTag("Player"))
             {
                 return;
             }
-            else
+            else if(gotHit && hit.transform.CompareTag("Player"))
             {
 
                 if (Player.Instance.isLit)
