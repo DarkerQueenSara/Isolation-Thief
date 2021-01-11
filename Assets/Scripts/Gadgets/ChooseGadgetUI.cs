@@ -8,6 +8,8 @@ public class ChooseGadgetUI : MonoBehaviour
 {
 	public static ChooseGadgetUI Instance { get; private set; }
 
+	public const int MAX_GADGETS_CHOICE = 3;
+
 	public GameObject gadgetSlotPrefab;
 
 	private Transform gadgetsToChoose;
@@ -65,9 +67,17 @@ public class ChooseGadgetUI : MonoBehaviour
 				}
 				else
 				{
-					Debug.Log(gadget.getID() + " was chosen");
-					selected.transform.gameObject.SetActive(true);
-					this.chosenGadgets.Add(gadget);
+					if(chosenGadgets.Count >= MAX_GADGETS_CHOICE)
+                    {
+						//TODO Avisar ao player que clicou demasiadas vezes
+						Debug.Log("Already has " + MAX_GADGETS_CHOICE + " gadgets!");
+					}
+                    else
+                    {
+						Debug.Log(gadget.getID() + " was chosen");
+						selected.transform.gameObject.SetActive(true);
+						this.chosenGadgets.Add(gadget);
+					}
 				}
 			});
 			//temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = item.GetSprite();
