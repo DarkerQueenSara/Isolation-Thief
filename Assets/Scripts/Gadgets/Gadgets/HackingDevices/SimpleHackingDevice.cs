@@ -14,7 +14,6 @@ public class SimpleHackingDevice : HackingDevice
 		usability = int.MaxValue; //infinite pmuch
 		gadgetDependencies = new List<Gadget>();
 		minLevel = 1;
-		this.unlocked = true;
 		this.gadgetInfo = Resources.Load<GadgetInfo>(Gadget.GADGET_INFO_DIR + "SimpleHackingDevice");
 
 	}

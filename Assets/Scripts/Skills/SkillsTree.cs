@@ -17,14 +17,26 @@ public class SkillsTree
         Skill lightStep2 = new LightStep2();
         lightStep.setParent(lightStep2);
 
+
+        Skill goFast = new GottaGoFast();
+        Skill goFast2 = new GottaGoFast2();
+        goFast.setParent(goFast2);
+
         #region dependencies
         jumpMan.addDependency(lightStep);
+
+        goFast.addDependency(lightStep);
 
         jumpMan2.addDependency(jumpMan);
         jumpMan2.addDependency(lightStep);
 
+        goFast2.addDependency(lightStep);
+        goFast2.addDependency(goFast);
+
         lightStep2.addDependency(jumpMan2);
         lightStep2.addDependency(jumpMan);
+        lightStep2.addDependency(goFast);
+        lightStep2.addDependency(goFast2);
         lightStep2.addDependency(lightStep);
         #endregion
 
@@ -32,6 +44,8 @@ public class SkillsTree
         this.skills.Add(Jumpman2.ID, jumpMan2);
         this.skills.Add(LightStep.ID, lightStep);
         this.skills.Add(LightStep2.ID, lightStep2);
+        this.skills.Add(GottaGoFast.ID, goFast);
+        this.skills.Add(GottaGoFast2.ID, goFast2);
     }
 
     public Skill GetSkill(string skillName)
