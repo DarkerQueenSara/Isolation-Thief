@@ -161,7 +161,11 @@ public class GameManager : MonoBehaviour
 		{
 			foreach (Challenge c in challenges)
 			{
-				c.checkFullfiled();
+				if(c.checkFullfiled())
+				{
+					availableXp += c.xp;
+					totalXp += c.xp;
+				}
 				if (c.fullfilled)
 				{
 					Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
@@ -170,7 +174,11 @@ public class GameManager : MonoBehaviour
 
 			foreach (Challenge c in goodDeeds)
 			{
-				c.checkFullfiled();
+				if (c.checkFullfiled())
+				{
+					availableKp += c.xp;
+					totalKp += c.xp;
+				}
 				if (c.fullfilled)
 				{
 					Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");

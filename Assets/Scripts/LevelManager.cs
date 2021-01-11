@@ -189,7 +189,7 @@ public class LevelManager : MonoBehaviour
 					+player.GetTotalStolen() + " $",
 					true);
 		}
-		NPCManager.Instance.StopAllNPC();
+		NPCManager.Instance?.StopAllNPC();
 		LevelEndMenu.Instance.visible();
 
 		player.DisableMovement();

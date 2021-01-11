@@ -22,12 +22,14 @@ public class Challenge
         fullfilled = false;
     }
 
-    public void checkFullfiled()
+    public bool checkFullfiled()
     {
         if (!fullfilled && verificationMethod())
         {
             fullfilled = true;
+            return true;
         }
+        return false;
     }
 
 
