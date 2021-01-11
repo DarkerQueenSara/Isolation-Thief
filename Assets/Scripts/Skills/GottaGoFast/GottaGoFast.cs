@@ -9,7 +9,7 @@ public class GottaGoFast : Skill
     public const float SPEED_BOOST_PERCENT = 0.2f;
     public GottaGoFast()
     {
-        this.unlocked = true;
+        this.unlocked = false;
         this.skillInfo = Resources.Load<SkillInfo>(Skill.SKILL_INFO_DIR + "GottaGoFast");
     }
 
