@@ -121,6 +121,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 	public void ConfirmDialogYesAction()
 	{
+		NPCManager.Instance.StopAllNPC();
 		GameManager.Instance.ShowLevelMenu();
 	}
 
