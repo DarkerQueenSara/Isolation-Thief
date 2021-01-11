@@ -32,6 +32,10 @@ public class PlayerMovement : MonoBehaviour
 
     private NPCManager npcManager;
 
+    private bool sneak;
+    private bool walk;
+    private bool run;
+
     private void Awake()
     {
         if (Instance != null)
@@ -49,6 +53,27 @@ public class PlayerMovement : MonoBehaviour
         smoothProning = new SmoothProning(controller, playerCollider);
         audioManager = this.gameObject.GetComponent<AudioManager>();
         npcManager = NPCManager.Instance;
+        InvokeRepeating(nameof(PlaySounds), 0.5f, 0.5f);
+    }
+
+    private void PlaySounds()
+    {
+        if (sneak)
+        {
+            npcManager.InvestigateSound(gameObject.transform.position, 7, 7);
+            audioManager.Play(audioManager.sounds[Random.Range(6, 7)]);
+
+        } else if (walk)
+        {
+            npcManager.InvestigateSound(gameObject.transform.position, 10, 10);
+            audioManager.Play(audioManager.sounds[Random.Range(0, 1)]);
+
+        } else if (run)
+        {
+            npcManager.InvestigateSound(gameObject.transform.position, 15, 15);
+            audioManager.Play(audioManager.sounds[Random.Range(3, 4)]);
+
+        }
     }
 
     // Update is called once per frame
@@ -83,8 +108,9 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * crouchSpeed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
-                npcManager.InvestigateSound(gameObject.transform.position, 5, 5);
-                audioManager.Play(audioManager.sounds[Random.Range(6, 9)]);
+                sneak = true;
+                run = false;
+                walk = false;
             }
         }
         else if (Input.GetButton("Sprint"))
@@ -92,8 +118,9 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * sprintSpeed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
-                npcManager.InvestigateSound(gameObject.transform.position, 15, 15);
-                audioManager.Play(audioManager.sounds[Random.Range(3, 7)]);
+                walk = false;
+                sneak = false;
+                run = true;
             }
         }
         else 
@@ -101,9 +128,17 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * speed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
-                npcManager.InvestigateSound(gameObject.transform.position, 10, 10);
-                audioManager.Play(audioManager.sounds[Random.Range(0, 4)]);
+                sneak = false;
+                run = false;
+                walk = true;
             }
+        }
+
+        if(move.magnitude <= 0.0001)
+        {
+            sneak = false;
+            run = false;
+            walk = false;
         }
 
         //-----------------------------

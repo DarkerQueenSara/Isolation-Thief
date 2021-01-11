@@ -8,6 +8,8 @@ public class ChooseGadgetUI : MonoBehaviour
 {
 	public static ChooseGadgetUI Instance { get; private set; }
 
+	public const int MAX_GADGETS_CHOICE = 3;
+
 	public GameObject gadgetSlotPrefab;
 
 	private Transform gadgetsToChoose;
@@ -20,11 +22,14 @@ public class ChooseGadgetUI : MonoBehaviour
 
 	private void Awake()
 	{
+		Time.timeScale = 0;
+
 		Instance = this;
-		gadgetsToChoose = transform.Find("Scroll View").Find("Viewport").Find("GadgetsToChoose");
+		gadgetsToChoose = transform.Find("GadgetsToChoose");
 		this.chosenGadgets = new List<Gadget>();
 		transform.Find("DoneBtn").GetComponent<Button>().onClick.AddListener(delegate
 		{
+			Time.timeScale = 1;
 			this.doneChoosing();
 		});
 		gameObject.SetActive(false);
@@ -35,6 +40,9 @@ public class ChooseGadgetUI : MonoBehaviour
 		GadgetTree gadgetTree = Player.Instance.GetGadgetTree();
 		this.unlockedGadgets = gadgetTree.getUnlockedGadgets();
 		this.refreshSlots();
+
+		TextMeshProUGUI Goal = transform.Find("Goal").GetComponent<TextMeshProUGUI>();
+		Goal.text = LevelManager.Instance.moneyGoal.ToString() + " $";
 	}
 
 	public void refreshSlots()
@@ -65,9 +73,17 @@ public class ChooseGadgetUI : MonoBehaviour
 				}
 				else
 				{
-					Debug.Log(gadget.getID() + " was chosen");
-					selected.transform.gameObject.SetActive(true);
-					this.chosenGadgets.Add(gadget);
+					if(chosenGadgets.Count >= MAX_GADGETS_CHOICE)
+                    {
+						//TODO Avisar ao player que clicou demasiadas vezes
+						Debug.Log("Already has " + MAX_GADGETS_CHOICE + " gadgets!");
+					}
+                    else
+                    {
+						Debug.Log(gadget.getID() + " was chosen");
+						selected.transform.gameObject.SetActive(true);
+						this.chosenGadgets.Add(gadget);
+					}
 				}
 			});
 			//temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = item.GetSprite();

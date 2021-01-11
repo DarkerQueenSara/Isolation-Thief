@@ -28,10 +28,10 @@ public class NPCNoise : MonoBehaviour
 
         float probability;
 
-        if (realDistance <= maxDistance / 3) { probability = 1; }
+        if (realDistance <= maxDistance / 2) { probability = 1; }
         else
         {
-            probability = 1 - (realDistance / intensity) - 0.2f;
+            probability = 1 - (realDistance / intensity) + 0.15f;
         }
 
         Debug.Log("Probability: " + probability);
