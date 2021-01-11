@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public bool disabled = false;
     private AudioManager audioManager;
 
+    private NPCManager npcManager;
+
     private void Awake()
     {
         if (Instance != null)
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         smoothCrouching = new SmoothCrouching(controller, playerCollider);
         smoothProning = new SmoothProning(controller, playerCollider);
         audioManager = this.gameObject.GetComponent<AudioManager>();
+        npcManager = NPCManager.Instance;
     }
 
     // Update is called once per frame
@@ -80,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * crouchSpeed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
+                npcManager.InvestigateSound(gameObject.transform.position, 5, 5);
                 audioManager.Play(audioManager.sounds[Random.Range(6, 9)]);
             }
         }
@@ -88,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * sprintSpeed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
+                npcManager.InvestigateSound(gameObject.transform.position, 15, 15);
                 audioManager.Play(audioManager.sounds[Random.Range(3, 7)]);
             }
         }
@@ -96,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * speed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
+                npcManager.InvestigateSound(gameObject.transform.position, 10, 10);
                 audioManager.Play(audioManager.sounds[Random.Range(0, 4)]);
             }
         }

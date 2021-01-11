@@ -14,10 +14,14 @@ public class ManagedNPC : MonoBehaviour
     public MovementType movementType;
 
     [HideInInspector] public NPCMovement myMovement;
+
+    public NPCNoise npcNoise;
+    public NPCVision npcVision;
+
     private const float doorCloseDelay = 2f;
     public bool canCallCops;
 
-    private bool copsCalled;
+    public bool playerDetected = false;
     private bool busy = false;
 
     // Start is called before the first frame update
@@ -26,11 +30,14 @@ public class ManagedNPC : MonoBehaviour
         var head = transform.Find("Model/Head");
         Animator managedNPC_animator = transform.Find("Model").GetComponent<Animator>();
 
-        copsCalled = false;
         myMovement = getMovement();
         myMovement.Initialize(gameObject, managedNPC_animator, this.gameObject.GetComponent<AudioManager>());
-        
-        head.GetComponent<NPCVision>().Initialize(transform, head);
+
+        npcVision = head.GetComponent<NPCVision>();
+        npcVision.Initialize(transform, head);
+
+        npcNoise = gameObject.GetComponent<NPCNoise>();
+        npcNoise.Initialize(this);
     }
     private NPCMovement getMovement()
     {

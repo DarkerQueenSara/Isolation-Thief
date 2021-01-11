@@ -26,7 +26,6 @@ public class LightDetection : MonoBehaviour
             bool gotHit = Physics.Linecast(lightPos, playerPos, out RaycastHit hit, ~(1 << 14));
             if (gotHit && hit.transform.CompareTag("Player"))
             {
-                Debug.Log("Player is lit by light with position: " + lightPos);
                 return true;
             }
 
