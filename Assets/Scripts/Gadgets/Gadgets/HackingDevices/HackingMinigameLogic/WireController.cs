@@ -66,4 +66,12 @@ public class WireController : MonoBehaviour, ILogicGate
     {
         throw new System.NotImplementedException();
     }
+
+    public void Reload()
+    {
+        transform.Find("Wire_overlay").gameObject.SetActive(true);
+        transform.Find("Button").gameObject.SetActive(true);
+        isOn = true;
+        updateWireLogic();
+    }
 }

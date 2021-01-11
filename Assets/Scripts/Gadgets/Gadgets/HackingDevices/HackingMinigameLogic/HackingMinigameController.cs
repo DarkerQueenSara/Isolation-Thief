@@ -102,6 +102,8 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
         {
             gameEndCallback?.Invoke(LOST_GAME);
         }
+        this.reloadUI();
+
     }
 
     public void changeVisibility()
@@ -133,5 +135,22 @@ public class HackingMinigameController : MonoBehaviour, ILogicGate
             won = !logic;
             EndGame();
         }
+    }
+
+    public void reloadUI()
+    {
+        gameStarted = false;
+        won = false;
+        endLightOn?.SetActive(true);
+        endPopup.SetActive(false);
+        foreach (Transform wire in transform.Find("LogicGateMinigame").Find("Wires"))
+        {
+            WireController wireController = (WireController)wire.GetComponent<WireController>();
+            if(wireController != null)
+            {
+                wireController.Reload();
+            }
+        }
+
     }
 }
