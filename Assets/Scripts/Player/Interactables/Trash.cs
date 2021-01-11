@@ -20,8 +20,7 @@ public class Trash : Flammable
             //If whe didnt set it on fire with a lighter
             if (!base.isBurning)
             {
-                Player.Instance.AddToInventory(trashItem);
-                Destroy(transform.parent.gameObject);
+                Player.Instance.AddToInventory(trashItem, transform.parent.gameObject);
             }
         }
     }
