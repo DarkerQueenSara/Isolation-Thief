@@ -168,6 +168,7 @@ public class GameManager : MonoBehaviour
 				}
 				if (c.fullfilled)
 				{
+					availableXp += c.xp;
 					Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
 				}
 			}
@@ -181,6 +182,7 @@ public class GameManager : MonoBehaviour
 				}
 				if (c.fullfilled)
 				{
+					availableKp += c.xp;
 					Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
 				}
 			}
@@ -190,6 +192,11 @@ public class GameManager : MonoBehaviour
 	public List<Challenge> GetChallenges()
 	{
 		return challenges;
+	}
+
+	public List<Challenge> GetGoodDeeds()
+	{
+		return goodDeeds;
 	}
 
 	public void NewGame()

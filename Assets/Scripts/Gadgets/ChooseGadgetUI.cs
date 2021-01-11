@@ -22,11 +22,14 @@ public class ChooseGadgetUI : MonoBehaviour
 
 	private void Awake()
 	{
+		Time.timeScale = 0;
+
 		Instance = this;
-		gadgetsToChoose = transform.Find("Scroll View").Find("Viewport").Find("GadgetsToChoose");
+		gadgetsToChoose = transform.Find("GadgetsToChoose");
 		this.chosenGadgets = new List<Gadget>();
 		transform.Find("DoneBtn").GetComponent<Button>().onClick.AddListener(delegate
 		{
+			Time.timeScale = 1;
 			this.doneChoosing();
 		});
 		gameObject.SetActive(false);
@@ -37,6 +40,9 @@ public class ChooseGadgetUI : MonoBehaviour
 		GadgetTree gadgetTree = Player.Instance.GetGadgetTree();
 		this.unlockedGadgets = gadgetTree.getUnlockedGadgets();
 		this.refreshSlots();
+
+		TextMeshProUGUI Goal = transform.Find("Goal").GetComponent<TextMeshProUGUI>();
+		Goal.text = LevelManager.Instance.moneyGoal.ToString() + " $";
 	}
 
 	public void refreshSlots()
