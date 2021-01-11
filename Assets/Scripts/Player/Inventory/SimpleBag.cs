@@ -16,9 +16,12 @@ public class SimpleBag : Inventory
         //this.Items.Add(new Item { itemType = Item.ItemType.Phone, amount = 2 });
     }
 
-    public override void AddItem(Item item)
+    public override void AddItem(Item item, GameObject itemObject)
     {
+        counter++;
         this.TotalValue += item.value;
-        this.Items.Add(item);
+        itemObject.SetActive(false);
+        ItemWrapper itemWrapper = new ItemWrapper(item, counter, itemObject);
+        this.Items.Add(itemWrapper);
     }
 }

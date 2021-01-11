@@ -55,13 +55,19 @@ public class Player : MonoBehaviour
         return gameManager.money;
     }
 
-    public void AddToInventory(Item item)
+    public void AddToInventory(Item item, GameObject itemObject)
     {
-        this.inventory.AddItem(item);
+        this.inventory.AddItem(item, itemObject);
         ui_Inventory.Refresh();
     }
 
-	public void DisableMovement()
+    public void RemoveFromInventory(int itemID)
+    {
+        this.inventory.RemoveItem(itemID);
+        ui_Inventory.Refresh();
+    }
+
+    public void DisableMovement()
 	{
 		playerMovement.disabled = true;
 	}

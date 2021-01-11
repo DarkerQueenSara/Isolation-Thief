@@ -84,11 +84,15 @@ public class UI_Inventory : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 
-		foreach (Item item in inventory.GetItemList())
-		{
-			GameObject temp = Instantiate(itemSlotPrefab, stolenItems);
-			temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = item.GetSprite();
-		}
+        foreach (ItemWrapper itemW in inventory.GetItemList())
+        {
+            GameObject temp = Instantiate(itemSlotPrefab, stolenItems);
+            temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = itemW.item.GetSprite();
+            Button removeButton = temp.transform.Find("removeButton").GetComponent<Button>();
+            removeButton.onClick.AddListener(delegate {
+                player.RemoveFromInventory(itemW.id);
+            });
+        }
 
 		stolenValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
 		this.goalValueText.text = "Goal : " + LevelManager.Instance.moneyGoal.ToString() + " $";

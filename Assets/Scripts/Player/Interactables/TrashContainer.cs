@@ -18,7 +18,7 @@ public class TrashContainer : Interactable
     {
         if (player.inventory.hasItem(TRASH_ITEM_NAME) && !hasPlaced)
         {
-            player.inventory.popItem(TRASH_ITEM_NAME);
+            player.inventory.popItemDisappearingGameObject(TRASH_ITEM_NAME);
             appearingBag.SetActive(true);
             hasPlaced = true;
             LevelManager.Instance.trashInCan = true;

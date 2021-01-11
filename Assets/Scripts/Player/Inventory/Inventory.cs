@@ -5,17 +5,19 @@ using UnityEngine;
 public abstract class Inventory
 {
     public int TotalValue;
-    protected List<Item> Items;
+    protected List<ItemWrapper> Items;
+    protected int counter;
 
     public Inventory()
     {
         TotalValue = 0;
-        Items = new List<Item>();
+        Items = new List<ItemWrapper>();
+        counter = 0;
     }
 
-    public abstract void AddItem(Item item);
+    public abstract void AddItem(Item item, GameObject itemObject);
 
-    public virtual List<Item> GetItemList()
+    public virtual List<ItemWrapper> GetItemList()
     {
         return this.Items;
     }
@@ -27,10 +29,10 @@ public abstract class Inventory
 
     public bool hasItem(string itemName)
     {
-        foreach(Item item in Items)
+        foreach(ItemWrapper itemW in Items)
         {
             //See if names are equal ignoring case
-            if(string.Compare(item.name, itemName, true) == 0)
+            if(string.Compare(itemW.item.name, itemName, true) == 0)
             {
                 return true;
             }
@@ -40,22 +42,85 @@ public abstract class Inventory
 
     public Item popItem(string itemName)
     {
-        Item itemToPop = null;
-        foreach (Item item in Items)
+        ItemWrapper itemToPop = null;
+        foreach (ItemWrapper itemW in Items)
         {
             //See if names are equal ignoring case
-            if (string.Compare(item.name, itemName, true) == 0)
+            if (string.Compare(itemW.item.name, itemName, true) == 0)
             {
-                itemToPop = item;
+                itemToPop = itemW;
                 break;
             }
         }
         if(itemToPop != null)
         {
-            Items.Remove(itemToPop);
+            this.RemoveItem(itemToPop);
             Player.Instance.RefreshUIInventory();
         }
-        return itemToPop;
+        return itemToPop.item;
+    }
+
+    public Item popItemDisappearingGameObject(string itemName)
+    {
+        ItemWrapper itemToPop = null;
+        foreach (ItemWrapper itemW in Items)
+        {
+            //See if names are equal ignoring case
+            if (string.Compare(itemW.item.name, itemName, true) == 0)
+            {
+                itemToPop = itemW;
+                break;
+            }
+        }
+        if (itemToPop != null)
+        {
+            this.DestroyItem(itemToPop);
+            Player.Instance.RefreshUIInventory();
+        }
+        return itemToPop.item;
+    }
+
+    public void DestroyItem(ItemWrapper itemW)
+    {
+        if (itemW == null) return;
+        Items.Remove(itemW);
+        this.TotalValue -= itemW.item.value;
+    }
+
+    public void RemoveItem(ItemWrapper itemW)
+    {
+        if (itemW == null) return;
+        itemW.itemObject?.SetActive(true);
+        this.TotalValue -= itemW.item.value;
+        Items.Remove(itemW);
+    }
+
+    public void DestroyItem(int itemID)
+    {
+        ItemWrapper toDestoy = null;
+        foreach(ItemWrapper itemW in Items)
+        {
+            if(itemW.id == itemID)
+            {
+                toDestoy = itemW;
+                break;
+            }
+        }
+        this.DestroyItem(toDestoy);
+    }
+
+    public void RemoveItem(int itemID)
+    {
+        ItemWrapper toRemove = null;
+        foreach (ItemWrapper itemW in Items)
+        {
+            if (itemW.id == itemID)
+            {
+                toRemove = itemW;
+                break;
+            }
+        }
+        this.RemoveItem(toRemove);
     }
 
     // Update is called once per frame
