@@ -7,9 +7,9 @@ public class RandomPatrol : NPCMovement
 {
     static System.Random random;
 
-    public override void Initialize(GameObject npc, Animator managedNPC_animator)
+    public override void Initialize(GameObject npc, Animator managedNPC_animator, AudioManager audioSource)
     {
-        base.Initialize(npc, managedNPC_animator);
+        base.Initialize(npc, managedNPC_animator, audioSource);
         random = new System.Random();
     }
 

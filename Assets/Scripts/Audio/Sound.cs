@@ -21,6 +21,8 @@ public class Sound
 
     public bool fadeIn;
 
+    public float maxDist = 24;
+
     [HideInInspector]
     public AudioSource source;
 
