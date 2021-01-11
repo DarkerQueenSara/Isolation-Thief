@@ -8,7 +8,7 @@ public class VaultController : Hackable
 
     new private void Awake()
     {
-        base.objectName = "vault";
+        //base.objectName = "vault";
         animator = gameObject.GetComponent<Animator>();
     }
 
