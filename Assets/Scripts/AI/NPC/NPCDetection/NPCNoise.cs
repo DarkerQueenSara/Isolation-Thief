@@ -34,14 +34,13 @@ public class NPCNoise : MonoBehaviour
             probability = 1 - (realDistance / intensity) + 0.15f;
         }
 
-        Debug.Log("Probability: " + probability);
-        Debug.Log("Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+        //Debug.Log("Probability: " + probability);
 
         int n = Random.Range(1, 100);
         if(n <= probability * 100) //Investigate
         {
-            Debug.Log("WHAT WAS THAT?");
-            //StartCoroutine(InvestigateSound(playerPos));
+            //Debug.Log("WHAT WAS THAT?");
+            StartCoroutine(InvestigateSound(playerPos));
 
         } else // Don't investigate
         {

@@ -7581,6 +7581,31 @@ PrefabInstance:
       propertyPath: lightSwitchTransform
       value: 
       objectReference: {fileID: 5466576803380454605}
+    - target: {fileID: 2819860076774106336, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: bedroomDoor
+      value: 
+      objectReference: {fileID: 7007206395171750849}
+    - target: {fileID: 2819860076774106336, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: telephones.Array.data[0]
+      value: 
+      objectReference: {fileID: 3536867239887647886}
+    - target: {fileID: 2819860076774106336, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: telephones.Array.data[1]
+      value: 
+      objectReference: {fileID: 8459476741216907351}
+    - target: {fileID: 2819860076774106336, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: telephones.Array.data[2]
+      value: 
+      objectReference: {fileID: 8459476741652232707}
+    - target: {fileID: 2819860076774106336, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: telephones.Array.data[3]
+      value: 
+      objectReference: {fileID: 8459476742714571377}
     - target: {fileID: 2819860077256651932, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
       propertyPath: lightSwitchTransform
@@ -12545,6 +12570,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2089992219}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2109489262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8947656979170078151, guid: 27dd9ba2e18ed2540b99b794a1a38ab6,
+    type: 3}
+  m_PrefabInstance: {fileID: 328585528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2118798164
 GameObject:
   m_ObjectHideFlags: 0
@@ -32162,7 +32199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b038bfe81bd9ff64983c21ed5f10d7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownText: {fileID: 0}
+  countdownText: {fileID: 2109489262}
 --- !u!1 &3536867239194059940
 GameObject:
   m_ObjectHideFlags: 0
@@ -84669,7 +84706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b038bfe81bd9ff64983c21ed5f10d7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownText: {fileID: 0}
+  countdownText: {fileID: 2109489262}
 --- !u!65 &8459476740835729531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84759,7 +84796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b038bfe81bd9ff64983c21ed5f10d7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownText: {fileID: 0}
+  countdownText: {fileID: 2109489262}
 --- !u!65 &8459476740933478959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85005,7 +85042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b038bfe81bd9ff64983c21ed5f10d7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownText: {fileID: 0}
+  countdownText: {fileID: 2109489262}
 --- !u!65 &8459476742023080541
 BoxCollider:
   m_ObjectHideFlags: 0

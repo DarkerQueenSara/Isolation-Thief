@@ -48,7 +48,7 @@ public class NPCManager : MonoBehaviour
 
         foreach(ManagedNPC managedNPC in managedNPCS)
         {
-           // managedNPC.UpdateMovement();
+            managedNPC.UpdateMovement();
         }
     }
 
