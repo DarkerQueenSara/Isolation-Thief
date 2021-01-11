@@ -3,19 +3,18 @@ using System.Collections.Generic;
 
 public class SkillsTree
 {
-    public Dictionary<string, Skill> skills;
+	public Dictionary<string, Skill> skills;
 
-    public SkillsTree()
-    {
-        this.skills = new Dictionary<string, Skill>();
-        //this.gadgets.Add(Lantern.gadgetID, new Lantern());
-        Skill jumpMan = new Jumpman();
-        Skill jumpMan2 = new Jumpman2();
-        jumpMan.setParent(jumpMan2);
+	public SkillsTree()
+	{
+		this.skills = new Dictionary<string, Skill>();
+		Skill jumpMan = new Jumpman();
+		Skill jumpMan2 = new Jumpman2();
+		jumpMan.setParent(jumpMan2);
 
-        Skill lightStep = new LightStep();
-        Skill lightStep2 = new LightStep2();
-        lightStep.setParent(lightStep2);
+		Skill lightStep = new LightStep();
+		Skill lightStep2 = new LightStep2();
+		lightStep.setParent(lightStep2);
 
 
         Skill goFast = new GottaGoFast();
@@ -48,44 +47,44 @@ public class SkillsTree
         this.skills.Add(GottaGoFast2.ID, goFast2);
     }
 
-    public Skill GetSkill(string skillName)
-    {
-        Skill skill = skills.ContainsKey(skillName) ? skills[skillName] : null;
+	public Skill GetSkill(string skillName)
+	{
+		Skill skill = skills.ContainsKey(skillName) ? skills[skillName] : null;
 
-        if (skill != null)
-        {
-            return skill;
-        }
+		if (skill != null)
+		{
+			return skill;
+		}
 
-        else return null;
+		else return null;
 
-    }
+	}
 
-    public List<Skill> getUnlockedSkills()
-    {
-        List<Skill> unlockedSkills = new List<Skill>();
-        foreach (Skill skill in this.skills.Values)
-        {
-            if (skill.unlocked)
-            {
-                unlockedSkills.Add(skill);
-            }
-        }
-        return unlockedSkills;
-    }
+	public List<Skill> getUnlockedSkills()
+	{
+		List<Skill> unlockedSkills = new List<Skill>();
+		foreach (Skill skill in this.skills.Values)
+		{
+			if (skill.unlocked)
+			{
+				unlockedSkills.Add(skill);
+			}
+		}
+		return unlockedSkills;
+	}
 
-    public List<Skill> getAllSkills()
-    {
-        return new List<Skill>(this.skills.Values);
-    }
+	public List<Skill> getAllSkills()
+	{
+		return new List<Skill>(this.skills.Values);
+	}
 
-    public void activateAllSkills()
-    {
-        Debug.Log("Activating skills");
-        foreach(Skill skill in this.skills.Values)
-        {
-            skill.activate();
-        }
-    }
+	public void activateAllSkills()
+	{
+		Debug.Log("Activating skills");
+		foreach (Skill skill in this.skills.Values)
+		{
+			skill.activate();
+		}
+	}
 
 }

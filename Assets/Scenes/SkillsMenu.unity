@@ -236,12 +236,22 @@ PrefabInstance:
     - target: {fileID: 3371322236877969474, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568857988258088263, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62.00001
       objectReference: {fileID: 0}
     - target: {fileID: 4339376844176399159, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374588181600057881, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_text
+      value: 10 XP
       objectReference: {fileID: 0}
     - target: {fileID: 7556181589959415778, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
@@ -403,7 +413,8 @@ PrefabInstance:
       propertyPath: m_isRightToLeft
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 517194576700014639, guid: 5e42cb6beb016ac4aa80d282740b75dc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e42cb6beb016ac4aa80d282740b75dc, type: 3}
 --- !u!224 &99581184 stripped
 RectTransform:
@@ -411,6 +422,45 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 99581183}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &99581185 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3752024284977408515, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 99581183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &99581186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7556181590884041434, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 99581183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &99581187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99581186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697a562a7225d1840bb42a57a7891934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 99581185}
+  addFunction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 99581187}
+        m_MethodName: AddLightStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &288089880
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,10 +570,20 @@ PrefabInstance:
       propertyPath: addFunction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AddFastLockpick
       objectReference: {fileID: 0}
+    - target: {fileID: 3568857988258088263, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62.00001
+      objectReference: {fileID: 0}
     - target: {fileID: 4339376844176399159, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374588181600057881, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_text
+      value: 10 XP
       objectReference: {fileID: 0}
     - target: {fileID: 7556181589959415778, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
@@ -650,7 +710,8 @@ PrefabInstance:
       propertyPath: m_text
       value: Jumpman
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 517194576700014639, guid: 5e42cb6beb016ac4aa80d282740b75dc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e42cb6beb016ac4aa80d282740b75dc, type: 3}
 --- !u!224 &610240293 stripped
 RectTransform:
@@ -658,6 +719,45 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 610240292}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &610240294 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3752024284977408515, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 610240292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &610240295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7556181590884041434, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 610240292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &610240296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610240295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697a562a7225d1840bb42a57a7891934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 610240294}
+  addFunction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 610240296}
+        m_MethodName: AddJumpman
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &620447191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1131470755}
   m_Layer: 0
-  m_Name: GadgetsMenu
+  m_Name: SkillsMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1467,10 +1567,20 @@ PrefabInstance:
       propertyPath: addFunction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AddFastLockpick
       objectReference: {fileID: 0}
+    - target: {fileID: 3568857988258088263, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62
+      objectReference: {fileID: 0}
     - target: {fileID: 4339376844176399159, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374588181600057881, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_text
+      value: 10 XP
       objectReference: {fileID: 0}
     - target: {fileID: 7556181589959415778, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
@@ -1597,7 +1707,8 @@ PrefabInstance:
       propertyPath: m_text
       value: Jumpman 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 517194576700014639, guid: 5e42cb6beb016ac4aa80d282740b75dc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e42cb6beb016ac4aa80d282740b75dc, type: 3}
 --- !u!224 &1283932913 stripped
 RectTransform:
@@ -1605,6 +1716,45 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1283932912}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1283932914 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3752024284977408515, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283932912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1283932915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7556181590884041434, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283932912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1283932916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283932915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697a562a7225d1840bb42a57a7891934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1283932914}
+  addFunction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1283932916}
+        m_MethodName: AddJumpman2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1468075095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,7 +1891,7 @@ GameObject:
   - component: {fileID: 1580195583}
   - component: {fileID: 1580195584}
   m_Layer: 0
-  m_Name: UI_GadgetTree Variant
+  m_Name: SkillsTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1779,7 +1929,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580195582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 977b0e83421e08b40907a68b08e01285, type: 3}
+  m_Script: {fileID: 11500000, guid: 30bb476f283fa454eadd20db3c168223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1663814947
@@ -1794,7 +1944,7 @@ GameObject:
   - component: {fileID: 1663814950}
   - component: {fileID: 1663814949}
   m_Layer: 0
-  m_Name: Money
+  m_Name: Experience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1816,7 +1966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.9999695, y: 76}
+  m_AnchoredPosition: {x: 94, y: 76}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1663814949
@@ -1838,7 +1988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 $
+  m_text: 0 XP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 25c6183cbee77884ca53e4326db5bb1c, type: 2}
   m_sharedMaterial: {fileID: -6595003729352716501, guid: 25c6183cbee77884ca53e4326db5bb1c,
@@ -1928,7 +2078,7 @@ GameObject:
   - component: {fileID: 1700353268}
   - component: {fileID: 1700353267}
   m_Layer: 0
-  m_Name: MoneyTitle
+  m_Name: ExperienceTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1950,8 +2100,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -323, y: 228}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -289.9, y: 228}
+  m_SizeDelta: {x: 266.12933, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1700353267
 MonoBehaviour:
@@ -1972,7 +2122,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Money :'
+  m_text: 'Experience :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 25c6183cbee77884ca53e4326db5bb1c, type: 2}
   m_sharedMaterial: {fileID: -6595003729352716501, guid: 25c6183cbee77884ca53e4326db5bb1c,
@@ -2187,10 +2337,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3568857988258088263, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62.00001
+      objectReference: {fileID: 0}
     - target: {fileID: 4339376844176399159, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374588181600057881, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_text
+      value: 10 XP
       objectReference: {fileID: 0}
     - target: {fileID: 7556181589959415778, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
@@ -2352,7 +2512,8 @@ PrefabInstance:
       propertyPath: m_isRightToLeft
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 517194576700014639, guid: 5e42cb6beb016ac4aa80d282740b75dc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e42cb6beb016ac4aa80d282740b75dc, type: 3}
 --- !u!224 &1960909984 stripped
 RectTransform:
@@ -2360,6 +2521,45 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1960909983}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1960909985 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3752024284977408515, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1960909983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1960909986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7556181590884041434, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1960909983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1960909987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960909986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697a562a7225d1840bb42a57a7891934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1960909985}
+  addFunction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1960909987}
+        m_MethodName: AddLightStep2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2055631258
 PrefabInstance:
   m_ObjectHideFlags: 0

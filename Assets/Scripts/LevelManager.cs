@@ -98,6 +98,7 @@ public class LevelManager : MonoBehaviour
 	public void StartGame()
 	{
 		Debug.Log("Level manager start game");
+		audioManager.Play("Ambient");
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -147,6 +148,7 @@ public class LevelManager : MonoBehaviour
 	public void callCops()
 	{
 		this.copsCalled = true;
+		audioManager.Stop("Ambient");
 		audioManager.Play("PoliceSirens");
 	}
 
@@ -187,6 +189,7 @@ public class LevelManager : MonoBehaviour
 					+player.GetTotalStolen() + " $",
 					true);
 		}
+		NPCManager.Instance.StopAllNPC();
 		LevelEndMenu.Instance.visible();
 
 		player.DisableMovement();

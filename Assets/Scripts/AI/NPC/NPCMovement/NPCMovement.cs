@@ -19,7 +19,9 @@ public abstract class NPCMovement
     public float walkSpeed = 3.5f;
     public float runSpeed = 5f;
 
-    public virtual void Initialize(GameObject npc, Animator managedNPC_animator)
+    private AudioManager audioManager;
+
+    public virtual void Initialize(GameObject npc, Animator managedNPC_animator, AudioManager audioManager)
     {
         if(destinations == null && destinationsInfo == null)
         {
@@ -32,7 +34,7 @@ public abstract class NPCMovement
                 destinationsInfo.Add(destination.name, destination.GetComponent<DestinationInfo>());
             }
         }
-
+        this.audioManager = audioManager;
         this.NPC = npc;
         npc_m_Agent = this.NPC.GetComponent<NavMeshAgent>();
         this.managedNPC_animator = managedNPC_animator;
@@ -63,8 +65,9 @@ public abstract class NPCMovement
         return null;
     }
 
-    public void GoTo(Vector3 position) {
-
+    public void GoTo(Vector3 position)
+    {
+        audioManager.Play("Walk");
         this.npc_m_Agent.speed = walkSpeed;
         this.managedNPC_animator.SetFloat("Speed", walkSpeed);
         this.npc_m_Agent.destination = position;
@@ -72,6 +75,7 @@ public abstract class NPCMovement
 
     public void RunTo(Vector3 position)
     {
+        audioManager.Play("Sprint");
         this.npc_m_Agent.speed = runSpeed;
         this.managedNPC_animator.SetFloat("Speed", runSpeed);
         this.npc_m_Agent.destination = position;
@@ -106,6 +110,7 @@ public abstract class NPCMovement
 
     public void StopMoving()
     {
+        audioManager.StopAll();
         this.npc_m_Agent.speed = 0;
         this.managedNPC_animator.SetFloat("Speed", 0);
     }
