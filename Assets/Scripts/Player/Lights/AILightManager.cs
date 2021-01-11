@@ -29,8 +29,6 @@ public class AILightManager : MonoBehaviour
     void Start()
     {
         player = Player.Instance;
-        //playerPos = player.GetComponentInChildren<Camera>().transform.position;
-       
         InvokeRepeating(nameof(CheckLightsOnPlayer), 5.0f, 0.5f);
     }
 

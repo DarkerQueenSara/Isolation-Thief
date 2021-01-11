@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class VaultController : Hackable
 {
-    //private Animator animator;
+    private Animator animator;
 
     new private void Awake()
     {
-        base.objectName = "vault";
-        //animator = gameObject.GetComponent<Animator>();
+        //base.objectName = "vault";
+        animator = gameObject.GetComponent<Animator>();
     }
 
     public override void interact()
@@ -24,13 +24,13 @@ public class VaultController : Hackable
 
     public void OpenOrClose()
     {
-        //bool isOpen = animator.GetBool("isOpenDoor");
-        //animator.SetBool("isOpenDoor", !isOpen);
+        bool isOpen = animator.GetBool("isOpenDoor");
+        animator.SetBool("isOpenDoor", !isOpen);
     }
 
     public override string getInteractingText()
     {
-        //bool isOpen = animator.GetBool("isOpenDoor");
+        bool isOpen = animator.GetBool("isOpenDoor");
         //#region debug
         //if (isLocked && isOpen)
         //{
@@ -44,7 +44,7 @@ public class VaultController : Hackable
             return base.getInteractingText();
         }
 
-        //return isOpen ? "Close door" : "Open door";
-        return "Steal Vault";
+        return isOpen ? "Close door" : "Open door";
+        //return "Steal Vault";
     }
 }

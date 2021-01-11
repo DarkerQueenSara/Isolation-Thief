@@ -9,7 +9,7 @@ public class NPCVision : MonoBehaviour
     Transform npcHead_transform;
     ManagedNPC NPC;
     private int obstacleLayerMask; //1 << 9 | 1 << 11; // 9 because obstacle layer is number 9 on inspector
-    private bool detectedPlayer;
+    public bool detectedPlayer;
 
     public void Initialize(Transform npc_transform, Transform npc_head)
     {
@@ -58,6 +58,7 @@ public class NPCVision : MonoBehaviour
     {
         Debug.Log("I found the player");
         detectedPlayer = true;
+        NPC.playerDetected = true;
         LevelManager.Instance.timesDetected++;
         StartCoroutine(reactScared(other.transform));
     }
