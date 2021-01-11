@@ -4707,6 +4707,14 @@ MonoBehaviour:
     loop: 1
     fadeIn: 1
     source: {fileID: 0}
+  - name: Ambient
+    clip: {fileID: 8300000, guid: cd3fd61115a687444b9c8af4f489926f, type: 3}
+    volume: 0.6
+    spatialBlend: 0
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    source: {fileID: 0}
 --- !u!1001 &794212805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5767,24 +5775,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Walk
-    clip: {fileID: 8300000, guid: 69c1fcd170b3ba54faba2ab98bdaffd6, type: 3}
+  - name: Footstep1
+    clip: {fileID: 8300000, guid: 71f33281b3fd19949ab0795e5e214036, type: 3}
     volume: 1
     spatialBlend: 1
     pitch: 1
     loop: 0
     fadeIn: 0
     source: {fileID: 0}
-  - name: Sneak
-    clip: {fileID: 8300000, guid: 69c1fcd170b3ba54faba2ab98bdaffd6, type: 3}
+  - name: Footstep3
+    clip: {fileID: 8300000, guid: 7210d6090d0d7c346b8b0725583e21f8, type: 3}
     volume: 1
     spatialBlend: 1
-    pitch: 0.7
+    pitch: 1
     loop: 0
     fadeIn: 0
     source: {fileID: 0}
-  - name: Sprint
-    clip: {fileID: 8300000, guid: d3a3e0a744126cd4385a632186e2e042, type: 3}
+  - name: Footstep4
+    clip: {fileID: 8300000, guid: da7b4404ca9a59644a713fff266ff12e, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: Sprint1
+    clip: {fileID: 8300000, guid: b7d9e7d687070084599acd450f6d2b96, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: Sprint2
+    clip: {fileID: 8300000, guid: 2460566a39859c14fba02e25ef912b66, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: Sprint3
+    clip: {fileID: 8300000, guid: dcb19c1649828b746b57316cc70f2504, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: Sneak1
+    clip: {fileID: 8300000, guid: 9a18a4b9052c7bf4d85b5aa40a4a38b3, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: Sneak2
+    clip: {fileID: 8300000, guid: a1b54ee6a8a46a14082b07dc33275ce7, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: Sneak3
+    clip: {fileID: 8300000, guid: 35df36331f06e8a41bebf88fc11566a6, type: 3}
     volume: 1
     spatialBlend: 1
     pitch: 1
@@ -7313,13 +7369,13 @@ PrefabInstance:
       objectReference: {fileID: 1092531442}
     - target: {fileID: 8358444954667762853, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 11
+      propertyPath: m_LocalScale.x
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8358444954667762853, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
+      propertyPath: m_LocalScale.y
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8358444954945978258, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
@@ -9585,7 +9641,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh793364
+  m_Name: pb_Mesh156568
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13996,7 +14052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0.00001335144, y: 39.59}
+  m_AnchoredPosition: {x: 0.000016113698, y: 39.59}
   m_SizeDelta: {x: 177.1671, y: 73.51562}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1348408690002951853

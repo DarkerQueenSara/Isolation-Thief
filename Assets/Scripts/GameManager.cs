@@ -42,12 +42,13 @@ public class GameManager : MonoBehaviour
 	//Player information
 	public int level { get; set; }
 	public GadgetTree gadgetTree { get; private set; }
-
+	public SkillsTree skillsTree { get; private set; }
 
 	void InitializePlayerInfo()
 	{
 		level = 1;
 		gadgetTree = new GadgetTree();
+		skillsTree = new SkillsTree();
 	}
 	//------------------
 
