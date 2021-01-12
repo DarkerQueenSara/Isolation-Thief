@@ -28914,14 +28914,14 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: ed79a70f8e9626e4797940f6395d2cc6, type: 2}
   - {fileID: 7453084385347107871, guid: 87095d427ae6f084d82014106c2136bf, type: 3}
-  - {fileID: -6478536213147159724, guid: d8333f072945e72409a0f88f11daad88, type: 3}
   - {fileID: -4037059914994954615, guid: d8333f072945e72409a0f88f11daad88, type: 3}
   - {fileID: -7887130696695213143, guid: d8333f072945e72409a0f88f11daad88, type: 3}
   - {fileID: 2100000, guid: cf13e9f88e205b141a7fcc58f0c23e47, type: 2}
   - {fileID: -8464462396774915545, guid: d8333f072945e72409a0f88f11daad88, type: 3}
   - {fileID: 2100000, guid: cf13e9f88e205b141a7fcc58f0c23e47, type: 2}
-  - {fileID: 7453084385347107871, guid: 03918de4f80663040976bf8322261018, type: 3}
+  - {fileID: 2100000, guid: cf13e9f88e205b141a7fcc58f0c23e47, type: 2}
   - {fileID: 2240724851158740492, guid: d8333f072945e72409a0f88f11daad88, type: 3}
   - {fileID: -6517254495156753564, guid: d8333f072945e72409a0f88f11daad88, type: 3}
   - {fileID: -7720952822101436761, guid: d8333f072945e72409a0f88f11daad88, type: 3}
