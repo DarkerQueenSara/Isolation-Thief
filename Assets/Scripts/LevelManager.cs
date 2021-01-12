@@ -73,6 +73,8 @@ public class LevelManager : MonoBehaviour
 	public int lighterDistractions;
 	[HideInInspector]
 	public int objectsBurned;
+
+
 	[HideInInspector]
 	public bool fedFishes;
 	[HideInInspector]
