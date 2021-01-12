@@ -60,17 +60,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (sneak)
         {
-            npcManager.InvestigateSound(gameObject.transform.position, 7, 7);
+            npcManager?.InvestigateSound(gameObject.transform.position, 7, 7);
             audioManager.Play(audioManager.sounds[Random.Range(6, 7)]);
 
         } else if (walk)
         {
-            npcManager.InvestigateSound(gameObject.transform.position, 10, 10);
+            npcManager?.InvestigateSound(gameObject.transform.position, 10, 10);
             audioManager.Play(audioManager.sounds[Random.Range(0, 1)]);
 
         } else if (run)
         {
-            npcManager.InvestigateSound(gameObject.transform.position, 15, 15);
+            npcManager?.InvestigateSound(gameObject.transform.position, 15, 15);
             audioManager.Play(audioManager.sounds[Random.Range(3, 4)]);
 
         }
