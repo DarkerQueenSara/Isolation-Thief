@@ -93,11 +93,13 @@ public class Hackable : Interactable
         {
             if (player.hasGadgetOnHand(GadgetType.HACKING_DEVICE) && numTries < MAX_HACKING_TRIES)
             {
-                return "Hack " + objectName;
+                return "Hack Device";
+                //return "Hack " + objectName;
             }
             else
             {
-                return objectName + " is Locked";
+                return "Door is Locked";
+                //return objectName + " is Locked";
             }
         }
         return "";

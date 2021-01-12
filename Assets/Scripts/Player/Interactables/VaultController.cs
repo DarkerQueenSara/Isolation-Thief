@@ -44,7 +44,7 @@ public class VaultController : Hackable
             return base.getInteractingText();
         }
 
-        return isOpen ? "Close door" : "Open door";
+        return isOpen ? "Close Door" : "Open Door";
         //return "Steal Vault";
     }
 }

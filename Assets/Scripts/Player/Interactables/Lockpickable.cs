@@ -54,11 +54,13 @@ public class Lockpickable : Interactable
         {
             if (player.hasGadgetOnHand(GadgetType.LOCKPICK))
             {
-                return "Pick " + objectName;
+                return "Pick Door";
+                //return "Pick " + objectName;
             }
             else
             {
-                return objectName + " is Locked";
+                return "Door is Locked";
+                //return objectName + " is Locked";
             }
         }
         return "";

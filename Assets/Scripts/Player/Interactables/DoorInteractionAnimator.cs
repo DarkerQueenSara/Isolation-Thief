@@ -9,7 +9,7 @@ namespace Assets.Scripts.Player.Controls
 
         new private void Awake()
         {
-            base.objectName = "door";
+            base.objectName = "Door";
             animator = gameObject.GetComponent<Animator>();
         }
 
@@ -44,7 +44,7 @@ namespace Assets.Scripts.Player.Controls
                 return base.getInteractingText();
             }
 
-            return isOpen ? "Close door" : "Open door";
+            return isOpen ? "Close Door" : "Open Door";
         }
 
 

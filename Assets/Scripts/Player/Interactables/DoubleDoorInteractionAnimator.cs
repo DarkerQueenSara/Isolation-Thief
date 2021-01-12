@@ -10,7 +10,7 @@ namespace Assets.Scripts.Player.Controls
         new private void Awake()
         {
             animator.SetBool("isLocked", base.isLocked);
-            base.objectName = "door";
+            base.objectName = "Door";
         }
 
 
@@ -45,7 +45,7 @@ namespace Assets.Scripts.Player.Controls
                 return base.getInteractingText();
             }
 
-            return isOpen ? "Close door" : "Open door";
+            return isOpen ? "Close Door" : "Open Door";
         }
 
         public override void interacting()
