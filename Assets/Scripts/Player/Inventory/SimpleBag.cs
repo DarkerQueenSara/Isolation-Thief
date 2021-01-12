@@ -18,10 +18,18 @@ public class SimpleBag : Inventory
 
     public override void AddItem(Item item, GameObject itemObject)
     {
-        counter++;
-        this.TotalValue += item.value;
-        itemObject.SetActive(false);
-        ItemWrapper itemWrapper = new ItemWrapper(item, counter, itemObject);
-        this.Items.Add(itemWrapper);
+        if(item.weight + TotalWeight <= MAX_WEIGHT + 0.00001)
+        {
+            counter++;
+            this.TotalValue += item.value;
+            this.TotalWeight += item.weight;
+            itemObject.SetActive(false);
+            ItemWrapper itemWrapper = new ItemWrapper(item, counter, itemObject);
+            this.Items.Add(itemWrapper);
+        }
+        else
+        {
+            //Lancar erro
+        }
     }
 }

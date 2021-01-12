@@ -22,6 +22,7 @@ public class UI_Inventory : MonoBehaviour
 	public TextMeshProUGUI stolenValueText; // "Stolen : " + stolenValue
 	private TextMeshProUGUI missingValueText; // missingValue
 	private TextMeshProUGUI goalValueText; // "Goal : " + goalValue
+	private TextMeshProUGUI weightValueText; // "Weight (Max: " + maxWeight + "Kg): " + weight + "Kg"
 	bool showInventory = false;
 
 	private Transform gadgetsStuff;
@@ -44,6 +45,7 @@ public class UI_Inventory : MonoBehaviour
 		stolenValueText = info.Find("Stolen").Find("stolenText").GetComponent<TextMeshProUGUI>();
 		missingValueText = info.Find("MissingValue").Find("missingValueText").GetComponent<TextMeshProUGUI>();
 		goalValueText = info.Find("Goal").Find("goalText").GetComponent<TextMeshProUGUI>();
+		weightValueText = info.Find("Weight").Find("weightText").GetComponent<TextMeshProUGUI>();
 
 		gadgetsStuff = uiInventory.Find("gadgets");
 		rightHand = gadgetsStuff.Find("right_hand");
@@ -97,6 +99,7 @@ public class UI_Inventory : MonoBehaviour
 		stolenValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
 		this.goalValueText.text = "Goal : " + LevelManager.Instance.moneyGoal.ToString() + " $";
 		this.stolenValueText.text = "Stolen : " + inventory.getTotalValue() + " $";
+		this.weightValueText.text = "Weight (Max: " + Inventory.MAX_WEIGHT + "Kg): " + inventory.getTotalWeight() + "Kg";
 
 		float missingValue = LevelManager.Instance.moneyGoal - inventory.getTotalValue();
 		missingValue = missingValue < 0 ? 0 : missingValue;

@@ -4,13 +4,17 @@ using UnityEngine;
 
 public abstract class Inventory
 {
+    public const float MAX_WEIGHT = 100.0f;
+
     public int TotalValue;
+    public float TotalWeight;
     protected List<ItemWrapper> Items;
     protected int counter;
 
     public Inventory()
     {
         TotalValue = 0;
+        TotalWeight = 0.0f;
         Items = new List<ItemWrapper>();
         counter = 0;
     }
@@ -25,6 +29,11 @@ public abstract class Inventory
     public float getTotalValue()
     {
         return TotalValue;
+    }
+
+    public float getTotalWeight()
+    {
+        return TotalWeight;
     }
 
     public bool hasItem(string itemName)
@@ -85,6 +94,7 @@ public abstract class Inventory
         if (itemW == null) return;
         Items.Remove(itemW);
         this.TotalValue -= itemW.item.value;
+        this.TotalWeight -= itemW.item.weight;
     }
 
     public void RemoveItem(ItemWrapper itemW)
@@ -92,6 +102,7 @@ public abstract class Inventory
         if (itemW == null) return;
         itemW.itemObject?.SetActive(true);
         this.TotalValue -= itemW.item.value;
+        this.TotalWeight -= itemW.item.weight;
         Items.Remove(itemW);
     }
 
