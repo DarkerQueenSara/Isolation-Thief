@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="sneak_stick_man.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="222.9645"
+     inkscape:cy="291.99804"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="745"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
+       id="path24"
+       cx="86.388863"
+       cy="26.550045"
+       r="13.040178" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
+       id="rect849"
+       width="22.45064"
+       height="50.24667"
+       x="71.092461"
+       y="15.625257"
+       ry="11.905972"
+       transform="rotate(18.192312)"
+       rx="10.089274" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
+       id="rect849-7-4"
+       width="14.142959"
+       height="46.388775"
+       x="-93.170334"
+       y="-127.13411"
+       ry="7.3903899"
+       transform="rotate(175.92996)"
+       rx="6.3454261" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
+       id="rect849-7-4-4"
+       width="14.142959"
+       height="46.388775"
+       x="78.621254"
+       y="-94.969559"
+       ry="7.3903899"
+       transform="rotate(87.223628)"
+       rx="6.3454256" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
+       id="rect849-7-4-6"
+       width="14.142959"
+       height="46.388775"
+       x="-129.79112"
+       y="-88.005318"
+       ry="7.3903899"
+       transform="rotate(-146.96264)"
+       rx="6.3454256" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
+       id="rect849-7-4-4-2"
+       width="14.142959"
+       height="46.388775"
+       x="-6.458797"
+       y="-138.21016"
+       ry="7.3903899"
+       transform="rotate(144.18328)"
+       rx="6.3454251" />
+    <rect
+       style="fill:#000000;stroke:#ffffff;stroke-width:1.665;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect944"
+       width="11.13395"
+       height="30.013006"
+       x="8.3466187"
+       y="83.907974"
+       rx="5.5669751"
+       ry="5.3905773"
+       transform="rotate(-45.314477)" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:1.665;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect944-1"
+       width="7.5456681"
+       height="26.385128"
+       x="103.98127"
+       y="-41.8493"
+       rx="3.7728341"
+       ry="3.9323573"
+       transform="rotate(47.149859)" />
+    <ellipse
+       style="fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path983"
+       transform="matrix(0.4012314,-0.91597673,0.80068624,0.59908392,0,0)"
+       ry="5.7846746"
+       rx="4.7289295"
+       cy="118.83157"
+       cx="18.487782" />
+  </g>
+</svg>

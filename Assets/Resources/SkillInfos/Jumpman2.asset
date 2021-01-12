@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Jumpman2
   m_EditorClassIdentifier: 
   name: Jumpman2
-  icon: {fileID: 21300000, guid: 22aa22e2a78c67541adedf2369b88d68, type: 3}
-  xpCost: 3000
+  icon: {fileID: 21300000, guid: 33d88080a5701df48aaceaded2a78d67, type: 3}
+  cost: 0
