@@ -29,7 +29,7 @@ public class SimpleBag : Inventory
         }
         else
         {
-            //Lancar erro
+            //Launch error saing that inventory is too heavy to add item
         }
     }
 }
