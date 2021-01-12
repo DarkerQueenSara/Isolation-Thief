@@ -54,6 +54,8 @@ public class SkillsTreeUI : MonoBehaviour
 		updateSkillPriceText("Jumpman2", Jumpman2.ID);
 		updateSkillPriceText("LightStep", LightStep.ID);
 		updateSkillPriceText("LightStep2", LightStep2.ID);
+		updateSkillPriceText("GottaGoFast", GottaGoFast.ID);
+		updateSkillPriceText("GottaGoFast2", GottaGoFast2.ID);
 
 	}
 

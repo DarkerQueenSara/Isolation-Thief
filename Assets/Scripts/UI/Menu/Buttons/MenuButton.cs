@@ -94,6 +94,11 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 		GameManager.Instance.ShowSkillsMenu();
 	}
 
+	public void OpenKarmaSkillsMenu()
+	{
+		Debug.Log("Karma Skills clicked");
+		GameManager.Instance.ShowKarmaSkillsMenu();
+	}
 	// Paused Menu
 
 	public void ContinueLevelAction()

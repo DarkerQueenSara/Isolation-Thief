@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
 	const int LEVEL_MENU = 1;
 	const int GADGETS_MENU = 2;
 	const int SKILLS_MENU = 3;
-	const int LEVEL_SCENE = 4;
+	const int KARMA_SKILLS_MENU = 4;
+	const int LEVEL_SCENE = 5;
 
 	private static GameManager instance;
 	public static AudioManager audioManager;
@@ -161,7 +162,7 @@ public class GameManager : MonoBehaviour
 		{
 			foreach (Challenge c in challenges)
 			{
-				if(c.checkFullfiled())
+				if (c.checkFullfiled())
 				{
 					availableXp += c.xp;
 					totalXp += c.xp;
@@ -230,6 +231,11 @@ public class GameManager : MonoBehaviour
 	public void ShowSkillsMenu()
 	{
 		SceneManager.LoadScene(SKILLS_MENU);
+	}
+
+	public void ShowKarmaSkillsMenu()
+	{
+		SceneManager.LoadScene(KARMA_SKILLS_MENU);
 	}
 
 }

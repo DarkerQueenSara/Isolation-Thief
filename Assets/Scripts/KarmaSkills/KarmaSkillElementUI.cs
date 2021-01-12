@@ -6,17 +6,17 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class SkillElementUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class KarmaSkillElementUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 	public Animator animator;
-	private SkillsTree skillsTree;
+	private KarmaSkillsTree karmaskillsTree;
 	public UnityEvent addFunction;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		animator = transform.Find("Button").GetComponent<Animator>();
-		this.skillsTree = GameManager.Instance.skillsTree;
+		this.karmaskillsTree = GameManager.Instance.karmaSkillsTree;
 	}
 
 	public void OnPointerEnter(PointerEventData e)
@@ -43,50 +43,26 @@ public class SkillElementUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
 	void AddSkill(string skillID, string skillName)
 	{
-		Skill skill = skillsTree.GetSkill(skillID);
+		KarmaSkill skill = karmaskillsTree.GetSkill(skillID);
 		if (skill.canUnlock())
 		{
 			Debug.Log("unlocking skill!");
 			skill.unlock();
 			Image button = transform.Find("Button").GetComponent<Image>();
 			TextMeshProUGUI price = transform.Find("Price").GetComponent<TextMeshProUGUI>();
-			SkillsTreeUI.Instance.updateVisualUnocked(button, price);
-			SkillsTreeUI.Instance.updateHelpText(skillName + " unlocked");
+			KarmaSkillsTreeUI.Instance.updateVisualUnocked(button, price);
+			KarmaSkillsTreeUI.Instance.updateHelpText(skillName + " unlocked");
 		}
 		else
 		{
 			Debug.Log("Can't unlock skill!");
-			SkillsTreeUI.Instance.updateHelpText("Can't unlock " + skillName);
+			KarmaSkillsTreeUI.Instance.updateHelpText("Can't unlock " + skillName);
 		}
 	}
 
-	public void AddJumpman()
+	public void AddMatrix()
 	{
-		AddSkill(Jumpman.ID, "Jumpman");
+		AddSkill(Matrix.ID, "Matrix");
 	}
 
-	public void AddJumpman2()
-	{
-		AddSkill(Jumpman2.ID, "Jumpman 2");
-	}
-
-	public void AddLightStep()
-	{
-		AddSkill(LightStep.ID, "Light Step");
-	}
-
-	public void AddLightStep2()
-	{
-		AddSkill(LightStep2.ID, "Light Step 2");
-	}
-
-	public void AddGottaGoFast()
-	{
-		AddSkill(GottaGoFast.ID, "Gotta Go Fast");
-	}
-
-	public void AddGottaGoFast2()
-	{
-		AddSkill(GottaGoFast2.ID, "Gotta Go Fast 2");
-	}
 }
