@@ -9,7 +9,6 @@ public class Matrix : KarmaSkill
 
     public Matrix()
     {
-        this.unlocked = true;
         this.skillInfo = Resources.Load<SkillInfo>(KarmaSkill.KARMA_SKILL_INFO_DIR + "Matrix");
     }
 
