@@ -22,6 +22,7 @@ public class TrashContainer : Interactable
             appearingBag.SetActive(true);
             hasPlaced = true;
             LevelManager.Instance.trashInCan = true;
+            LevelManager.Instance.audioManager.Play("GoodDeed");
         }
     }
 
