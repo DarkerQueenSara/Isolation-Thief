@@ -4,35 +4,57 @@ using UnityEngine;
 
 public class NoiseController : Hackable
 {
-    //private Animator animator;
-
+    private int uses;
+    public float distractionDuration = 15.0f;
+    private AudioManager audioManager;
     new private void Awake()
     {
-        //base.objectName = "vault";
-        //animator = gameObject.GetComponent<Animator>();
+        audioManager = this.gameObject.GetComponent<AudioManager>();
+        uses = 0;
     }
 
     public override void interact()
     {
-        
+        if (isLocked)
+        {
+            base.interact();
+            return;
+        }
     }
 
-    public void OpenOrClose()
+    public new void Update()
     {
+         if (!isLocked && uses == 0)
+        {
+            LevelManager.Instance.noisyHacks++;
+            audioManager.Play(audioManager.sounds[0]);
+            Invoke("StopSound", distractionDuration);
+            //TODO fazer barulho para NPC (e preencher maxDist no som)
+            uses++;
+        }
+    }
 
+    private void StopSound()
+    {
+        audioManager.Stop(audioManager.sounds[0]);
+
+        //TODO parar barulho para NPC
     }
 
     public override string getInteractingText()
     {
-        //bool isOpen = animator.GetBool("isOpenDoor");
-        //#region debug
-        //if (isLocked && isOpen)
-        //{
-        //    Debug.LogError("Door is Locked and Open!");
-        //    return "Close door";
-        //}
-        //#endregion
 
-        return "Make noise";
+        if (isLocked)
+        {
+            if (player.hasGadgetOnHand(GadgetType.HACKING_DEVICE) && NumTries < MAX_HACKING_TRIES)
+            {
+                return "Hack Device";
+            }
+            else
+            {
+                return "It's a keypad";
+            }
+        }
+        return "";
     }
 }

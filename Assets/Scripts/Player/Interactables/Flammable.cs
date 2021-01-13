@@ -7,11 +7,14 @@ public class Flammable : Interactable
     public GameObject flameAnim;
     protected bool isBurning;
     protected string objectName;
+    private AudioManager audioManager;
+    public float distractionTime = 10.0f;
 
     public void Awake()
     {
         objectName = gameObject.name;
         isBurning = false;
+        audioManager = this.gameObject.GetComponent<AudioManager>();
     }
 
     new public void Start()
@@ -32,8 +35,9 @@ public class Flammable : Interactable
                 lighter.Use();
                 flameAnim.SetActive(true);
                 LevelManager.Instance.objectsBurned++;
-                //TODO NPC REACT TO FIRE = lighterDistractions++
-                Invoke("StopBurning", 15);
+                audioManager.Play("Burn");
+                Invoke("StopBurning", distractionTime);
+                //TODO enviar som ao NPC e mter maxDistance que nao pus
             }
         }
     }
@@ -43,6 +47,8 @@ public class Flammable : Interactable
         isBurning = false;
         flameAnim.SetActive(false);
         this.gameObject.SetActive(false);
+        audioManager.Stop("Burn");
+        //TODO parar de mandar som ao NPC
     }
 
     public override string getInteractingText()

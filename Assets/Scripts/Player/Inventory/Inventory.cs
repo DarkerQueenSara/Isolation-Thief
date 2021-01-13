@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class Inventory
 {
-    public const float MAX_WEIGHT = 100.0f;
+    public const float MAX_WEIGHT = 125.0f;
+    public float extraWeight = 0.0f;
 
     public int TotalValue;
     public float TotalWeight;
