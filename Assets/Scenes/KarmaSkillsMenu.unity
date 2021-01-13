@@ -890,7 +890,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: ef51ee044b4e5e141bd22d768d2b8574,
+        type: 3}
     - target: {fileID: 7556181589959415778, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_Color.r
@@ -909,7 +910,7 @@ PrefabInstance:
     - target: {fileID: 7556181589959415778, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_Type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7556181589959415778, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
@@ -1039,7 +1040,7 @@ PrefabInstance:
     - target: {fileID: 7556181591161452830, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_text
-      value: Matrix
+      value: Slow Cops
       objectReference: {fileID: 0}
     - target: {fileID: 7556181591161452830, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
@@ -1052,6 +1053,12 @@ PrefabInstance:
 --- !u!224 &1164671439 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7556181590884041435, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1164671438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1164671440 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3752024284977408515, guid: 5e42cb6beb016ac4aa80d282740b75dc,
     type: 3}
   m_PrefabInstance: {fileID: 1164671438}
   m_PrefabAsset: {fileID: 0}
@@ -1073,7 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08d07d20110e0e4791a216eaf6d6f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 1164671440}
   addFunction:
     m_PersistentCalls:
       m_Calls:
