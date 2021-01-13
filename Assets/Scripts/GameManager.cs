@@ -79,28 +79,28 @@ public class GameManager : MonoBehaviour
         challenges.Add(new Challenge(1, "Challenge 1", "Beat the level in under 3 minutes", () => cl.timeElapsed < 3 * 60, 400));
         challenges.Add(new Challenge(2, "Challenge 2", "Beat the level in under 4 minutes", () => cl.timeElapsed < 4 * 60, 350));
         challenges.Add(new Challenge(3, "Challenge 3", "Beat the level in under 5 minutes", () => cl.timeElapsed < 5 * 60, 300));
-        challenges.Add(new Challenge(4, "Challenge 9", "Beat the level with at least 6000$", () => cl.cashInInventory >= 6000, 200));
-        challenges.Add(new Challenge(5, "Challenge 10", "Beat the level with at least 7000$", () => cl.cashInInventory >= 7000, 250));
-        challenges.Add(new Challenge(6, "Challenge 11", "Beat the level with at least 8000$", () => cl.cashInInventory >= 8000, 300));
-        challenges.Add(new Challenge(7, "Challenge 12", "Beat the level with at least 9000$", () => cl.cashInInventory >= 9000, 350));
-        challenges.Add(new Challenge(8, "Challenge 13", "Beat the level with at least 10000$", () => cl.cashInInventory >= 10000, 400));
-        challenges.Add(new Challenge(9, "Challenge 14", "Beat the level without turning on the flashlight", () => !cl.usedFlashlight, 200));
-        challenges.Add(new Challenge(10, "Challenge 15", "Clear the level undetected", () => cl.timesDetected < 1, 400));
-        challenges.Add(new Challenge(11, "Challenge 17", "Enter the bedroom while it's empty", () => cl.enteredEmptyBedroom, 400));
-        challenges.Add(new Challenge(12, "Challenge 18", "Evade the cops with 5 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 5, 200));
-        challenges.Add(new Challenge(13, "Challenge 19", "Evade the cops with 7 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 7, 300));
-        challenges.Add(new Challenge(14, "Challenge 20", "Evade the cops with 10 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 10, 400));
-        challenges.Add(new Challenge(19, "Challenge 32", "Lockpick a door", () => cl.doorsLockpicked >= 1, 50));
-        challenges.Add(new Challenge(20, "Challenge 33", "Lockpick a window", () => cl.windowsLockpicked >= 1, 50));
-        challenges.Add(new Challenge(15, "Challenge 29", "Hack sucessfully once", () => cl.successfullHacks >= 1, 400));
-        challenges.Add(new Challenge(16, "Challenge 30", "Hack sucessfully all hackable devices", () => cl.successfullHacks == 4, 400));
-        challenges.Add(new Challenge(17, "Challenge 30", "Hack to make some noise", () => cl.noisyHacks >= 1, 400));
-        challenges.Add(new Challenge(18, "Challenge 31", "Hack the safe", () => cl.hackedSafe, 400));
-        challenges.Add(new Challenge(21, "Challenge 45", "Use the Lighter to burn a flamable object", () => cl.objectsBurned >= 1, 400));
-        challenges.Add(new Challenge(21, "Challenge 45", "Use the Lighter to burn all flamable objects", () => cl.objectsBurned >= 5, 400));
-        challenges.Add(new Challenge(22, "Challenge 22", "Steal only from three rooms", () => CheckItemsTags(3, cl.player.inventory), 400));
-        challenges.Add(new Challenge(22, "Challenge 24", "Steal only from two rooms", () => CheckItemsTags(2, cl.player.inventory), 400));
-        challenges.Add(new Challenge(22, "Challenge 25", "Steal only from one rooms", () => CheckItemsTags(1, cl.player.inventory), 400));
+        challenges.Add(new Challenge(4, "Challenge 4", "Beat the level with at least 6000$", () => cl.cashInInventory >= 6000, 200));
+        challenges.Add(new Challenge(5, "Challenge 5", "Beat the level with at least 8000$", () => cl.cashInInventory >= 8000, 300));
+        challenges.Add(new Challenge(6, "Challenge 6", "Beat the level with at least 10000$", () => cl.cashInInventory >= 10000, 400));
+        challenges.Add(new Challenge(7, "Challenge 7", "Beat the level with at least 12000$", () => cl.cashInInventory >= 12000, 400));
+        challenges.Add(new Challenge(8, "Challenge 8", "Beat the level with at least 12000$", () => cl.cashInInventory >= 15000, 400));
+        challenges.Add(new Challenge(9, "Challenge 9", "Beat the level without turning on the flashlight", () => !cl.usedFlashlight, 200));
+        challenges.Add(new Challenge(10, "Challenge 10", "Clear the level undetected", () => cl.timesDetected < 1, 400));
+        challenges.Add(new Challenge(11, "Challenge 11", "Enter the bedroom while it's empty", () => cl.enteredEmptyBedroom, 400));
+        challenges.Add(new Challenge(12, "Challenge 12", "Evade the cops with 5 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 5, 200));
+        challenges.Add(new Challenge(13, "Challenge 13", "Evade the cops with 7 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 7, 300));
+        challenges.Add(new Challenge(14, "Challenge 14", "Evade the cops with 10 seconds to spare", () => cl.copsCalled && cl.copsTimeLeft >= 10, 400));
+        challenges.Add(new Challenge(15, "Challenge 15", "Lockpick a door", () => cl.doorsLockpicked >= 1, 50));
+        challenges.Add(new Challenge(16, "Challenge 16", "Lockpick a window", () => cl.windowsLockpicked >= 1, 50));
+        challenges.Add(new Challenge(17, "Challenge 17", "Hack sucessfully once", () => cl.successfullHacks >= 1, 400));
+        challenges.Add(new Challenge(18, "Challenge 18", "Hack sucessfully all hackable devices", () => cl.successfullHacks == 4, 400));
+        challenges.Add(new Challenge(19, "Challenge 19", "Hack to make some noise", () => cl.noisyHacks >= 1, 400));
+        challenges.Add(new Challenge(20, "Challenge 20", "Hack the safe", () => cl.hackedSafe, 400));
+        challenges.Add(new Challenge(21, "Challenge 21", "Use the Lighter to burn a flamable object", () => cl.objectsBurned >= 1, 400));
+        challenges.Add(new Challenge(22, "Challenge 22", "Use the Lighter to burn all flamable objects", () => cl.objectsBurned >= 5, 400));
+        challenges.Add(new Challenge(23, "Challenge 23", "Steal only from a max of three rooms", () => CheckItemsTags(3, cl.player.inventory), 400));
+        challenges.Add(new Challenge(24, "Challenge 24", "Steal only from a max of two rooms", () => CheckItemsTags(2, cl.player.inventory), 400));
+        challenges.Add(new Challenge(25, "Challenge 25", "Steal only from one room", () => CheckItemsTags(1, cl.player.inventory), 400));
 
         challenges = challenges.OrderBy(c => c.number).ToList();
 
@@ -114,7 +114,47 @@ public class GameManager : MonoBehaviour
 
     private bool CheckItemsTags(int nRooms, Inventory bag)
     {
-        return false;
+        int[] salas = new int[7];
+        foreach (ItemWrapper i in bag.GetItemList())
+        {
+            GameObject obj = i.itemObject;
+            if (obj.CompareTag("BedRoom"))
+            {
+                salas[0]++;
+            }
+            else if (obj.CompareTag("DiningRoom"))
+            {
+                salas[1]++;
+            }
+            else if (obj.CompareTag("Garage"))
+            {
+                salas[2]++;
+            }
+            else if (obj.CompareTag("Gym"))
+            {
+                salas[3]++;
+            }
+            else if (obj.CompareTag("Kitchen"))
+            {
+                salas[4]++;
+            }
+            else if (obj.CompareTag("LivingRoom"))
+            {
+                salas[5]++;
+            }
+            else if (obj.CompareTag("Office"))
+            {
+                salas[6]++;
+            }
+        }
+        int nPositive = 0;
+        for (int i = 0; i < salas.Length; i++)
+        {
+            if (salas[i] > 0){
+                nPositive++;
+            }
+        }
+        return nPositive <= nRooms;
     }
 
     public void CheckAllChallenges()
