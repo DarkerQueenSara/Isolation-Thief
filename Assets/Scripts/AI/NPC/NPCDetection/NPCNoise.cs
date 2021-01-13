@@ -12,13 +12,13 @@ public class NPCNoise : MonoBehaviour
         this.NPC = managedNPC;
     }
 
-    public void Investigate(Vector3 playerPos, float maxDistance, int intensity)
+    public void Investigate(Vector3 pos, float maxDistance, int weakness)
     {
         if (NPC.playerDetected) return;
 
         //only 1 floor
         Vector3 myPos = new Vector3(gameObject.transform.position.x,0.0f, gameObject.transform.position.z);
-        Vector3 flatPlayerPos = new Vector3(playerPos.x, 0.0f, playerPos.z);
+        Vector3 flatPlayerPos = new Vector3(pos.x, 0.0f, pos.z);
 
         //sneak 5,5
         //walk : maxDist = 10 ; intentsity = 10
@@ -31,7 +31,7 @@ public class NPCNoise : MonoBehaviour
         if (realDistance <= maxDistance / 2) { probability = 1; }
         else
         {
-            probability = 1 - (realDistance / intensity) + 0.15f;
+            probability = 1 - (realDistance / weakness) + 0.15f;
         }
 
         //Debug.Log("Probability: " + probability);
@@ -40,7 +40,7 @@ public class NPCNoise : MonoBehaviour
         if(n <= probability * 100) //Investigate
         {
             //Debug.Log("WHAT WAS THAT?");
-            StartCoroutine(InvestigateSound(playerPos));
+            StartCoroutine(InvestigateSound(pos));
 
         } else // Don't investigate
         {

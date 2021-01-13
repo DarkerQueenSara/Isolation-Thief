@@ -149,11 +149,11 @@ public class NPCManager : MonoBehaviour
         return aux;
     }
 
-    public void InvestigateSound(Vector3 playerPos,float maxDistance, int intensity)
+    public void InvestigateSound(Vector3 pos,float maxDistance, int weakness)
     {
         foreach(ManagedNPC managedNPC in this.managedNPCS)
         {
-            managedNPC.npcNoise.Investigate(playerPos, maxDistance, intensity);
+            managedNPC.npcNoise.Investigate(pos, maxDistance, weakness);
         }
         
     }
