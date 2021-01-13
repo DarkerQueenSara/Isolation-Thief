@@ -150,6 +150,9 @@ public class ManagedNPC : MonoBehaviour
             yield return null;
         }
 
+        myMovement.Idle();
+        yield return new WaitForSeconds(3f);
+
         busy = false;
     }
 

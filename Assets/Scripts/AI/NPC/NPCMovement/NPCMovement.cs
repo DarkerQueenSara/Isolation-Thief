@@ -16,8 +16,8 @@ public abstract class NPCMovement
 
     protected float openDoorDist = 3f;
 
-    public float walkSpeed = 3.5f;
-    public float runSpeed = 5f;
+    public float walkSpeed = 2.5f;
+    public float runSpeed = 4f;
 
     private AudioManager audioManager;
 
