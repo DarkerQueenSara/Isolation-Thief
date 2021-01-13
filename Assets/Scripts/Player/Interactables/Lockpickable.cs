@@ -26,9 +26,11 @@ public class Lockpickable : Interactable
                     
                     if (this.gameObject.CompareTag("Door"))
                     {
+                        Debug.Log("Picked a door");
                         LevelManager.Instance.doorsLockpicked++;
                     } else
                     {
+                        Debug.Log("Picked a window");
                         LevelManager.Instance.windowsLockpicked++;
                     }
                 }
@@ -54,12 +56,12 @@ public class Lockpickable : Interactable
         {
             if (player.hasGadgetOnHand(GadgetType.LOCKPICK))
             {
-                return "Pick Door";
+                return "Pick the lock";
                 //return "Pick " + objectName;
             }
             else
             {
-                return "Door is Locked";
+                return "It's Locked";
                 //return objectName + " is Locked";
             }
         }

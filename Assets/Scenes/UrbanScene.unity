@@ -324,7 +324,7 @@ Transform:
   - {fileID: 255743079}
   - {fileID: 1308583090}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &34011432
 GameObject:
@@ -806,7 +806,7 @@ Transform:
   m_Children:
   - {fileID: 713655377}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &136712212
 PrefabInstance:
@@ -2493,7 +2493,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 50.000004, y: -163.673, z: 0}
 --- !u!1 &427463509
 GameObject:
@@ -4606,7 +4606,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &774734186
 PrefabInstance:
@@ -4969,23 +4969,12 @@ MonoBehaviour:
   cashInInventory: 0
   usedFlashlight: 0
   timesDetected: 0
-  timesWokeUp: 0
   enteredEmptyBedroom: 0
-  enteredBalconyDoor: 0
-  enteredFirstWindow: 0
-  enteredSecondWindow: 0
-  enteredBackDoor: 0
-  enteredBasementWindow: 0
-  enteredFrontDoor: 0
-  jumpedFence: 0
-  enteredGate: 0
   successfullHacks: 0
   hackedSafe: 0
   copsTimeLeft: 0
   doorsLockpicked: 0
   windowsLockpicked: 0
-  noiseBombDistractions: 0
-  lighterDistractions: 0
   objectsBurned: 0
   fedFishes: 0
   trashInCan: 0
@@ -6830,7 +6819,7 @@ Transform:
   - {fileID: 534224982}
   - {fileID: 548699085}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1035664527
 PrefabInstance:
@@ -7430,7 +7419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: b70eb1cf1be37564f8063fba2095584b, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: b70eb1cf1be37564f8063fba2095584b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7769,7 +7758,12 @@ PrefabInstance:
     - target: {fileID: 2819860076774106337, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819860076774106343, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2819860077256651932, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
@@ -10557,7 +10551,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh80222
+  m_Name: pb_Mesh503172
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14518,7 +14512,7 @@ Transform:
   m_LocalScale: {x: 7.0237446, y: 1, z: 3.4982696}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2126423010
 PrefabInstance:
@@ -14928,7 +14922,7 @@ Transform:
   - {fileID: 2471858726612690113}
   - {fileID: 489475734071500946}
   m_Father: {fileID: 5451802323457668647}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &158540308726679419
 Transform:
@@ -19390,6 +19384,7 @@ GameObject:
   - component: {fileID: 1119664333422688608}
   - component: {fileID: 5451802324482778417}
   - component: {fileID: 1119664333424945057}
+  - component: {fileID: 1119664333424945059}
   m_Layer: 0
   m_Name: Potted Plant
   m_TagString: Untagged
@@ -19411,6 +19406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   flameAnim: {fileID: 7007206394312828172}
+  distractionTime: 10
 --- !u!1 &1119664333424945058
 GameObject:
   m_ObjectHideFlags: 0
@@ -19429,6 +19425,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1119664333424945059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119664333424945056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Burn
+    clip: {fileID: 8300000, guid: 346257686146d2b4a9dff89a074c9584, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    maxDist: 0
+    source: {fileID: 0}
 --- !u!1 &1119664333424945060
 GameObject:
   m_ObjectHideFlags: 0
@@ -23431,6 +23449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 7671200679451031151}
 --- !u!4 &1823627870046266220
 Transform:
@@ -26124,6 +26143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 7671200679451031151}
 --- !u!1 &2247489227471166434
 GameObject:
@@ -28016,7 +28036,7 @@ Transform:
   - {fileID: 5451802323457668647}
   - {fileID: 7007206395076877462}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2662823388502390122
 MeshCollider:
@@ -28666,7 +28686,7 @@ GameObject:
   - component: {fileID: 7007206394441359066}
   m_Layer: 11
   m_Name: main-door-left
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35106,7 +35126,7 @@ Transform:
   - {fileID: 8875371084644933178}
   - {fileID: 7007206395463528614}
   m_Father: {fileID: 5451802323457668647}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &4061943376204828675
 MeshCollider:
@@ -36768,6 +36788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773750703488755}
 --- !u!114 &4214700636667988079
 MonoBehaviour:
@@ -36782,6 +36803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773750784241015}
 --- !u!114 &4214700636684493400
 MonoBehaviour:
@@ -36796,6 +36818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750834841408}
 --- !u!114 &4214700636736912009
 MonoBehaviour:
@@ -36810,6 +36833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750857998225}
 --- !u!114 &4214700636759440763
 MonoBehaviour:
@@ -36824,6 +36848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773750910965859}
 --- !u!114 &4214700636760213829
 MonoBehaviour:
@@ -36838,6 +36863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750910184541}
 --- !u!114 &4214700636814772533
 MonoBehaviour:
@@ -36852,6 +36878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750931057709}
 --- !u!114 &4214700636855541980
 MonoBehaviour:
@@ -36866,6 +36893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773751007724996}
 --- !u!114 &4214700636951778616
 MonoBehaviour:
@@ -36880,6 +36908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751104499744}
 --- !u!114 &4214700637014844555
 MonoBehaviour:
@@ -36894,6 +36923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751133700499}
 --- !u!114 &4214700637114884969
 MonoBehaviour:
@@ -36908,6 +36938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751234922097}
 --- !u!114 &4214700637187799461
 MonoBehaviour:
@@ -36922,6 +36953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773751338245309}
 --- !u!114 &4214700637354543302
 MonoBehaviour:
@@ -36936,6 +36968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751506972126}
 --- !u!114 &4214700637410263327
 MonoBehaviour:
@@ -36950,6 +36983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751526810631}
 --- !u!114 &4214700637480146905
 MonoBehaviour:
@@ -36964,6 +36998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751599542977}
 --- !u!114 &4214700637505790699
 MonoBehaviour:
@@ -36978,6 +37013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751624157171}
 --- !u!114 &4214700637782160580
 MonoBehaviour:
@@ -36992,6 +37028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773749753958876}
 --- !u!114 &4214700637787587149
 MonoBehaviour:
@@ -37006,6 +37043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773749756913493}
 --- !u!114 &4214700637889358000
 MonoBehaviour:
@@ -37020,6 +37058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773749898481064}
 --- !u!114 &4214700638056086614
 MonoBehaviour:
@@ -37034,6 +37073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750025361742}
 --- !u!114 &4214700638135764278
 MonoBehaviour:
@@ -37048,6 +37088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750138609710}
 --- !u!114 &4214700638205864414
 MonoBehaviour:
@@ -37062,6 +37103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750211054790}
 --- !u!114 &4214700638247853789
 MonoBehaviour:
@@ -37076,6 +37118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750219406277}
 --- !u!114 &4214700638281071499
 MonoBehaviour:
@@ -37090,6 +37133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750253362835}
 --- !u!114 &4214700638351395973
 MonoBehaviour:
@@ -37104,6 +37148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750325569949}
 --- !u!114 &4214700638549305106
 MonoBehaviour:
@@ -37118,6 +37163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773750521987594}
 --- !u!33 &4218760706599295697
 MeshFilter:
@@ -38245,6 +38291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750857998225}
 --- !u!114 &4333093091531309811
 MonoBehaviour:
@@ -38259,6 +38306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750834841408}
 --- !u!114 &4333093091547818180
 MonoBehaviour:
@@ -38273,6 +38321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773750784241015}
 --- !u!114 &4333093091664460608
 MonoBehaviour:
@@ -38287,6 +38336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773750703488755}
 --- !u!114 &4333093091754673184
 MonoBehaviour:
@@ -38301,6 +38351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751133700499}
 --- !u!114 &4333093091797038483
 MonoBehaviour:
@@ -38315,6 +38366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751104499744}
 --- !u!114 &4333093091897393271
 MonoBehaviour:
@@ -38329,6 +38381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773751007724996}
 --- !u!114 &4333093091954682270
 MonoBehaviour:
@@ -38343,6 +38396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750931057709}
 --- !u!114 &4333093092009306606
 MonoBehaviour:
@@ -38357,6 +38411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750910184541}
 --- !u!114 &4333093092010089936
 MonoBehaviour:
@@ -38371,6 +38426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773750910965859}
 --- !u!114 &4333093092101822734
 MonoBehaviour:
@@ -38385,6 +38441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773751338245309}
 --- !u!114 &4333093092187243458
 MonoBehaviour:
@@ -38399,6 +38456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751234922097}
 --- !u!114 &4333093092320625216
 MonoBehaviour:
@@ -38413,6 +38471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751624157171}
 --- !u!114 &4333093092358928242
 MonoBehaviour:
@@ -38427,6 +38486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751599542977}
 --- !u!114 &4333093092416479668
 MonoBehaviour:
@@ -38441,6 +38501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751526810631}
 --- !u!114 &4333093092471875693
 MonoBehaviour:
@@ -38455,6 +38516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773751506972126}
 --- !u!114 &4333093092592476902
 MonoBehaviour:
@@ -38469,6 +38531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773749756913493}
 --- !u!114 &4333093092593980527
 MonoBehaviour:
@@ -38483,6 +38546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773749753958876}
 --- !u!114 &4333093092860927229
 MonoBehaviour:
@@ -38497,6 +38561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750025361742}
 --- !u!114 &4333093093006673947
 MonoBehaviour:
@@ -38511,6 +38576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773749898481064}
 --- !u!114 &4333093093098220590
 MonoBehaviour:
@@ -38525,6 +38591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750325569949}
 --- !u!114 &4333093093152103200
 MonoBehaviour:
@@ -38539,6 +38606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750253362835}
 --- !u!114 &4333093093189189238
 MonoBehaviour:
@@ -38553,6 +38621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750219406277}
 --- !u!114 &4333093093244012917
 MonoBehaviour:
@@ -38567,6 +38636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750211054790}
 --- !u!114 &4333093093318108573
 MonoBehaviour:
@@ -38581,6 +38651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 0
   animator: {fileID: 5697773750138609710}
 --- !u!114 &4333093093420730297
 MonoBehaviour:
@@ -38595,6 +38666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  isLocked: 1
   animator: {fileID: 5697773750521987594}
 --- !u!4 &4333830249304577066
 Transform:
@@ -40000,7 +40072,7 @@ GameObject:
   - component: {fileID: 7007206395902811186}
   m_Layer: 11
   m_Name: main-door-left
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45004,7 +45076,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  isLocked: 0
+  isLocked: 1
+  distractionDuration: 15
 --- !u!1 &5320974693373914015
 GameObject:
   m_ObjectHideFlags: 0
@@ -45016,6 +45089,8 @@ GameObject:
   - component: {fileID: 4799771664941674789}
   - component: {fileID: 5451802323747681581}
   - component: {fileID: 5320974693373914012}
+  - component: {fileID: 5320974693373914016}
+  - component: {fileID: 5320974693373914017}
   m_Layer: 9
   m_Name: Refrigerator
   m_TagString: Untagged
@@ -45023,6 +45098,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5320974693373914016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320974693373914015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Fridge
+    clip: {fileID: 8300000, guid: e010a7c848398b24781050ed4fd3945a, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    maxDist: 0
+    source: {fileID: 0}
+--- !u!65 &5320974693373914017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320974693373914015}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!23 &5322601619775706844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46347,7 +46457,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5456376135992382480}
-  - {fileID: 5451336656516437616}
   m_Father: {fileID: 7007206395463528614}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
@@ -46363,7 +46472,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5456376136608878036}
-  - {fileID: 5451336657132933044}
   m_Father: {fileID: 7007206395463528614}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
@@ -46769,12 +46877,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5453418785868939694}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.00080244, y: 0.23154421, z: 0.0018288938}
+  m_LocalRotation: {x: 0.000000029802322, y: 0.000000021073426, z: -0.000000021073422,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.01, y: 1.01, z: 1.01}
   m_Children: []
-  m_Father: {fileID: 5451093037663862328}
-  m_RootOrder: 1
+  m_Father: {fileID: 5456376135992382480}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5451336657132933044
 Transform:
@@ -46783,12 +46892,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5453418786334578794}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.00080244, y: 0.23154421, z: 0.0018288938}
+  m_LocalRotation: {x: 0.000000029802322, y: 0.000000021073426, z: -0.000000021073422,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.01, y: 1.01, z: 1.01}
   m_Children: []
-  m_Father: {fileID: 5451093038246668284}
-  m_RootOrder: 1
+  m_Father: {fileID: 5456376136608878036}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5451344592259093297
 Transform:
@@ -47109,16 +47219,16 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 6830009649291481486}
+  - {fileID: 5451802324508143548}
+  - {fileID: 4060920746800189383}
+  - {fileID: 7007206395408705091}
+  - {fileID: 7007206396413555026}
+  - {fileID: 2573565705475914786}
   - {fileID: 5451802324407618639}
   - {fileID: 5451802324600171748}
-  - {fileID: 5451802324508143548}
-  - {fileID: 6830009649291481486}
-  - {fileID: 4060920746800189383}
-  - {fileID: 2573565705475914786}
   - {fileID: 6361734739285455453}
   - {fileID: 156858099980288980}
-  - {fileID: 7007206396413555026}
-  - {fileID: 7007206395408705091}
   m_Father: {fileID: 2660868148958967809}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49382,14 +49492,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5451802324407618638}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5451802324878406710}
   - {fileID: 5451802324280318203}
   m_Father: {fileID: 5451802323457668647}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &5451802324482778417
 MeshCollider:
@@ -49419,7 +49529,7 @@ Transform:
   - {fileID: 5451802325319407235}
   - {fileID: 7007206396122666027}
   m_Father: {fileID: 5451802323457668647}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5451802324508143551
 GameObject:
@@ -49430,6 +49540,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5451802324508143548}
+  - component: {fileID: 5451802324508143552}
+  - component: {fileID: 5451802324508143553}
   m_Layer: 0
   m_Name: Bedroom
   m_TagString: Untagged
@@ -49437,6 +49549,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &5451802324508143552
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451802324508143551}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8, y: 5, z: 8.2}
+  m_Center: {x: 120, y: 142.6, z: 39.33}
+--- !u!114 &5451802324508143553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451802324508143551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b89704e2bc15e940b408bbb6f9c17ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5451802324600171748
 Transform:
   m_ObjectHideFlags: 0
@@ -49450,7 +49587,7 @@ Transform:
   m_Children:
   - {fileID: 5451802325330040343}
   m_Father: {fileID: 5451802323457668647}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5451802324600171751
 GameObject:
@@ -52615,6 +52752,7 @@ GameObject:
   - component: {fileID: 5475017977498959918}
   - component: {fileID: 7007206394506488399}
   - component: {fileID: 5453112062229522473}
+  - component: {fileID: 5453112062229522474}
   m_Layer: 0
   m_Name: Gas Tank
   m_TagString: Untagged
@@ -52636,6 +52774,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   flameAnim: {fileID: 7007206394463196967}
+  distractionTime: 10
+--- !u!114 &5453112062229522474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5453112062229522472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Burn
+    clip: {fileID: 8300000, guid: 346257686146d2b4a9dff89a074c9584, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    maxDist: 0
+    source: {fileID: 0}
 --- !u!1 &5453125374423660997
 GameObject:
   m_ObjectHideFlags: 0
@@ -54108,7 +54269,8 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0.00080244, y: 0.23154421, z: 0.0018288938}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5451336656516437616}
   m_Father: {fileID: 5451093037663862328}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54122,7 +54284,8 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0.00080244, y: 0.23154421, z: 0.0018288938}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5451336657132933044}
   m_Father: {fileID: 5451093038246668284}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64874,7 +65037,7 @@ Transform:
   - {fileID: 6699167045207916706}
   - {fileID: 7007206394599946990}
   m_Father: {fileID: 5451802323457668647}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6366517173357368093
 GameObject:
@@ -66846,6 +67009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   flameAnim: {fileID: 7007206395555385086}
+  distractionTime: 10
 --- !u!1 &6679880729032310871
 GameObject:
   m_ObjectHideFlags: 0
@@ -66859,6 +67023,7 @@ GameObject:
   - component: {fileID: 9022234552829154285}
   - component: {fileID: 7007206395332866812}
   - component: {fileID: 6679880729032310868}
+  - component: {fileID: 6679880729032310872}
   m_Layer: 9
   m_Name: Shower Curtain
   m_TagString: Untagged
@@ -66866,6 +67031,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6679880729032310872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679880729032310871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Burn
+    clip: {fileID: 8300000, guid: 346257686146d2b4a9dff89a074c9584, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    maxDist: 0
+    source: {fileID: 0}
 --- !u!4 &6680960200840157632
 Transform:
   m_ObjectHideFlags: 0
@@ -67982,7 +68169,7 @@ Transform:
   m_Children:
   - {fileID: 3639199855623673174}
   m_Father: {fileID: 5451802323457668647}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6834351423528358784
 MeshRenderer:
@@ -69498,7 +69685,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 061e4cca5f002c145b19f9d9c1117c74,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.82
+      value: 1.83
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 061e4cca5f002c145b19f9d9c1117c74,
         type: 3}
@@ -69557,6 +69744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   isLocked: 1
+  isASafe: 0
 --- !u!64 &7007206394381719543
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71327,7 +71515,7 @@ Transform:
   m_LocalScale: {x: 0.89321995, y: 0.7652301, z: 0.65244985}
   m_Children: []
   m_Father: {fileID: 7007206396184383206}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &7007206394711829825
 MeshCollider:
@@ -72583,7 +72771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7007206395076877462
 Transform:
   m_ObjectHideFlags: 0
@@ -72928,6 +73116,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4304623056900799793}
     m_Modifications:
+    - target: {fileID: 3523028822544407208, guid: 47d0c4f4b1af72b41afb74310140f359,
+        type: 3}
+      propertyPath: radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146849739403367546, guid: 47d0c4f4b1af72b41afb74310140f359,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trash
+      objectReference: {fileID: 0}
     - target: {fileID: 6423877111797971261, guid: 47d0c4f4b1af72b41afb74310140f359,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73011,6 +73209,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7007206395167392442}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7007206395167392444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6146849739403367546, guid: 47d0c4f4b1af72b41afb74310140f359,
+    type: 3}
+  m_PrefabInstance: {fileID: 7007206395167392442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7007206395167392445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7007206395167392444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Burn
+    clip: {fileID: 8300000, guid: 346257686146d2b4a9dff89a074c9584, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    maxDist: 0
+    source: {fileID: 0}
 --- !u!114 &7007206395171750849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73024,7 +73250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  isLocked: 0
+  isLocked: 1
 --- !u!64 &7007206395179840960
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73251,7 +73477,7 @@ Transform:
   m_LocalScale: {x: 0.89321995, y: 0.7652301, z: 0.65244985}
   m_Children: []
   m_Father: {fileID: 7007206396184383206}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &7007206395268976327
 MeshRenderer:
@@ -73724,7 +73950,7 @@ Transform:
   - {fileID: 2493422805395846093}
   - {fileID: 7007206396318033480}
   m_Father: {fileID: 5451802323457668647}
-  m_RootOrder: 9
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7007206395409207905
 MonoBehaviour:
@@ -75351,7 +75577,7 @@ PrefabInstance:
     - target: {fileID: 1501222285912707616, guid: 60e037cdcea83cd4eb4f2a9b0abb3b36,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9142903
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 1501222285912707616, guid: 60e037cdcea83cd4eb4f2a9b0abb3b36,
         type: 3}
@@ -75951,6 +76177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   isLocked: 1
+  isASafe: 1
 --- !u!65 &7007206395907838364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76163,6 +76390,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4304623056900799793}
     m_Modifications:
+    - target: {fileID: 3523028822544407208, guid: 47d0c4f4b1af72b41afb74310140f359,
+        type: 3}
+      propertyPath: radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146849739403367546, guid: 47d0c4f4b1af72b41afb74310140f359,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trash
+      objectReference: {fileID: 0}
     - target: {fileID: 6423877111797971261, guid: 47d0c4f4b1af72b41afb74310140f359,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -76246,6 +76483,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7007206395994151602}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7007206395994151604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6146849739403367546, guid: 47d0c4f4b1af72b41afb74310140f359,
+    type: 3}
+  m_PrefabInstance: {fileID: 7007206395994151602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7007206395994151605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7007206395994151604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Burn
+    clip: {fileID: 8300000, guid: 346257686146d2b4a9dff89a074c9584, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    maxDist: 0
+    source: {fileID: 0}
 --- !u!64 &7007206395994534362
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76820,8 +77085,8 @@ Transform:
   - {fileID: 7007206395632857186}
   - {fileID: 7007206395668679662}
   - {fileID: 7007206396013488192}
-  - {fileID: 7007206395268976326}
   - {fileID: 7007206394710293547}
+  - {fileID: 7007206395268976326}
   - {fileID: 7007206395507876608}
   - {fileID: 7007206394540367989}
   - {fileID: 7007206395514036565}
@@ -77041,6 +77306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   flameAnim: {fileID: 7007206394550998116}
+  distractionTime: 10
 --- !u!64 &7007206396244670645
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77068,6 +77334,7 @@ GameObject:
   - component: {fileID: 7007206396244670642}
   - component: {fileID: 7007206396244670645}
   - component: {fileID: 7007206396244670644}
+  - component: {fileID: 7007206396244670648}
   m_Layer: 0
   m_Name: Potted Plant
   m_TagString: Untagged
@@ -77090,6 +77357,28 @@ Transform:
   m_Father: {fileID: 7007206395645652741}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7007206396244670648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7007206396244670646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Burn
+    clip: {fileID: 8300000, guid: 346257686146d2b4a9dff89a074c9584, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    maxDist: 0
+    source: {fileID: 0}
 --- !u!64 &7007206396247886383
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77676,7 +77965,7 @@ Transform:
   - {fileID: 7007206396234204039}
   - {fileID: 7007206396048685941}
   m_Father: {fileID: 5451802323457668647}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &7007206396426749131
 MeshCollider:
@@ -79149,7 +79438,7 @@ GameObject:
   - component: {fileID: 7007206394533091193}
   m_Layer: 11
   m_Name: main-door-right
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80005,7 +80294,7 @@ PrefabInstance:
     - target: {fileID: 1501222285912707616, guid: 60e037cdcea83cd4eb4f2a9b0abb3b36,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 144.211
+      value: 143.5
       objectReference: {fileID: 0}
     - target: {fileID: 1501222285912707616, guid: 60e037cdcea83cd4eb4f2a9b0abb3b36,
         type: 3}
@@ -80071,6 +80360,28 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7526305720069538880}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7526305720069538883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526305720069538882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92763ca4de6852e42a015e3653e25d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Alarm
+    clip: {fileID: 8300000, guid: 2791ba7f8be40b04e96728c32c5e550e, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    maxDist: 0
+    source: {fileID: 0}
 --- !u!114 &7526305720069538894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80084,7 +80395,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  isLocked: 0
+  isLocked: 1
+  distractionDuration: 15
 --- !u!205 &7530314844296158711
 LODGroup:
   m_ObjectHideFlags: 0
@@ -87959,7 +88271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &9142480712928846805
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -88144,7 +88456,7 @@ GameObject:
   - component: {fileID: 7007206395027329436}
   m_Layer: 11
   m_Name: main-door-right
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

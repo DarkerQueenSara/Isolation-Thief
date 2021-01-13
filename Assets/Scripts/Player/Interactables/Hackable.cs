@@ -6,13 +6,13 @@ public class Hackable : Interactable
 {
     public const int MAX_HACKING_TRIES = 1;
     public bool isLocked;
-    private int numTries;
+    public int NumTries { get; private set; }
     protected string objectName;
 
     public void Awake()
     {
         objectName = gameObject.name;
-        numTries = 0;
+        NumTries = 0;
     }
 
     public override void interact()
@@ -25,9 +25,9 @@ public class Hackable : Interactable
             {
                 //TODO hacking device open minigame and if succeed then I have to unlock
                 //StartCoroutine(parallelHacking(hackingDevice));
-                if(numTries < MAX_HACKING_TRIES)
+                if(NumTries < MAX_HACKING_TRIES)
                 {
-                    hackingDevice.HackObject(onHackEnd, MAX_HACKING_TRIES - numTries);
+                    hackingDevice.HackObject(onHackEnd, MAX_HACKING_TRIES - NumTries);
                 }
             }
         }
@@ -38,14 +38,14 @@ public class Hackable : Interactable
         switch (finalResult)
         {
             case HackingMinigameController.WON_GAME:
-                numTries++;
+                NumTries++;
                 isLocked = false;
                 InteractionTextManager.instance.setInteractingText(this.getInteractingText());
                 LevelManager.Instance.successfullHacks++;
                 Debug.Log("Device hacked");
                 break;
             case HackingMinigameController.LOST_GAME:
-                numTries++;
+                NumTries++;
                 InteractionTextManager.instance.setInteractingText(this.getInteractingText());
                 Debug.Log("Hack failed!");
                 break;
@@ -91,15 +91,9 @@ public class Hackable : Interactable
     {
         if (isLocked)
         {
-            if (player.hasGadgetOnHand(GadgetType.HACKING_DEVICE) && numTries < MAX_HACKING_TRIES)
+            if (player.hasGadgetOnHand(GadgetType.HACKING_DEVICE) && NumTries < MAX_HACKING_TRIES)
             {
                 return "Hack Device";
-                //return "Hack " + objectName;
-            }
-            else
-            {
-                return "Door is Locked";
-                //return objectName + " is Locked";
             }
         }
         return "";

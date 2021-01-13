@@ -5,10 +5,10 @@ using UnityEngine;
 public class VaultController : Hackable
 {
     private Animator animator;
-
+    public bool isASafe;
+        
     new private void Awake()
     {
-        //base.objectName = "vault";
         animator = gameObject.GetComponent<Animator>();
     }
 
@@ -26,25 +26,28 @@ public class VaultController : Hackable
     {
         bool isOpen = animator.GetBool("isOpenDoor");
         animator.SetBool("isOpenDoor", !isOpen);
+        if (isASafe)
+        {
+            LevelManager.Instance.hackedSafe = true;
+        }
     }
 
     public override string getInteractingText()
     {
         bool isOpen = animator.GetBool("isOpenDoor");
-        //#region debug
-        //if (isLocked && isOpen)
-        //{
-        //    Debug.LogError("Door is Locked and Open!");
-        //    return "Close door";
-        //}
-        //#endregion
 
-        if (base.isLocked)
+        if (isLocked)
         {
-            return base.getInteractingText();
+            if (player.hasGadgetOnHand(GadgetType.HACKING_DEVICE) && NumTries < MAX_HACKING_TRIES)
+            {
+                return "Hack Door";
+            }
+            else
+            {
+                return "Door is Locked";
+            }
         }
-
         return isOpen ? "Close Door" : "Open Door";
-        //return "Steal Vault";
     }
+    
 }
