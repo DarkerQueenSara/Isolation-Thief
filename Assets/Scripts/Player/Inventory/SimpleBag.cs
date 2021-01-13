@@ -11,7 +11,7 @@ public class SimpleBag : Inventory
 
 	public override void AddItem(Item item, GameObject itemObject)
 	{
-		if (item.weight + TotalWeight <= MAX_WEIGHT + 0.00001)
+		if (item.weight + TotalWeight <= MAX_WEIGHT + extraWeight + 0.00001)
 		{
 			counter++;
 			this.TotalValue += item.value;

@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Matrix : KarmaSkill
 {
-    public const string ID = "Matrix";
+    public const string ID = "Slow Cops";
     public const float EXTRA_TIME = 5.0f;
 
     public Matrix()
@@ -14,7 +14,7 @@ public class Matrix : KarmaSkill
 
     public override void activate()
     {
-        if (unlocked && (parent == null || !parent.unlocked))
+        if (unlocked)
         {
             LevelManager.Instance.timeTillCops += EXTRA_TIME;
             Debug.Log("Activating skill " + getID());

@@ -8,20 +8,20 @@ public abstract class KarmaSkill
     public bool unlocked;
     public const string KARMA_SKILL_INFO_DIR = "KarmaSkillInfos/";
     public SkillInfo skillInfo;
-    public KarmaSkill parent;
-    public List<KarmaSkill> skillDependencies;
+    //public KarmaSkill parent;
+    //public List<KarmaSkill> skillDependencies;
 
     public KarmaSkill()
     {
-        skillDependencies = new List<KarmaSkill>();
+        //skillDependencies = new List<KarmaSkill>();
         unlocked = false;
-        parent = null;
+        //parent = null;
     }
-
+    /*
     public void setParent(KarmaSkill parent)
     {
         this.parent = parent;
-    }
+    }*/
 
     public bool canUnlock()
     {
@@ -47,7 +47,8 @@ public abstract class KarmaSkill
 
     public int getXPCost()
     {
-        return this.skillInfo.cost;
+        return GameManager.Instance.karmaSkillsTree.getUnlockedSkills().Count + 1;
+        //return this.skillInfo.cost;
     }
 
     public Sprite getSprite()

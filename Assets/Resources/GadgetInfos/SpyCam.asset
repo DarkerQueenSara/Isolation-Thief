@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: SpyCam
   icon: {fileID: 21300000, guid: e5e8b70eccecf904e9f60a021c7c9695, type: 3}
-  cost: 40
+  cost: 6000

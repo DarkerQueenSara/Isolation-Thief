@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Simple Hacking Device
   icon: {fileID: 21300000, guid: b3e8346beb69cb34b89fcb13687ba7dd, type: 3}
-  cost: 60
+  cost: 8000
