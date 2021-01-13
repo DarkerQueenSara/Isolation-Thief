@@ -7759,7 +7759,7 @@ PrefabInstance:
     - target: {fileID: 2819860076774106337, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2819860076774106343, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
@@ -10552,7 +10552,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh503172
+  m_Name: pb_Mesh148224
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
