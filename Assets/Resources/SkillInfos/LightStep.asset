@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Light Step
   icon: {fileID: 21300000, guid: e9cf35f2ee3964f4ab748b16b8162cf8, type: 3}
-  cost: 4000
+  cost: 2000
