@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fast Lockpick
   icon: {fileID: 21300000, guid: cd186a1e5b8668f46952a63409e02bf2, type: 3}
-  cost: 4000
+  cost: 2000

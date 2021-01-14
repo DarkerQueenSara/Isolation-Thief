@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Lighter
   icon: {fileID: 21300000, guid: a1cd852b12b4f5347b9470b88a8964d1, type: 3}
-  cost: 2000
+  cost: 1000
