@@ -1693,7 +1693,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 96.691025, y: 25}
+  m_SizeDelta: {x: 96.690994, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5783519939306728895
 CanvasRenderer:
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Weight (Max: 100Kg): 100,0Kg'
+  m_text: 'Weight (max: 100Kg): 100,0Kg'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 25c6183cbee77884ca53e4326db5bb1c, type: 2}
   m_sharedMaterial: {fileID: -6595003729352716501, guid: 25c6183cbee77884ca53e4326db5bb1c,
@@ -1786,7 +1786,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.0281363, y: 0, z: 0, w: 0}
+  m_margin: {x: 8.176513, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

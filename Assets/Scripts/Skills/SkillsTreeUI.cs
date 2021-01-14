@@ -36,10 +36,27 @@ public class SkillsTreeUI : MonoBehaviour
 		HelpText.transform.gameObject.SetActive(true);
 	}
 
-	void updateSkillPriceText(string skillUILabel, string skillID)
+	void updateSkillUI(string skillUILabel, string skillID)
 	{
-		TextMeshProUGUI skillPrice = transform.Find("Tree").Find(skillUILabel).Find("Price").GetComponent<TextMeshProUGUI>();
-		skillPrice.text = skillsTree.GetSkill(skillID).getXPCost().ToString() + " XP";
+		Skill skill = skillsTree.GetSkill(skillID);
+
+		Transform skillUI = transform.Find("Tree").Find(skillUILabel);
+
+		skillUI.Find("Image").GetComponent<Image>().sprite = skill.getSprite();
+
+		TextMeshProUGUI skillName = skillUI.Find("Name").GetComponent<TextMeshProUGUI>();
+		skillName.text = skill.getName();
+
+		TextMeshProUGUI skillPrice = skillUI.Find("Price").GetComponent<TextMeshProUGUI>();
+		skillPrice.text = skill.getXPCost().ToString() + " XP";
+
+		Image skillButton = skillUI.Find("Button").GetComponent<Image>();
+
+		if (skill.unlocked)
+		{
+			skillPrice.transform.gameObject.SetActive(false);
+			skillButton.transform.gameObject.SetActive(false);
+		}
 	}
 
 	// Start is called before the first frame update
@@ -50,12 +67,12 @@ public class SkillsTreeUI : MonoBehaviour
 		updateExperienceText();
 
 		// Update gadget price text
-		updateSkillPriceText("Jumpman", Jumpman.ID);
-		updateSkillPriceText("Jumpman2", Jumpman2.ID);
-		updateSkillPriceText("LightStep", LightStep.ID);
-		updateSkillPriceText("LightStep2", LightStep2.ID);
-		updateSkillPriceText("GottaGoFast", GottaGoFast.ID);
-		updateSkillPriceText("GottaGoFast2", GottaGoFast2.ID);
+		updateSkillUI("Jumpman", Jumpman.ID);
+		updateSkillUI("Jumpman2", Jumpman2.ID);
+		updateSkillUI("LightStep", LightStep.ID);
+		updateSkillUI("LightStep2", LightStep2.ID);
+		updateSkillUI("GottaGoFast", GottaGoFast.ID);
+		updateSkillUI("GottaGoFast2", GottaGoFast2.ID);
 
 	}
 

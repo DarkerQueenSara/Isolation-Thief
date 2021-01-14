@@ -26,6 +26,7 @@ public class KarmaSkillsTreeUI : MonoBehaviour
 		button.transform.gameObject.SetActive(false);
 		priceText.transform.gameObject.SetActive(false);
 		updateKarmaText();
+		updateKarmaSkills();
 	}
 
 	public void updateHelpText(string text)
@@ -36,10 +37,27 @@ public class KarmaSkillsTreeUI : MonoBehaviour
 		HelpText.transform.gameObject.SetActive(true);
 	}
 
-	void updateKarmaSkillPriceText(string karmaSkillUILabel, string karmaSkillID)
+	void updateKarmaSkillUI(string karmaSkillUILabel, string karmaSkillID)
 	{
-		TextMeshProUGUI skillPrice = transform.Find("Tree").Find(karmaSkillUILabel).Find("Price").GetComponent<TextMeshProUGUI>();
-		skillPrice.text = karmaSkillsTree.GetSkill(karmaSkillID).getXPCost().ToString() + " XP";
+		KarmaSkill karmaSkill = karmaSkillsTree.GetSkill(karmaSkillID);
+
+		Transform karmaSkillUI = transform.Find("Tree").Find(karmaSkillUILabel);
+
+		karmaSkillUI.Find("Image").GetComponent<Image>().sprite = karmaSkill.getSprite();
+
+		TextMeshProUGUI karmaSkillName = karmaSkillUI.Find("Name").GetComponent<TextMeshProUGUI>();
+		karmaSkillName.text = karmaSkill.getName();
+
+		TextMeshProUGUI karmaSkillPrice = karmaSkillUI.Find("Price").GetComponent<TextMeshProUGUI>();
+		karmaSkillPrice.text = karmaSkill.getXPCost().ToString() + " KP";
+
+		Image karmaSkillButton = karmaSkillUI.Find("Button").GetComponent<Image>();
+
+		if (karmaSkill.unlocked)
+		{
+			karmaSkillPrice.transform.gameObject.SetActive(false);
+			karmaSkillButton.transform.gameObject.SetActive(false);
+		}
 	}
 
 	// Start is called before the first frame update
@@ -49,9 +67,13 @@ public class KarmaSkillsTreeUI : MonoBehaviour
 
 		updateKarmaText();
 
-		// Update gadget price text
-		updateKarmaSkillPriceText("Matrix", Matrix.ID);
+		updateKarmaSkills();
+	}
 
+	void updateKarmaSkills()
+	{
+		updateKarmaSkillUI("SlowCops", Matrix.ID);
+		updateKarmaSkillUI("Bodybuilder", Bodybuilder.ID);
 	}
 
 	private void updateKarmaText()

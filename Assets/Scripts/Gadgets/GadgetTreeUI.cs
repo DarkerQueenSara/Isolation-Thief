@@ -38,10 +38,27 @@ public class GadgetTreeUI : MonoBehaviour
 		HelpText.transform.gameObject.SetActive(true);
 	}
 
-	void updateGadgetPriceText(string gadgetUILabel, string gadgetID)
+	void updateGadgetUI(string gadgetUILabel, string gadgetID)
 	{
-		TextMeshProUGUI gadgetPrice = transform.Find("Tree").Find(gadgetUILabel).Find("Price").GetComponent<TextMeshProUGUI>();
-		gadgetPrice.text = gadgetTree.GetGadget(gadgetID).getCost().ToString() + " $";
+		Gadget gadget = gadgetTree.GetGadget(gadgetID);
+
+		Transform gadgetUI = transform.Find("Tree").Find(gadgetUILabel);
+
+		gadgetUI.Find("Image").GetComponent<Image>().sprite = gadget.getSprite();
+
+		TextMeshProUGUI gadgetName = gadgetUI.Find("Name").GetComponent<TextMeshProUGUI>();
+		gadgetName.text = gadget.getID();
+
+		TextMeshProUGUI gadgetPrice = gadgetUI.Find("Price").GetComponent<TextMeshProUGUI>();
+		gadgetPrice.text = gadget.getCost().ToString() + " $";
+
+		Image gadgetButton = gadgetUI.Find("Button").GetComponent<Image>();
+
+		if (gadget.unlocked)
+		{
+			gadgetPrice.transform.gameObject.SetActive(false);
+			gadgetButton.transform.gameObject.SetActive(false);
+		}
 	}
 
 	// Start is called before the first frame update
@@ -52,10 +69,11 @@ public class GadgetTreeUI : MonoBehaviour
 		updateMoneyText();
 
 		// Update gadget price text
-		updateGadgetPriceText("FastLockPick", FastLockpick.gadgetID);
-		updateGadgetPriceText("Lighter", Lighter.gadgetID);
-		updateGadgetPriceText("HackingDevice", SimpleHackingDevice.gadgetID);
-		updateGadgetPriceText("SpyCamera", SpyCam.gadgetID);
+		updateGadgetUI("SimpleLockPick", SimpleLockpick.gadgetID);
+		updateGadgetUI("FastLockPick", FastLockpick.gadgetID);
+		updateGadgetUI("Lighter", Lighter.gadgetID);
+		updateGadgetUI("HackingDevice", SimpleHackingDevice.gadgetID);
+		updateGadgetUI("SpyCamera", SpyCam.gadgetID);
 
 	}
 

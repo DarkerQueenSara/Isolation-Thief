@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Slow Cops
   icon: {fileID: 21300000, guid: ef51ee044b4e5e141bd22d768d2b8574, type: 3}
-  cost: 0
+  cost: 1

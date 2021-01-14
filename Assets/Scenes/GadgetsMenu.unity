@@ -798,10 +798,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7556181591161452817, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556181591161452817, guid: 5e42cb6beb016ac4aa80d282740b75dc,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 142.39757
+      objectReference: {fileID: 0}
     - target: {fileID: 7556181591161452830, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_text
-      value: Hacking Device
+      value: Simple Hacking Device
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e42cb6beb016ac4aa80d282740b75dc, type: 3}
@@ -1168,12 +1178,12 @@ PrefabInstance:
     - target: {fileID: 3371322236877969474, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4339376844176399159, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7556181589959415778, guid: 5e42cb6beb016ac4aa80d282740b75dc,
         type: 3}

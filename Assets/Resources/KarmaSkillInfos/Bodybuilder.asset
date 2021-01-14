@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c3d9bf582cf9fb42b76205fe97a1aa6, type: 3}
-  m_Name: LightStep
+  m_Name: Bodybuilder
   m_EditorClassIdentifier: 
-  name: Light Step
-  icon: {fileID: 21300000, guid: e9cf35f2ee3964f4ab748b16b8162cf8, type: 3}
-  cost: 4000
+  name: Bodybuilder
+  icon: {fileID: 21300000, guid: e492089d995fcf94195be9cd784a44ed, type: 3}
+  cost: 2

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3d9bf582cf9fb42b76205fe97a1aa6, type: 3}
   m_Name: Jumpman2
   m_EditorClassIdentifier: 
-  name: Jumpman2
+  name: Jumpman 2
   icon: {fileID: 21300000, guid: 33d88080a5701df48aaceaded2a78d67, type: 3}
   cost: 12000

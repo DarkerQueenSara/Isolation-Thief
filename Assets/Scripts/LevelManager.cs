@@ -22,8 +22,8 @@ public class LevelManager : MonoBehaviour
 
 	public Player player;
 
-	public int moneyGoal = 4000;
-	public float timeTillCops = 15.0f;
+	public int moneyGoal;
+	public float timeTillCops;
 	public bool copsCalled { get; private set; }
 	public bool copsArrived;
 	public bool hasEnded;
@@ -60,9 +60,9 @@ public class LevelManager : MonoBehaviour
 	public bool trashInCan;
 	[HideInInspector]
 	public bool oscarFlipped;
-    
 
-    private void Awake()
+
+	private void Awake()
 	{
 		GameManager.Instance.cl = this;
 		audioManager = this.gameObject.GetComponent<AudioManager>();

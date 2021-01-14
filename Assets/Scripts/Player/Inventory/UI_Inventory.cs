@@ -29,6 +29,9 @@ public class UI_Inventory : MonoBehaviour
 	private Transform rightHand;
 	private Transform container;
 
+	private Transform itemPreview;
+	private ItemWrapper previewedItem;
+
 	private Player player;
 
 
@@ -51,12 +54,15 @@ public class UI_Inventory : MonoBehaviour
 		rightHand = gadgetsStuff.Find("right_hand");
 		container = gadgetsStuff.Find("container");
 
+		itemPreview = uiInventory.Find("ItemPreview");
+		itemPreview.transform.gameObject.SetActive(false);
+
 		gameObject.SetActive(false);
 	}
 
 	private void Start()
 	{
-		this.goalValueText.text = "Goal : 2500$";
+		this.goalValueText.text = "Goal : " + LevelManager.Instance.moneyGoal.ToString() + " $";
 		this.player = Player.Instance;
 		RefreshInventoryGadgets();
 	}
@@ -86,15 +92,39 @@ public class UI_Inventory : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 
-        foreach (ItemWrapper itemW in inventory.GetItemList())
-        {
-            GameObject temp = Instantiate(itemSlotPrefab, stolenItems);
-            temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = itemW.item.GetSprite();
-            Button removeButton = temp.transform.Find("removeButton").GetComponent<Button>();
-            removeButton.onClick.AddListener(delegate {
-                player.RemoveFromInventory(itemW.id);
-            });
-        }
+		foreach (ItemWrapper itemW in inventory.GetItemList())
+		{
+			GameObject temp = Instantiate(itemSlotPrefab, stolenItems);
+			temp.transform.Find("itemButton").Find("icon").GetComponent<Image>().sprite = itemW.item.GetSprite();
+
+			Image selected = temp.transform.Find("selected").GetComponent<Image>();
+
+			Button itemButton = temp.transform.Find("itemButton").GetComponent<Button>();
+			itemButton.onClick.AddListener(delegate
+			{
+				if (selected.transform.gameObject.active)
+				{
+					//selected.transform.gameObject.SetActive(false);
+					hidePreviewItem();
+				}
+				else
+				{
+					//selected.transform.gameObject.SetActive(true);
+					previewItem(itemW);
+				}
+			});
+
+			Button removeButton = temp.transform.Find("removeButton").GetComponent<Button>();
+
+			removeButton.onClick.AddListener(delegate
+			{
+				if (previewedItem.id == itemW.id)
+				{
+					hidePreviewItem();
+				}
+				player.RemoveFromInventory(itemW.id);
+			});
+		}
 
 		stolenValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
 		this.goalValueText.text = "Goal : " + LevelManager.Instance.moneyGoal.ToString() + " $";
@@ -104,6 +134,29 @@ public class UI_Inventory : MonoBehaviour
 		float missingValue = LevelManager.Instance.moneyGoal - inventory.getTotalValue();
 		missingValue = missingValue < 0 ? 0 : missingValue;
 		this.missingValueText.text = missingValue + " $";
+	}
+
+	public void hidePreviewItem()
+	{
+		itemPreview.transform.gameObject.SetActive(false);
+	}
+
+	public void previewItem(ItemWrapper itemW)
+	{
+		previewedItem = itemW;
+
+		TextMeshProUGUI name = itemPreview.Find("Name").GetComponent<TextMeshProUGUI>();
+		name.text = itemW.item.name;
+
+		TextMeshProUGUI value = itemPreview.Find("Value").GetComponent<TextMeshProUGUI>();
+		value.text = itemW.item.value.ToString() + " $";
+
+		TextMeshProUGUI weight = itemPreview.Find("Weight").GetComponent<TextMeshProUGUI>();
+		weight.text = itemW.item.weight.ToString() + " Kg";
+
+		itemPreview.Find("Item").Find("icon").GetComponent<Image>().sprite = itemW.item.GetSprite();
+
+		itemPreview.transform.gameObject.SetActive(true);
 	}
 
 	public void RefreshInventoryGadgets()
