@@ -12,7 +12,7 @@ public class NPCNoise : MonoBehaviour
         this.NPC = managedNPC;
     }
 
-    public void Investigate(Vector3 pos, float maxDistance, int weakness)
+    public void Investigate(Vector3 pos, float maxDistance, int weakness, float timeToWait)
     {
         if (NPC.playerDetected) return;
 
@@ -31,16 +31,16 @@ public class NPCNoise : MonoBehaviour
         if (realDistance <= maxDistance / 2) { probability = 1; }
         else
         {
-            probability = 1 - (realDistance / weakness) + 0.15f;
+            probability = 1 - (realDistance / weakness) + 0.075f;
         }
 
-        //Debug.Log("Probability: " + probability);
+        Debug.Log("Probability: " + probability);
 
         int n = Random.Range(1, 100);
         if(n <= probability * 100) //Investigate
         {
             //Debug.Log("WHAT WAS THAT?");
-            StartCoroutine(InvestigateSound(pos));
+            StartCoroutine(InvestigateSound(pos, timeToWait));
 
         } else // Don't investigate
         {
@@ -49,8 +49,11 @@ public class NPCNoise : MonoBehaviour
 
     }
 
-    private IEnumerator InvestigateSound(Vector3 position)
+    private IEnumerator InvestigateSound(Vector3 position, float timeToWait)
     {
+        //NPC.StopCoroutine(NPC.DefaultMovementWithLights());
+        NPC.StopAllCoroutines(); // Do I seriosly have more than 1 co routine running of the same method?
+        NPC.busy = true;
         NPCMovement npcMovement = NPC.myMovement;
         npcMovement.GoTo(position);
         while (npcMovement.PathPending())
@@ -64,6 +67,8 @@ public class NPCNoise : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(3f);
+        npcMovement.Idle();
+        yield return new WaitForSeconds(timeToWait);
+        NPC.busy = false;
     }
 }

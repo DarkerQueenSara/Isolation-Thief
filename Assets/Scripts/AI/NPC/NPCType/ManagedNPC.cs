@@ -21,8 +21,8 @@ public class ManagedNPC : MonoBehaviour
     private const float doorCloseDelay = 2f;
     public bool canCallCops;
 
-    public bool playerDetected = false;
-    private bool busy = false;
+    [HideInInspector] public bool playerDetected = false;
+    [HideInInspector] public bool busy = false;
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +68,7 @@ public class ManagedNPC : MonoBehaviour
         }
     }
 
-    private IEnumerator DefaultMovementWithLights()
+    public IEnumerator DefaultMovementWithLights()
     {
         this.busy = true;
         NPCManager npcManager = NPCManager.Instance;

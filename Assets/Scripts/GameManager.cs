@@ -168,11 +168,6 @@ public class GameManager : MonoBehaviour
                     availableXp += c.xp;
                     totalXp += c.xp;
                 }
-                if (c.fullfilled)
-                {
-                    availableXp += c.xp;
-                    Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
-                }
             }
 
             foreach (Challenge c in goodDeeds)
@@ -181,11 +176,6 @@ public class GameManager : MonoBehaviour
                 {
                     availableKp += c.xp;
                     totalKp += c.xp;
-                }
-                if (c.fullfilled)
-                {
-                    availableKp += c.xp;
-                    Debug.Log(c.name + ": " + c.description + " - FULLFILLED!");
                 }
             }
         }

@@ -30,7 +30,7 @@ public class NoiseController : Hackable
             audioManager.Play(audioManager.sounds[0]);
             Invoke("StopSound", distractionDuration);
             //TODO fazer barulho para NPC (e preencher maxDist no som)
-            NPCManager.Instance?.InvestigateSound(gameObject.transform.position, 500, 1);
+            NPCManager.Instance?.InvestigateSound(gameObject.transform.position, 5000, 1, 7f);
             uses++;
         }
     }

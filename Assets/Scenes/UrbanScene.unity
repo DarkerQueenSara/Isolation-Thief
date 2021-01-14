@@ -7766,6 +7766,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2819860076802405035, guid: 2a2d30e25355d194dbef39d9e140b45c,
+        type: 3}
+      propertyPath: avoidancePriority
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 2819860077256651932, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
       propertyPath: lightSwitchTransform
@@ -88266,7 +88271,7 @@ GameObject:
   - component: {fileID: 9166259847032575174}
   - component: {fileID: 3873729805930086938}
   - component: {fileID: 274766135378862325}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
