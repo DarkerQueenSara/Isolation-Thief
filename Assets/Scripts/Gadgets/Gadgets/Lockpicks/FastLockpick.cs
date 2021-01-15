@@ -51,7 +51,7 @@ public class FastLockpick : Lockpick
             loadingBar.SetActive();
 			//Debug.Log("Starting pick
 			st.Start();
-			playerAudioManager.Play("Lockpick");
+			//playerAudioManager.Play("Lockpick");
 		}
 
 		//Start the lockpicking process if not yet started
@@ -74,7 +74,7 @@ public class FastLockpick : Lockpick
 		else if (progress >= 1f) //if done, end and return true
 		{
 			//loadBar = false;
-			playerAudioManager.Stop("Lockpick");
+			//playerAudioManager.Stop("Lockpick");
 			isPicking = false;
 			this.loadingBar.SetDisabled();
 			st.Stop();
@@ -91,7 +91,7 @@ public class FastLockpick : Lockpick
 
 	public override void stopPicking()
 	{
-		playerAudioManager.Stop("Lockpick");
+		//playerAudioManager.Stop("Lockpick");
 		this.loadingBar.SetDisabled();
 		st.Stop();
 		Debug.Log(string.Format("Lockpicked for {0} ms and stopped", st.ElapsedMilliseconds));
