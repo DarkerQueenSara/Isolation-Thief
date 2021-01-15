@@ -51,7 +51,7 @@ public class ChooseGadgetUI : MonoBehaviour
 	public void changeDificulty()
     {
 		Debug.Log("Changing dificulty");
-		motherNPC.SetActive(true);
+		motherNPC?.SetActive(true);
 		foreach(Gadget gadget in GameManager.Instance.gadgetTree.getAllGadgets())
         {
 			gadget.unlocked = true;
@@ -71,7 +71,7 @@ public class ChooseGadgetUI : MonoBehaviour
 		LevelManager.Instance.moneyGoal += 1000;
 		transform.Find("SkipBtn").GetComponent<Button>().interactable = false;
 
-		NPCManager.Instance.RefreshManagedNPCS();
+		NPCManager.Instance?.RefreshManagedNPCS();
 		this.refreshEverything();
 	}
 

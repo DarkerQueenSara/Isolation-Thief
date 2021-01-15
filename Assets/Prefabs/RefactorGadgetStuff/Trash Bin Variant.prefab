@@ -72,15 +72,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1724640988637348641, guid: ab2de081d5b1b7a42b4c3bba50b9f20f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.055
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724640988637348641, guid: ab2de081d5b1b7a42b4c3bba50b9f20f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724640988637348641, guid: ab2de081d5b1b7a42b4c3bba50b9f20f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 9088943751787115827, guid: ab2de081d5b1b7a42b4c3bba50b9f20f,
         type: 3}
       propertyPath: flameAnim
       value: 
       objectReference: {fileID: 6422154063183754934}
+    - target: {fileID: 9088943751787115827, guid: ab2de081d5b1b7a42b4c3bba50b9f20f,
+        type: 3}
+      propertyPath: toDestroy
+      value: 
+      objectReference: {fileID: 5540762656171810206}
     m_RemovedComponents:
     - {fileID: 1340576320, guid: ab2de081d5b1b7a42b4c3bba50b9f20f, type: 3}
     - {fileID: 1660103330150035116, guid: ab2de081d5b1b7a42b4c3bba50b9f20f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab2de081d5b1b7a42b4c3bba50b9f20f, type: 3}
+--- !u!1 &5540762656171810206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 153830902586208773, guid: ab2de081d5b1b7a42b4c3bba50b9f20f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5676288304526274459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6422154063183754934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1722109243799640365, guid: ab2de081d5b1b7a42b4c3bba50b9f20f,

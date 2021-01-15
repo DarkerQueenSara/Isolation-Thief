@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flammable : Interactable
 {
     public GameObject flameAnim;
+    public GameObject toDestroy;
     protected bool isBurning;
     protected string objectName;
     private AudioManager audioManager;
@@ -47,14 +48,13 @@ public class Flammable : Interactable
     {
         isBurning = false;
         flameAnim.SetActive(false);
-        this.gameObject.SetActive(false);
+        toDestroy.SetActive(false);
         audioManager.Stop("Burn");
         //TODO parar de mandar som ao NPC
     }
 
     public override string getInteractingText()
     {
-        Debug.Log("Looking");
         if (!isBurning)
         {
             Lighter lighter = (Lighter)player.getGadgetOnHand(GadgetType.LIGHTER);
