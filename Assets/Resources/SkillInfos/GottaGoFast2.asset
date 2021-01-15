@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Gotta Go Fast 2
   icon: {fileID: 21300000, guid: 4d980e382d511764298a6afd9eb49cb7, type: 3}
-  cost: 8500
+  cost: 1900

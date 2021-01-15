@@ -1519,6 +1519,52 @@ Transform:
   m_Father: {fileID: 8380286}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
+--- !u!1 &318456048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318456049}
+  - component: {fileID: 318456050}
+  m_Layer: 0
+  m_Name: GymDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &318456049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318456048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.27, y: -5.093102, z: -8.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1497172529}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &318456050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318456048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 7826158606539054}
+  lightSwitch: {fileID: 0}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!65 &327778156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6412,6 +6458,8 @@ MonoBehaviour:
   groundCheck: {fileID: 1373930363}
   groundDistance: 0.4
   disabled: 0
+  walkDistanceNoiseMultiplier: 1
+  runDistanceNoiseMultiplier: 1
 --- !u!143 &951981089
 CharacterController:
   m_ObjectHideFlags: 0
@@ -9715,6 +9763,52 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1160823576}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1411026652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411026653}
+  - component: {fileID: 1411026654}
+  m_Layer: 0
+  m_Name: WashingMachineDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1411026653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411026652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.48, y: -5.093102, z: -11.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1497172529}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1411026654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411026652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3c4c16401784c8410e678cfcc0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchTransform: {fileID: 4328680158788130000}
+  lightSwitch: {fileID: 0}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1001 &1415694761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10226,6 +10320,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4179435359120081098, guid: 89093c2093a56ea4da829a2742832ba6,
     type: 3}
   m_PrefabInstance: {fileID: 1463641637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1497172529 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2819860077998137428, guid: 2a2d30e25355d194dbef39d9e140b45c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1238758562}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1497931771
 PrefabInstance:
@@ -12013,7 +12113,7 @@ PrefabInstance:
     - target: {fileID: 3145969707829005256, guid: 6d523a178745f654f8f3b869ab690bd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.488723
+      value: 7.02
       objectReference: {fileID: 0}
     - target: {fileID: 3145969707829005256, guid: 6d523a178745f654f8f3b869ab690bd8,
         type: 3}
