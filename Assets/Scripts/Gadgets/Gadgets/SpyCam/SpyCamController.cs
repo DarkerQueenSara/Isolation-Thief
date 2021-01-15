@@ -19,7 +19,7 @@ public class SpyCamController : MonoBehaviour
             Debug.LogError("More than one instance of SpyCamController");
         }
         Instance = this;
-        playerAudioManager = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioManager>();
+        playerAudioManager = GameObject.FindGameObjectWithTag("Player")?.GetComponent<AudioManager>();
     }
 
     public void CreateSpyCam()

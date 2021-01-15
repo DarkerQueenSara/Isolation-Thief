@@ -13,7 +13,7 @@ public class Lockpick : Gadget
 	{
 		this.loadingBar = LoadingBar.instance;
 		//Debug.Log(loadingBar);
-		playerAudioManager = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioManager>();
+		playerAudioManager = GameObject.FindGameObjectWithTag("Player")?.GetComponent<AudioManager>();
 
 	}
 

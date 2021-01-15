@@ -9,7 +9,7 @@ public class LanternController : MonoBehaviour
     private void Awake()
     {
         light = this.gameObject.GetComponent<Light>();
-        playerAudioManager = this.gameObject.GetComponentInParent<AudioManager>();
+        playerAudioManager = this.gameObject?.GetComponentInParent<AudioManager>();
     }
 
     // Update is called once per frame
