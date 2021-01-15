@@ -10,6 +10,7 @@ public class SpyCamController : MonoBehaviour
     private GameObject spyCamObject;
     private Camera spyCam;
     public GameObject crosshair;
+    private AudioManager playerAudioManager;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class SpyCamController : MonoBehaviour
             Debug.LogError("More than one instance of SpyCamController");
         }
         Instance = this;
+        playerAudioManager = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioManager>();
     }
 
     public void CreateSpyCam()
@@ -34,6 +36,7 @@ public class SpyCamController : MonoBehaviour
             camPos += forward* (-0.025f);
             spyCamObject = Instantiate(this.spyCamPrefab, camPos, Quaternion.LookRotation(hit.normal));
             spyCam = spyCamObject.transform.Find("Camera").GetComponent<Camera>();
+            playerAudioManager.Play("Blip");
         }
     }
 

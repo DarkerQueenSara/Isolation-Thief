@@ -6988,6 +6988,15 @@ MonoBehaviour:
     fadeIn: 0
     maxDist: 24
     source: {fileID: 0}
+  - name: Blip
+    clip: {fileID: 8300000, guid: e8859a3c01a535f429ab21a4b95f6e2b, type: 3}
+    volume: 0.6
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    maxDist: 24
+    source: {fileID: 0}
 --- !u!114 &951981094
 MonoBehaviour:
   m_ObjectHideFlags: 0
