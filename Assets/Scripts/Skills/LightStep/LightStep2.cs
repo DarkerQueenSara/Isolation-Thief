@@ -6,7 +6,7 @@ public class LightStep2 : Skill
 {
 
     public const string ID = "LightStep2";
-    public const float NOISE_REDUCTION_PERCENT = 0.5f;
+    public const float NOISE_REDUCTION_PERCENT = 0.35f;
 
     public LightStep2()
     {

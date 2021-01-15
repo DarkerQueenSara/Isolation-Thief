@@ -58,7 +58,7 @@ public class ManagedNPC : MonoBehaviour
             Debug.LogError("my mov is null1");
             return;
         }
-        if (!busy && !myMovement.IsMoving() && !NPCManager.Instance.CopsCalled)
+        if (!busy && !NPCManager.Instance.CopsCalled)
         {
             StartCoroutine(DefaultMovementWithLights());
             //myMovement.Move();
