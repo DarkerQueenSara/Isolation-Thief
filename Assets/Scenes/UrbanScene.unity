@@ -6426,7 +6426,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.45
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
@@ -8073,7 +8073,7 @@ PrefabInstance:
     - target: {fileID: 2819860076802405035, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
       propertyPath: avoidancePriority
-      value: 99
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2819860077010697138, guid: 2a2d30e25355d194dbef39d9e140b45c,
         type: 3}
