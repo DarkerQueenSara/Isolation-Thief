@@ -5651,7 +5651,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Ambient
     clip: {fileID: 8300000, guid: cd3fd61115a687444b9c8af4f489926f, type: 3}
-    volume: 0.6
+    volume: 0.4
     spatialBlend: 0
     pitch: 1
     loop: 1
@@ -6976,6 +6976,15 @@ MonoBehaviour:
     spatialBlend: 1
     pitch: 1
     loop: 0
+    fadeIn: 0
+    maxDist: 24
+    source: {fileID: 0}
+  - name: Lockpick
+    clip: {fileID: 8300000, guid: e42d7fcc39b330646b50814208e99273, type: 3}
+    volume: 1
+    spatialBlend: 1
+    pitch: 1
+    loop: 1
     fadeIn: 0
     maxDist: 24
     source: {fileID: 0}
