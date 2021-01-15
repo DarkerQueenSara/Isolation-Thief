@@ -79,8 +79,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (disabled) return;
-
+        if (disabled)
+        {
+            audioManager.StopAll();
+            return;
+        }
         //verify if is on ground------
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 

@@ -6,6 +6,7 @@ public abstract class Skill
 {
 
 	public bool unlocked;
+	public bool realUnlocked;
 	public const string SKILL_INFO_DIR = "SkillInfos/";
 	public SkillInfo skillInfo;
 	public Skill parent;
@@ -15,6 +16,7 @@ public abstract class Skill
 
 	public Skill()
 	{
+		realUnlocked = false;
 		skillDependencies = new List<Skill>();
 		unlocked = false;
 		parent = null;

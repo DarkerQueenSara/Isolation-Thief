@@ -6,6 +6,7 @@ public abstract class KarmaSkill
 {
 
 	public bool unlocked;
+	public bool realUnlocked;
 	public const string KARMA_SKILL_INFO_DIR = "KarmaSkillInfos/";
 	public SkillInfo skillInfo;
 	//public KarmaSkill parent;
@@ -13,6 +14,7 @@ public abstract class KarmaSkill
 
 	public KarmaSkill()
 	{
+		realUnlocked = false;
 		//skillDependencies = new List<KarmaSkill>();
 		unlocked = false;
 		//parent = null;
