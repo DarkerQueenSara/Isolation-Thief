@@ -111,6 +111,10 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 	{
 		Debug.Log("Restart clicked");
 		NPCManager.Instance.StopAllNPC();
+		foreach (Gadget gadget in GameManager.Instance.gadgetTree.getAllGadgets())
+		{
+			gadget.unlocked = gadget.realUnlocked;
+		}
 		PausedMenu.Instance.visible();
 		GameManager.Instance.StartLevel();
 	}
