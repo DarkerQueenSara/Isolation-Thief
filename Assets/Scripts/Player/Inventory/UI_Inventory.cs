@@ -129,7 +129,7 @@ public class UI_Inventory : MonoBehaviour
 		stolenValueText.text = "Total Value Stolen: " + inventory.getTotalValue();
 		this.goalValueText.text = "Goal : " + LevelManager.Instance.moneyGoal.ToString() + " $";
 		this.stolenValueText.text = "Stolen : " + inventory.getTotalValue() + " $";
-		this.weightValueText.text = "Weight (Max: " + Inventory.MAX_WEIGHT + "Kg): " + inventory.getTotalWeight() + "Kg";
+		this.weightValueText.text = "Weight (Max: " + (Inventory.MAX_WEIGHT + inventory.extraWeight) + "Kg): " + inventory.getTotalWeight() + "Kg";
 
 		float missingValue = LevelManager.Instance.moneyGoal - inventory.getTotalValue();
 		missingValue = missingValue < 0 ? 0 : missingValue;

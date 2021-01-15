@@ -15,7 +15,7 @@ public class Bodybuilder : KarmaSkill
 	{
 		if (unlocked)
 		{
-			LevelManager.Instance.player.inventory.extraWeight = EXTRA_WEIGHT;
+			Player.Instance.inventory.extraWeight = EXTRA_WEIGHT;
 			Debug.Log("Activating skill " + getID());
 		}
 	}

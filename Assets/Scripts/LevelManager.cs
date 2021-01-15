@@ -6,19 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-	private static LevelManager instance;
 	public AudioManager audioManager;
-	public static LevelManager Instance
-	{
-		get
-		{
-			if (instance == null)
-			{
-				instance = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-			}
-			return instance;
-		}
-	}
+	public static LevelManager Instance {get; private set;}
 
 	public Player player;
 
@@ -64,6 +53,11 @@ public class LevelManager : MonoBehaviour
 
 	private void Awake()
 	{
+		if(Instance != null)
+        {
+			Debug.LogError("More than one instance of LevelManager found!");
+        }
+		Instance = this;
 		GameManager.Instance.cl = this;
 		audioManager = this.gameObject.GetComponent<AudioManager>();
 	}
@@ -87,7 +81,7 @@ public class LevelManager : MonoBehaviour
 		Time.timeScale = 1;
 
 		hasEnded = false;
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player = Player.Instance;
 
 		timeElapsed = 0f;
 		cashInInventory = 0;

@@ -20,6 +20,8 @@ public class ChooseGadgetUI : MonoBehaviour
 
 	bool isShown = false;
 
+	GameObject motherNPC;
+
 	private void Awake()
 	{
 		Time.timeScale = 0;
@@ -32,15 +34,61 @@ public class ChooseGadgetUI : MonoBehaviour
 			Time.timeScale = 1;
 			this.doneChoosing();
 		});
+		transform.Find("SkipBtn").GetComponent<Button>().onClick.AddListener(changeDificulty);
+		var npcs = GameObject.FindGameObjectsWithTag("NPC");
+
+		foreach (GameObject npc in npcs)
+		{
+			if (npc.name == "MotherNPC")
+			{
+				motherNPC = npc;
+			}
+		}
+		motherNPC.SetActive(false);
 		gameObject.SetActive(false);
+	}
+
+	public void changeDificulty()
+    {
+		Debug.Log("Changing dificulty");
+		motherNPC.SetActive(true);
+		foreach(Gadget gadget in GameManager.Instance.gadgetTree.getAllGadgets())
+        {
+			gadget.unlocked = true;
+        }
+		SkillsTree skillsTree = GameManager.Instance.skillsTree;
+		foreach (Skill skill in skillsTree.getAllSkills())
+		{
+			skill.unlocked = true;
+		}
+		skillsTree.activateAllSkills();
+		KarmaSkillsTree karmaTree = GameManager.Instance.karmaSkillsTree;
+		foreach (KarmaSkill skill in karmaTree.getAllSkills())
+		{
+			skill.unlocked = true;
+		}
+		karmaTree.activateAllSkills();
+		LevelManager.Instance.moneyGoal += 1000;
+		transform.Find("SkipBtn").GetComponent<Button>().interactable = false;
+
+		this.refreshEverything();
 	}
 
 	void Start()
 	{
+		this.refreshEverything();
+	}
+
+	public void refreshEverything()
+    {
 		GadgetTree gadgetTree = Player.Instance.GetGadgetTree();
 		this.unlockedGadgets = gadgetTree.getUnlockedGadgets();
 		this.refreshSlots();
+		this.refreshGoal();
+	}
 
+	public void refreshGoal()
+    {
 		TextMeshProUGUI Goal = transform.Find("Goal").GetComponent<TextMeshProUGUI>();
 		Goal.text = LevelManager.Instance.moneyGoal.ToString() + " $";
 	}
