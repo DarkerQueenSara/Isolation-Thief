@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
         {
             if (s.fadeIn)
             {
-                StartCoroutine(StartFade(s.source, 5f, 0.6f));
+                StartCoroutine(StartFade(s.source, 5f, 0.4f));
             }
             s.source.Play();
         }
