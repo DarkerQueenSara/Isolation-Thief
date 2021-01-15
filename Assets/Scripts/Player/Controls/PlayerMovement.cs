@@ -32,9 +32,23 @@ public class PlayerMovement : MonoBehaviour
 
     private NPCManager npcManager;
 
-    private bool sneak;
-    private bool walk;
-    private bool run;
+    private bool sneakNoise;
+    private bool walkNoise;
+    public float walkDistanceNoiseMultiplier = 1f;
+    private int walkDistanceNoiseValue = 10;
+    public int walkDistanceNoise
+    { 
+        get { return (int)(walkDistanceNoiseValue * walkDistanceNoiseMultiplier); }  
+        private set { walkDistanceNoiseValue = value; } 
+    }
+    private bool runNoise;
+    public float runDistanceNoiseMultiplier = 1f;
+    private int runDistanceNoiseValue = 15;
+    public int runDistanceNoise
+    {
+        get { return (int)(runDistanceNoiseValue * runDistanceNoiseMultiplier); }
+        private set { runDistanceNoiseValue = value; }
+    }
 
     private void Awake()
     {
@@ -58,19 +72,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlaySounds()
     {
-        if (sneak)
+        if (sneakNoise)
         {
            // npcManager?.InvestigateSound(gameObject.transform.position, 7, 7);
             audioManager.Play(audioManager.sounds[Random.Range(6, 7)]);
 
-        } else if (walk)
+        } else if (walkNoise)
         {
-            npcManager?.InvestigateSound(gameObject.transform.position, 10, 10, 1f);
+            npcManager?.InvestigateSound(gameObject.transform.position, walkDistanceNoise, 1f);
             audioManager.Play(audioManager.sounds[Random.Range(0, 1)]);
 
-        } else if (run)
+        } else if (runNoise)
         {
-            npcManager?.InvestigateSound(gameObject.transform.position, 15, 15, 1f);
+            npcManager?.InvestigateSound(gameObject.transform.position, runDistanceNoise, 1f);
             audioManager.Play(audioManager.sounds[Random.Range(3, 4)]);
 
         }
@@ -108,9 +122,9 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * crouchSpeed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
-                sneak = true;
-                run = false;
-                walk = false;
+                sneakNoise = true;
+                runNoise = false;
+                walkNoise = false;
             }
         }
         else if (Input.GetButton("Sprint"))
@@ -118,9 +132,9 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * sprintSpeed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
-                walk = false;
-                sneak = false;
-                run = true;
+                walkNoise = false;
+                sneakNoise = false;
+                runNoise = true;
             }
         }
         else 
@@ -128,17 +142,17 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * speed * Time.deltaTime);
             if (isGrounded && move.magnitude > 0)
             {
-                sneak = false;
-                run = false;
-                walk = true;
+                sneakNoise = false;
+                runNoise = false;
+                walkNoise = true;
             }
         }
 
         if(move.magnitude <= 0.0001)
         {
-            sneak = false;
-            run = false;
-            walk = false;
+            sneakNoise = false;
+            runNoise = false;
+            walkNoise = false;
         }
 
         //-----------------------------

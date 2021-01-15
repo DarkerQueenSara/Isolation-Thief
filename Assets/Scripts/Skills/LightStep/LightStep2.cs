@@ -6,7 +6,7 @@ public class LightStep2 : Skill
 {
 
     public const string ID = "LightStep2";
-    public const float NOISE_REDUCTION_PERCENT = 0.50f;
+    public const float NOISE_REDUCTION_PERCENT = 0.5f;
 
     public LightStep2()
     {
@@ -26,6 +26,10 @@ public class LightStep2 : Skill
             Player.Instance.GetAudioManager().ChangeVolume("Sneak1", (1 - NOISE_REDUCTION_PERCENT));
             Player.Instance.GetAudioManager().ChangeVolume("Sneak2", (1 - NOISE_REDUCTION_PERCENT));
             Player.Instance.GetAudioManager().ChangeVolume("Sneak3", (1 - NOISE_REDUCTION_PERCENT));
+
+            PlayerMovement.Instance.walkDistanceNoiseMultiplier -= NOISE_REDUCTION_PERCENT;
+            PlayerMovement.Instance.runDistanceNoiseMultiplier -= NOISE_REDUCTION_PERCENT;
+
             Debug.Log("Activating skill " + getID());
         }
     }

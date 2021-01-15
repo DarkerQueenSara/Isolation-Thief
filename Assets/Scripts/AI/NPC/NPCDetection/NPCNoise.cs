@@ -12,7 +12,7 @@ public class NPCNoise : MonoBehaviour
         this.NPC = managedNPC;
     }
 
-    public void Investigate(Vector3 pos, float maxDistance, int weakness, float timeToWait)
+    public void Investigate(Vector3 pos, float maxDistance, float timeToWait)
     {
         if (NPC.playerDetected || NPCManager.Instance.CopsCalled) return;
 
@@ -31,7 +31,7 @@ public class NPCNoise : MonoBehaviour
         if (realDistance <= maxDistance / 2) { probability = 1; }
         else
         {
-            probability = 1 - (realDistance / weakness) + 0.075f;
+            probability = 1 - (realDistance / maxDistance) + 0.075f;
         }
 
         Debug.Log("Probability: " + probability);

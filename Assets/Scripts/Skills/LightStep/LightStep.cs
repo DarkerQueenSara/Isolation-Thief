@@ -27,6 +27,9 @@ public class LightStep : Skill
             Player.Instance.GetAudioManager().ChangeVolume("Sneak2", (1 - NOISE_REDUCTION_PERCENT));
             Player.Instance.GetAudioManager().ChangeVolume("Sneak3", (1 - NOISE_REDUCTION_PERCENT));
 
+            PlayerMovement.Instance.walkDistanceNoiseMultiplier -= NOISE_REDUCTION_PERCENT;
+            PlayerMovement.Instance.runDistanceNoiseMultiplier -= NOISE_REDUCTION_PERCENT;
+
             Debug.Log("Activating skill " + getID());
         }
     }

@@ -39,7 +39,7 @@ public class Flammable : Interactable
                 audioManager.Play("Burn");
                 Invoke("StopBurning", distractionTime);
                 //TODO enviar som ao NPC e mter maxDistance que nao pus
-                NPCManager.Instance?.InvestigateSound(gameObject.transform.position, 5000, 1,7f);
+                NPCManager.Instance?.InvestigateSound(gameObject.transform.position, 5000,7f);
             }
         }
     }

@@ -154,11 +154,11 @@ public class NPCManager : MonoBehaviour
         return aux;
     }
 
-    public void InvestigateSound(Vector3 pos,float maxDistance, int weakness, float timeToWait)
+    public void InvestigateSound(Vector3 pos,float maxDistance, float timeToWait)
     {
         foreach(ManagedNPC managedNPC in this.managedNPCS)
         {
-            managedNPC.npcNoise.Investigate(pos, maxDistance, weakness, timeToWait);
+            managedNPC.npcNoise.Investigate(pos, maxDistance, timeToWait);
         }
         
     }
