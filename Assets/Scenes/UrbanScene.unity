@@ -5409,7 +5409,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GoodDeed
     clip: {fileID: 8300000, guid: 34981de228cd4d442ac259ad1f1cf1dc, type: 3}
-    volume: 0.6
+    volume: 0.4
     spatialBlend: 0
     pitch: 1
     loop: 0
