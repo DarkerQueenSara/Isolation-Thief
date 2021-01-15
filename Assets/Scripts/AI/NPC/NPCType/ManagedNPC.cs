@@ -220,4 +220,10 @@ public class ManagedNPC : MonoBehaviour
     {
         myMovement.ReactScared();
     }
+
+    public void Stop()
+    {
+        StopAllCoroutines();
+        myMovement.StopMoving();
+    }
 }
