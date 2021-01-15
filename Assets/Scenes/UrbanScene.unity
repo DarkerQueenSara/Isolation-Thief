@@ -6970,6 +6970,15 @@ MonoBehaviour:
     fadeIn: 0
     maxDist: 24
     source: {fileID: 0}
+  - name: Click
+    clip: {fileID: 8300000, guid: 5ba50bae5b495b34e84f31c4238cfe80, type: 3}
+    volume: 0.1
+    spatialBlend: 1
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    maxDist: 24
+    source: {fileID: 0}
 --- !u!114 &951981094
 MonoBehaviour:
   m_ObjectHideFlags: 0
