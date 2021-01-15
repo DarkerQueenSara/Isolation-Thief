@@ -44,8 +44,27 @@ public class ChooseGadgetUI : MonoBehaviour
 				motherNPC = npc;
 			}
 		}
+		updateRealUnlocked();
 		motherNPC.SetActive(false);
 		gameObject.SetActive(false);
+	}
+
+	private void updateRealUnlocked()
+    {
+		foreach (Gadget gadget in GameManager.Instance.gadgetTree.getAllGadgets())
+		{
+			gadget.realUnlocked = gadget.unlocked;
+		}
+		SkillsTree skillsTree = GameManager.Instance.skillsTree;
+		foreach (Skill skill in skillsTree.getAllSkills())
+		{
+			skill.realUnlocked = skill.unlocked;
+		}
+		KarmaSkillsTree karmaTree = GameManager.Instance.karmaSkillsTree;
+		foreach (KarmaSkill skill in karmaTree.getAllSkills())
+		{
+			skill.realUnlocked = skill.unlocked;
+		}
 	}
 
 	public void changeDificulty()
@@ -68,7 +87,20 @@ public class ChooseGadgetUI : MonoBehaviour
 			skill.unlocked = true;
 		}
 		karmaTree.activateAllSkills();
-		LevelManager.Instance.moneyGoal += 1000;
+
+        #region revertUnlockedSettings
+
+		foreach (Skill skill in skillsTree.getAllSkills())
+		{
+			skill.unlocked = skill.realUnlocked;
+		}
+		foreach (KarmaSkill skill in karmaTree.getAllSkills())
+		{
+			skill.unlocked = skill.realUnlocked;
+		}
+        #endregion
+
+        LevelManager.Instance.moneyGoal += 1000;
 		transform.Find("SkipBtn").GetComponent<Button>().interactable = false;
 
 		NPCManager.Instance?.RefreshManagedNPCS();

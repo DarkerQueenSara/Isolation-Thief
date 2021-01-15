@@ -154,6 +154,12 @@ public class LevelManager : MonoBehaviour
 					+player.GetTotalStolen() + " $",
 					true);
 		}
+
+		foreach (Gadget gadget in GameManager.Instance.gadgetTree.getAllGadgets())
+		{
+			gadget.unlocked = gadget.realUnlocked;
+		}
+
 		NPCManager.Instance?.StopAllNPC();
 		LevelEndMenu.Instance.visible();
 

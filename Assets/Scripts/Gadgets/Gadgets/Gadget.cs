@@ -18,6 +18,7 @@ public abstract class Gadget
 	public GadgetInfo gadgetInfo;
 	public int usability;
 	public bool unlocked;
+	public bool realUnlocked;
 	public List<Gadget> gadgetDependencies;
 	public int minLevel;
 	protected bool useAnywhere;
@@ -25,6 +26,7 @@ public abstract class Gadget
 
 	public Gadget()
 	{
+		realUnlocked = false;
 		useAnywhere = false;
 		this.unlocked = false;
 	}
