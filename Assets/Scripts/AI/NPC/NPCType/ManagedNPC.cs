@@ -53,7 +53,11 @@ public class ManagedNPC : MonoBehaviour
     // Update is called once per frame
     public void UpdateMovement()
     {
-
+        if(myMovement == null)
+        {
+            Debug.LogError("my mov is null1");
+            return;
+        }
         if (!busy && !myMovement.IsMoving() && !NPCManager.Instance.CopsCalled)
         {
             StartCoroutine(DefaultMovementWithLights());

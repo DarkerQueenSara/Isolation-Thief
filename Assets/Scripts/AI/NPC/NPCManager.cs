@@ -29,10 +29,15 @@ public class NPCManager : MonoBehaviour
 
     void Start()
     {
+        RefreshManagedNPCS();
+    }
 
+    public void RefreshManagedNPCS()
+    {
         var npcs = transform.Find("NPCS");
+        managedNPCS = new List<ManagedNPC>();
 
-        foreach(ManagedNPC managedNPC in npcs.GetComponentsInChildren<ManagedNPC>())
+        foreach (ManagedNPC managedNPC in npcs.GetComponentsInChildren<ManagedNPC>())
         {
             managedNPCS.Add(managedNPC);
         }

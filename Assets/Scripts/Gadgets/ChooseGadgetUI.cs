@@ -71,6 +71,7 @@ public class ChooseGadgetUI : MonoBehaviour
 		LevelManager.Instance.moneyGoal += 1000;
 		transform.Find("SkipBtn").GetComponent<Button>().interactable = false;
 
+		NPCManager.Instance.RefreshManagedNPCS();
 		this.refreshEverything();
 	}
 
