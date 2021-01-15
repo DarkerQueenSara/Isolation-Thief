@@ -7,7 +7,7 @@ namespace Assets
     {
 
         public float crouchedHeightFactor = 0.75f;
-        public float interpolationTime = 0.75f;
+        public float interpolationTime = 0.40f;
 
         private CharacterController playerController;
         private Collider playerCollider;

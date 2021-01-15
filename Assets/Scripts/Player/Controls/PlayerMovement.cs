@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
         {
             smoothCrouching.setCrouching(false);
         }
-        smoothCrouching.Update();
+
 
         if (Input.GetButtonDown("Prone"))
         {
@@ -176,11 +176,16 @@ public class PlayerMovement : MonoBehaviour
         {
             smoothProning.setProning(false);
         }
-        smoothProning.Update();
+ 
 
 
         
     }
 
-    
+    private void FixedUpdate()
+    {
+        smoothCrouching.Update();
+        smoothProning.Update();
+    }
+
 }

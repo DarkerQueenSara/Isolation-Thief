@@ -7,7 +7,7 @@ namespace Assets
     {
 
         public float pronedHeightFactor = 0.3f;
-        public float interpolationTime = 1.5f;
+        public float interpolationTime = 0.75f;
 
         private CharacterController playerController;
         private Collider playerCollider;
