@@ -61,7 +61,7 @@ public class Lockpickable : Interactable
             }
             else
             {
-                return "It's Locked";
+                return "It's Locked  (Need lockpick)";
                 //return objectName + " is Locked";
             }
         }

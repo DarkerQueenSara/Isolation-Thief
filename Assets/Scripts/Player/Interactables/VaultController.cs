@@ -44,7 +44,7 @@ public class VaultController : Hackable
             }
             else
             {
-                return "Door is Locked";
+                return "Door is Locked (Need hacking device)";
             }
         }
         return isOpen ? "Close Door" : "Open Door";
