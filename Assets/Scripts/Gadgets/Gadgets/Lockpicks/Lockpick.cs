@@ -6,11 +6,14 @@ using UnityEngine;
 public class Lockpick : Gadget
 {
 	public LoadingBar loadingBar;
+	[HideInInspector]
+	//protected AudioManager playerAudioManager;
 
 	public Lockpick() : base()
 	{
 		this.loadingBar = LoadingBar.instance;
 		//Debug.Log(loadingBar);
+		//playerAudioManager = GameObject.FindGameObjectWithTag("Player")?.GetComponent<AudioManager>();
 	}
 
 	public override bool CanUse()

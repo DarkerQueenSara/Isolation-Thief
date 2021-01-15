@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class LanternController : MonoBehaviour
 {
-    Light light;
+    new Light light;
+    private AudioManager playerAudioManager;
     private void Awake()
     {
-        light = gameObject.GetComponent<Light>();
+        light = this.gameObject.GetComponent<Light>();
+        playerAudioManager = this.gameObject?.GetComponentInParent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -15,8 +17,10 @@ public class LanternController : MonoBehaviour
     {
         if (Input.GetButtonDown("Lantern"))
         {
+            playerAudioManager.Play("Click");
             light.enabled = !light.enabled;
             LevelManager.Instance.usedFlashlight = true;
+            
         }
     }
 }
