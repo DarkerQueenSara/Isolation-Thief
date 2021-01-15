@@ -117,6 +117,7 @@ public abstract class NPCMovement
 
     public void ReactScared()
     {
+        audioManager.Play("Detected");
         this.managedNPC_animator.SetTrigger("React");
     }
 

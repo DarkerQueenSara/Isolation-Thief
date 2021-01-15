@@ -6,7 +6,6 @@ public class Lantern : Gadget
 {
     public const string gadgetID = "Lantern";
     public Light lantern;
-    private AudioManager audioManager;
 
     public void Start()
     {
