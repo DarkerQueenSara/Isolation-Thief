@@ -115,6 +115,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 		{
 			gadget.unlocked = gadget.realUnlocked;
 		}
+		((SpyCam)GameManager.Instance.gadgetTree.GetGadget(SpyCam.gadgetID)).RetrieveCamera();
 		PausedMenu.Instance.visible();
 		GameManager.Instance.StartLevel();
 	}

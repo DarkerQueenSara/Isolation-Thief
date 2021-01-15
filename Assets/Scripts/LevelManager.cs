@@ -159,6 +159,7 @@ public class LevelManager : MonoBehaviour
 		{
 			gadget.unlocked = gadget.realUnlocked;
 		}
+		((SpyCam)GameManager.Instance.gadgetTree.GetGadget(SpyCam.gadgetID)).RetrieveCamera();
 
 		NPCManager.Instance?.StopAllNPC();
 		LevelEndMenu.Instance.visible();

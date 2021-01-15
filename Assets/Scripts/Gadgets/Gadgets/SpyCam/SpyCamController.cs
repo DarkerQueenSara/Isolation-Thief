@@ -56,10 +56,13 @@ public class SpyCamController : MonoBehaviour
 
     public void RetrieveSpyCam()
     {
-        playerCam.enabled = true;
-        spyCam.enabled = false;
-        Destroy(spyCamObject);
-        enablePlayerMovement();
+        if(spyCamObject != null)
+        {
+            playerCam.enabled = true;
+            spyCam.enabled = false;
+            Destroy(spyCamObject);
+            enablePlayerMovement();
+        }
     }
 
     private void blockPlayerMovement()
