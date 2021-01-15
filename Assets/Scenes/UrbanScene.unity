@@ -6412,6 +6412,8 @@ MonoBehaviour:
   groundCheck: {fileID: 1373930363}
   groundDistance: 0.4
   disabled: 0
+  walkDistanceNoiseMultiplier: 1
+  runDistanceNoiseMultiplier: 1
 --- !u!143 &951981089
 CharacterController:
   m_ObjectHideFlags: 0
@@ -12013,7 +12015,7 @@ PrefabInstance:
     - target: {fileID: 3145969707829005256, guid: 6d523a178745f654f8f3b869ab690bd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.488723
+      value: 7.02
       objectReference: {fileID: 0}
     - target: {fileID: 3145969707829005256, guid: 6d523a178745f654f8f3b869ab690bd8,
         type: 3}
