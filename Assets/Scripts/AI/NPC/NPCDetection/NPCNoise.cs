@@ -14,7 +14,7 @@ public class NPCNoise : MonoBehaviour
 
     public void Investigate(Vector3 pos, float maxDistance, int weakness, float timeToWait)
     {
-        if (NPC.playerDetected) return;
+        if (NPC.playerDetected || NPCManager.Instance.CopsCalled) return;
 
         //only 1 floor
         Vector3 myPos = new Vector3(gameObject.transform.position.x,0.0f, gameObject.transform.position.z);

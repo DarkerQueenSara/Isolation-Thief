@@ -22,7 +22,7 @@ public class NPCVision : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (detectedPlayer) return;
+        if (detectedPlayer || NPCManager.Instance.CopsCalled) return;
 
         if (other.CompareTag("Player")) //check for player
         {

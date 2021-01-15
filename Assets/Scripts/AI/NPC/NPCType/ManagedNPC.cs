@@ -194,8 +194,8 @@ public class ManagedNPC : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(this.myMovement.HideOnBedRoom());
-        //this.HideOnBedRoom();
+        //StartCoroutine(this.myMovement.HideOnBedRoom());
+        this.HideOnBedRoom();
     }
 
     public IEnumerator WarnOtherNPC(ManagedNPC npc)
