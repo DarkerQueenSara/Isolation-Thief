@@ -44,6 +44,10 @@ public class KarmaSkillElementUI : MonoBehaviour, IPointerEnterHandler, IPointer
 	void AddSkill(string skillID, string skillName)
 	{
 		KarmaSkill skill = karmaskillsTree.GetSkill(skillID);
+        if (skill.unlocked)
+        {
+			return;
+        }
 		if (skill.canUnlock())
 		{
 			Debug.Log("unlocking skill!");
@@ -62,7 +66,12 @@ public class KarmaSkillElementUI : MonoBehaviour, IPointerEnterHandler, IPointer
 
 	public void AddMatrix()
 	{
-		AddSkill(Matrix.ID, "Matrix");
+		AddSkill(Matrix.ID, GameManager.Instance.karmaSkillsTree.GetSkill(Matrix.ID).getName());
+	}
+
+	public void AddBodyBuilder()
+    {
+		AddSkill(Bodybuilder.ID, GameManager.Instance.karmaSkillsTree.GetSkill(Bodybuilder.ID).getName());
 	}
 
 }

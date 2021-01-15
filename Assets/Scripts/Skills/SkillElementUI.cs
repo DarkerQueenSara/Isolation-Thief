@@ -44,6 +44,10 @@ public class SkillElementUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 	void AddSkill(string skillID, string skillName)
 	{
 		Skill skill = skillsTree.GetSkill(skillID);
+        if (skill.unlocked)
+        {
+			return;
+        }
 		if (skill.canUnlock())
 		{
 			Debug.Log("unlocking skill!");

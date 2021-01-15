@@ -44,6 +44,10 @@ public class GadgetElementUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 	void AddGadget(string gadgetID, string gadgetName)
 	{
 		Gadget gadget = gadgetTree.GetGadget(gadgetID);
+        if (gadget.unlocked)
+        {
+			return;
+        }
 		if (gadget.canUnlock())
 		{
 			Debug.Log("unlocking gadget!");

@@ -39,6 +39,7 @@ public class KarmaSkillsTreeUI : MonoBehaviour
 
 	void updateKarmaSkillUI(string karmaSkillUILabel, string karmaSkillID)
 	{
+		
 		KarmaSkill karmaSkill = karmaSkillsTree.GetSkill(karmaSkillID);
 
 		Transform karmaSkillUI = transform.Find("Tree").Find(karmaSkillUILabel);

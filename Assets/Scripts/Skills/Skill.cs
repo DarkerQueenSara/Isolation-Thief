@@ -32,7 +32,7 @@ public abstract class Skill
 
 	public bool canUnlock()
 	{
-		return skillDependencies.TrueForAll(skill => skill.unlocked) && GameManager.Instance.availableXp >= this.getXPCost();
+		return !unlocked && skillDependencies.TrueForAll(skill => skill.unlocked) && GameManager.Instance.availableXp >= this.getXPCost();
 	}
 
 	public void unlock()

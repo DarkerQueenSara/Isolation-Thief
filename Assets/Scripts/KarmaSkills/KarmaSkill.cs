@@ -25,7 +25,7 @@ public abstract class KarmaSkill
 
 	public bool canUnlock()
 	{
-		return GameManager.Instance.availableKp >= this.getXPCost();
+		return !unlocked && GameManager.Instance.availableKp >= this.getXPCost();
 	}
 
 	public void unlock()
