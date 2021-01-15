@@ -58,11 +58,12 @@ public class CallPhone : MonoBehaviour
                     manager.copsArrived = true;
                     manager.endGame();
                 }
+                LevelManager.Instance.copsTimeLeft = timeLeft;
             }
             else
             {
                 countdownText.text = "";
-                LevelManager.Instance.copsTimeLeft = timeLeft;
+                //LevelManager.Instance.copsTimeLeft = timeLeft;
             }
         }
     }
