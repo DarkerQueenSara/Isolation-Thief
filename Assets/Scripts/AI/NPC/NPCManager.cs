@@ -104,7 +104,7 @@ public class NPCManager : MonoBehaviour
 
         foreach(ManagedNPC managedNPC in this.managedNPCS)
         {
-            managedNPC.StopAllCoroutines();
+            managedNPC.Stop();
         }
     }
 

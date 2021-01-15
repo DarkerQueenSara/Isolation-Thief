@@ -83,6 +83,7 @@ public abstract class NPCMovement
 
     public void Idle()
     {
+        audioManager.StopAll();
         this.npc_m_Agent.speed = 0;
         this.managedNPC_animator.SetFloat("Speed", 0);
     }
